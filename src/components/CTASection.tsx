@@ -1,0 +1,74 @@
+import Button from './Button';
+import Heading from './Heading';
+import AnimatedItem from './AnimatedItem';
+import { CONTACT, MESSAGES, URLS, formatPhoneDisplay } from '@/lib/constants';
+
+interface CTASectionProps {
+  title: string;
+  subtitle?: string;
+  buttonText?: string;
+  whatsappMessage?: string;
+  variant?: 'orange' | 'teal' | 'charcoal';
+  bottomText?: string;
+}
+
+export default function CTASection({
+  title,
+  subtitle,
+  buttonText = MESSAGES.cta.primary,
+  whatsappMessage = MESSAGES.whatsapp.default,
+  variant = 'orange',
+  bottomText = `${formatPhoneDisplay()} | ${MESSAGES.response.whatsapp}`
+}: CTASectionProps) {
+  const bgColors = {
+    orange: 'bg-orange',
+    teal: 'bg-teal',
+    charcoal: 'bg-charcoal'
+  };
+
+  return (
+    <section className={`${bgColors[variant]} text-white py-16 text-center relative overflow-hidden`}>
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-gradient-stripe"></div>
+      </div>
+      
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+        <AnimatedItem animation="fade-in">
+          <Heading level={2} color="white" className="mb-6">
+            {title}
+          </Heading>
+        </AnimatedItem>
+        
+        {subtitle && (
+          <AnimatedItem animation="fade-in" delay={100}>
+            <p className="text-xl mb-8">
+              {subtitle}
+            </p>
+          </AnimatedItem>
+        )}
+        
+        <AnimatedItem animation="fade-in" delay={200}>
+          <Button
+            href={URLS.whatsapp(whatsappMessage)}
+            variant="custom"
+            size="large"
+            className="bg-white text-orange hover:bg-cream"
+            external
+            ariaLabel="Contact us on WhatsApp about Orange Jelly services"
+          >
+            {buttonText}
+          </Button>
+        </AnimatedItem>
+        
+        {bottomText && (
+          <AnimatedItem animation="fade-in" delay={300}>
+            <p className="mt-4 text-sm opacity-80">
+              {bottomText}
+            </p>
+          </AnimatedItem>
+        )}
+      </div>
+    </section>
+  );
+}

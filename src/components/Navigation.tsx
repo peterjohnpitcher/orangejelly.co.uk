@@ -1,0 +1,91 @@
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import WhatsAppButton from './WhatsAppButton';
+
+export default function Navigation() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/services', label: 'Services' },
+    { href: '/results', label: 'Results' },
+    { href: '/about', label: 'About' },
+    { href: '/contact', label: 'Contact' },
+  ];
+
+  return (
+    <nav className="sticky top-0 z-50 bg-cream-light/95 backdrop-blur-sm border-b border-orange/20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="flex justify-between items-center h-16">
+          <Link href="/" className="flex items-center group">
+            <div className="relative">
+              <Image
+                src="/logo.png"
+                alt="Orange Jelly"
+                width={48}
+                height={48}
+                className="rounded-lg transition-normal group-hover:scale-110"
+                priority
+              />
+              <div className="absolute inset-0 bg-orange/20 rounded-lg blur-xl group-hover:bg-orange/30 transition-normal -z-10"></div>
+            </div>
+            <div className="ml-3">
+              <span className="font-bold text-lg text-charcoal group-hover:text-orange transition-quick">Orange Jelly</span>
+              <span className="hidden sm:block text-xs text-charcoal/60">Save At Least 5 Hours a Week</span>
+            </div>
+          </Link>
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-charcoal hover:text-orange transition-quick"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 rounded-lg hover:bg-orange/10 transition-quick"
+            aria-label="Toggle menu"
+          >
+            <div className={`w-6 h-0.5 bg-charcoal mb-1.5 transition-quick ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+            <div className={`w-6 h-0.5 bg-charcoal mb-1.5 transition-quick ${isMenuOpen ? 'opacity-0' : ''}`}></div>
+            <div className={`w-6 h-0.5 bg-charcoal transition-quick ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+          </button>
+          
+          <div className="hidden md:block">
+            <WhatsAppButton text="Hi Peter, I'd like to chat about Orange Jelly" size="small" />
+          </div>
+        </div>
+        
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden border-t border-orange/20 py-4 bg-cream-light/95 backdrop-blur-sm">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="block py-3 px-4 text-charcoal hover:text-orange hover:bg-orange/5 rounded-lg transition-quick"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="mt-4 px-4">
+              <WhatsAppButton text="Hi Peter, I'd like to chat about Orange Jelly" fullWidth />
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+}

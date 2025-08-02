@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-cream text-charcoal;
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* WhatsApp button hover effect */
+.whatsapp-button {
+  @apply transition-all duration-200 hover:scale-105 hover:shadow-lg;
+}
+
+/* Standardized transition utilities */
+.transition-quick {
+  @apply transition-all duration-200;
+}
+
+.transition-normal {
+  @apply transition-all duration-300;
+}
+
+.transition-slow {
+  @apply transition-all duration-500;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    opacity: 0;
+    transform: rotate(12deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.animate-scale {
+  animation: scale 0.5s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.animate-rotate {
+  animation: rotate 0.5s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.animate-fade-in-delay {
+  opacity: 0;
+  animation: fade-in 0.5s ease-out 0.2s forwards;
+}
+
+.animate-fade-in-delay-2 {
+  opacity: 0;
+  animation: fade-in 0.5s ease-out 0.4s forwards;
+}
+
+.animate-fade-in-delay-3 {
+  opacity: 0;
+  animation: fade-in 0.5s ease-out 0.6s forwards;
+}
+
+/* Animation delay utilities */
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced focus styles for accessibility */
+*:focus {
+  @apply outline-none;
+}
+
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-orange;
+}
+
+/* Custom focus styles for different elements */
+a:focus-visible {
+  @apply outline-2 outline-offset-2 outline-orange rounded;
+}
+
+button:focus-visible {
+  @apply outline-2 outline-offset-2 outline-orange rounded-lg;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  @apply outline-2 outline-offset-0 outline-orange border-orange;
+}
+
+/* High contrast focus indicator for better visibility */
+@media (prefers-contrast: high) {
+  *:focus-visible {
+    @apply outline-4 outline-offset-4 outline-charcoal;
+  }
+}
+
+/* Skip to main content link for keyboard navigation */
+.skip-to-main {
+  @apply absolute left-0 top-0 bg-orange text-white px-4 py-2 rounded-br-lg transform -translate-y-full focus:translate-y-0 transition-transform duration-200 z-50;
+}
