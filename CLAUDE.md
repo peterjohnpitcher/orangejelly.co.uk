@@ -95,21 +95,109 @@ content/
 3. **Test Everything**: Google Rich Results Test
 4. **Real Data Only**: Actual business information
 
-#### Component Patterns
+#### Component Usage - MANDATORY
+
+**NEVER USE RAW HTML ELEMENTS - ALWAYS USE COMPONENTS**
+
 ```typescript
-// ALWAYS use these patterns:
+// ❌ NEVER DO THIS:
+<h1>Title</h1>
+<p>Some text</p>
+<img src="/image.jpg" />
+<div className="section">
+<a href="/page">Link</a>
+<button onClick={}>Click</button>
 
-// For images
-import OptimizedImage from '@/components/OptimizedImage'
-
-// For content sections
-import Section from '@/components/Section'
-
-// For headings (never use raw h1, h2, etc)
+// ✅ ALWAYS DO THIS:
 import Heading from '@/components/Heading'
-
-// For text (never use raw p tags)
 import Text from '@/components/Text'
+import OptimizedImage from '@/components/OptimizedImage'
+import Section from '@/components/Section'
+import Link from 'next/link'
+import Button from '@/components/Button'
+
+<Heading level={1}>Title</Heading>
+<Text>Some text</Text>
+<OptimizedImage src="/image.jpg" alt="Description" width={800} height={600} />
+<Section background="cream">
+<Link href="/page">Link</Link>
+<Button variant="primary">Click</Button>
+```
+
+#### Required Components for Common Elements
+
+| Element | ❌ Never Use | ✅ Always Use | Import |
+|---------|-------------|--------------|---------|
+| Headings | `<h1>`, `<h2>`, etc | `<Heading level={1}>` | `@/components/Heading` |
+| Paragraphs | `<p>` | `<Text>` | `@/components/Text` |
+| Images | `<img>`, Next `Image` | `<OptimizedImage>` | `@/components/OptimizedImage` |
+| Sections | `<div>`, `<section>` | `<Section>` | `@/components/Section` |
+| Buttons | `<button>`, `<a>` for actions | `<Button>` | `@/components/Button` |
+| Links | `<a>` | Next.js `Link` or `Button` with href | `next/link` or `@/components/Button` |
+| Cards | `<div className="card">` | `<Card>` | `@/components/Card` |
+| Grids | `<div className="grid">` | `<Grid>` | `@/components/Grid` |
+| Animations | Custom animations | `<AnimatedItem>` | `@/components/AnimatedItem` |
+| WhatsApp | Custom WhatsApp links | `<WhatsAppButton>` | `@/components/WhatsAppButton` |
+
+#### Component Props Standards
+
+```typescript
+// Heading Component
+<Heading 
+  level={1|2|3|4|5|6}  // Required
+  align="left|center|right"  // Optional
+  color="charcoal|orange|teal|white"  // Optional
+  className=""  // Optional additional styles
+>
+
+// Text Component
+<Text
+  size="xs|sm|base|lg|xl|2xl"  // Optional
+  color="charcoal|muted|white"  // Optional
+  weight="normal|medium|semibold|bold"  // Optional
+  align="left|center|right"  // Optional
+>
+
+// Section Component
+<Section
+  background="white|cream|orange|teal|orange-light|teal-dark"  // Optional
+  padding="small|medium|large"  // Optional, default is large
+>
+
+// Button Component
+<Button
+  variant="primary|secondary|ghost"  // Optional
+  size="small|medium|large"  // Optional
+  href="/path"  // Optional, makes it a link
+  external={true}  // Optional, for external links
+  whatsapp={true}  // Optional, for WhatsApp buttons
+>
+
+// Card Component
+<Card
+  variant="bordered|shadowed|colored"  // Optional
+  background="white|cream|orange|teal"  // Optional
+  padding="small|medium|large"  // Optional
+>
+```
+
+#### Styling Rules
+
+```typescript
+// ❌ NEVER use inline styles
+<div style={{ padding: '20px', margin: '10px' }}>
+
+// ❌ NEVER create custom utility classes
+<div className="my-custom-padding">
+
+// ✅ ALWAYS use Tailwind utilities or component props
+<Section padding="large">
+<div className="p-5 m-2.5">  // If absolutely needed
+
+// ✅ For custom spacing, use Tailwind's spacing scale
+className="mb-4"  // margin-bottom: 1rem
+className="p-6"   // padding: 1.5rem
+className="gap-8" // gap: 2rem
 ```
 
 ## 📋 CHECKLIST FOR EVERY CHANGE
@@ -126,14 +214,120 @@ Before committing ANY change, verify:
 ### Technical Checks
 - [ ] Build succeeds: `npm run build`
 - [ ] TypeScript passes: `npm run type-check`
+- [ ] No raw HTML elements (using components only)
+- [ ] No inline styles (using Tailwind/props only)
 - [ ] URLs use environment variables
 - [ ] Schema is valid (no fake data)
 - [ ] Mobile responsive
+- [ ] Images use OptimizedImage component
+- [ ] All links use Next.js Link or Button
 
 ### Business Logic
 - [ ] Would Peter approve this?
 - [ ] Is this honest about current situation?
 - [ ] Does this reflect The Anchor's real experience?
+
+## 📝 CODE PATTERNS - COPY THESE
+
+### Page Structure Pattern
+```typescript
+import Hero from '@/components/Hero'
+import Section from '@/components/Section'
+import Heading from '@/components/Heading'
+import Text from '@/components/Text'
+import Button from '@/components/Button'
+import Card from '@/components/Card'
+import Grid from '@/components/Grid'
+import CTASection from '@/components/CTASection'
+
+export default function PageName() {
+  return (
+    <>
+      <Hero 
+        title="Page Title"
+        subtitle="Subtitle text"
+      />
+      
+      <Section background="white">
+        <Heading level={2} align="center">Section Title</Heading>
+        <Text size="lg" color="muted">Description text</Text>
+        
+        <Grid columns={{ default: 1, md: 3 }} gap="medium">
+          <Card variant="bordered">
+            <Heading level={3}>Card Title</Heading>
+            <Text>Card content</Text>
+          </Card>
+        </Grid>
+      </Section>
+      
+      <CTASection />
+    </>
+  )
+}
+```
+
+### Service Card Pattern
+```typescript
+<Card variant="colored" background="orange-light" padding="large">
+  <Heading level={3} className="mb-4">Service Name</Heading>
+  <Text className="mb-6">
+    Service description using real metrics only.
+  </Text>
+  <Text size="lg" weight="bold" className="mb-4">
+    £62.50 per hour plus VAT
+  </Text>
+  <Button href="/contact" variant="primary">
+    Get Started
+  </Button>
+</Card>
+```
+
+### Image Usage Pattern
+```typescript
+import OptimizedImage from '@/components/OptimizedImage'
+
+<OptimizedImage
+  src="/images/pub-interior.jpg"
+  alt="The Anchor interior showing busy quiz night with 25-35 people"
+  width={800}
+  height={600}
+  priority  // Only for above-the-fold images
+  className="rounded-lg"
+/>
+```
+
+### WhatsApp Integration Pattern
+```typescript
+import WhatsAppButton from '@/components/WhatsAppButton'
+import { MESSAGES } from '@/lib/constants'
+
+<WhatsAppButton 
+  text={MESSAGES.whatsapp.default}
+  size="large"
+  variant="primary"
+/>
+```
+
+### FAQ Pattern
+```typescript
+import { FAQSchema } from '@/components/StructuredData'
+import FAQItem from '@/components/FAQItem'
+
+const faqs = [
+  {
+    question: "How much do you charge?",
+    answer: "We charge £62.50 per hour plus VAT for all services."
+  }
+]
+
+// In component:
+<>
+  <FAQSchema faqs={faqs} />
+  {faqs.map((faq, i) => (
+    <FAQItem key={i} {...faq} />
+  ))}
+</>
+```
 
 ## 🎯 QUICK REFERENCE
 
@@ -153,6 +347,54 @@ Before committing ANY change, verify:
 - **URL Pattern**: `/licensees-guide/[slug]`
 - **Categories**: empty-pub-solutions, social-media, competition, events, menu-pricing
 
+## 🧩 AVAILABLE COMPONENTS - USE THESE
+
+### Layout Components
+- **Hero**: Page hero sections with title/subtitle
+- **Section**: Main content wrapper with backgrounds
+- **Grid**: Responsive grid layouts
+- **Card**: Content cards with variants
+- **CTASection**: Call-to-action sections
+
+### Typography Components
+- **Heading**: All headings (h1-h6)
+- **Text**: All paragraph text
+- **Button**: All buttons and button-style links
+
+### Navigation Components
+- **Navigation**: Main nav (in layout)
+- **Breadcrumb**: Breadcrumb navigation
+- **FooterSimple**: Site footer
+
+### Content Components
+- **OptimizedImage**: All images
+- **AnimatedItem**: Scroll animations
+- **FeatureList**: Bullet point lists
+- **ServiceCard**: Service display cards
+- **ProblemCard**: Problem/solution cards
+- **TrustBar**: Trust indicators
+- **TrustBadges**: Credibility badges
+- **Partnerships**: Partner logos
+
+### Interactive Components
+- **WhatsAppButton**: WhatsApp CTAs
+- **ROICalculator**: Revenue calculator
+- **ServiceComparison**: Service tables
+- **FAQItem**: FAQ accordion items
+
+### SEO Components
+- **SEOMeta**: Meta tags
+- **CanonicalLink**: Canonical URLs
+- **StructuredData**: Schema.org
+- **BlogPostingSchema**: Blog schema
+- **ProductSchema**: Product/service schema
+- **SpeakableContent**: Voice search
+
+### Blog Components
+- **BlogPost**: Blog post wrapper
+- **ShareButtons**: Social sharing
+- **RelatedLinks**: Related content
+
 ## 🔄 MAINTENANCE TASKS
 
 ### Regular Updates Needed
@@ -169,11 +411,31 @@ Before committing ANY change, verify:
 
 ## ⚠️ COMMON MISTAKES TO AVOID
 
-1. **Adding Package Prices**: Everything is hourly
-2. **Inflating Metrics**: Use only verified numbers
+### Content Mistakes
+1. **Adding Package Prices**: Everything is hourly (£62.50/hour)
+2. **Inflating Metrics**: Use only verified numbers from this doc
 3. **Future Promises**: Be clear about "planning to" vs "have done"
 4. **Schema Spam**: Don't add schema for things that don't exist
 5. **Hardcoding URLs**: Always use environment variables
+
+### Technical Mistakes
+6. **Using Raw HTML**: Always use components (`<Heading>`, `<Text>`, etc.)
+7. **Direct Image Tags**: Never use `<img>` or raw Next.js `Image`
+8. **Inline Styles**: Never use `style={{}}`, use Tailwind classes
+9. **Custom CSS Classes**: Don't create new CSS, use Tailwind utilities
+10. **Ignoring Mobile**: Always test mobile view first
+11. **Skipping OptimizedImage**: All images must use this component
+12. **Raw Divs for Layout**: Use `<Section>`, `<Grid>`, `<Card>`
+13. **Direct WhatsApp Links**: Use `<WhatsAppButton>` component
+14. **Forgetting alt text**: Every image needs descriptive alt text
+15. **Using `<br>` tags**: Use proper spacing with Tailwind classes
+
+### File Organization Mistakes
+16. **Creating duplicate components**: Check if it exists first
+17. **Wrong component location**: All in `/src/components/`
+18. **Inline component logic**: Extract to separate files
+19. **Missing TypeScript types**: Always add proper types
+20. **Ignoring constants**: Use `lib/constants.ts` for all data
 
 ## 🆘 WHEN IN DOUBT
 
