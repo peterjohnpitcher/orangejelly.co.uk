@@ -149,13 +149,25 @@ import Button from '@/components/Button'
   color="charcoal|orange|teal|white"  // Optional
   className=""  // Optional additional styles
 >
+// Note: Heading does NOT support size or weight props - use className for custom styling
 
 // Text Component
 <Text
-  size="xs|sm|base|lg|xl|2xl"  // Optional
+  size="xs|sm|base|lg|xl|2xl"  // Optional (NOT 3xl or 4xl)
   color="charcoal|muted|white"  // Optional
   weight="normal|medium|semibold|bold"  // Optional
   align="left|center|right"  // Optional
+  className=""  // Optional additional styles
+>
+
+// OptimizedImage Component
+<OptimizedImage
+  src="/path/to/image"  // Required
+  alt="Description"  // Required - ALWAYS provide descriptive alt text
+  width={800}  // Required
+  height={600}  // Required
+  priority={true}  // Optional - only for above-the-fold images
+  className=""  // Optional additional styles
 >
 
 // Section Component
@@ -166,18 +178,22 @@ import Button from '@/components/Button'
 
 // Button Component
 <Button
-  variant="primary|secondary|ghost"  // Optional
+  variant="primary|secondary|ghost|outline"  // Optional
   size="small|medium|large"  // Optional
   href="/path"  // Optional, makes it a link
+  onClick={() => {}}  // Optional, for client-side actions
   external={true}  // Optional, for external links
   whatsapp={true}  // Optional, for WhatsApp buttons
+  className=""  // Optional additional styles
+  aria-label=""  // Optional but recommended for icon-only buttons
 >
 
 // Card Component
 <Card
-  variant="bordered|shadowed|colored"  // Optional
-  background="white|cream|orange|teal"  // Optional
+  variant="bordered|shadowed|colored|default"  // Optional
+  background="white|cream|orange|teal|orange-light"  // Optional
   padding="small|medium|large"  // Optional
+  className=""  // Optional additional styles
 >
 ```
 
@@ -221,6 +237,21 @@ Before committing ANY change, verify:
 - [ ] Mobile responsive
 - [ ] Images use OptimizedImage component
 - [ ] All links use Next.js Link or Button
+
+### Component Verification
+- [ ] All `<h1>` to `<h6>` replaced with `<Heading level={n}>`
+- [ ] All `<p>` tags replaced with `<Text>`
+- [ ] All `<img>` and Next.js `Image` replaced with `<OptimizedImage>`
+- [ ] All `<button>` tags replaced with `<Button>`
+- [ ] All CTA `<a>` tags replaced with `<Button href="">`
+- [ ] No invalid component props (check Component Props Standards)
+
+### SEO Verification
+- [ ] Page has metadata export (using generateMetadata)
+- [ ] Canonical URL is set
+- [ ] Meta description includes key info
+- [ ] Appropriate structured data added
+- [ ] Alt text on all images
 
 ### Business Logic
 - [ ] Would Peter approve this?
@@ -347,6 +378,36 @@ const faqs = [
 - **URL Pattern**: `/licensees-guide/[slug]`
 - **Categories**: empty-pub-solutions, social-media, competition, events, menu-pricing
 
+## ⚡ SPECIAL COMPONENT CASES
+
+### When to Use Which Component
+
+#### Navigation vs Actions
+- **Link (from next/link)**: For internal navigation between pages
+- **Button with href**: For CTAs that navigate (styled as buttons)
+- **Button with onClick**: For client-side actions
+- **WhatsAppButton**: For WhatsApp CTAs specifically
+
+#### Text Hierarchy
+- **Heading level={1}**: Page main title only (one per page)
+- **Heading level={2}**: Major sections
+- **Heading level={3}**: Subsections
+- **Heading level={4}**: Card titles, minor sections
+- **Heading level={5-6}**: Rarely used, small UI elements
+- **Text**: All body text, descriptions, captions
+
+#### Image Usage
+- **OptimizedImage**: ALL images without exception
+- **priority={true}**: Only for above-the-fold images
+- **Always include**: src, alt, width, height
+
+#### Client Components
+Some components require 'use client':
+- Components with useState, useEffect
+- Components with onClick handlers
+- Components with animations/interactions
+- VideoTestimonial, StickyCTA, Navigation, etc.
+
 ## 🧩 AVAILABLE COMPONENTS - USE THESE
 
 ### Layout Components
@@ -430,12 +491,25 @@ const faqs = [
 14. **Forgetting alt text**: Every image needs descriptive alt text
 15. **Using `<br>` tags**: Use proper spacing with Tailwind classes
 
+### Component Prop Mistakes
+16. **Wrong Heading props**: Heading doesn't support `size` or `weight` - use className
+17. **Invalid Text sizes**: Only xs|sm|base|lg|xl|2xl (NOT 3xl or 4xl)
+18. **Missing alt text**: OptimizedImage ALWAYS needs descriptive alt text
+19. **Wrong Button usage**: Use Button for actions, Link for navigation
+20. **onClick on Link**: Links shouldn't have onClick - use Button instead
+
 ### File Organization Mistakes
-16. **Creating duplicate components**: Check if it exists first
-17. **Wrong component location**: All in `/src/components/`
-18. **Inline component logic**: Extract to separate files
-19. **Missing TypeScript types**: Always add proper types
-20. **Ignoring constants**: Use `lib/constants.ts` for all data
+21. **Creating duplicate components**: Check if it exists first
+22. **Wrong component location**: All in `/src/components/`
+23. **Inline component logic**: Extract to separate files
+24. **Missing TypeScript types**: Always add proper types
+25. **Ignoring constants**: Use `lib/constants.ts` for all data
+
+### SEO Mistakes
+26. **Missing page metadata**: Every page needs metadata export using generateMetadata
+27. **No canonical URLs**: All pages should have canonical via generateMetadata
+28. **Missing structured data**: Add appropriate schema for each page type
+29. **Poor meta descriptions**: Include key info and £62.50/hour pricing
 
 ## 🆘 WHEN IN DOUBT
 
@@ -455,6 +529,28 @@ If you're unsure about any content or claim:
 
 ---
 
-**Last Updated**: August 2024
-**Version**: 2.0
+**Last Updated**: August 2025
+**Version**: 3.0
 **Status**: ACTIVE - This is the single source of truth
+
+## 📝 CHANGELOG
+
+### Version 3.0 (August 2025)
+- Added detailed Component Props Standards with all valid props
+- Added Special Component Cases section for clarity
+- Enhanced checklist with component and SEO verification
+- Added component prop mistakes to avoid
+- Clarified Heading limitations (no size/weight props)
+- Clarified Text size limitations (no 3xl/4xl)
+- Added OptimizedImage requirements
+- Added SEO mistakes section
+- Updated all component violations fixed across codebase
+
+### Version 2.0 (August 2024)
+- Complete restructure with strict guidelines
+- Added BANNED CONTENT section
+- Added mandatory component usage rules
+- Added comprehensive technical standards
+
+### Version 1.0 (March 2024)
+- Initial documentation
