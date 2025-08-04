@@ -10,6 +10,7 @@ import ShareButtons from './ShareButtons';
 import AuthorInfo from './AuthorInfo';
 import TableOfContents from './TableOfContents';
 import RelatedPosts from './RelatedPosts';
+import StickyCTA from './StickyCTA';
 import { formatDate } from '@/lib/utils';
 import { BlogPost as BlogPostType } from '@/lib/blog';
 import { MESSAGES, URLS } from '@/lib/constants';
@@ -74,6 +75,9 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
         variant="floating"
       />
 
+      {/* Sticky CTA */}
+      <StickyCTA />
+
       <article id="blog-article">
         {/* Hero section */}
         <header className="mb-8">
@@ -130,19 +134,12 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
           </div>
         )}
 
-        {/* Main content with ToC sidebar */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_250px] gap-8 mb-12">
+        {/* Main content - removed empty sidebar */}
+        <div className="mb-12">
           <div 
             className="prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
-          
-          {/* Table of Contents - sticky on desktop */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-24">
-              <TableOfContents selector="#blog-article .prose" />
-            </div>
-          </aside>
         </div>
 
         {/* Call to action */}

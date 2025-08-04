@@ -16,6 +16,7 @@ import Text from '@/components/Text';
 import { CONTACT, URLS, MESSAGES } from '@/lib/constants';
 import { generateMetadata } from '@/lib/metadata';
 import { FAQSchema } from '@/components/StructuredData';
+import { HandshakeIcon, IdeaIcon, SupportIcon } from '@/components/icons/JourneyIcons';
 
 export const metadata = generateMetadata({
   title: 'Contact Orange Jelly | Get in Touch with Peter',
@@ -428,7 +429,7 @@ export default function Contact() {
 
             <div className="space-y-6">
               <Card background="cream" padding="large">
-                <Grid columns={{ default: 1, md: 2 }} gap="large" >
+                <Grid columns={{ default: 1, md: 2 }} gap="large" className="items-center">
                   <div>
                     <Heading level={3} className="mb-4">No Corporate Nonsense</Heading>
                     <Text className="mb-4">
@@ -439,13 +440,17 @@ export default function Contact() {
                       Usually starts with "Right, what's keeping you up at night?"
                     </Text>
                   </div>
-                  <div className="text-6xl text-center">🤝</div>
+                  <div className="flex items-center justify-center">
+                    <HandshakeIcon />
+                  </div>
                 </Grid>
               </Card>
 
               <Card background="orange-light" padding="large">
-                <Grid columns={{ default: 1, md: 2 }} gap="large" >
-                  <div className="text-6xl text-center order-2 md:order-1">💡</div>
+                <Grid columns={{ default: 1, md: 2 }} gap="large" className="items-center">
+                  <div className="flex items-center justify-center order-2 md:order-1">
+                    <IdeaIcon />
+                  </div>
                   <div className="order-1 md:order-2">
                     <Heading level={3} className="mb-4">Solutions, Not Services</Heading>
                     <Text className="mb-4">
@@ -461,7 +466,7 @@ export default function Contact() {
               </Card>
 
               <Card background="cream" padding="large">
-                <Grid columns={{ default: 1, md: 2 }} gap="large" >
+                <Grid columns={{ default: 1, md: 2 }} gap="large" className="items-center">
                   <div>
                     <Heading level={3} className="mb-4">Ongoing Support</Heading>
                     <Text className="mb-4">
@@ -473,7 +478,9 @@ export default function Contact() {
                       Most clients have my number saved as "Peter - Pub Help"
                     </Text>
                   </div>
-                  <div className="text-6xl text-center">📱</div>
+                  <div className="flex items-center justify-center">
+                    <SupportIcon />
+                  </div>
                 </Grid>
               </Card>
             </div>
@@ -491,39 +498,92 @@ export default function Contact() {
 
             <div className="space-y-4">
               <Card background="white" padding="medium">
-                <Heading level={4} className="mb-2">"...you won't understand my specific situation"</Heading>
+                <Heading level={4} className="mb-2">"Is AI too complicated for someone who's not tech-savvy?"</Heading>
                 <Text>
-                  I've helped gastropubs, sports bars, village locals, and food-led venues. 
-                  But more importantly, I run The Anchor every day. Empty Monday nights? 
-                  Been there. Staff crisis? Dealt with it yesterday. Brewery pressure? 
-                  Let's just say I understand.
+                  If you can send a WhatsApp message, you can use AI. I'm terrible with technology - ask Billy, he laughs at me daily. 
+                  But AI is different. You literally just type what you want, like talking to a mate. No coding, no complicated software. 
+                  I'll show you exactly what to type to get perfect results every time.
                 </Text>
               </Card>
 
               <Card background="white" padding="medium">
-                <Heading level={4} className="mb-2">"...it'll be too techy for me"</Heading>
+                <Heading level={4} className="mb-2">"Will AI make my pub lose its personality?"</Heading>
                 <Text>
-                  If you can send a WhatsApp message, you can use everything I teach. 
-                  No jargon, no complicated software. My 72-year-old client Brian now 
-                  schedules his own social media. If Brian can do it, you can do it.
+                  The opposite! AI learns YOUR voice, YOUR style, YOUR customers. Our social posts sound exactly like us - casual, 
+                  friendly, bit cheeky. The Anchor is more "Anchor-ish" than ever because AI helps us be ourselves consistently, 
+                  not just when we have time. Your pub's personality will shine through stronger than ever.
                 </Text>
               </Card>
 
               <Card background="white" padding="medium">
-                <Heading level={4} className="mb-2">"...I can't afford consultancy fees"</Heading>
+                <Heading level={4} className="mb-2">"How much time will this actually take to learn?"</Heading>
                 <Text>
-                  We charge £62.50 per hour plus VAT. Most strategies pay for themselves in the 
-                  first weekend. Plus, I'll often give you free tips just because I hate 
-                  seeing pubs struggle. Can you afford NOT to fill those empty tables?
+                  Two hours to learn the basics that save you 5+ hours weekly. That's it. Not months of training, not complicated courses. 
+                  One afternoon and you'll be creating week's worth of content in 30 minutes, writing menus that sell themselves, 
+                  and handling admin while you sleep. The time you invest pays back in the first week.
                 </Text>
               </Card>
 
               <Card background="white" padding="medium">
-                <Heading level={4} className="mb-2">"...you'll judge my business"</Heading>
+                <Heading level={4} className="mb-2">"What if I can't afford consultancy fees?"</Heading>
                 <Text>
-                  Mate, The Anchor was on its knees when we took over. Tripadvisor 
-                  rating of 2.8. I've seen it all, done most of it wrong first, 
-                  and learned the hard way. No judgment here - just help.
+                  We charge £62.50 per hour plus VAT - less than you'd pay a relief manager for a shift. Most strategies pay for 
+                  themselves in the first weekend. Our Sunday lunch pre-order system saves £250 weekly. Quiz night brings 25-35 
+                  people spending £25 each. Can you afford NOT to fill those empty tables?
+                </Text>
+              </Card>
+
+              <Card background="white" padding="medium">
+                <Heading level={4} className="mb-2">"Do I need to buy expensive software or tools?"</Heading>
+                <Text>
+                  Most AI tools are free or cost less than a case of house wine monthly. ChatGPT? Free version works fine. 
+                  Social media scheduling? Free options available. The only "expensive" thing is not using them while your 
+                  competitors are. I'll show you exactly which free tools we use at The Anchor.
+                </Text>
+              </Card>
+
+              <Card background="white" padding="medium">
+                <Heading level={4} className="mb-2">"Will you understand my specific pub's problems?"</Heading>
+                <Text>
+                  I've run The Anchor through Covid, cost of living crisis, and every other disaster. Empty Monday nights? 
+                  Been there. Quiz night with zero teams? Happened to us. Sunday roast waste? Was throwing away £250 weekly. 
+                  Staff walking out mid-shift? Last Tuesday. Whatever you're facing, I've probably faced it this month.
+                </Text>
+              </Card>
+
+              <Card background="white" padding="medium">
+                <Heading level={4} className="mb-2">"What if it doesn't work for my type of pub?"</Heading>
+                <Text>
+                  30-day money-back guarantee. If our strategies don't improve your business, you pay nothing. But they will work - 
+                  AI doesn't care if you're a gastropub, sports bar, or village local. Empty tables are empty tables. 
+                  Low GP is low GP. The solutions work everywhere because the problems are universal.
+                </Text>
+              </Card>
+
+              <Card background="white" padding="medium">
+                <Heading level={4} className="mb-2">"How quickly will I see results?"</Heading>
+                <Text>
+                  Some changes work instantly. Menu rewrites increase spend from day one. Social media brings people in within days. 
+                  Quiz improvements show next Tuesday. The only thing that takes time is NOT doing something. Every day you wait 
+                  is money lost. Most pubs see significant changes within 14 days.
+                </Text>
+              </Card>
+
+              <Card background="white" padding="medium">
+                <Heading level={4} className="mb-2">"Will you judge how badly my pub is doing?"</Heading>
+                <Text>
+                  Mate, The Anchor was on its knees when we took over in March 2019. Leaking roof, no insulation, 
+                  TripAdvisor rating of 2.8, customers thought they ran the place. I've made every mistake possible, 
+                  usually twice. No judgment here - just one licensee helping another get through it.
+                </Text>
+              </Card>
+
+              <Card background="white" padding="medium">
+                <Heading level={4} className="mb-2">"What if I'm too busy to implement changes?"</Heading>
+                <Text>
+                  You're too busy because you're doing everything manually! AI handles the stuff that eats your time - 
+                  social media, rotas, menu updates, event promotion. You'll actually get time back. We work 
+                  25 hours less per week now than before AI. Imagine finishing at a reasonable time.
                 </Text>
               </Card>
             </div>

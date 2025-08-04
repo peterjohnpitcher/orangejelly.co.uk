@@ -10,6 +10,7 @@ interface ServiceCardProps {
   emoji?: string;
   title: string;
   problem: string;
+  deliverable?: string;
   description: string;
   features?: string[];
   example?: {
@@ -17,6 +18,8 @@ interface ServiceCardProps {
     after?: string;
     result?: string;
   };
+  timeEstimate?: string;
+  priceBreakdown?: string;
   price: string;
   timeline?: string;
   ctaText?: string;
@@ -28,9 +31,12 @@ export default function ServiceCard({
   emoji,
   title,
   problem,
+  deliverable,
   description,
   features,
   example,
+  timeEstimate,
+  priceBreakdown,
   price,
   timeline,
   ctaText = "I'm interested in",
@@ -68,9 +74,15 @@ export default function ServiceCard({
       
       <Heading level={3} className="mb-3">{title}</Heading>
       
-      <p className="text-orange font-semibold mb-4">
+      <p className="text-orange font-semibold mb-3">
         Problem: {problem}
       </p>
+      
+      {deliverable && (
+        <p className="text-teal font-semibold mb-4">
+          Deliverable: {deliverable}
+        </p>
+      )}
       
       <p className="text-charcoal/80 mb-6">{description}</p>
       
@@ -109,6 +121,21 @@ export default function ServiceCard({
       )}
       
       <div className="border-t pt-6">
+        {(timeEstimate || priceBreakdown) && (
+          <div className="bg-cream rounded-lg p-3 mb-4">
+            {timeEstimate && (
+              <p className="text-sm text-charcoal/70 mb-1">
+                <span className="font-semibold">Time required:</span> {timeEstimate}
+              </p>
+            )}
+            {priceBreakdown && (
+              <p className="text-sm text-charcoal/70">
+                <span className="font-semibold">Calculation:</span> {priceBreakdown}
+              </p>
+            )}
+          </div>
+        )}
+        
         <div className="flex justify-between items-center mb-4">
           <p className="text-2xl font-bold text-charcoal">{price}</p>
           {timeline && (

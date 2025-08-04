@@ -307,16 +307,19 @@ export default function Services() {
       emoji: '⏰',
       title: 'Empty Pub Recovery Package',
       problem: '"My pub is dead on weeknights and I\'m bleeding money"',
-      description: 'Empty Tuesday nights? Half-empty dining room? We\'ll fill your quiet periods within 30 days or your money back. Proven system that transformed our own pub at The Anchor.',
+      deliverable: 'Complete event strategy and marketing system to fill quiet nights',
+      description: 'Transform your quiet periods with proven event ideas and marketing that works. We\'ll develop custom events for your pub, create all marketing materials, and train you on promotion strategies that brought The Anchor from sometimes 0 to 25-35 quiz regulars.',
       features: [
-        'Fill your quiet nights in 30 days',
-        'Complete marketing system setup',
-        'Event promotions that actually work',
-        'Personal training included',
-        'Money back if we don\'t increase covers by 25%'
+        'Custom event calendar designed for your pub',
+        'Marketing templates and automation setup',
+        'Social media strategy that gets 60k+ views',
+        'Staff training on event promotion',
+        'Ongoing support until events are successful'
       ],
-      price: '£62.50 per hour plus VAT',
-      timeline: 'Flexible based on your needs',
+      timeEstimate: '6 hours per month',
+      priceBreakdown: '6 hours × £62.50 = £375 + VAT monthly',
+      price: 'From £375/month + VAT',
+      timeline: '6-12 month program for lasting results',
       highlight: true,
       example: {
         result: 'The Anchor: 25-35 quiz regulars, 85% tasting night retention'
@@ -327,16 +330,19 @@ export default function Services() {
       emoji: '💷',
       title: 'Boost Food Sales Service',
       problem: '"Food sales are flat and people only order chips"',
-      description: 'Low food GP? Customers ordering the cheapest items? Our psychology-based menu makeover increases average spend by 28% - that\'s £7 more per table. Pays for itself in one weekend.',
+      deliverable: 'Complete menu optimization with psychology-based descriptions',
+      description: 'Transform your menu into a profit-driving sales tool. We\'ll rewrite every description using proven psychological triggers, optimize pricing, and strategically position dishes to increase average spend. The same approach that took The Anchor\'s food GP from 58% to 71%.',
       features: [
-        'Turn browsers into buyers',
-        'Guide customers to profitable dishes',
-        'Descriptions that sell themselves',
-        'Strategic pricing that works',
-        'Digital and print-ready versions'
+        'Full menu audit and profit analysis',
+        'Psychology-based description rewrites',
+        'Strategic dish positioning',
+        'Pricing optimization recommendations',
+        'Digital and print-ready files delivered'
       ],
-      price: '£62.50 per hour plus VAT',
-      timeline: 'Typically 2-3 hours for full menu review',
+      timeEstimate: '2 hours',
+      priceBreakdown: '2 hours × £62.50 = £125 + VAT',
+      price: '£125 + VAT',
+      timeline: 'Delivered within 3 days',
       example: {
         before: '"Roast beef and vegetables"',
         after: '"Slow-roasted Hereford beef with honey-glazed carrots, crispy roast potatoes and rich gravy"',
@@ -348,17 +354,20 @@ export default function Services() {
       emoji: '📱',
       title: 'Done-For-You Pub Marketing',
       problem: '"I have no time for social media and my events are flopping"',
-      description: 'Too busy to post? Events not pulling crowds? Learn how we achieve 60,000-70,000 social media views monthly at The Anchor using AI. Quiz nights grew from 20 to 25-35 regulars.',
+      deliverable: 'Complete social media management and event promotion system',
+      description: 'We handle all your digital marketing while you focus on customers. Create content calendars, design event promotions, manage social channels, and build the same systems that get The Anchor 60,000-70,000 views monthly.',
       features: [
-        'We create all your content',
-        'Post to all your channels',
-        'Event promotion that fills seats',
-        'Email campaigns that work',
-        'Monthly reports showing ROI',
-        'You just serve the extra customers'
+        'Monthly content calendar creation',
+        'Daily posting across all platforms',
+        'Event promotion campaigns',
+        'Customer engagement management',
+        'Monthly performance reports',
+        'AI tool training for self-sufficiency'
       ],
-      price: '£62.50 per hour plus VAT',
-      timeline: 'Training on AI tools you can use yourself',
+      timeEstimate: '5-6 hours per month',
+      priceBreakdown: '5 hours × £62.50 = £312.50 + VAT monthly',
+      price: 'From £312.50/month + VAT',
+      timeline: '6-12 month program',
       example: {
         result: 'Tuesday revenue up 180%, Facebook reach up 400%'
       }
@@ -368,17 +377,20 @@ export default function Services() {
       emoji: '🔍',
       title: 'Get Found Online',
       problem: '"We\'re invisible on Google and losing bookings to competitors"',
-      description: 'Missing out on £1000s because people can\'t find you online? Our websites get you on Google\'s first page and convert browsers into bookings. One pub saw 40% more bookings in month one.',
+      deliverable: 'Professional website with booking system and local SEO',
+      description: 'Get a website that actually brings customers through your door. Mobile-optimized, booking-enabled, and designed to rank #1 for "pub [your area]". Built the same way we got The Anchor ranking #1 for local searches.',
       features: [
-        'First page of Google in 60 days',
-        'Mobile-first (80% browse on phones)',
-        'Online bookings save 2 hours/day',
-        'Showcase your best features',
-        'Updates done for you',
-        'Guidance on best platforms for pubs'
+        'Custom website design and build',
+        'Integrated booking system',
+        'Local SEO optimization',
+        'Mobile-first responsive design',
+        'Google Business profile setup',
+        'Training on updates and maintenance'
       ],
-      price: '£62.50 per hour plus VAT',
-      timeline: 'Consultation on website strategy',
+      timeEstimate: 'Build: 20 hours, Monthly maintenance: 3-4 hours',
+      priceBreakdown: 'Build: £1,250 + VAT, then £187.50-£250/month + £50 hosting',
+      price: '£1,250 setup + £237.50/month + VAT',
+      timeline: 'Live in 2 weeks, maintained monthly',
       example: {
         result: '£4,000 extra bookings in first 3 months'
       }
@@ -388,16 +400,20 @@ export default function Services() {
       emoji: '💡',
       title: 'Boost Your Bottom Line',
       problem: '"I\'m working 70 hours a week but barely breaking even"',
-      description: 'Busy but not profitable? We\'ll find the £10,000s you\'re leaving on the table. Our analysis typically uncovers 15-20% profit improvement - that\'s £2,000+ extra per month for most pubs.',
+      deliverable: 'Comprehensive business analysis with profit improvement plan',
+      description: 'Fresh eyes on your numbers to find the money you\'re leaving on the table. Complete P&L analysis, competitor research, pricing optimization, and 90-day action plan. The same approach that added £75k-£100k value to The Anchor.',
       features: [
-        'Find hidden profit leaks',
-        'Price correctly (most undercharge 20%)',
-        'Cut costs without cutting quality',
-        'Beat competitors strategically',
-        '90-day profit improvement plan'
+        'Full P&L and cost analysis',
+        'Competitor pricing research',
+        'Menu engineering and GP optimization',
+        'Supplier cost benchmarking',
+        'Written 90-day improvement plan',
+        'Follow-up support calls included'
       ],
-      price: '£62.50 per hour plus VAT',
-      timeline: 'Initial consultation 2-3 hours',
+      timeEstimate: 'Varies by pub size (typically 8-12 hours)',
+      priceBreakdown: '10 hours average × £62.50 = £625 + VAT',
+      price: 'From £500 + VAT',
+      timeline: 'Report delivered in 7 days',
       example: {
         result: 'Average client adds £2,400/month profit'
       }
@@ -407,16 +423,20 @@ export default function Services() {
       emoji: '🚀',
       title: 'Your Specific Challenge',
       problem: '"My biggest headache isn\'t listed here"',
-      description: 'Every pub has unique problems costing them money. Tell us yours - whether it\'s staff chaos, supplier nightmares, or something else. We\'ll create a solution that pays for itself.',
+      deliverable: 'Custom solution designed for your specific challenge',
+      description: 'Every pub has unique problems. Whether it\'s staff scheduling chaos, supplier management nightmares, or something completely different - we\'ll diagnose the issue and create a solution that fits your budget and delivers ROI.',
       features: [
-        'Staff costing you fortune in overtime?',
-        'Drowning in supplier paperwork?',
-        'Events not making money?',
-        'Systems all over the place?',
-        'Something else draining profits?'
+        'Initial consultation to understand your challenge',
+        'Custom solution design',
+        'Implementation support',
+        'Staff training if needed',
+        'Ongoing support until resolved',
+        'Money-back guarantee if not satisfied'
       ],
-      price: 'Solution designed to your budget',
-      timeline: 'Quick wins in days, full fix in weeks',
+      timeEstimate: 'Varies by project scope',
+      priceBreakdown: '£62.50 × hours needed = your investment + VAT',
+      price: '£62.50/hour + VAT',
+      timeline: 'Scoped after initial consultation',
       highlight: false,
       example: {
         result: 'Custom solutions with guaranteed ROI'
@@ -425,9 +445,27 @@ export default function Services() {
   ];
 
   const trainingOptions = [
-    { name: 'Quick Start', duration: PRICING.services.training.quickStart.duration, price: PRICING.services.training.quickStart.display, description: PRICING.services.training.quickStart.description },
-    { name: 'Half Day', duration: PRICING.services.training.halfDay.duration, price: PRICING.services.training.halfDay.display, description: PRICING.services.training.halfDay.description },
-    { name: 'Full Day', duration: PRICING.services.training.fullDay.duration, price: PRICING.services.training.fullDay.display, description: PRICING.services.training.fullDay.description }
+    { 
+      name: 'Quick Start', 
+      duration: PRICING.services.training.quickStart.duration, 
+      price: PRICING.services.training.quickStart.display, 
+      description: PRICING.services.training.quickStart.description,
+      calculation: PRICING.services.training.quickStart.calculation 
+    },
+    { 
+      name: 'Half Day', 
+      duration: PRICING.services.training.halfDay.duration, 
+      price: PRICING.services.training.halfDay.display, 
+      description: PRICING.services.training.halfDay.description,
+      calculation: PRICING.services.training.halfDay.calculation 
+    },
+    { 
+      name: 'Full Day', 
+      duration: PRICING.services.training.fullDay.duration, 
+      price: PRICING.services.training.fullDay.display, 
+      description: PRICING.services.training.fullDay.description,
+      calculation: PRICING.services.training.fullDay.calculation 
+    }
   ];
 
   return (
@@ -600,8 +638,11 @@ export default function Services() {
               {trainingOptions.map((option) => (
                 <div key={option.name} className="bg-teal-dark/30 rounded-lg p-4">
                   <Heading level={4} color="white" className="mb-1">{option.name}</Heading>
-                  <Text size="sm" className="mb-2">{option.duration} - {option.price}</Text>
-                  <Text size="xs" className="opacity-80">{option.description}</Text>
+                  <Text size="sm" className="mb-1 text-white">{option.price}</Text>
+                  {option.calculation && (
+                    <Text size="xs" className="mb-2 text-white/70">{option.calculation}</Text>
+                  )}
+                  <Text size="xs" className="text-white/80">{option.description}</Text>
                 </div>
               ))}
             </div>
@@ -613,13 +654,15 @@ export default function Services() {
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               <div className="bg-teal-dark/30 rounded-lg p-4">
                 <Heading level={4} color="white">Half Day Workshop</Heading>
-                <Text size="sm">{PRICING.services.teamTraining.halfDay.display}</Text>
-                <Text size="xs" className="opacity-80 mt-1">Perfect for pub groups or local licensees</Text>
+                <Text size="sm" className="text-white">{PRICING.services.teamTraining.halfDay.display}</Text>
+                <Text size="xs" className="text-white/70">{PRICING.services.teamTraining.halfDay.calculation}</Text>
+                <Text size="xs" className="text-white/80 mt-1">Perfect for pub groups or local licensees</Text>
               </div>
               <div className="bg-teal-dark/30 rounded-lg p-4">
                 <Heading level={4} color="white">Full Day Intensive</Heading>
-                <Text size="sm">{PRICING.services.teamTraining.fullDay.display}</Text>
-                <Text size="xs" className="opacity-80 mt-1">Comprehensive training for teams</Text>
+                <Text size="sm" className="text-white">{PRICING.services.teamTraining.fullDay.display}</Text>
+                <Text size="xs" className="text-white/70">{PRICING.services.teamTraining.fullDay.calculation}</Text>
+                <Text size="xs" className="text-white/80 mt-1">Comprehensive training for teams</Text>
               </div>
             </div>
             <div className="text-center">

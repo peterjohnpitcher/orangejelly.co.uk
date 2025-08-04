@@ -85,35 +85,40 @@ export const PRICING = {
     training: {
       quickStart: {
         duration: '2 hours',
-        amount: 150,
-        display: '£150 + VAT',
+        amount: 125,
+        display: '£125 + VAT',
         description: 'Email & social media basics',
+        calculation: '2 hours × £62.50',
       },
       halfDay: {
         duration: '4 hours',
-        amount: 300,
-        display: '£300 + VAT',
+        amount: 250,
+        display: '£250 + VAT',
         description: 'Core AI tools for daily ops',
+        calculation: '4 hours × £62.50',
       },
       fullDay: {
         duration: '8 hours',
-        amount: 600,
-        display: '£600 + VAT',
+        amount: 500,
+        display: '£500 + VAT',
         description: 'Everything including rotas & stock',
+        calculation: '8 hours × £62.50',
       },
     },
 
-    // Team Training
+    // Team Training (group rate for up to 6 people)
     teamTraining: {
       halfDay: {
-        amount: 500,
-        display: '£500 + VAT',
+        amount: 375,
+        display: '£375 + VAT',
         description: 'Half Day Workshop',
+        calculation: '6 hours × £62.50',
       },
       fullDay: {
-        amount: 900,
-        display: '£900 + VAT',
+        amount: 750,
+        display: '£750 + VAT',
         description: 'Full Day Intensive',
+        calculation: '12 hours × £62.50',
       },
     },
   },

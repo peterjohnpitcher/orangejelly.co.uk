@@ -30,7 +30,7 @@ export default function BlogLayout({
         </div>
       </Section>
 
-      <Section background="white">
+      <Section background="white" padding="small">
         <div className="max-w-6xl mx-auto">
           {sidebar ? (
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-8">

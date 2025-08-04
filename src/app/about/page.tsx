@@ -15,6 +15,7 @@ import Text from '@/components/Text';
 import { generateMetadata } from '@/lib/metadata';
 import { FAQSchema } from '@/components/StructuredData';
 import Partnerships from '@/components/Partnerships';
+import { StruggleIcon, DiscoveryIcon, TransformationIcon, GrowthIcon } from '@/components/icons/JourneyIcons';
 
 export const metadata = generateMetadata({
   title: 'About Orange Jelly - From One licensee to Another',
@@ -263,13 +264,17 @@ export default function About() {
                       "We almost had a nervous breakdown in year one."
                     </Text>
                   </div>
-                  <div className="text-6xl text-center opacity-20">😱</div>
+                  <div className="flex items-center justify-center opacity-60">
+                    <StruggleIcon />
+                  </div>
                 </Grid>
               </Card>
 
               <Card variant="bordered" padding="large">
                 <Grid columns={{ default: 1, md: 2 }} gap="large" className="items-center">
-                  <div className="text-6xl text-center opacity-20 order-2 md:order-1">💡</div>
+                  <div className="flex items-center justify-center opacity-60 order-2 md:order-1">
+                    <DiscoveryIcon />
+                  </div>
                   <div className="order-1 md:order-2">
                     <Text size="sm" color="muted" className="mb-2">March 2020 - 2021</Text>
                     <Heading level={3} color="orange" className="mb-4">COVID & Discovering AI</Heading>
@@ -300,13 +305,17 @@ export default function About() {
                       "Other licensees started asking how we did it..."
                     </Text>
                   </div>
-                  <div className="text-6xl text-center opacity-20">🎉</div>
+                  <div className="flex items-center justify-center opacity-60">
+                    <TransformationIcon />
+                  </div>
                 </Grid>
               </Card>
 
               <Card variant="bordered" padding="large">
                 <Grid columns={{ default: 1, md: 2 }} gap="large" className="items-center">
-                  <div className="text-6xl text-center opacity-20 order-2 md:order-1">🚀</div>
+                  <div className="flex items-center justify-center opacity-60 order-2 md:order-1">
+                    <GrowthIcon />
+                  </div>
                   <div className="order-1 md:order-2">
                     <Text size="sm" color="muted" className="mb-2">2024-2025</Text>
                     <Heading level={3} color="teal" className="mb-4">Orange Jelly Evolves</Heading>

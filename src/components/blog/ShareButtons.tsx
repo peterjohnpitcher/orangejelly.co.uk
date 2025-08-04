@@ -102,9 +102,22 @@ export default function ShareButtons({ url, title, variant = 'inline' }: ShareBu
   
   if (variant === 'floating') {
     return (
-      <div className="fixed left-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-40 hidden lg:flex">
-        {buttons}
-      </div>
+      <>
+        {/* Desktop - left side floating */}
+        <div className="fixed left-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-40 hidden lg:flex">
+          {buttons}
+        </div>
+        
+        {/* Mobile - sticky top bar */}
+        <div className="lg:hidden fixed top-[64px] left-0 right-0 bg-white border-b border-cream z-30">
+          <div className="flex items-center justify-center gap-4 py-2">
+            <span className="text-sm font-medium text-charcoal/60">Share:</span>
+            <div className="flex items-center gap-3">
+              {buttons}
+            </div>
+          </div>
+        </div>
+      </>
     );
   }
   

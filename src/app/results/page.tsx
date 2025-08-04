@@ -165,8 +165,8 @@ export default function Results() {
   const results: Result[] = [
     {
       id: 'quiet-weeks',
-      title: 'The Anchor\'s Event Strategy Success',
-      subtitle: 'Quarterly tasting nights that sell out every time.',
+      title: 'How We Turned Dead Nights Into Sold-Out Events',
+      subtitle: 'The story of creating premium experiences our locals actually wanted.',
       problem: [
         'Needed premium events to boost revenue',
         'Regular events getting stale',
@@ -203,12 +203,12 @@ export default function Results() {
         'Pre-booking essential for stock',
         'Create WhatsApp group for regulars'
       ],
-      quote: '"Our tasting nights sell out at 25 tickets. The £35 includes spirits, mixers and a themed meal - it\'s become a premium experience our customers love."'
+      quote: '"We went from generic 2-for-1 offers attracting the wrong crowd to sold-out tasting events at £35 a ticket. The secret? We asked AI to analyze what our actual customers wanted, not what we thought they wanted."'
     },
     {
       id: 'sunday-lunches',
-      title: 'The Sunday Lunch Pre-Order Revolution',
-      subtitle: 'Cut £250/week in wasted food without losing the offer.',
+      title: 'The £250 Weekly Wake-Up Call',
+      subtitle: 'How watching perfectly good food hit the bin led to our pre-order system.',
       problem: [
         'Throwing away £250 worth of food weekly',
         'Prepping for 70 but only serving 45-50',
@@ -244,12 +244,12 @@ export default function Results() {
         'Regulars now book weeks ahead',
         'Predictability changes everything'
       ],
-      quote: '"We\'re saving £250 every single week just by knowing how many are coming. No more bins full of perfectly good food."'
+      quote: '"Every Sunday we\'d prep for 70 covers hoping for the best. When only 45 showed up, I\'d watch £250 worth of beautiful food go in the bin. Now with pre-orders and a £5 deposit, we prep exactly what we need. The waste is gone, the stress is gone, and regulars actually book weeks ahead."'
     },
     {
       id: 'social-media',
-      title: 'Social Media Transformation with AI',
-      subtitle: 'From posting once a week to daily engagement that fills tables.',
+      title: 'From Social Media Nightmare to 70,000 Views Monthly',
+      subtitle: 'How AI turned our biggest weakness into our strongest marketing tool.',
       problem: [
         'Posting maybe once a week if remembered',
         'No consistency across platforms',
@@ -285,12 +285,12 @@ export default function Results() {
         'Behind-scenes content performs best',
         'Schedule everything in advance'
       ],
-      quote: '"We went from social media being a chore to it actually bringing customers through the door. The AI understands our pub\'s personality perfectly."'
+      quote: '"I used to spend Sunday nights stressed about what to post on Monday. Now AI creates a month\'s worth of content in 30 minutes that sounds exactly like us - casual, friendly, local. We\'re getting 60,000-70,000 views monthly and people actually come in saying they saw our posts."'
     },
     {
       id: 'search-visibility',
-      title: 'From Invisible to Fully Booked Online',
-      subtitle: 'How we went from page 3 on Google to dominating local search.',
+      title: 'Why Heathrow Tourists Now Find Us First',
+      subtitle: 'Building a web presence that captures customers we never knew existed.',
       problem: [
         'Didn\'t show up for "pubs near me"',
         'Old website looked amateur',
@@ -330,8 +330,8 @@ export default function Results() {
     },
     {
       id: 'quiz-night',
-      title: 'Quiz Night Innovation: Goodbye QuestionOne',
-      subtitle: 'AI-created quizzes that pack the pub every Tuesday.',
+      title: 'From Zero Teams to 35 Quiz Regulars',
+      subtitle: 'The night QuestionOne failed us was the night everything changed.',
       problem: [
         'QuestionOne quiz was stale and predictable',
         'Same 20-25 people every week',
@@ -367,12 +367,12 @@ export default function Results() {
         'Consistency matters more than perfection',
         'Make it an event, not just a quiz'
       ],
-      quote: '"Our quiz night is back on track. We get 25-35 regulars with a £25 average spend. The AI helps me create custom quizzes with local flavor in just 20 minutes."'
+      quote: '"QuestionOne was killing our quiz night - sometimes we\'d have zero teams show up and still pay their fee. We asked them to help renovate it but they couldn\'t. Now I use AI to create custom quizzes with local questions in 20 minutes. We\'re back to 25-35 regulars every week, each spending about £25. The difference? Our quiz has personality now."'
     },
     {
       id: 'customer-engagement',
-      title: 'Building Customer Relationships That Last',
-      subtitle: 'SMS, bookings, and birthday clubs that actually work.',
+      title: 'Why 300 Phone Numbers Beat 10,000 Facebook Followers',
+      subtitle: 'Building a customer database that actually drives revenue.',
       problem: [
         'No customer database at all',
         'Birthday offers going to waste',
@@ -408,7 +408,7 @@ export default function Results() {
         'Birthday offers bring groups',
         'Different groups want different things'
       ],
-      quote: '"The birthday club alone brings in 30+ extra tables per month. People love feeling remembered, and they always bring friends."'
+      quote: '"We tried everything - email newsletters nobody read, loyalty cards that confused everyone, even an app that our older customers hated. Then we went simple: SMS for updates, WhatsApp for groups, birthday texts with genuine offers. Now our 300 contacts are worth more than any social media following. The birthday club alone brings 30+ tables monthly."'
     }
   ];
 
