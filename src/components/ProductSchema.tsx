@@ -43,7 +43,7 @@ export function ProductSchema({
     ...(image && {
       "image": {
         "@type": "ImageObject",
-        "url": `https://orangejelly.co.uk${image}`
+        "url": `https://www.orangejelly.co.uk${image}`
       }
     }),
     "brand": {
@@ -51,7 +51,7 @@ export function ProductSchema({
       "name": brand
     },
     ...(category && { "category": category }),
-    ...(url && { "url": `https://orangejelly.co.uk${url}` }),
+    ...(url && { "url": `https://www.orangejelly.co.uk${url}` }),
     "offers": {
       "@type": "Offer",
       "price": price,

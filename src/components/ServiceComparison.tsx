@@ -12,7 +12,7 @@ export default function ServiceComparison() {
   const services = {
     quickwins: {
       name: '30-Day Quick Wins',
-      price: '£499',
+      price: '£62.50/hour',
       timeline: 'One-time',
       perfect: 'Pub owners who want to test AI risk-free',
       includes: [

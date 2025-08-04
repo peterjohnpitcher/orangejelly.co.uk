@@ -27,53 +27,53 @@ export default function EmptyPubSolutions() {
     {
       name: "Audit Your Current Customer Touchpoints",
       text: "Identify and fix all the places customers interact with your pub online and offline. Check Google listing accuracy, review response times, and menu visibility.",
-      url: "https://orangejelly.co.uk/empty-pub-solutions#week-1",
-      image: "https://orangejelly.co.uk/images/audit-touchpoints.svg"
+      url: "https://www.orangejelly.co.uk/empty-pub-solutions#week-1",
+      image: "https://www.orangejelly.co.uk/images/audit-touchpoints.svg"
     },
     {
       name: "Fix Your Google Listing",
       text: "Update business hours, add photos, respond to reviews, and ensure all information is accurate. 80% of pubs have errors that cost them customers.",
-      url: "https://orangejelly.co.uk/empty-pub-solutions#week-1"
+      url: "https://www.orangejelly.co.uk/empty-pub-solutions#week-1"
     },
     {
       name: "Create Irresistible Midweek Offers",
       text: "Design special offers that give people a reason to visit Monday-Thursday. Focus on value without devaluing your brand.",
-      url: "https://orangejelly.co.uk/empty-pub-solutions#week-1"
+      url: "https://www.orangejelly.co.uk/empty-pub-solutions#week-1"
     },
     {
       name: "Launch Targeted Social Media Campaigns",
       text: "Create content that showcases your pub's personality and connects with your local community. Post consistently and engage authentically.",
-      url: "https://orangejelly.co.uk/empty-pub-solutions#week-1"
+      url: "https://www.orangejelly.co.uk/empty-pub-solutions#week-1"
     },
     {
       name: "Implement Email Marketing Sequences",
       text: "Build a customer database and send regular updates about events, offers, and news. Email marketing has the highest ROI for pubs.",
-      url: "https://orangejelly.co.uk/empty-pub-solutions#week-2"
+      url: "https://www.orangejelly.co.uk/empty-pub-solutions#week-2"
     },
     {
       name: "Create Events That Draw Crowds",
       text: "Plan and promote events that match your customers' interests. Quiz nights, live music, and themed evenings can transform quiet nights.",
-      url: "https://orangejelly.co.uk/empty-pub-solutions#week-2"
+      url: "https://www.orangejelly.co.uk/empty-pub-solutions#week-2"
     },
     {
       name: "Optimize Your Menu for Profit",
       text: "Analyze your menu performance, highlight high-margin items, and remove poor performers. Design matters as much as content.",
-      url: "https://orangejelly.co.uk/empty-pub-solutions#week-2"
+      url: "https://www.orangejelly.co.uk/empty-pub-solutions#week-2"
     },
     {
       name: "Build Strategic Local Partnerships",
       text: "Connect with local businesses, sports clubs, and community groups. Cross-promotion multiplies your marketing reach.",
-      url: "https://orangejelly.co.uk/empty-pub-solutions#week-3"
+      url: "https://www.orangejelly.co.uk/empty-pub-solutions#week-3"
     },
     {
       name: "Implement Referral Systems",
       text: "Turn happy customers into advocates with incentivized referral programs. Word-of-mouth is still the most powerful marketing.",
-      url: "https://orangejelly.co.uk/empty-pub-solutions#week-3"
+      url: "https://www.orangejelly.co.uk/empty-pub-solutions#week-3"
     },
     {
       name: "Analyze and Double Down on Winners",
       text: "Track what's working, measure results, and invest more in successful strategies. Data-driven decisions lead to sustainable growth.",
-      url: "https://orangejelly.co.uk/empty-pub-solutions#week-4"
+      url: "https://www.orangejelly.co.uk/empty-pub-solutions#week-4"
     }
   ];
 
@@ -204,7 +204,7 @@ export default function EmptyPubSolutions() {
       <HowToSchema
         name="30-Day Empty Pub Recovery Plan"
         description="Transform your empty pub into a thriving business with our proven 30-day system. Step-by-step guide to increase covers by 25% or more."
-        image="https://orangejelly.co.uk/images/empty-pub-recovery.svg"
+        image="https://www.orangejelly.co.uk/images/empty-pub-recovery.svg"
         estimatedCost={{
           currency: "GBP",
           value: "499"
@@ -223,7 +223,7 @@ export default function EmptyPubSolutions() {
         ]}
         steps={howToSteps}
         totalTime="P30D"
-        url="https://orangejelly.co.uk/empty-pub-solutions"
+        url="https://www.orangejelly.co.uk/empty-pub-solutions"
       />
       
       <Hero

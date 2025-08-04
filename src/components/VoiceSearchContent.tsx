@@ -94,11 +94,11 @@ export function VoiceSearchSection({
 export const commonPubQueries = [
   {
     question: "How can I get more customers in my pub?",
-    answer: "Orange Jelly helps UK pubs attract more customers through AI-powered marketing, menu optimization, and social media automation. Our proven strategies have helped pubs increase covers by up to 300%."
+    answer: "Orange Jelly helps UK pubs attract more customers through AI-powered marketing, menu optimization, and social media automation. Our proven strategies transformed The Anchor from struggling to thriving."
   },
   {
     question: "How much does pub marketing cost?",
-    answer: "Orange Jelly's pub marketing services start from £99+VAT for menu makeovers, with full marketing packages from £499+VAT. All services include a money-back guarantee if you don't save at least 5 hours per week."
+    answer: "Orange Jelly charges £62.50 per hour plus VAT for all services. No hidden fees, transparent pricing. First pub chain training scheduled September 2025. 30-day money-back guarantee."
   },
   {
     question: "What's the best way to promote my pub?",

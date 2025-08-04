@@ -32,7 +32,7 @@ export default function PubRescue() {
     },
     {
       question: "What if I can't afford consultancy fees right now?",
-      answer: "I get it - when the pub's struggling, every penny counts. That's why our smallest package starts at just £99. Most strategies pay for themselves in the first weekend. Plus, I'll often share free tips during our first chat because I hate seeing pubs struggle."
+      answer: "I get it - when the pub's struggling, every penny counts. We charge £62.50 per hour plus VAT, working flexibly with your budget. Most strategies pay for themselves in the first weekend. Plus, I'll often share free tips during our first chat because I hate seeing pubs struggle."
     },
     {
       question: "Do you really understand what I'm going through?",
@@ -404,8 +404,8 @@ export default function PubRescue() {
             </Heading>
             
             <Text size="lg" align="center" className="mb-12 text-charcoal/70 max-w-3xl mx-auto">
-              We don't guess what your pub needs. We follow a proven process that's saved 
-              dozens of pubs from closure. Here's exactly how we turn things around:
+              We don't guess what your pub needs. We follow a proven process that transformed 
+              The Anchor from struggling to thriving. Here's exactly how we turn things around:
             </Text>
 
             <Grid columns={{ default: 1, md: 2 }} gap="large">
@@ -680,8 +680,8 @@ export default function PubRescue() {
             </Card>
 
             <div className="text-center">
-              <Text size="lg" className="mb-2">Investment starts from just</Text>
-              <Text size="2xl" weight="bold" color="orange" className="mb-4">£99 + VAT</Text>
+              <Text size="lg" className="mb-2">Investment is simple and transparent</Text>
+              <Text size="2xl" weight="bold" color="orange" className="mb-4">£62.50/hour + VAT</Text>
               <Text size="sm" color="muted" className="mb-8">
                 Most pubs make this back in their first weekend
               </Text>

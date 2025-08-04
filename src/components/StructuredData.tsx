@@ -58,7 +58,7 @@ export function ServiceSchema({ services }: ServiceSchemaProps) {
       "provider": {
         "@type": "LocalBusiness",
         "name": "Orange Jelly Limited",
-        "@id": "https://orangejelly.co.uk/#organization"
+        "@id": "https://www.orangejelly.co.uk/#organization"
       },
       "areaServed": {
         "@type": "Country",
@@ -125,10 +125,10 @@ export function LocalBusinessSchema({
   const schema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://orangejelly.co.uk/#localbusiness",
+    "@id": "https://www.orangejelly.co.uk/#localbusiness",
     "name": name,
     "description": description,
-    "url": "https://orangejelly.co.uk",
+    "url": "https://www.orangejelly.co.uk",
     "telephone": telephone,
     "email": email,
     "priceRange": priceRange,

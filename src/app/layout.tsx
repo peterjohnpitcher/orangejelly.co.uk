@@ -21,16 +21,18 @@ export const viewport: Viewport = {
   userScalable: true,
 };
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.orangejelly.co.uk';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://orangejelly.co.uk'),
+  metadataBase: new URL(baseUrl),
   title: "How to Fill Empty Pub Tables | Pub Marketing That Works | Orange Jelly",
   description: "How can I fill my empty pub tables? Orange Jelly provides AI-powered marketing tools that help UK licensees attract more customers. Save 5+ hours weekly with proven strategies from The Anchor pub owner. Menu optimization, social media automation, and more.",
   keywords: "pub AI tools, save time running pub, pub marketing help, menu writing service, Orange Jelly, Peter Pitcher, how to fill empty pub tables, pub marketing UK, automate pub social media",
   openGraph: {
     title: "How to Fill Empty Pub Tables | Pub Marketing That Works | Orange Jelly",
-    description: "Struggling with empty pub tables? We've helped dozens of pubs fill their seats with proven marketing strategies that work.",
+    description: "Struggling with empty pub tables? We use AI-powered marketing strategies that transformed The Anchor. First pub chain training September 2025.",
     type: "website",
-    url: "https://orangejelly.co.uk",
+    url: "https://www.orangejelly.co.uk",
     locale: 'en_GB',
     siteName: 'Orange Jelly',
     images: [
@@ -55,7 +57,7 @@ export const metadata: Metadata = {
     'max-video-preview': -1,
   },
   alternates: {
-    canonical: 'https://orangejelly.co.uk',
+    canonical: 'https://www.orangejelly.co.uk',
   },
   manifest: '/manifest.json',
   other: {
@@ -75,22 +77,22 @@ export default function RootLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": "https://orangejelly.co.uk/#organization",
+    "@id": `${baseUrl}/#organization`,
     "name": "Orange Jelly Limited",
     "alternateName": "Orange Jelly",
-    "url": "https://orangejelly.co.uk",
+    "url": baseUrl,
     "logo": {
       "@type": "ImageObject",
-      "url": "https://orangejelly.co.uk/logo.png",
+      "url": `${baseUrl}/logo.png`,
       "width": 800,
       "height": 800
     },
-    "image": "https://orangejelly.co.uk/logo.png",
-    "description": "Struggling with empty pub tables? We've helped dozens of pubs fill their seats with proven marketing strategies that work. From one licensee to another.",
+    "image": `${baseUrl}/logo.png`,
+    "description": "Struggling with empty pub tables? We use AI-powered marketing strategies that transformed The Anchor from struggling to thriving. From one licensee to another.",
     "slogan": "Fill Empty Pub Tables with Marketing That Works",
     "founder": {
       "@type": "Person",
-      "@id": "https://orangejelly.co.uk/#peter-pitcher",
+      "@id": `${baseUrl}/#peter-pitcher`,
       "name": "Peter Pitcher",
       "jobTitle": "Founder & AI Consultant",
       "description": "Former struggling pub owner who discovered how AI could transform pub marketing. Now helps other licensees save time and fill empty tables.",
@@ -102,7 +104,7 @@ export default function RootLayout({
       },
       "worksFor": [
         {
-          "@id": "https://orangejelly.co.uk/#organization"
+          "@id": `${baseUrl}/#organization`
         },
         {
           "@type": "Restaurant",
@@ -134,7 +136,7 @@ export default function RootLayout({
     "knowsAbout": ["Pub Marketing", "AI Tools", "Social Media Automation", "Menu Design", "Customer Retention", "Event Promotion"],
     "award": [
       "Turned The Anchor from empty to thriving in 12 months",
-      "Helped 30+ pubs increase midweek revenue by 40%"
+      "Improved The Anchor's food GP from 58% to 71% using AI"
     ],
     "areaServed": {
       "@type": "Country",
@@ -225,12 +227,12 @@ export default function RootLayout({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://orangejelly.co.uk/#website",
-    "url": "https://orangejelly.co.uk",
+    "@id": `${baseUrl}/#website`,
+    "url": baseUrl,
     "name": "Orange Jelly - Pub Marketing That Works",
-    "description": "Struggling with empty pub tables? We've helped dozens of pubs fill their seats with proven marketing strategies that work. From one licensee to another.",
+    "description": "Struggling with empty pub tables? We use AI-powered marketing strategies that transformed The Anchor from struggling to thriving. From one licensee to another.",
     "publisher": {
-      "@id": "https://orangejelly.co.uk/#organization"
+      "@id": "https://www.orangejelly.co.uk/#organization"
     },
     "inLanguage": "en-GB"
   };
@@ -243,7 +245,7 @@ export default function RootLayout({
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://orangejelly.co.uk"
+        "item": baseUrl
       }
     ]
   };

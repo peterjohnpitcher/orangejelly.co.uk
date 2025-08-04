@@ -108,7 +108,7 @@ npm run lint
 
 ### Important URLs
 
-- Production: https://orangejelly.co.uk
+- Production: https://www.orangejelly.co.uk
 - The Anchor: https://the-anchor.pub
 - WhatsApp: Use the helper function in lib/constants.ts
 

@@ -83,19 +83,19 @@ export default function Contact() {
       "@type": "ContactPage",
       "name": "Contact Orange Jelly",
       "description": "Get in touch with Peter Pitcher at Orange Jelly. WhatsApp, phone, or visit The Anchor pub.",
-      "url": "https://orangejelly.co.uk/contact",
+      "url": "https://www.orangejelly.co.uk/contact",
       "mainEntity": {
-        "@id": "https://orangejelly.co.uk/#organization"
+        "@id": "https://www.orangejelly.co.uk/#organization"
       }
     };
 
     const orangeJellySchema = {
       "@type": "ProfessionalService",
-      "@id": "https://orangejelly.co.uk/#organization",
+      "@id": "https://www.orangejelly.co.uk/#organization",
       "name": "Orange Jelly Limited",
       "telephone": "+44-7941-266538",
       "email": "peter@orangejelly.co.uk",
-      "url": "https://orangejelly.co.uk",
+      "url": "https://www.orangejelly.co.uk",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -512,7 +512,7 @@ export default function Contact() {
               <Card background="white" padding="medium">
                 <Heading level={4} className="mb-2">"...I can't afford consultancy fees"</Heading>
                 <Text>
-                  Our smallest package is £99. Most strategies pay for themselves in the 
+                  We charge £62.50 per hour plus VAT. Most strategies pay for themselves in the 
                   first weekend. Plus, I'll often give you free tips just because I hate 
                   seeing pubs struggle. Can you afford NOT to fill those empty tables?
                 </Text>

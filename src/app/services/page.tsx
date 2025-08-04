@@ -109,11 +109,11 @@ export default function Services() {
     const serviceSchemas = [
       {
         "@type": "Service",
-        "@id": "https://orangejelly.co.uk/services#empty-pub-recovery",
+        "@id": "https://www.orangejelly.co.uk/services#empty-pub-recovery",
         "name": "Empty Pub Recovery Package",
         "description": "Empty nights killing your profits? Try our proven recovery system risk-free for 30 days. Get customers back through the door with guaranteed results or your money back.",
         "provider": {
-          "@id": "https://orangejelly.co.uk/#organization"
+          "@id": "https://www.orangejelly.co.uk/#organization"
         },
         "areaServed": {
           "@type": "Country",
@@ -134,17 +134,17 @@ export default function Services() {
             },
             "validFrom": "2025-01-01",
             "availability": "https://schema.org/InStock",
-            "url": "https://orangejelly.co.uk/services#empty-pub-recovery"
+            "url": "https://www.orangejelly.co.uk/services#empty-pub-recovery"
           }]
         },
       },
       {
         "@type": "Service",
-        "@id": "https://orangejelly.co.uk/services#boost-food-sales",
+        "@id": "https://www.orangejelly.co.uk/services#boost-food-sales",
         "name": "Boost Food Sales Service",
         "description": "Customers always ordering the cheapest items? Transform your menu into a profit-driving sales tool. Proven to increase average spend by 28% with psychology-based descriptions.",
         "provider": {
-          "@id": "https://orangejelly.co.uk/#organization"
+          "@id": "https://www.orangejelly.co.uk/#organization"
         },
         "areaServed": {
           "@type": "Country",
@@ -171,11 +171,11 @@ export default function Services() {
       },
       {
         "@type": "Service",
-        "@id": "https://orangejelly.co.uk/services#done-for-you-marketing",
+        "@id": "https://www.orangejelly.co.uk/services#done-for-you-marketing",
         "name": "Done-For-You Pub Marketing",
         "description": "No time for marketing? Quiet nights stay quiet? We create all your content, manage your social media, and fill your pub. Proven to double Tuesday night covers.",
         "provider": {
-          "@id": "https://orangejelly.co.uk/#organization"
+          "@id": "https://www.orangejelly.co.uk/#organization"
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -196,11 +196,11 @@ export default function Services() {
       },
       {
         "@type": "Service",
-        "@id": "https://orangejelly.co.uk/services#website",
+        "@id": "https://www.orangejelly.co.uk/services#website",
         "name": "Website That Actually Works",
         "description": "A simple website that gets you bookings, works on phones, and you can update yourself. Professional design with booking system integration.",
         "provider": {
-          "@id": "https://orangejelly.co.uk/#organization"
+          "@id": "https://www.orangejelly.co.uk/#organization"
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -221,11 +221,11 @@ export default function Services() {
       },
       {
         "@type": "Service",
-        "@id": "https://orangejelly.co.uk/services#business",
+        "@id": "https://www.orangejelly.co.uk/services#business",
         "name": "Find Hidden Money",
         "description": "Fresh eyes on your business (with AI help) to spot opportunities you're too busy to see. Competitor analysis, pricing recommendations, and action plan.",
         "provider": {
-          "@id": "https://orangejelly.co.uk/#organization"
+          "@id": "https://www.orangejelly.co.uk/#organization"
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -248,11 +248,11 @@ export default function Services() {
 
     const trainingSchema = {
       "@type": "Course",
-      "@id": "https://orangejelly.co.uk/services#training",
+      "@id": "https://www.orangejelly.co.uk/services#training",
       "name": "AI Training for licensees",
       "description": "Personal training on using AI for the boring bits, so you can focus on customers.",
       "provider": {
-        "@id": "https://orangejelly.co.uk/#organization"
+        "@id": "https://www.orangejelly.co.uk/#organization"
       },
       "courseMode": "onsite",
       "educationalLevel": "Beginner",
@@ -308,7 +308,7 @@ export default function Services() {
       emoji: '⏰',
       title: 'Empty Pub Recovery Package',
       problem: '"My pub is dead on weeknights and I\'m bleeding money"',
-      description: 'Empty Tuesday nights? Half-empty dining room? We\'ll fill your quiet periods within 30 days or your money back. Proven system that\'s already doubled midweek covers at 12 pubs.',
+      description: 'Empty Tuesday nights? Half-empty dining room? We\'ll fill your quiet periods within 30 days or your money back. Proven system that transformed our own pub at The Anchor.',
       features: [
         'Fill your quiet nights in 30 days',
         'Complete marketing system setup',

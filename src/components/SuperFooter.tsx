@@ -68,9 +68,9 @@ export default function SuperFooter() {
               <div className="text-xs text-white/70 mt-1">Sunday roast sales at The Anchor</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-white mb-1">43%</div>
-              <div className="text-sm text-white/90">More Bookings</div>
-              <div className="text-xs text-white/70 mt-1">Average increase in covers</div>
+              <div className="text-3xl font-bold text-white mb-1">25-35</div>
+              <div className="text-sm text-white/90">Quiz Night Regulars</div>
+              <div className="text-xs text-white/70 mt-1">Up from 20 people initially</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white mb-1">14 Days</div>
@@ -160,7 +160,7 @@ export default function SuperFooter() {
                   <Link href="/services#quick-wins" className="group">
                     <span className="text-sm hover:text-orange transition-colors">30-Day Quick Wins</span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
-                      £499 trial - Results guaranteed
+                      £62.50/hour - Results guaranteed
                     </span>
                   </Link>
                 </li>
@@ -168,7 +168,7 @@ export default function SuperFooter() {
                   <Link href="/services#menu-makeover" className="group">
                     <span className="text-sm hover:text-orange transition-colors">Menu Makeover</span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
-                      £99 - Increase spend by £4.50/head
+                      £62.50/hour - Increase average spend
                     </span>
                   </Link>
                 </li>

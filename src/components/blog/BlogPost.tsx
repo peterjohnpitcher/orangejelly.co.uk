@@ -151,7 +151,7 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
               Need Help Implementing These Ideas?
             </Heading>
             <Text className="mb-6 max-w-2xl mx-auto">
-              I've helped dozens of pubs turn around their fortunes with strategies like these. 
+              I've proven these strategies work at The Anchor and will start training other pubs from September 2025. 
               Let's chat about your specific situation - no sales pitch, just licensee to licensee.
             </Text>
             <Button

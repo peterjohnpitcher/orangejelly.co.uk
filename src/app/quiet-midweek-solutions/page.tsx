@@ -25,42 +25,42 @@ export default function QuietMidweekSolutions() {
     {
       name: "Analyze Your Current Midweek Performance",
       text: "Track your Monday-Thursday covers, identify patterns, and understand why customers aren't visiting. Use this data as your baseline for improvement.",
-      url: "https://orangejelly.co.uk/quiet-midweek-solutions#step-1"
+      url: "https://www.orangejelly.co.uk/quiet-midweek-solutions#step-1"
     },
     {
       name: "Create Compelling Midweek Offers",
       text: "Design offers that give people a reason to choose your pub over staying home. Focus on value adds like 'Steak & Wine Wednesdays' rather than discounting.",
-      url: "https://orangejelly.co.uk/quiet-midweek-solutions#step-2"
+      url: "https://www.orangejelly.co.uk/quiet-midweek-solutions#step-2"
     },
     {
       name: "Launch a Successful Quiz Night",
       text: "Build a quiz night that becomes THE Tuesday event in your area. Include food deals, team registration, and prizes that bring people back week after week.",
-      url: "https://orangejelly.co.uk/quiet-midweek-solutions#step-3"
+      url: "https://www.orangejelly.co.uk/quiet-midweek-solutions#step-3"
     },
     {
       name: "Implement Theme Nights",
       text: "Create themed evenings like Curry Club, Wine Wednesday, or Burger Monday. Give each night its own identity that customers can plan around.",
-      url: "https://orangejelly.co.uk/quiet-midweek-solutions#step-4"
+      url: "https://www.orangejelly.co.uk/quiet-midweek-solutions#step-4"
     },
     {
       name: "Partner with Local Businesses",
       text: "Connect with nearby offices, gyms, and clubs for after-work gatherings and team nights. Offer exclusive deals for their members and staff.",
-      url: "https://orangejelly.co.uk/quiet-midweek-solutions#step-5"
+      url: "https://www.orangejelly.co.uk/quiet-midweek-solutions#step-5"
     },
     {
       name: "Master Midweek Social Media",
       text: "Post at the right times with messages that overcome the 'I'll stay in' mindset. Show the atmosphere, not just the offers.",
-      url: "https://orangejelly.co.uk/quiet-midweek-solutions#step-6"
+      url: "https://www.orangejelly.co.uk/quiet-midweek-solutions#step-6"
     },
     {
       name: "Create a Midweek Loyalty Program",
       text: "Reward regular midweek visitors with points, perks, and exclusive benefits. Make Tuesday-Thursday visits more valuable than weekends.",
-      url: "https://orangejelly.co.uk/quiet-midweek-solutions#step-7"
+      url: "https://www.orangejelly.co.uk/quiet-midweek-solutions#step-7"
     },
     {
       name: "Build Community Events",
       text: "Host book clubs, craft groups, language exchanges, or business networking. Regular groups guarantee consistent midweek footfall.",
-      url: "https://orangejelly.co.uk/quiet-midweek-solutions#step-8"
+      url: "https://www.orangejelly.co.uk/quiet-midweek-solutions#step-8"
     }
   ];
 
@@ -198,7 +198,7 @@ export default function QuietMidweekSolutions() {
       <HowToSchema
         name="Transform Quiet Midweek Nights Into Profitable Evenings"
         description="Step-by-step guide to filling your pub Monday-Thursday. Proven strategies that increase midweek revenue by 200% in 30 days."
-        image="https://orangejelly.co.uk/images/midweek-transformation.svg"
+        image="https://www.orangejelly.co.uk/images/midweek-transformation.svg"
         estimatedCost={{
           currency: "GBP",
           value: "299"
@@ -217,7 +217,7 @@ export default function QuietMidweekSolutions() {
         ]}
         steps={howToSteps}
         totalTime="P30D"
-        url="https://orangejelly.co.uk/quiet-midweek-solutions"
+        url="https://www.orangejelly.co.uk/quiet-midweek-solutions"
       />
       
       <Hero

@@ -25,7 +25,7 @@ export function generateMetadata({
   modifiedTime,
   author
 }: GenerateMetadataProps): Metadata {
-  const baseUrl = 'https://orangejelly.co.uk';
+  const baseUrl = 'https://www.orangejelly.co.uk';
   
   // Normalize path
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
@@ -96,7 +96,7 @@ export function generateMetadata({
 export const pageMetadata = {
   home: {
     title: 'How to Fill Empty Pub Tables | Pub Marketing That Works',
-    description: 'Struggling with empty pub tables? We\'ve helped dozens of pubs fill their seats with proven marketing strategies that work. From one licensee to another.',
+    description: 'Struggling with empty pub tables? We use AI-powered marketing strategies that transformed The Anchor from struggling to thriving. From one licensee to another.',
     keywords: 'pub marketing UK, fill empty pub tables, pub marketing strategies, increase pub customers, pub social media marketing, pub turnaround',
   },
   services: {

@@ -81,15 +81,15 @@ export default function About() {
       "@type": "AboutPage",
       "name": "About Orange Jelly - From One licensee to Another",
       "description": "Learn about Peter Pitcher and Billy Summers, who run The Anchor pub and help other licensees save time with AI tools.",
-      "url": "https://orangejelly.co.uk/about",
+      "url": "https://www.orangejelly.co.uk/about",
       "mainEntity": {
-        "@id": "https://orangejelly.co.uk/#organization"
+        "@id": "https://www.orangejelly.co.uk/#organization"
       }
     };
 
     const founderSchema = {
       "@type": "Person",
-      "@id": "https://orangejelly.co.uk/#peter-pitcher",
+      "@id": "https://www.orangejelly.co.uk/#peter-pitcher",
       "name": "Peter Pitcher",
       "jobTitle": "Founder & AI Consultant",
       "description": "Pub owner who discovered how AI can Save At Least 5 Hours a Week on boring admin tasks. Co-owner of The Anchor in Stanwell Moor with wife Billy Summers.",
@@ -100,7 +100,7 @@ export default function About() {
       },
       "worksFor": [
         {
-          "@id": "https://orangejelly.co.uk/#organization"
+          "@id": "https://www.orangejelly.co.uk/#organization"
         },
         {
           "@type": "Restaurant",
@@ -109,7 +109,7 @@ export default function About() {
         }
       ],
       "knowsAbout": ["AI Tools", "Pub Management", "Hospitality", "Marketing"],
-      "image": "https://orangejelly.co.uk/images/peter-pitcher.svg"
+      "image": "https://www.orangejelly.co.uk/images/peter-pitcher.svg"
     };
 
     const theAnchorExtendedSchema = {
@@ -125,7 +125,7 @@ export default function About() {
       "name": "Orange Jelly AI Consulting",
       "description": "AI tools and consulting for pub owners",
       "provider": {
-        "@id": "https://orangejelly.co.uk/#organization"
+        "@id": "https://www.orangejelly.co.uk/#organization"
       },
       "serviceOutput": "At least 5 hours saved per week",
       "termsOfService": "30-day money-back guarantee"

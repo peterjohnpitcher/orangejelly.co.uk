@@ -59,7 +59,7 @@ export default function SEOMeta({
       
       {/* Language */}
       <meta httpEquiv="content-language" content="en-GB" />
-      <link rel="alternate" hrefLang="en-GB" href={canonicalUrl || 'https://orangejelly.co.uk'} />
+      <link rel="alternate" hrefLang="en-GB" href={canonicalUrl || 'https://www.orangejelly.co.uk'} />
       
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}

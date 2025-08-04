@@ -35,7 +35,7 @@ export function BlogPostingSchema({
     "description": description,
     "image": {
       "@type": "ImageObject",
-      "url": `https://orangejelly.co.uk${image}`,
+      "url": `https://www.orangejelly.co.uk${image}`,
       "width": 1200,
       "height": 630
     },
@@ -44,21 +44,21 @@ export function BlogPostingSchema({
     "author": {
       "@type": "Person",
       "name": author.name,
-      ...(author.url && { "url": `https://orangejelly.co.uk${author.url}` })
+      ...(author.url && { "url": `https://www.orangejelly.co.uk${author.url}` })
     },
     "publisher": {
       "@type": "Organization",
       "name": "Orange Jelly Limited",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://orangejelly.co.uk/logo.png",
+        "url": "https://www.orangejelly.co.uk/logo.png",
         "width": 200,
         "height": 60
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://orangejelly.co.uk${url}`
+      "@id": `https://www.orangejelly.co.uk${url}`
     },
     "articleBody": content,
     ...(keywords.length > 0 && { "keywords": keywords.join(", ") }),

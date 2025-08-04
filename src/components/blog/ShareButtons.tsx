@@ -12,7 +12,7 @@ interface ShareButtonsProps {
 export default function ShareButtons({ url, title, variant = 'inline' }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   
-  const shareUrl = `https://orangejelly.co.uk${url}`;
+  const shareUrl = `https://www.orangejelly.co.uk${url}`;
   const encodedUrl = encodeURIComponent(shareUrl);
   const encodedTitle = encodeURIComponent(title);
   

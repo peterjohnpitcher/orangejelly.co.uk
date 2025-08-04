@@ -9,7 +9,7 @@ export function SpeakableContent({ cssSelectors, url }: SpeakableContentProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    ...(url && { "@id": `https://orangejelly.co.uk${url}` }),
+    ...(url && { "@id": `https://www.orangejelly.co.uk${url}` }),
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": cssSelectors

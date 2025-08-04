@@ -37,7 +37,7 @@ export default function Results() {
     const caseStudySchemas = [
       {
         "@type": "HowTo",
-        "@id": "https://orangejelly.co.uk/results#sunday-lunches",
+        "@id": "https://www.orangejelly.co.uk/results#sunday-lunches",
         "name": "How to Fix Sunday Lunch Chaos with Pre-Order System",
         "description": "Learn how The Anchor went from 45 to 65 Sunday covers with zero waste using a simple pre-order system",
         "supply": ["Google Forms or similar", "Payment processor", "SMS system"],
@@ -75,29 +75,29 @@ export default function Results() {
       },
       {
         "@type": "Article",
-        "@id": "https://orangejelly.co.uk/results#social-media",
+        "@id": "https://www.orangejelly.co.uk/results#social-media",
         "headline": "How AI Transformed Our Social Media from Chore to Customer Magnet",
         "description": "Case study showing how The Anchor uses AI to create daily content across 3 platforms in just 30 minutes monthly",
         "author": {
-          "@id": "https://orangejelly.co.uk/#peter-pitcher"
+          "@id": "https://www.orangejelly.co.uk/#peter-pitcher"
         },
         "datePublished": "2024-09-15",
         "articleBody": "From posting once a week to daily engagement that actually fills tables. AI creates content that sounds like us, not a robot..."
       },
       {
         "@type": "Article",
-        "@id": "https://orangejelly.co.uk/results#quiz-night",
+        "@id": "https://www.orangejelly.co.uk/results#quiz-night",
         "headline": "Tuesday Quiz Night: From 25 to 85+ People Using AI",
         "description": "How we ditched expensive quiz subscriptions and created better quizzes with AI in 20 minutes",
         "author": {
-          "@id": "https://orangejelly.co.uk/#peter-pitcher"
+          "@id": "https://www.orangejelly.co.uk/#peter-pitcher"
         },
         "datePublished": "2024-10-01",
         "articleBody": "QuestionOne was stale and expensive. Now AI creates custom quizzes with local flavor that pack the pub every Tuesday..."
       },
       {
         "@type": "HowTo",
-        "@id": "https://orangejelly.co.uk/results#quiet-weeks",
+        "@id": "https://www.orangejelly.co.uk/results#quiet-weeks",
         "name": "How to Fill Quiet Weeknights with Tasting Events",
         "description": "Turn dead Monday-Thursday nights into profitable tasting experiences",
         "supply": ["Local suppliers", "Tasting glasses", "Simple nibbles"],
@@ -141,7 +141,7 @@ export default function Results() {
         "@type": "Service",
         "name": "Orange Jelly Pub Consulting",
         "provider": {
-          "@id": "https://orangejelly.co.uk/#organization"
+          "@id": "https://www.orangejelly.co.uk/#organization"
         }
       },
       "reviewBody": "Peter's AI strategies transformed our pub. Quiz nights now 25-35 regulars, food GP from 58% to 71%, and we actually have evenings off now. Best investment we've made.",
@@ -391,7 +391,7 @@ export default function Results() {
         'WhatsApp groups for different events'
       ],
       results: [
-        { metric: 'Customer database', value: '850+ opted-in contacts' },
+        { metric: 'Customer database', value: '300 opted-in contacts' },
         { metric: 'Birthday voucher redemption', value: '65%' },
         { metric: 'Repeat visit rate', value: 'Up 40%' },
         { metric: 'Event sell-out rate', value: 'Most events full' }

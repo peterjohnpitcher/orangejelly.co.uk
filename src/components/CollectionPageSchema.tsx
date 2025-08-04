@@ -32,10 +32,10 @@ export function CollectionPageSchema({
     "@type": "CollectionPage",
     "name": name,
     "description": description,
-    "url": `https://orangejelly.co.uk${url}`,
+    "url": `https://www.orangejelly.co.uk${url}`,
     "isPartOf": {
       "@type": "WebSite",
-      "@id": "https://orangejelly.co.uk/#website"
+      "@id": "https://www.orangejelly.co.uk/#website"
     },
     "breadcrumb": breadcrumbs.length > 0 ? {
       "@type": "BreadcrumbList",
@@ -43,7 +43,7 @@ export function CollectionPageSchema({
         "@type": "ListItem",
         "position": index + 1,
         "name": crumb.name,
-        "item": `https://orangejelly.co.uk${crumb.url}`
+        "item": `https://www.orangejelly.co.uk${crumb.url}`
       }))
     } : undefined,
     "mainEntity": {
@@ -51,7 +51,7 @@ export function CollectionPageSchema({
       "itemListElement": items.map((item, index) => ({
         "@type": "BlogPosting",
         "position": index + 1,
-        "url": `https://orangejelly.co.uk${item.url}`,
+        "url": `https://www.orangejelly.co.uk${item.url}`,
         "headline": item.name,
         ...(item.description && { "description": item.description }),
         ...(item.datePublished && { "datePublished": item.datePublished }),
@@ -64,7 +64,7 @@ export function CollectionPageSchema({
         ...(item.image && {
           "image": {
             "@type": "ImageObject",
-            "url": `https://orangejelly.co.uk${item.image}`
+            "url": `https://www.orangejelly.co.uk${item.image}`
           }
         }),
         "publisher": {

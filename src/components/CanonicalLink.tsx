@@ -7,7 +7,7 @@ interface CanonicalLinkProps {
 
 export default function CanonicalLink({ 
   path, 
-  baseUrl = 'https://orangejelly.co.uk' 
+  baseUrl = 'https://www.orangejelly.co.uk' 
 }: CanonicalLinkProps) {
   // Ensure path starts with /
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
@@ -27,7 +27,7 @@ export default function CanonicalLink({
 }
 
 // Helper function to generate canonical URL
-export function generateCanonicalUrl(path: string, baseUrl: string = 'https://orangejelly.co.uk'): string {
+export function generateCanonicalUrl(path: string, baseUrl: string = 'https://www.orangejelly.co.uk'): string {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
   const cleanPath = normalizedPath === '/' 
     ? normalizedPath 

@@ -13,7 +13,7 @@ export const CONTACT = {
 export const COMPANY = {
   name: 'Orange Jelly',
   tagline: 'Marketing that actually works for busy licensees',
-  website: 'https://orangejelly.co.uk',
+  website: 'https://www.orangejelly.co.uk',
   vatStatus: 'All prices exclude VAT',
 } as const;
 
@@ -150,8 +150,8 @@ export const MESSAGES = {
     fromlicensees: 'From Real licensees',
     resultsIn14Days: 'Results in 14 Days',
     costEffective: 'Costs less than a part-time employee',
-    coversIncrease: '43% More Covers',
-    coversIncreaseLabel: 'Average increase in bookings',
+    coversIncrease: '25-35 Quiz Regulars',
+    coversIncreaseLabel: 'Up from 20 people',
     foodGPIncrease: '+8% Food GP',
     foodGPIncreaseLabel: 'Improved profit margins',
     sundayRoastRevenue: '£400+ Weekly',

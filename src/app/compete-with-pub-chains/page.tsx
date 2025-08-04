@@ -357,7 +357,7 @@ export default function CompeteWithPubChains() {
                 Start Beating the Chains
               </Button>
               <Text size="sm" color="muted" className="mt-4">
-                £499 investment - Most pubs see positive impact within 2 weeks
+                £62.50/hour plus VAT - Most pubs see positive impact within 2 weeks
               </Text>
             </div>
           </div>
