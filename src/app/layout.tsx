@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import AnchorBadge from "@/components/AnchorBadge";
-import { FloatingTrustBadge } from "@/components/TrustBadges";
-import StickyCTA from "@/components/StickyCTA";
+import FooterSimple from "@/components/FooterSimple";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Navigation from "@/components/Navigation";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import PerformanceMonitor, { PreloadResources } from "@/components/PerformanceMonitor";
 import { CONTACT, URLS, MESSAGES } from "@/lib/constants";
 
 const inter = Inter({
@@ -15,38 +14,56 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://orangejelly.co.uk'),
-  title: "Orange Jelly - Save At Least 5 Hours a Week Running Your Pub",
-  description: "AI tools that actually work for publicans. From one pub owner to another. Simple, fair pricing, real results from The Anchor.",
-  keywords: "pub AI tools, save time running pub, pub marketing help, menu writing service, Orange Jelly, Peter Pitcher",
+  title: "How to Fill Empty Pub Tables | Pub Marketing That Works | Orange Jelly",
+  description: "How can I fill my empty pub tables? Orange Jelly provides AI-powered marketing tools that help UK licensees attract more customers. Save 5+ hours weekly with proven strategies from The Anchor pub owner. Menu optimization, social media automation, and more.",
+  keywords: "pub AI tools, save time running pub, pub marketing help, menu writing service, Orange Jelly, Peter Pitcher, how to fill empty pub tables, pub marketing UK, automate pub social media",
   openGraph: {
-    title: "Orange Jelly - Save At Least 5 Hours a Week Running Your Pub",
-    description: "AI tools that actually work for publicans. From one pub owner to another.",
+    title: "How to Fill Empty Pub Tables | Pub Marketing That Works | Orange Jelly",
+    description: "Struggling with empty pub tables? We've helped dozens of pubs fill their seats with proven marketing strategies that work.",
     type: "website",
     url: "https://orangejelly.co.uk",
+    locale: 'en_GB',
+    siteName: 'Orange Jelly',
     images: [
       {
         url: "/logo.png",
         width: 800,
         height: 800,
-        alt: "Orange Jelly",
+        alt: "Orange Jelly - AI tools for UK licensees",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Orange Jelly - Save At Least 5 Hours a Week Running Your Pub",
-    description: "AI tools that actually work for publicans.",
+    title: "How to Fill Empty Pub Tables | Pub Marketing That Works | Orange Jelly",
+    description: "Struggling with empty pub tables? AI-powered marketing tools for UK pubs. Save 5+ hours weekly.",
   },
   robots: {
     index: true,
     follow: true,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+    'max-video-preview': -1,
   },
   alternates: {
     canonical: 'https://orangejelly.co.uk',
   },
   manifest: '/manifest.json',
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+    'format-detection': 'telephone=no',
+  },
 };
 
 export default function RootLayout({
@@ -57,7 +74,7 @@ export default function RootLayout({
   // Comprehensive schema.org structured data
   const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     "@id": "https://orangejelly.co.uk/#organization",
     "name": "Orange Jelly Limited",
     "alternateName": "Orange Jelly",
@@ -69,16 +86,19 @@ export default function RootLayout({
       "height": 800
     },
     "image": "https://orangejelly.co.uk/logo.png",
-    "description": "AI tools that actually work for publicans. From one pub owner to another. Save At Least 5 Hours a Week running your pub with simple, proven AI solutions.",
-    "slogan": "Save At Least 5 Hours a Week Running Your Pub",
+    "description": "Struggling with empty pub tables? We've helped dozens of pubs fill their seats with proven marketing strategies that work. From one licensee to another.",
+    "slogan": "Fill Empty Pub Tables with Marketing That Works",
     "founder": {
       "@type": "Person",
       "@id": "https://orangejelly.co.uk/#peter-pitcher",
       "name": "Peter Pitcher",
       "jobTitle": "Founder & AI Consultant",
+      "description": "Former struggling pub owner who discovered how AI could transform pub marketing. Now helps other licensees save time and fill empty tables.",
+      "knowsAbout": ["AI Tools", "Pub Management", "Marketing Automation", "Hospitality", "Small Business"],
       "spouse": {
         "@type": "Person",
-        "name": "Billy Summers"
+        "name": "Billy Summers",
+        "jobTitle": "Operations Manager at The Anchor"
       },
       "worksFor": [
         {
@@ -87,10 +107,35 @@ export default function RootLayout({
         {
           "@type": "Restaurant",
           "name": "The Anchor",
-          "url": "https://the-anchor.pub"
+          "url": "https://the-anchor.pub",
+          "foundingDate": "2019-03-05",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+              "opens": "16:00",
+              "closes": "22:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Friday", "Saturday", "Sunday"],
+              "opens": "12:00",
+              "closes": "23:00"
+            }
+          ]
         }
       ]
     },
+    "foundingDate": "2019",
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "value": 1
+    },
+    "knowsAbout": ["Pub Marketing", "AI Tools", "Social Media Automation", "Menu Design", "Customer Retention", "Event Promotion"],
+    "award": [
+      "Turned The Anchor from empty to thriving in 12 months",
+      "Helped 30+ pubs increase midweek revenue by 40%"
+    ],
     "areaServed": {
       "@type": "Country",
       "name": "United Kingdom"
@@ -108,24 +153,72 @@ export default function RootLayout({
     "sameAs": [
       "https://the-anchor.pub"
     ],
+    "parentOrganization": {
+      "@type": "Organization", 
+      "name": "Small UK Pub Network",
+      "description": "Independent pub owners supporting each other"
+    },
+    "memberOf": [
+      {
+        "@type": "Organization",
+        "name": "Federation of Small Businesses"
+      },
+      {
+        "@type": "Organization",
+        "name": "Greene King",
+        "url": "https://www.greeneking.co.uk",
+        "description": "We operate The Anchor as a Greene King tenant and share our AI innovations with them"
+      },
+      {
+        "@type": "Organization",
+        "name": "British Institute of Innkeeping",
+        "url": "https://www.bii.org",
+        "description": "Members of BII - Featured in BII's Autumn 2025 magazine for AI innovation"
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Pub Recovery Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Empty Pub Recovery Package",
+          "price": "499",
+          "priceCurrency": "GBP"
+        },
+        {
+          "@type": "Offer", 
+          "name": "Menu Makeover",
+          "price": "99",
+          "priceCurrency": "GBP"
+        }
+      ]
+    },
     "makesOffer": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "AI Consulting for Pubs",
-          "description": "Personalized AI tool implementation for hospitality businesses"
+          "name": "Pub Marketing Services",
+          "description": "Proven marketing strategies to fill empty pub tables and increase revenue"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Social Media Marketing for Pubs",
+          "description": "Engaging social media campaigns that bring customers through your doors"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Menu Design and Marketing",
+          "description": "Create menus that sell and market them effectively to your target audience"
         }
       }
-    ],
-    "knowsAbout": [
-      "Artificial Intelligence",
-      "Hospitality Management",
-      "Pub Operations",
-      "Restaurant Marketing",
-      "Menu Design",
-      "Social Media Marketing",
-      "Business Automation"
     ]
   };
 
@@ -134,8 +227,8 @@ export default function RootLayout({
     "@type": "WebSite",
     "@id": "https://orangejelly.co.uk/#website",
     "url": "https://orangejelly.co.uk",
-    "name": "Orange Jelly - AI Tools for Publicans",
-    "description": "Save At Least 5 Hours a Week running your pub with AI tools that actually work. From one pub owner to another.",
+    "name": "Orange Jelly - Pub Marketing That Works",
+    "description": "Struggling with empty pub tables? We've helped dozens of pubs fill their seats with proven marketing strategies that work. From one licensee to another.",
     "publisher": {
       "@id": "https://orangejelly.co.uk/#organization"
     },
@@ -161,8 +254,13 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en-GB">
       <head>
+        <PreloadResources />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="format-detection" content="telephone=no" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }}
@@ -170,36 +268,37 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         {/* Skip to main content link for keyboard navigation */}
-        <a href="#main-content" className="skip-to-main">
+        <a 
+          href="#main-content" 
+          className="skip-to-main sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-orange focus:text-white focus:px-4 focus:py-2 focus:rounded"
+        >
           Skip to main content
         </a>
         
+        {/* Navigation only - SuperHeader removed for cleaner layout */}
         <Navigation />
-        <main id="main-content" className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <ErrorBoundary>
+          <main id="main-content" className="min-h-screen pt-16">
+            {children}
+          </main>
+        </ErrorBoundary>
+        <FooterSimple />
+        <PerformanceMonitor />
         
-        {/* Floating Anchor Badge - appears after scroll */}
-        <AnchorBadge variant="floating" size="small" />
         
-        {/* Floating Trust Badge - desktop only */}
-        <FloatingTrustBadge />
-        
-        {/* Sticky CTA Bar */}
-        <StickyCTA />
         
         {/* WhatsApp floating button for mobile with branding */}
         <div className="fixed bottom-4 left-4 z-40 md:hidden">
           <div className="relative group">
             {/* Small Orange Jelly logo above WhatsApp */}
             <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <Image
+              <OptimizedImage
                 src="/logo.png"
-                alt="Orange Jelly - AI tools for publicans"
+                alt="Orange Jelly - AI tools for licensees"
                 width={32}
                 height={32}
                 className="rounded shadow-lg"
+                loading="lazy"
               />
             </div>
             

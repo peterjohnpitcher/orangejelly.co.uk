@@ -12,7 +12,7 @@ export const CONTACT = {
 // Company Information
 export const COMPANY = {
   name: 'Orange Jelly',
-  tagline: 'Marketing that actually works for busy publicans',
+  tagline: 'Marketing that actually works for busy licensees',
   website: 'https://orangejelly.co.uk',
   vatStatus: 'All prices exclude VAT',
 } as const;
@@ -127,6 +127,7 @@ export const MESSAGES = {
     services: "Hi Peter, I'd like to chat about Orange Jelly",
     training: "Hi Peter, I'm interested in AI training for my pub",
     quickWins: "Hi Peter, I'd like to try the 30-day package",
+    blog: "Hi Peter, I just read your blog post and need help with my pub",
     notListed: "Hi Peter, I need help with something not on your services list...",
     caseStudies: "Hi Peter, just read your case studies. Can we chat?",
     lostPage: "Hi Peter, I got lost on your site. Can you help me find what I'm looking for?",
@@ -145,15 +146,27 @@ export const MESSAGES = {
     atLeastFiveHours: 'At Least 5 Hours',
     thirtyDays: '30 Days',
     noContracts: 'No hidden fees, no long contracts, no surprises',
+    noAgencyFees: 'No Agency Fees',
+    fromlicensees: 'From Real licensees',
+    resultsIn14Days: 'Results in 14 Days',
+    costEffective: 'Costs less than a part-time employee',
+    coversIncrease: '43% More Covers',
+    coversIncreaseLabel: 'Average increase in bookings',
+    foodGPIncrease: '+8% Food GP',
+    foodGPIncreaseLabel: 'Improved profit margins',
+    sundayRoastRevenue: '£400+ Weekly',
+    sundayRoastRevenueLabel: 'Extra Sunday roast revenue',
   },
 
   // CTA Messages
   cta: {
-    primary: 'Chat with Peter',
-    secondary: 'Get Started',
-    bookCall: 'Book a Quick Chat',
-    tryRiskFree: 'Try Risk-Free',
-    getQuickWins: 'Get 30-Day Quick Wins',
+    primary: 'Fill Your Pub',
+    secondary: 'Get More Customers',
+    bookCall: 'Get Help Now',
+    tryRiskFree: 'Turn Your Pub Around',
+    getQuickWins: 'Start Filling Tables',
+    seeHow: 'See What Works',
+    getHelp: 'Stop Struggling',
   },
 } as const;
 
@@ -189,7 +202,7 @@ export const FEATURES = {
   support: [
     'WhatsApp preferred for quick responses',
     'Based in Stanwell Moor, serving pubs across the UK',
-    'Run by actual publicans who understand your challenges',
+    'Run by actual licensees who understand your challenges',
   ],
 } as const;
 

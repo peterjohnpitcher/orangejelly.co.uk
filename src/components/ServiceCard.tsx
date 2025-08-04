@@ -2,7 +2,7 @@ import Button from './Button';
 import Card from './Card';
 import Heading from './Heading';
 import FeatureList from './FeatureList';
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import { URLS } from '@/lib/constants';
 
 interface ServiceCardProps {
@@ -45,12 +45,12 @@ export default function ServiceCard({
       >
       {/* Subtle logo watermark */}
       <div className="absolute bottom-2 right-2 opacity-5">
-        <Image
+        <OptimizedImage
           src="/logo.png"
           alt="Orange Jelly watermark"
           width={80}
           height={80}
-          aria-hidden="true"
+          loading="lazy"
         />
       </div>
       

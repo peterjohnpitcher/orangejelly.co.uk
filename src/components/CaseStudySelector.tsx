@@ -119,11 +119,11 @@ export default function CaseStudySelector({ results, defaultStudy = 'sunday-roas
           </div>
 
           {/* Key Learnings */}
-          <Card variant="colored" className="bg-teal-dark text-white">
+          <Card background="teal-dark" padding="large">
             <Heading level={3} color="white" className="mb-4">What We Learned</Heading>
             <ul className="space-y-2">
               {activeStudyData.learnings.map((item, index) => (
-                <li key={index} className="flex items-start">
+                <li key={index} className="flex items-start text-white">
                   <span className="text-orange mr-2 mt-1">•</span>
                   <span>{item}</span>
                 </li>

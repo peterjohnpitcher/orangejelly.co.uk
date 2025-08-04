@@ -1,6 +1,6 @@
 # Orange Jelly
 
-> AI tools that actually work for publicans. Save at least 5 hours a week running your pub with proven solutions from fellow pub owners.
+> AI tools that actually work for licensees. Save at least 5 hours a week running your pub with proven solutions from fellow pub owners.
 
 ## Overview
 
@@ -41,7 +41,7 @@ Orange Jelly Limited helps UK pubs automate repetitive tasks using AI. Founded b
 ## Key Features
 
 - 30-day money-back guarantee on all services
-- WhatsApp support from actual publicans
+- WhatsApp support from actual licensees
 - No tech jargon - plain English only
 - Tested at The Anchor before recommending
 - Honest, transparent pricing
@@ -55,7 +55,7 @@ Orange Jelly Limited helps UK pubs automate repetitive tasks using AI. Founded b
 
 ## About the Founder
 
-Peter Pitcher runs The Anchor pub and created Orange Jelly after discovering how AI could save hours on admin tasks. Now helps other publicans implement the same time-saving tools.
+Peter Pitcher runs The Anchor pub and created Orange Jelly after discovering how AI could save hours on admin tasks. Now helps other licensees implement the same time-saving tools.
 
 ## Use Cases
 

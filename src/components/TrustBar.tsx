@@ -11,9 +11,9 @@ interface TrustBarProps {
 }
 
 const defaultItems: TrustItem[] = [
-  { value: MESSAGES.trust.thirtyDays, label: MESSAGES.trust.moneyBack },
-  { value: MESSAGES.trust.atLeastFiveHours, label: MESSAGES.trust.timeSaved },
-  { value: PRICING.hourlyRate.display, label: PRICING.hourlyRate.description }
+  { value: MESSAGES.trust.coversIncrease, label: MESSAGES.trust.coversIncreaseLabel },
+  { value: MESSAGES.trust.costEffective, label: 'AI-powered marketing solutions' },
+  { value: MESSAGES.trust.resultsIn14Days, label: 'Guaranteed quick results' }
 ];
 
 export default function TrustBar({ items = defaultItems }: TrustBarProps) {

@@ -1,9 +1,10 @@
 interface HeadingProps {
   children: React.ReactNode;
-  level?: 1 | 2 | 3 | 4;
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
   align?: 'left' | 'center' | 'right';
   color?: 'default' | 'white' | 'orange' | 'teal';
   className?: string;
+  id?: string;
 }
 
 export default function Heading({
@@ -11,7 +12,8 @@ export default function Heading({
   level = 2,
   align = 'left',
   color = 'default',
-  className = ''
+  className = '',
+  id
 }: HeadingProps) {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
   
@@ -19,7 +21,9 @@ export default function Heading({
     1: 'text-3xl md:text-4xl lg:text-5xl font-bold',
     2: 'text-2xl md:text-3xl lg:text-4xl font-bold',
     3: 'text-xl md:text-2xl font-bold',
-    4: 'text-lg md:text-xl font-semibold'
+    4: 'text-lg md:text-xl font-semibold',
+    5: 'text-base md:text-lg font-semibold',
+    6: 'text-sm md:text-base font-semibold'
   };
 
   const alignments = {
@@ -36,7 +40,10 @@ export default function Heading({
   };
 
   return (
-    <Tag className={`${sizes[level]} ${alignments[align]} ${colors[color]} ${className}`}>
+    <Tag 
+      className={`${sizes[level]} ${alignments[align]} ${colors[color]} ${className}`}
+      id={id}
+    >
       {children}
     </Tag>
   );

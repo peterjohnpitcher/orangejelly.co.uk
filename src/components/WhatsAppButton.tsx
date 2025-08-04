@@ -8,6 +8,7 @@ interface WhatsAppButtonProps {
   className?: string;
 }
 
+// WhatsApp button with mobile-first touch target sizing (min 44px)
 export default function WhatsAppButton({
   text,
   variant = 'primary',
@@ -25,9 +26,9 @@ export default function WhatsAppButton({
   };
 
   const sizeClasses = {
-    small: 'px-4 py-2 text-sm',
-    medium: 'px-6 py-3 text-base',
-    large: 'px-8 py-4 text-lg'
+    small: 'px-4 py-2.5 text-sm min-h-[44px]',
+    medium: 'px-6 py-3 text-base min-h-[48px]',
+    large: 'px-8 py-4 text-lg min-h-[56px]'
   };
 
   const widthClass = fullWidth ? 'w-full' : '';

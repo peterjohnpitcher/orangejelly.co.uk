@@ -12,7 +12,7 @@ export default function ROICalculator() {
   
   // Calculations
   const totalHoursSaved = Math.round((adminHours * 0.5) + (socialMediaHours * 0.8) + (menuUpdates * 0.75));
-  const hourlyValue = 25; // Conservative estimate of publican's hourly value
+  const hourlyValue = 25; // Conservative estimate of licensee's hourly value
   const moneySaved = totalHoursSaved * hourlyValue;
   const menuRevenue = Math.round(averageSpend * 0.15 * 50); // 15% increase on 50 covers
   const totalBenefit = moneySaved + menuRevenue;

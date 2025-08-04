@@ -28,7 +28,7 @@ export default function ServiceComparison() {
       name: 'Marketing Package',
       price: PRICING.services.quickWins.firstMonthsSetup,
       timeline: PRICING.services.quickWins.ongoingDisplay,
-      perfect: 'Busy publicans who hate social media',
+      perfect: 'Busy licensees who hate social media',
       includes: [
         'Everything in Quick Wins',
         'Monthly content creation',

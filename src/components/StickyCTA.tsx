@@ -31,17 +31,17 @@ export default function StickyCTA() {
           <div className="flex items-center gap-3">
             <Image
               src="/logo.png"
-              alt="Orange Jelly - AI tools for publicans"
+              alt="Orange Jelly - AI tools for licensees"
               width={32}
               height={32}
               className="rounded hidden sm:block"
             />
             <div className="text-center sm:text-left">
               <p className="font-semibold text-sm sm:text-base">
-                Ready to Save At Least 5 Hours a Week?
+                Get More Customers Without Agency Fees
               </p>
               <p className="text-xs text-charcoal/60 hidden sm:block">
-                Let's chat about your pub - no pressure, just helpful advice
+                Costs less than a part-time employee - Results in 14 days
               </p>
             </div>
           </div>
@@ -49,7 +49,7 @@ export default function StickyCTA() {
           {/* Right side - CTA */}
           <div className="flex items-center gap-3">
             <WhatsAppButton
-              text="Let's have a chat"
+              text="Get Marketing Help"
               size="small"
             />
             

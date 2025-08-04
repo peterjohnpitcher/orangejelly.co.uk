@@ -5,106 +5,100 @@ import ProblemCard from '@/components/ProblemCard';
 import CTASection from '@/components/CTASection';
 import Section from '@/components/Section';
 import ROICalculator from '@/components/ROICalculator';
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import Heading from '@/components/Heading';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import Grid from '@/components/Grid';
 import AnimatedItem from '@/components/AnimatedItem';
+import RelatedLinks, { linkClusters } from '@/components/RelatedLinks';
 import { URLS, MESSAGES, CONTACT } from '@/lib/constants';
+import Text from '@/components/Text';
+import { FAQSchema } from '@/components/StructuredData';
+import { SpeakableContent } from '@/components/SpeakableContent';
+import Partnerships from '@/components/Partnerships';
 
 export default function Home() {
-  // Generate comprehensive schema for Homepage
-  const generateHomepageSchema = () => {
-    const faqSchema = {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "I spend my evenings doing social media",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Create 3 months of posts in one afternoon. Get your evenings back."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "My menu doesn't sell profitable dishes",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "AI-written descriptions that make your best dishes fly off the pass."
-          }
-        },
-        {
-          "@type": "Question", 
-          "name": "I don't know if AI actually works",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Try everything for 30 days. Money back if you don't save time and money."
-          }
-        }
-      ]
-    };
-
-
-    const localBusinessAction = {
-      "@type": "ConsumeAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": `https://wa.me/${CONTACT.whatsappNumber}?text={message}`,
-        "actionPlatform": [
-          "http://schema.org/DesktopWebPlatform",
-          "http://schema.org/MobileWebPlatform"
-        ]
-      },
-      "object": {
-        "@type": "Service",
-        "name": "AI Consulting for Pubs"
-      }
-    };
-
-    return {
-      "@context": "https://schema.org",
-      "@graph": [faqSchema, localBusinessAction]
-    };
-  };
+  // Comprehensive FAQ data for homepage
+  const homepageFAQs = [
+    {
+      question: "How quickly can Orange Jelly help fill my empty pub?",
+      answer: "We typically see results within 30 days. Our strategies have been proven at The Anchor where we've turned quiet nights into profitable ones. We use AI-powered marketing that brings customers through the door."
+    },
+    {
+      question: "What does pub marketing cost with Orange Jelly?",
+      answer: "We charge £62.50 per hour plus VAT as a flat rate. I'm always happy to have a free chat first to understand your challenges. All pricing is transparent with no hidden fees, and we offer a 30-day money-back guarantee."
+    },
+    {
+      question: "How long does it take to see ROI from pub marketing?",
+      answer: "Most pubs see positive ROI within 30 days. Our menu makeovers typically pay for themselves in one weekend. Marketing campaigns start showing results within 7-14 days, with full ROI usually achieved by day 30."
+    },
+    {
+      question: "Do I need to understand technology to work with Orange Jelly?",
+      answer: "Not at all! We handle all the technical bits. You just serve the extra customers. We're licensees ourselves - we know you're too busy for complicated tech. Everything we do is designed to be simple and hands-off for you."
+    },
+    {
+      question: "What makes Orange Jelly different from other pub marketing agencies?",
+      answer: "We actually run a pub - The Anchor in Stanwell Moor. Every strategy we recommend has been tested in our own business first. We're not an agency; I'm a licensee who understands your challenges because I face them too. Plus I still work full-time, so I know about juggling everything."
+    },
+    {
+      question: "Can Orange Jelly help if my pub is losing money?",
+      answer: "Absolutely. We've added £75,000-£100,000 worth of value to our own business using AI. Our food GP went from 58% to 71%. We offer a 30-day money-back guarantee because I believe in what AI can do for pubs."
+    },
+    {
+      question: "How do I know if Orange Jelly's strategies will work for my pub?",
+      answer: "Every strategy has been proven at The Anchor where we've been implementing AI solutions since 2021. I offer a free consultation to discuss your specific challenges and show you exactly how we've solved similar problems. Plus, our 30-day guarantee means you can try risk-free."
+    },
+    {
+      question: "What areas does Orange Jelly cover?",
+      answer: "We work with pubs across the UK. For in-person training and consultations, we cover a 30-mile radius from Stanwell Moor (including Surrey, Berkshire, West London). For online services like marketing and menu design, we help pubs nationwide."
+    }
+  ];
 
   const problems = [
     {
-      emoji: '😩',
-      problem: '"I spend my evenings doing social media"',
-      solution: 'Create 3 months of posts in one afternoon. Get your evenings back.',
-      linkText: 'Marketing Package',
+      emoji: '🪑',
+      problem: '"My tables are empty most nights"',
+      solution: 'Fill your pub with proven marketing that brings customers through the door.',
+      linkText: 'Fill Your Pub',
       linkHref: '/services#marketing'
     },
     {
-      emoji: '📋',
-      problem: '"My menu doesn\'t sell profitable dishes"',
-      solution: 'AI-written descriptions that make your best dishes fly off the pass.',
-      linkText: 'Menu Makeover',
+      emoji: '🍽️',
+      problem: '"Food sales aren\'t covering costs"',
+      solution: 'Menu descriptions that sell your most profitable dishes every time.',
+      linkText: 'Boost Food Sales',
       linkHref: '/services#menu'
     },
     {
-      emoji: '🤔',
-      problem: '"I don\'t know if AI actually works"',
-      solution: 'Try everything for 30 days. Money back if you don\'t save time and money.',
-      linkText: '30-Day Quick Wins',
+      emoji: '🏆',
+      problem: '"Competition is killing us"',
+      solution: 'Stand out locally with strategies that actually bring customers back.',
+      linkText: 'Beat Competition',
       linkHref: '/services#quickwins'
     }
   ];
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateHomepageSchema()) }}
+      <FAQSchema faqs={homepageFAQs} />
+      <SpeakableContent 
+        cssSelectors={[
+          '.hero-title',
+          '.hero-subtitle', 
+          '.trust-bar',
+          '.problem-card h3',
+          '.cta-section h2',
+          '.cta-section p'
+        ]}
+        url="/"
       />
       
       <Hero
-        title={<>Save At Least 5 Hours a Week<br />Running Your Pub</>}
-        subtitle="AI tools that actually work - from publicans who use them daily"
+        title={<>Your Pub is Struggling.<br />We Know How to Fix It.</>}
+        subtitle="AI-powered marketing strategies from real licensees who turned their pubs around"
         secondaryAction={{
-          text: 'See How It Works',
+          text: 'See What Works',
           href: '/services'
         }}
         bottomText="📍 We run The Anchor in Stanwell Moor - come see the results yourself!"
@@ -117,11 +111,16 @@ export default function Home() {
         <TrustBadges variant="horizontal" />
       </Section>
 
+      {/* Partnerships */}
+      <Section background="cream" padding="small">
+        <Partnerships variant="compact" />
+      </Section>
+
       {/* Problems We Solve */}
       <Section>
         <AnimatedItem animation="fade-in">
         <Heading level={2} align="center" className="mb-12">
-          Problems We Actually Solve
+          What's Killing Your Business?
         </Heading>
         
         <Grid columns={{ default: 1, md: 3 }} gap="medium">
@@ -129,6 +128,17 @@ export default function Home() {
             <ProblemCard key={index} {...problem} />
           ))}
         </Grid>
+        
+        <RelatedLinks
+          title="Explore Solutions to Your Biggest Problems"
+          links={[
+            ...linkClusters.emptyPub.slice(0, 2),
+            linkClusters.competition[0],
+            linkClusters.time[0]
+          ]}
+          variant="inline"
+          centered={true}
+        />
         </AnimatedItem>
       </Section>
 
@@ -136,24 +146,25 @@ export default function Home() {
       <Section background="teal">
         <AnimatedItem animation="slide-up">
         <div className="text-center">
-          <Heading level={2} color="white" className="mb-6">
-            How We Use AI at The Anchor
+          <Heading level={2} color="white" align="center" className="mb-6">
+            Real Results from The Anchor
           </Heading>
           <div className="bg-teal-dark/30 rounded-lg p-8 mb-8 max-w-4xl mx-auto">
-            <p className="text-xl mb-4 text-white">
-              "We test every tool and technique at our own pub first. 
-              If it doesn't work for us, we won't recommend it to you."
-            </p>
-            <p className="text-lg text-cream/90">
-              From menu writing to social media, we use AI daily to run our pub more efficiently.
-            </p>
+            <Text size="lg" color="white" align="center" className="mb-4">
+              "We've added £75,000-£100,000 of value to our business using AI. 
+              Our food GP improved from 58% to 71%. Every strategy we share has been proven in our own pub."
+            </Text>
+            <Text size="lg" align="center" className="text-cream/90">
+              Featured in BII's Autumn 2025 magazine for AI innovation. From quiz nights to tasting events - 
+              see how we turned our pub around.
+            </Text>
           </div>
           <Button
             href="/results"
             variant="secondary"
             className="bg-cream text-teal hover:bg-cream-light"
           >
-            Read More Success Stories
+            See More Pub Turnarounds
           </Button>
         </div>
         </AnimatedItem>
@@ -161,20 +172,30 @@ export default function Home() {
 
 
       {/* ROI Calculator Section */}
+      <div id="roi-calculator">
       <Section background="white">
         <AnimatedItem animation="fade-in" delay={100}>
         <div className="max-w-4xl mx-auto">
           <Heading level={2} align="center" className="mb-4">
-            See Your Savings in Real Time
+            Calculate Your Potential Revenue
           </Heading>
-          <p className="text-xl text-center text-charcoal/80 mb-12 max-w-2xl mx-auto">
-            Every pub is different. Use our calculator to see exactly how much time and money 
-            you could save with AI tools.
-          </p>
+          <Text size="lg" color="muted" align="center" className="mb-12 max-w-2xl mx-auto">
+            Every pub is different. See exactly how much more revenue 
+            you could generate with proven strategies.
+          </Text>
           <ROICalculator />
+          
+          <RelatedLinks
+            title="Ready to Increase Your Revenue?"
+            subtitle="Choose the solution that fits your budget and timeline"
+            links={linkClusters.budget}
+            variant="card"
+            columns={{ default: 1, md: 3 }}
+          />
         </div>
         </AnimatedItem>
       </Section>
+      </div>
 
       {/* About Preview with The Anchor Logo */}
       <Section>
@@ -182,17 +203,17 @@ export default function Home() {
         <Grid columns={{ default: 1, md: 2 }} gap="large" className="items-center">
           <div>
             <Heading level={2} className="mb-6">
-              We're Not a Tech Company
+              We're licensees, Just Like You
             </Heading>
-            <p className="text-lg text-charcoal/80 mb-4">
-              I'm Peter. My husband Billy and I run The Anchor in Stanwell Moor. 
-              We're raising our son Marty, managing staff, dealing with suppliers - 
-              just like you.
-            </p>
-            <p className="text-lg text-charcoal/80 mb-6">
-              Orange Jelly started because we figured out how AI could give us our 
-              evenings back. Now we want to help you do the same.
-            </p>
+            <Text size="lg" color="muted" className="mb-4">
+              I'm Peter. My husband Billy and I have run The Anchor in Stanwell Moor since March 2019. 
+              We faced the same struggles - empty tables, rising costs, fierce competition.
+            </Text>
+            <Text size="lg" color="muted" className="mb-6">
+              Orange Jelly exists because we discovered how AI can add 25 hours of value per week. 
+              I've been an early AI adopter since 2021, and now I help other pubs implement 
+              the same strategies that transformed our business.
+            </Text>
             <Button
               href="/about"
               variant="ghost"
@@ -204,29 +225,30 @@ export default function Home() {
           <Card variant="colored" background="white" padding="large" className="!bg-teal text-center relative overflow-hidden">
             {/* Orange Jelly watermark in corner */}
             <div className="absolute top-2 right-2 opacity-20">
-              <Image
+              <OptimizedImage
                 src="/logo.png"
                 alt=""
                 width={60}
                 height={60}
-                aria-hidden="true"
                 className="rounded-lg"
+                loading="lazy"
               />
             </div>
             
-            <p className="text-sm text-white uppercase tracking-wider mb-4 opacity-90">
+            <Text size="xs" color="white" align="center" className="mb-4 opacity-90">
               Proven Daily At
-            </p>
-            <Image
+            </Text>
+            <OptimizedImage
               src="/logo_the-anchor.png"
               alt="The Anchor - Stanwell Moor"
               width={240}
               height={96}
               className="mx-auto mb-4"
+              priority
             />
-            <p className="text-white/90 font-semibold">
-              Family-run pub + AI knowledge = Orange Jelly
-            </p>
+            <Text color="white" align="center" className="opacity-90 font-semibold">
+              Real pub experience + proven strategies = Orange Jelly
+            </Text>
             
             {/* Orange accent line */}
             <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-orange to-transparent"></div>
@@ -239,13 +261,13 @@ export default function Home() {
       <Section background="orange-light" padding="small">
         <AnimatedItem animation="scale" delay={300}>
         <div className="text-center max-w-3xl mx-auto">
-          <Heading level={3} className="mb-4">
-            Let's Have a Quick Chat
+          <Heading level={3} align="center" className="mb-4">
+            Stop Struggling. Start Thriving.
           </Heading>
-          <p className="text-lg mb-6 max-w-2xl mx-auto">
-            Tell me what's keeping you up at night. I'll share how we solved 
-            the same problems at The Anchor. No sales pitch, promise.
-          </p>
+          <Text size="lg" align="center" className="mb-6 max-w-2xl mx-auto">
+            Tell me what's killing your business. I'll share exactly how we fixed 
+            the same problems at The Anchor. Real solutions, no fluff.
+          </Text>
           <Button
             href={URLS.whatsapp()}
             variant="primary"
@@ -253,15 +275,15 @@ export default function Home() {
             external
             ariaLabel={`Contact ${CONTACT.owner} on WhatsApp at ${CONTACT.phone}`}
           >
-            Message Peter
+            Get Marketing Help
           </Button>
         </div>
         </AnimatedItem>
       </Section>
 
       <CTASection
-        title="Ready to Get Your Evenings Back?"
-        subtitle="Let's have a quick chat about what's driving you mad. I'll share what worked for us."
+        title="Ready to Turn Your Pub Around?"
+        subtitle="Let's talk about what's really hurting your business. I'll share the exact strategies that saved ours."
       />
     </>
   );

@@ -12,24 +12,24 @@ export default function TrustBadges({
 }: TrustBadgesProps) {
   const badges = [
     {
-      icon: '👨‍👩‍👦',
-      title: 'Family-Run',
-      subtitle: 'Real pub owners'
+      icon: '🚫',
+      title: 'No Agency Fees',
+      subtitle: 'Just honest pricing'
     },
     {
-      icon: '✅',
-      title: '30-Day Guarantee',
-      subtitle: 'Money back promise'
+      icon: '🍺',
+      title: 'From Real licensees',
+      subtitle: 'We run a pub too'
     },
     {
-      icon: '🏆',
-      title: 'Run by Pub Owners',
-      subtitle: 'We get it'
+      icon: '📅',
+      title: 'Results in 14 Days',
+      subtitle: 'Or your money back'
     },
     {
-      icon: '🔒',
-      title: '100% Secure',
-      subtitle: 'Your data is safe'
+      icon: '💰',
+      title: 'Cost Effective',
+      subtitle: 'Less than part-time staff'
     }
   ];
 
@@ -80,10 +80,10 @@ export function FloatingTrustBadge() {
     <div className="fixed bottom-4 left-4 z-30 hidden lg:block">
       <Card variant="bordered" padding="small" className="shadow-lg max-w-xs animate-fade-in border-2">
         <div className="flex items-center gap-3">
-          <div className="text-3xl">🛡️</div>
+          <div className="text-3xl">💰</div>
           <div>
-            <p className="font-bold text-sm">30-Day Money Back</p>
-            <p className="text-xs text-charcoal/60">No questions asked</p>
+            <p className="font-bold text-sm">No Agency Fees</p>
+            <p className="text-xs text-charcoal/60">Less than part-time staff</p>
           </div>
         </div>
         

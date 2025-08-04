@@ -2,14 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Screen reader only content */
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+/* Mobile-first base styles */
+:root {
+  --tap-target-size: 44px;
+  --safe-area-inset-top: env(safe-area-inset-top, 0);
+  --safe-area-inset-right: env(safe-area-inset-right, 0);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0);
+  --safe-area-inset-left: env(safe-area-inset-left, 0);
+}
+
 body {
   @apply bg-cream text-charcoal;
   font-family: system-ui, -apple-system, sans-serif;
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
+  -webkit-text-size-adjust: 100%; /* Prevent font size adjustment on iOS */
+  text-size-adjust: 100%;
+  /* Smooth scrolling with momentum on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* Ensure all interactive elements are thumb-friendly */
+a, button, input, select, textarea, [role="button"], [tabindex]:not([tabindex="-1"]) {
+  min-height: var(--tap-target-size);
+  min-width: var(--tap-target-size);
+  @apply relative;
+}
+
+/* Mobile tap highlight color */
+a, button {
+  -webkit-tap-highlight-color: rgba(255, 119, 0, 0.2); /* Orange with transparency */
 }
 
 /* WhatsApp button hover effect */
@@ -174,4 +226,90 @@ select:focus-visible {
 /* Skip to main content link for keyboard navigation */
 .skip-to-main {
   @apply absolute left-0 top-0 bg-orange text-white px-4 py-2 rounded-br-lg transform -translate-y-full focus:translate-y-0 transition-transform duration-200 z-50;
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Larger touch targets on mobile */
+  .touch-target {
+    @apply relative;
+  }
+  
+  .touch-target::after {
+    content: '';
+    @apply absolute inset-0;
+    min-height: var(--tap-target-size);
+    min-width: var(--tap-target-size);
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+  }
+  
+  /* Optimize for one-handed mobile use */
+  .mobile-bottom-cta {
+    @apply fixed bottom-0 left-0 right-0 p-4 bg-white shadow-lg;
+    padding-bottom: calc(1rem + var(--safe-area-inset-bottom));
+  }
+  
+  /* Ensure readable font sizes on mobile */
+  body {
+    @apply text-base;
+  }
+  
+  h1 { @apply text-3xl; }
+  h2 { @apply text-2xl; }
+  h3 { @apply text-xl; }
+  h4 { @apply text-lg; }
+  
+  /* Optimize form inputs for mobile */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select {
+    @apply text-base; /* Prevents zoom on iOS */
+    font-size: 16px !important; /* Extra insurance against iOS zoom */
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Safe area utilities for mobile devices */
+.safe-area-bottom {
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0));
+}
+
+.safe-area-top {
+  padding-top: calc(1rem + env(safe-area-inset-top, 0));
+}
+
+.mobile-cta-button {
+  /* Ensure minimum touch target size */
+  min-height: 44px;
+  min-height: max(44px, env(safe-area-inset-bottom, 0) + 44px);
+  
+  /* Better tap feedback on mobile */
+  -webkit-tap-highlight-color: rgba(255, 119, 0, 0.2);
+  touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+  .mobile-cta-button {
+    /* Slightly larger on mobile for easier tapping */
+    min-height: 48px;
+    font-size: 1rem; /* 16px to prevent zoom on iOS */
+  }
 }

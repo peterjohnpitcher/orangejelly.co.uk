@@ -1,4 +1,8 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
+import Loading from './Loading';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -6,12 +10,15 @@ interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
   href?: string;
-  onClick?: () => void;
+  onClick?: () => void | Promise<void>;
   className?: string;
   external?: boolean;
   ariaLabel?: string;
+  loading?: boolean;
+  disabled?: boolean;
 }
 
+// All buttons have minimum 44px height for mobile thumb-friendly interaction
 export default function Button({
   children,
   variant = 'primary',
@@ -21,8 +28,24 @@ export default function Button({
   onClick,
   className = '',
   external = false,
-  ariaLabel
+  ariaLabel,
+  loading = false,
+  disabled = false
 }: ButtonProps) {
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const handleClick = async () => {
+    if (onClick && !disabled && !isLoading) {
+      setIsLoading(true);
+      try {
+        await onClick();
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  };
+  
+  const isDisabled = disabled || loading || isLoading;
   const baseClasses = 'font-semibold rounded-lg transition-all duration-300 inline-block text-center';
   
   const variants = {
@@ -34,32 +57,46 @@ export default function Button({
   };
 
   const sizes = {
-    small: 'px-4 py-2 text-sm',
-    medium: 'px-6 py-3',
-    large: 'px-8 py-4 text-lg'
+    small: 'px-4 py-2.5 text-sm min-h-[44px]',
+    medium: 'px-6 py-3 min-h-[48px]',
+    large: 'px-8 py-4 text-lg min-h-[56px]'
   };
 
   const widthClass = fullWidth ? 'w-full block' : '';
-  const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${widthClass} ${className}`;
+  const disabledClass = isDisabled ? 'opacity-50 cursor-not-allowed' : '';
+  const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${widthClass} ${disabledClass} ${className}`;
+  
+  const buttonContent = (loading || isLoading) ? (
+    <span className="inline-flex items-center gap-2">
+      <Loading size="small" color={variant === 'primary' || variant === 'secondary' ? 'white' : 'orange'} />
+      {children}
+    </span>
+  ) : children;
 
-  if (href) {
+  if (href && !isDisabled) {
     if (external) {
       return (
         <a href={href} target="_blank" rel="noopener noreferrer" className={classes} aria-label={ariaLabel}>
-          {children}
+          {buttonContent}
         </a>
       );
     }
     return (
       <Link href={href} className={classes} aria-label={ariaLabel}>
-        {children}
+        {buttonContent}
       </Link>
     );
   }
 
   return (
-    <button onClick={onClick} className={classes} aria-label={ariaLabel}>
-      {children}
+    <button 
+      onClick={handleClick} 
+      className={classes} 
+      aria-label={ariaLabel}
+      disabled={isDisabled}
+      aria-busy={loading || isLoading}
+    >
+      {buttonContent}
     </button>
   );
 }

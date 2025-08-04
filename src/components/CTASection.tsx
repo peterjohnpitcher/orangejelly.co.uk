@@ -2,6 +2,7 @@ import Button from './Button';
 import Heading from './Heading';
 import AnimatedItem from './AnimatedItem';
 import { CONTACT, MESSAGES, URLS, formatPhoneDisplay } from '@/lib/constants';
+import Text from './Text';
 
 interface CTASectionProps {
   title: string;
@@ -35,16 +36,16 @@ export default function CTASection({
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         <AnimatedItem animation="fade-in">
-          <Heading level={2} color="white" className="mb-6">
+          <Heading level={2} color="white" align="center" className="mb-6">
             {title}
           </Heading>
         </AnimatedItem>
         
         {subtitle && (
           <AnimatedItem animation="fade-in" delay={100}>
-            <p className="text-xl mb-8">
+            <Text size="lg" align="center" className="mb-8">
               {subtitle}
-            </p>
+            </Text>
           </AnimatedItem>
         )}
         
@@ -63,9 +64,9 @@ export default function CTASection({
         
         {bottomText && (
           <AnimatedItem animation="fade-in" delay={300}>
-            <p className="mt-4 text-sm opacity-80">
+            <Text size="sm" align="center" className="mt-4 opacity-80">
               {bottomText}
-            </p>
+            </Text>
           </AnimatedItem>
         )}
       </div>

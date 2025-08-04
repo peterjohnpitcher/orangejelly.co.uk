@@ -1,6 +1,7 @@
 import WhatsAppButton from './WhatsAppButton';
 import Button from './Button';
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
+import Text from './Text';
 
 interface HeroProps {
   title: string | React.ReactNode;
@@ -18,7 +19,7 @@ export default function Hero({
   title,
   subtitle,
   showCTA = true,
-  ctaText = "Hi Peter, I'd like to learn about the 30-day quick wins package",
+  ctaText = "Hi Peter, I need help filling my pub",
   secondaryAction,
   bottomText
 }: HeroProps) {
@@ -26,13 +27,13 @@ export default function Hero({
     <section className="relative overflow-hidden bg-gradient-to-b from-cream to-cream-light">
       {/* Watermark Logo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <Image
+        <OptimizedImage
           src="/logo.png"
           alt=""
           width={400}
           height={400}
           className="opacity-5 blur-sm"
-          aria-hidden="true"
+          priority
         />
       </div>
       
@@ -47,9 +48,9 @@ export default function Hero({
           </h1>
           
           {subtitle && (
-            <p className="text-xl md:text-2xl text-charcoal/80 mb-8 max-w-3xl mx-auto animate-fade-in-delay">
+            <Text size="lg" color="muted" align="center" className="md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in-delay">
               {subtitle}
-            </p>
+            </Text>
           )}
           
           {showCTA && (
@@ -69,9 +70,9 @@ export default function Hero({
           )}
           
           {bottomText && (
-            <p className="text-sm text-charcoal/60 animate-fade-in-delay-3">
+            <Text size="sm" className="text-charcoal/60 animate-fade-in-delay-3 text-center">
               {bottomText}
-            </p>
+            </Text>
           )}
         </div>
       </div>

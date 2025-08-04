@@ -1,0 +1,70 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import Card from '@/components/Card';
+import Heading from '@/components/Heading';
+import Text from '@/components/Text';
+
+interface AuthorInfoProps {
+  author: {
+    name: string;
+    role: string;
+    bio: string;
+    image: string;
+  };
+  variant?: 'full' | 'compact';
+}
+
+export default function AuthorInfo({ author, variant = 'full' }: AuthorInfoProps) {
+  if (variant === 'compact') {
+    return (
+      <div className="flex items-center gap-3">
+        <Image
+          src={author.image}
+          alt={author.name}
+          width={40}
+          height={40}
+          className="rounded-full"
+        />
+        <div>
+          <p className="font-medium text-sm">{author.name}</p>
+          <p className="text-xs text-charcoal/60">{author.role}</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <Card variant="bordered" padding="large">
+      <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+        <Image
+          src={author.image}
+          alt={author.name}
+          width={120}
+          height={120}
+          className="rounded-full"
+        />
+        
+        <div className="text-center sm:text-left">
+          <Heading level={3} className="mb-1">{author.name}</Heading>
+          <Text color="orange" className="mb-3">{author.role}</Text>
+          <Text color="muted" className="mb-4">{author.bio}</Text>
+          
+          <Link 
+            href="/about" 
+            className="text-orange hover:text-orange-dark font-medium text-sm"
+          >
+            Learn more about Peter →
+          </Link>
+        </div>
+      </div>
+    </Card>
+  );
+}
+
+// Default author for most posts
+export const defaultAuthor = {
+  name: 'Peter Pitcher',
+  role: 'Licensee & Founder',
+  bio: 'I run The Anchor in Stanwell Moor with my husband Billy. After struggling with empty tables and overwhelming marketing tasks, I discovered how AI could transform pub marketing. Now I help other licensees implement the same strategies that saved our pub.',
+  image: '/images/peter-pitcher.svg'
+};

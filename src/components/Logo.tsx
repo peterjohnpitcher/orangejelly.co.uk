@@ -58,7 +58,7 @@ export default function Logo({
                 Orange Jelly
               </h3>
               {showTagline && (
-                <p className="text-xs text-charcoal/60">Save At Least 5 Hours a Week</p>
+                <p className="text-xs text-charcoal/60">AI Solutions for Smarter Pub Marketing</p>
               )}
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function Logo({
               Orange Jelly
             </h3>
             {showTagline && (
-              <p className="text-sm text-charcoal/60 mt-1">Save At Least 5 Hours a Week</p>
+              <p className="text-sm text-charcoal/60 mt-1">AI Solutions for Smarter Pub Marketing</p>
             )}
           </div>
         );
