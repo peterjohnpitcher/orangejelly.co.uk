@@ -14,7 +14,7 @@ import { generateMetadata } from '@/lib/metadata';
 
 export const metadata = generateMetadata({
   title: 'Pubs That Were Empty. Now They\'re Not',
-  description: 'How did The Anchor transform Sunday lunches and reduce waste by £250/week? How do pubs grow quiz nights to 25-35 regulars? Real success stories from The Anchor using AI tools. See the actual numbers and proven strategies.',
+  description: 'How did The Anchor transform Sunday lunches and reduce waste by £250/week? How we grew quiz nights from zero to 25-35 regulars? Real success stories from The Anchor using AI tools. See the actual numbers and proven strategies.',
   path: '/results',
 });
 
@@ -39,7 +39,7 @@ export default function Results() {
         "@type": "HowTo",
         "@id": "https://www.orangejelly.co.uk/results#sunday-lunches",
         "name": "How to Fix Sunday Lunch Chaos with Pre-Order System",
-        "description": "Learn how The Anchor reduced Sunday lunch waste by £250/week using a simple pre-order system",
+        "description": "Learn how The Anchor reduced Sunday lunch waste by £250/week using a custom-built pre-order system",
         "supply": ["Google Forms or similar", "Payment processor", "SMS system"],
         "tool": ["Online form builder", "Automated SMS tool"],
         "step": [
@@ -71,7 +71,7 @@ export default function Results() {
           "value": "99"
         },
         "performTime": "PT20M",
-        "yield": "£500 weekly savings, 90% reduction in food waste"
+        "yield": "£250 weekly savings, 90% reduction in food waste"
       },
       {
         "@type": "Article",
@@ -111,7 +111,7 @@ export default function Results() {
           {
             "@type": "HowToStep",
             "name": "Keep it casual and affordable",
-            "text": "£15 for 5 samples and nibbles - accessible pricing"
+            "text": "£35 for tasting samples and themed meal - premium experience"
           },
           {
             "@type": "HowToStep",
@@ -131,7 +131,7 @@ export default function Results() {
           "value": "199"
         },
         "performTime": "PT2H",
-        "yield": "Wednesday covers from 15 to 45-50, £675 average revenue"
+        "yield": "Sold out tasting nights at 25 tickets, 85% retention rate"
       }
     ];
 
@@ -165,13 +165,13 @@ export default function Results() {
   const results: Result[] = [
     {
       id: 'quiet-weeks',
-      title: 'The Anchor\'s Quiet Weeks Challenge',
-      subtitle: 'Monday to Thursday were dead. We created tasting nights that actually work.',
+      title: 'The Anchor\'s Event Strategy Success',
+      subtitle: 'Quarterly tasting nights that sell out every time.',
       problem: [
-        'Weeknights empty except Tuesday quiz',
-        'Losing money Monday, Wednesday, Thursday',
-        'Same boring weekly pattern',
-        'Staff costs higher than revenue'
+        'Needed premium events to boost revenue',
+        'Regular events getting stale',
+        'Missing opportunities for higher spend',
+        'No special occasion offerings'
       ],
       failed: [
         'Generic "2-for-1" offers attracted wrong crowd',
@@ -181,14 +181,15 @@ export default function Results() {
       ],
       solution: [
         'AI analyzed what our actual customers wanted',
-        'Created "Gin Discovery" nights - casual, fun',
-        'Rum tasting with local supplier stories',
-        'Kept it simple: 5 samples, some nibbles, £15'
+        'Created gin, rum, and tequila tasting nights',
+        'Winter Warmers event - seasonal themed drinks',
+        'Work with Greene King for brand partnerships',
+        'Premium experience: samples, themed meal, quiz, £35'
       ],
       results: [
-        { metric: 'Wednesday covers', value: 'From 15 to 45-50' },
-        { metric: 'Tasting night revenue', value: '£675 average' },
-        { metric: 'Repeat bookings', value: '60% come monthly' },
+        { metric: 'Tasting night attendance', value: 'Limited to 25 (sells out)' },
+        { metric: 'Ticket price', value: '£35 inc. meal' },
+        { metric: 'Retention rate', value: '85% repeat bookings' },
         { metric: 'Staff morale', value: 'Love the variety' }
       ],
       timeInvestment: [
@@ -202,14 +203,14 @@ export default function Results() {
         'Pre-booking essential for stock',
         'Create WhatsApp group for regulars'
       ],
-      quote: '"Wednesday gin nights now bring in more than some Fridays. Who\'d have thought?"'
+      quote: '"Our tasting nights sell out at 25 tickets. The £35 includes spirits, mixers and a themed meal - it\'s become a premium experience our customers love."'
     },
     {
       id: 'sunday-lunches',
       title: 'The Sunday Lunch Pre-Order Revolution',
-      subtitle: 'Cut £500/week in wasted food without losing the offer.',
+      subtitle: 'Cut £250/week in wasted food without losing the offer.',
       problem: [
-        'Throwing away £500 worth of food weekly',
+        'Throwing away £250 worth of food weekly',
         'Prepping for 70 but only serving 45-50',
         'Last-minute cancellations killed us',
         'Never knew numbers until Sunday morning'
@@ -227,7 +228,7 @@ export default function Results() {
         'Menu choices locked in = no waste'
       ],
       results: [
-        { metric: 'Weekly savings', value: '£500 in reduced waste' },
+        { metric: 'Weekly savings', value: '£250 in reduced waste' },
         { metric: 'Food waste', value: 'Down 90%' },
         { metric: 'No-shows', value: 'Almost eliminated' },
         { metric: 'Predictability', value: 'Know numbers by Friday' }
@@ -243,7 +244,7 @@ export default function Results() {
         'Regulars now book weeks ahead',
         'Predictability changes everything'
       ],
-      quote: '"We\'re saving £500 every single week just by knowing how many are coming. No more bins full of perfectly good food."'
+      quote: '"We\'re saving £250 every single week just by knowing how many are coming. No more bins full of perfectly good food."'
     },
     {
       id: 'social-media',
@@ -350,8 +351,8 @@ export default function Results() {
         'Topical rounds about current events'
       ],
       results: [
-        { metric: 'Quiz attendance', value: 'From 20 to 25-35 people' },
-        { metric: 'Food orders', value: '70% of teams eat' },
+        { metric: 'Quiz attendance', value: 'From sometimes 0 to 25-35 regulars' },
+        { metric: 'Average spend', value: '£25 per person' },
         { metric: 'Quiz quality', value: 'Best in the area' },
         { metric: 'Time saved', value: '2.5 hours weekly' }
       ],
@@ -467,12 +468,12 @@ export default function Results() {
           <Heading level={2} align="center" className="mb-6">The Bottom Line</Heading>
           <Grid columns={{ default: 1, md: 2 }} gap="medium" className="mb-8">
             <Card variant="shadowed">
-              <Text align="center" className="text-2xl font-bold text-orange mb-2">At least 5 hours</Text>
-              <Text align="center" color="muted">Saved weekly</Text>
+              <Text align="center" className="text-2xl font-bold text-orange mb-2">25 hours</Text>
+              <Text align="center" color="muted">Added value weekly through AI</Text>
             </Card>
             <Card variant="shadowed">
-              <Text align="center" className="text-2xl font-bold text-orange mb-2">22%</Text>
-              <Text align="center" color="muted">Revenue increase over 6 months</Text>
+              <Text align="center" className="text-2xl font-bold text-orange mb-2">£75k-£100k</Text>
+              <Text align="center" color="muted">Value added to business</Text>
             </Card>
           </Grid>
           <Text size="lg" color="muted" align="center">
