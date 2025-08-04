@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
 import Card from '@/components/Card';
@@ -63,8 +63,7 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
       <div className="fixed top-0 left-0 right-0 h-1 bg-cream z-50">
         <div 
           id="reading-progress" 
-          className="h-full bg-orange transition-all duration-100"
-          style={{ width: '0%' }}
+          className="h-full bg-orange transition-all duration-100 w-0"
         />
       </div>
 
@@ -79,12 +78,14 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
         {/* Hero section */}
         <header className="mb-8">
           <div className="mb-6">
-            <a 
+            <Button
               href={`/licensees-guide/category/${post.category.slug}`}
-              className="text-orange hover:text-orange-dark font-medium text-sm"
+              variant="ghost"
+              size="small"
+              className="text-orange hover:text-orange-dark font-medium text-sm p-0"
             >
               {post.category.name}
-            </a>
+            </Button>
           </div>
           
           <Heading level={1} className="mb-4">
@@ -118,13 +119,15 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
         {/* Featured image */}
         {post.featuredImage && (
           <div className="relative aspect-[16/9] mb-8 -mx-4 sm:mx-0 sm:rounded-lg overflow-hidden">
-            <Image
+            <OptimizedImage
               src={post.featuredImage.src}
               alt={post.featuredImage.alt}
               fill
               className="object-cover"
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              width={0}
+              height={0}
             />
           </div>
         )}

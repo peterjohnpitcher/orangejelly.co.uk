@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
+import Text from '@/components/Text';
 
 interface AnchorBadgeProps {
   variant?: 'floating' | 'inline';
@@ -28,19 +29,19 @@ export default function AnchorBadge({
       title="See our results at The Anchor"
     >
       <div className="bg-teal rounded-lg p-3 shadow-lg hover:shadow-xl transition-normal hover:scale-105">
-        <p className="text-xs text-white uppercase tracking-wider text-center mb-2 opacity-90">
+        <Text size="xs" color="white" align="center" className="uppercase tracking-wider mb-2 opacity-90">
           Proven at
-        </p>
-        <Image
+        </Text>
+        <OptimizedImage
           src="/logo_the-anchor.png"
           alt="The Anchor"
           width={variant === 'floating' ? 120 : 140}
           height={variant === 'floating' ? 48 : 56}
           className={`${sizeClasses[size]} h-auto`}
         />
-        <p className="text-xs text-white text-center mt-2 opacity-0 group-hover:opacity-100 transition-quick">
+        <Text size="xs" color="white" align="center" className="mt-2 opacity-0 group-hover:opacity-100 transition-quick">
           See our results →
-        </p>
+        </Text>
       </div>
     </a>
   );

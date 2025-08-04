@@ -1,8 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import Card from './Card';
+import Button from './Button';
+import Heading from './Heading';
+import Text from './Text';
 
 interface VideoTestimonialProps {
   title?: string;
@@ -35,7 +38,7 @@ export default function VideoTestimonial({
             <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-charcoal to-charcoal-dark">
               <div className="text-center text-white">
                 <div className="mb-4">
-                  <Image
+                  <OptimizedImage
                     src="/logo_the-anchor.png"
                     alt="The Anchor"
                     width={200}
@@ -43,14 +46,15 @@ export default function VideoTestimonial({
                     className="mx-auto opacity-50"
                   />
                 </div>
-                <p className="text-xl font-semibold mb-2">{title}</p>
-                <p className="text-cream/80">{subtitle}</p>
+                <Text className="text-xl font-semibold mb-2 text-white">{title}</Text>
+                <Text className="text-cream/80">{subtitle}</Text>
               </div>
             </div>
             
             {/* Play Button */}
-            <button
+            <Button
               onClick={() => setIsPlaying(true)}
+              variant="ghost"
               className="absolute inset-0 flex items-center justify-center group"
               aria-label="Play video"
             >
@@ -59,7 +63,7 @@ export default function VideoTestimonial({
                   <path d="M8 5v14l11-7z"/>
                 </svg>
               </div>
-            </button>
+            </Button>
             
             {/* Coming Soon Badge */}
             <div className="absolute top-4 right-4 bg-orange text-white px-3 py-1 rounded-full text-sm font-semibold">
@@ -68,7 +72,7 @@ export default function VideoTestimonial({
           </div>
         ) : (
           <div className="w-full h-full bg-charcoal flex items-center justify-center">
-            <p className="text-white">Video player would go here</p>
+            <Text className="text-white">Video player would go here</Text>
           </div>
         )}
       </div>
@@ -81,13 +85,13 @@ export default function VideoTestimonial({
         
         <div className="flex items-center justify-between">
           <div>
-            <p className="font-semibold text-charcoal">{author}</p>
+            <Text className="font-semibold text-charcoal">{author}</Text>
             {result && (
-              <p className="text-sm text-orange font-medium">{result}</p>
+              <Text size="sm" className="text-orange font-medium">{result}</Text>
             )}
           </div>
           
-          <Image
+          <OptimizedImage
             src="/logo.png"
             alt="Orange Jelly"
             width={40}
@@ -129,16 +133,16 @@ export function VideoTestimonialGrid() {
     <div className="grid md:grid-cols-3 gap-8">
       {testimonials.map((testimonial, index) => (
         <Card key={index} variant="shadowed" padding="medium">
-          <h4 className="font-bold text-lg mb-2">{testimonial.title}</h4>
-          <p className="text-sm text-charcoal/60 mb-4">{testimonial.subtitle}</p>
+          <Heading level={4} className="font-bold mb-2">{testimonial.title}</Heading>
+          <Text size="sm" className="text-charcoal/60 mb-4">{testimonial.subtitle}</Text>
           
           <blockquote className="text-charcoal/80 italic mb-4">
             "{testimonial.testimonialText}"
           </blockquote>
           
           <div className="border-t pt-4">
-            <p className="font-semibold text-sm">{testimonial.author}</p>
-            <p className="text-orange font-bold">{testimonial.result}</p>
+            <Text size="sm" className="font-semibold">{testimonial.author}</Text>
+            <Text className="text-orange font-bold">{testimonial.result}</Text>
           </div>
         </Card>
       ))}

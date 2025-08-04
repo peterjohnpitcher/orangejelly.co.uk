@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Heading from '@/components/Heading';
 
 interface TOCItem {
   id: string;
@@ -81,14 +82,14 @@ export default function TableOfContents({
 
   return (
     <nav className={`table-of-contents ${className}`}>
-      <h3 className="font-bold text-sm uppercase tracking-wider text-charcoal/60 mb-4">
+      <Heading level={6} className="uppercase tracking-wider text-charcoal/60 mb-4">
         On this page
-      </h3>
+      </Heading>
       <ul className="space-y-2">
         {headings.map((heading) => (
           <li
             key={heading.id}
-            style={{ paddingLeft: `${(heading.level - 2) * 16}px` }}
+            className={heading.level === 3 ? 'pl-4' : ''}
           >
             <a
               href={`#${heading.id}`}

@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import WhatsAppButton from './WhatsAppButton';
-import Image from 'next/image';
 import Card from './Card';
 import { PRICING, MESSAGES, COMPANY } from '@/lib/constants';
+import Heading from './Heading';
+import Text from './Text';
 
 export default function ServiceComparison() {
   const [selectedService, setSelectedService] = useState('quickwins');
@@ -84,9 +85,9 @@ export default function ServiceComparison() {
                         MOST POPULAR
                       </div>
                     )}
-                    <h3 className="text-xl font-bold mb-2">{service.name}</h3>
-                    <p className="text-2xl font-bold text-orange">{service.price}</p>
-                    <p className="text-sm text-charcoal/60">{service.timeline}</p>
+                    <Heading level={3} className="mb-2">{service.name}</Heading>
+                    <Text size="2xl" weight="bold" color="orange">{service.price}</Text>
+                    <Text size="sm" className="text-charcoal/60">{service.timeline}</Text>
                   </div>
                 </th>
               ))}
@@ -147,17 +148,17 @@ export default function ServiceComparison() {
               </div>
             )}
             
-            <h3 className="text-2xl font-bold mb-2">{service.name}</h3>
-            <p className="text-3xl font-bold text-orange mb-1">{service.price}</p>
-            <p className="text-sm text-charcoal/60 mb-4">{service.timeline}</p>
+            <Heading level={3} className="mb-2">{service.name}</Heading>
+            <Text size="2xl" weight="bold" color="orange" className="mb-1">{service.price}</Text>
+            <Text size="sm" className="text-charcoal/60 mb-4">{service.timeline}</Text>
             
             <div className="mb-6">
-              <p className="font-semibold mb-2">Perfect for:</p>
-              <p className="text-charcoal/80">{service.perfect}</p>
+              <Text weight="semibold" className="mb-2">Perfect for:</Text>
+              <Text className="text-charcoal/80">{service.perfect}</Text>
             </div>
             
             <div className="mb-6">
-              <p className="font-semibold mb-2">What's included:</p>
+              <Text weight="semibold" className="mb-2">What's included:</Text>
               <ul className="space-y-2">
                 {service.includes.map((item, index) => (
                   <li key={index} className="flex items-start">
@@ -178,13 +179,13 @@ export default function ServiceComparison() {
 
       {/* Bottom comparison note */}
       <Card background="cream" padding="small" className="mt-8 text-center">
-        <p className="text-sm text-charcoal/80 mb-2">
+        <Text size="sm" className="text-charcoal/80 mb-2">
           <strong>Not sure which to choose?</strong> Most pubs start with the 30-Day Quick Wins 
           to see results fast, then upgrade to monthly support.
-        </p>
-        <p className="text-xs text-charcoal/60">
+        </Text>
+        <Text size="xs" className="text-charcoal/60">
           {COMPANY.vatStatus}
-        </p>
+        </Text>
       </Card>
     </Card>
   );

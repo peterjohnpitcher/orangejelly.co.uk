@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import Card from './Card';
+import Button from './Button';
+import Text from './Text';
 
 export default function SocialProof() {
   const [isVisible, setIsVisible] = useState(false);
@@ -82,36 +84,37 @@ export default function SocialProof() {
           
           {/* Content */}
           <div className="flex-1">
-            <p className="font-semibold text-sm">
+            <Text size="sm" weight="semibold">
               {currentNotification.pub}
               <span className="text-xs text-charcoal/60 font-normal ml-1">
                 ({currentNotification.location})
               </span>
-            </p>
-            <p className="text-sm text-charcoal/80">
+            </Text>
+            <Text size="sm" color="muted">
               {currentNotification.message}
-            </p>
-            <p className="text-xs text-charcoal/50 mt-1">
+            </Text>
+            <Text size="xs" className="text-charcoal/50 mt-1">
               {currentNotification.time}
-            </p>
+            </Text>
           </div>
           
           {/* Close button */}
-          <button
+          <Button
             onClick={() => setIsVisible(false)}
-            className="text-charcoal/40 hover:text-charcoal/60 transition-quick"
-            aria-label="Close notification"
+            variant="custom"
+            className="text-charcoal/40 hover:text-charcoal/60 transition-quick p-0"
+            ariaLabel="Close notification"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
-          </button>
+          </Button>
         </div>
         
         {/* Orange Jelly branding */}
         <div className="mt-3 pt-3 border-t flex items-center justify-between">
           <span className="text-xs text-charcoal/50">Powered by</span>
-          <Image
+          <OptimizedImage
             src="/logo.png"
             alt="Orange Jelly"
             width={20}

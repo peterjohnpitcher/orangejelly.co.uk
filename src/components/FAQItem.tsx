@@ -1,4 +1,6 @@
 import Card from './Card';
+import Heading from './Heading';
+import Text from './Text';
 
 interface FAQItemProps {
   question: string;
@@ -9,12 +11,12 @@ interface FAQItemProps {
 export default function FAQItem({ question, answer, icon }: FAQItemProps) {
   return (
     <Card variant="shadowed">
-      <h3 className="font-semibold text-lg mb-2 flex items-start">
+      <Heading level={3} className="mb-2 flex items-start">
         {icon && <span className="mr-2">{icon}</span>}
         {question}
-      </h3>
+      </Heading>
       <div className="text-charcoal/80">
-        {typeof answer === 'string' ? <p>{answer}</p> : answer}
+        {typeof answer === 'string' ? <Text>{answer}</Text> : answer}
       </div>
     </Card>
   );

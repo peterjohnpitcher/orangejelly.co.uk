@@ -1,12 +1,13 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import WhatsAppButton from './WhatsAppButton';
 import { LandmarkNav } from '@/components/AriaLandmarks';
 import { ariaLabels } from '@/lib/accessibility';
+import OptimizedImage from './OptimizedImage';
+import Button from './Button';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,7 +31,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center group">
             <div className="relative">
-              <Image
+              <OptimizedImage
                 src="/logo.png"
                 alt="Orange Jelly"
                 width={48}
@@ -61,8 +62,10 @@ export default function Navigation() {
           </div>
           
           {/* Mobile Menu Button */}
-          <button
+          <Button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            variant="ghost"
+            size="small"
             className="md:hidden p-2 rounded-lg hover:bg-orange/10 transition-quick"
             aria-label={isMenuOpen ? ariaLabels.buttons.close : ariaLabels.buttons.menu}
             aria-expanded={isMenuOpen}
@@ -71,7 +74,7 @@ export default function Navigation() {
             <div className={`w-6 h-0.5 bg-charcoal mb-1.5 transition-quick ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
             <div className={`w-6 h-0.5 bg-charcoal mb-1.5 transition-quick ${isMenuOpen ? 'opacity-0' : ''}`}></div>
             <div className={`w-6 h-0.5 bg-charcoal transition-quick ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
-          </button>
+          </Button>
           
           <div className="hidden md:block">
             <WhatsAppButton text="Hi Peter, I'd like to chat about Orange Jelly" size="small" />

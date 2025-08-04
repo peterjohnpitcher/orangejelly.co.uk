@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { CONTACT, URLS, formatPhoneDisplay } from '@/lib/constants';
 import Button from '@/components/Button';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
+import OptimizedImage from '@/components/OptimizedImage';
 
 export default function FooterSimple() {
   const currentYear = new Date().getFullYear();
@@ -15,7 +15,7 @@ export default function FooterSimple() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {/* Logo and Tagline */}
           <div className="text-center mb-8">
-            <Image
+            <OptimizedImage
               src="/logo.png"
               alt="Orange Jelly"
               width={60}

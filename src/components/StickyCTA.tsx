@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import WhatsAppButton from './WhatsAppButton';
-import Image from 'next/image';
+import OptimizedImage from './OptimizedImage';
+import Text from './Text';
+import Button from './Button';
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,13 +25,12 @@ export default function StickyCTA() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t-2 border-orange/20 shadow-lg transform transition-normal"
-         style={{ transform: isVisible ? 'translateY(0)' : 'translateY(100%)' }}>
+    <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t-2 border-orange/20 shadow-lg transform transition-normal">
       <div className="max-w-6xl mx-auto px-4 py-3">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           {/* Left side - Logo and message */}
           <div className="flex items-center gap-3">
-            <Image
+            <OptimizedImage
               src="/logo.png"
               alt="Orange Jelly - AI tools for licensees"
               width={32}
@@ -37,12 +38,12 @@ export default function StickyCTA() {
               className="rounded hidden sm:block"
             />
             <div className="text-center sm:text-left">
-              <p className="font-semibold text-sm sm:text-base">
+              <Text size="sm" weight="semibold" className="sm:text-base">
                 Get More Customers Without Agency Fees
-              </p>
-              <p className="text-xs text-charcoal/60 hidden sm:block">
+              </Text>
+              <Text size="xs" className="text-charcoal/60 hidden sm:block">
                 Costs less than a part-time employee - Results in 14 days
-              </p>
+              </Text>
             </div>
           </div>
           
@@ -54,15 +55,17 @@ export default function StickyCTA() {
             />
             
             {/* Close button */}
-            <button
+            <Button
               onClick={() => setIsVisible(false)}
+              variant="ghost"
+              size="small"
               className="p-2 hover:bg-cream rounded-lg transition-quick text-charcoal/60 hover:text-charcoal"
               aria-label="Close"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
-            </button>
+            </Button>
           </div>
         </div>
       </div>

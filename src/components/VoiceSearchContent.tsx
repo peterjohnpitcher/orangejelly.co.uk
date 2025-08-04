@@ -1,6 +1,9 @@
 // Voice search optimized content component
 // Structures content to answer common voice queries naturally
 
+import Heading from '@/components/Heading';
+import Text from '@/components/Text';
+
 interface VoiceSearchContentProps {
   question: string;
   answer: string;
@@ -32,12 +35,12 @@ export default function VoiceSearchContent({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
       )}
-      <h3 className="text-lg font-semibold mb-2 text-charcoal">
+      <Heading level={3} className="mb-2">
         {question}
-      </h3>
-      <p className="text-charcoal/80 leading-relaxed">
+      </Heading>
+      <Text color="muted" className="leading-relaxed">
         {answer}
-      </p>
+      </Text>
     </div>
   );
 }
@@ -75,7 +78,7 @@ export function VoiceSearchSection({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <h2 className="text-2xl font-bold mb-6 text-center">{title}</h2>
+      <Heading level={2} align="center" className="mb-6">{title}</Heading>
       <div className="grid md:grid-cols-2 gap-6">
         {items.map((item, index) => (
           <VoiceSearchContent

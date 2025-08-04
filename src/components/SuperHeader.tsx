@@ -150,15 +150,16 @@ export default function SuperHeader({
               </p>
             </div>
             {announcement.dismissible && (
-              <button
+              <Button
                 onClick={handleDismissAnnouncement}
+                variant="custom"
                 className="ml-4 p-1 hover:opacity-70 transition-opacity"
-                aria-label="Dismiss announcement"
+                ariaLabel="Dismiss announcement"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
-              </button>
+              </Button>
             )}
           </div>
         </div>
@@ -203,8 +204,9 @@ export default function SuperHeader({
           {/* Mobile View */}
           <div className="md:hidden">
             <div className="py-2 flex items-center justify-between">
-              <button
+              <Button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                variant="custom"
                 className="flex items-center space-x-2 text-sm"
               >
                 <span>Quick Links</span>
@@ -216,7 +218,7 @@ export default function SuperHeader({
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
-              </button>
+              </Button>
               
               <Link 
                 href="/contact" 

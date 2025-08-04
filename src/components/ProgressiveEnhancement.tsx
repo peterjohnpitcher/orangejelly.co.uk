@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import OptimizedImage from '@/components/OptimizedImage';
 
 // Component that only renders children when JavaScript is available
 export function ClientOnly({ children }: { children: React.ReactNode }) {
@@ -44,28 +45,16 @@ export function ProgressiveImage({
 }) {
   return (
     <>
-      {/* Always show basic img tag */}
-      <img
+      {/* Use OptimizedImage component */}
+      <OptimizedImage
         src={src}
         alt={alt}
         className={className}
-        width={width}
-        height={height}
-        loading={priority ? 'eager' : 'lazy'}
+        width={width || 100}
+        height={height || 100}
+        priority={priority}
       />
       
-      {/* Enhanced features only with JS */}
-      <ClientOnly>
-        <style jsx>{`
-          img {
-            opacity: 1;
-            transition: opacity 0.3s ease-in-out;
-          }
-          img.loading {
-            opacity: 0.7;
-          }
-        `}</style>
-      </ClientOnly>
     </>
   );
 }

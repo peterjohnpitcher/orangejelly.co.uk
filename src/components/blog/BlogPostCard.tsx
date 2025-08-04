@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import Card from '@/components/Card';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
@@ -38,13 +38,15 @@ export default function BlogPostCard({ post, featured = false }: BlogPostCardPro
         <Link href={postUrl} className="group">
           <div className="grid md:grid-cols-2 gap-6">
             <div className="relative aspect-[16/9] md:aspect-auto">
-              <Image
+              <OptimizedImage
                 src={post.featuredImage.src}
                 alt={post.featuredImage.alt}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
+                width={0}
+                height={0}
               />
               <div className="absolute top-4 left-4">
                 <span className="bg-orange text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -93,12 +95,14 @@ export default function BlogPostCard({ post, featured = false }: BlogPostCardPro
     <Card variant="bordered" className="overflow-hidden h-full flex flex-col">
       <Link href={postUrl} className="group flex flex-col h-full">
         <div className="relative aspect-[16/9] overflow-hidden">
-          <Image
+          <OptimizedImage
             src={post.featuredImage.src}
             alt={post.featuredImage.alt}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            width={0}
+            height={0}
           />
         </div>
         

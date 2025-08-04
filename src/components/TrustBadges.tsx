@@ -1,5 +1,7 @@
-import Image from 'next/image';
 import Card from './Card';
+import Heading from './Heading';
+import Text from './Text';
+import OptimizedImage from './OptimizedImage';
 
 interface TrustBadgesProps {
   variant?: 'horizontal' | 'vertical' | 'compact';
@@ -67,8 +69,8 @@ export default function TrustBadges({
           className="text-center bg-gradient-to-br from-white to-cream hover:shadow-lg transition-normal hover:-translate-y-1"
         >
           <div className="text-4xl mb-2">{badge.icon}</div>
-          <h4 className="font-bold text-charcoal">{badge.title}</h4>
-          <p className="text-xs text-charcoal/60 mt-1">{badge.subtitle}</p>
+          <Heading level={4} className="text-charcoal">{badge.title}</Heading>
+          <Text size="xs" className="text-charcoal/60 mt-1">{badge.subtitle}</Text>
         </Card>
       ))}
     </div>
@@ -82,14 +84,14 @@ export function FloatingTrustBadge() {
         <div className="flex items-center gap-3">
           <div className="text-3xl">💰</div>
           <div>
-            <p className="font-bold text-sm">No Agency Fees</p>
-            <p className="text-xs text-charcoal/60">Less than part-time staff</p>
+            <Text size="sm" weight="bold">No Agency Fees</Text>
+            <Text size="xs" className="text-charcoal/60">Less than part-time staff</Text>
           </div>
         </div>
         
         {/* Verified by Orange Jelly */}
         <div className="mt-3 pt-3 border-t flex items-center justify-between">
-          <Image
+          <OptimizedImage
             src="/logo.png"
             alt="Orange Jelly"
             width={24}

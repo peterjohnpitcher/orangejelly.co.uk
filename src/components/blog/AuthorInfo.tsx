@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import Link from 'next/link';
 import Card from '@/components/Card';
 import Heading from '@/components/Heading';
@@ -18,7 +18,7 @@ export default function AuthorInfo({ author, variant = 'full' }: AuthorInfoProps
   if (variant === 'compact') {
     return (
       <div className="flex items-center gap-3">
-        <Image
+        <OptimizedImage
           src={author.image}
           alt={author.name}
           width={40}
@@ -26,8 +26,8 @@ export default function AuthorInfo({ author, variant = 'full' }: AuthorInfoProps
           className="rounded-full"
         />
         <div>
-          <p className="font-medium text-sm">{author.name}</p>
-          <p className="text-xs text-charcoal/60">{author.role}</p>
+          <Text size="sm" weight="medium">{author.name}</Text>
+          <Text size="xs" color="muted">{author.role}</Text>
         </div>
       </div>
     );
@@ -36,7 +36,7 @@ export default function AuthorInfo({ author, variant = 'full' }: AuthorInfoProps
   return (
     <Card variant="bordered" padding="large">
       <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-        <Image
+        <OptimizedImage
           src={author.image}
           alt={author.name}
           width={120}

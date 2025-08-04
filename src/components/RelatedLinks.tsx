@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Card from '@/components/Card';
 import Heading from '@/components/Heading';
+import Text from '@/components/Text';
 import Grid from '@/components/Grid';
 import AnimatedItem from '@/components/AnimatedItem';
 
@@ -42,7 +43,7 @@ export default function RelatedLinks({
       <AnimatedItem animation="fade-in">
         <div className="mt-12 pt-8 border-t border-gray-200">
           <Heading level={3} className="mb-3">{title}</Heading>
-          {subtitle && <p className="text-lg text-charcoal/70 mb-6">{subtitle}</p>}
+          {subtitle && <Text size="lg" className="text-charcoal/70 mb-6">{subtitle}</Text>}
           
           <Grid columns={columns} gap="medium">
             {links.map((link, index) => (
@@ -58,12 +59,12 @@ export default function RelatedLinks({
                       </span>
                     )}
                     <div className="flex-1">
-                      <h4 className="font-semibold text-charcoal mb-2 group-hover:text-orange transition-colors">
+                      <Heading level={4} className="font-semibold text-charcoal mb-2 group-hover:text-orange transition-colors">
                         {link.title}
-                      </h4>
-                      <p className="text-sm text-charcoal/70">
+                      </Heading>
+                      <Text size="sm" className="text-charcoal/70">
                         {link.description}
-                      </p>
+                      </Text>
                     </div>
                   </div>
                 </Card>
@@ -79,7 +80,7 @@ export default function RelatedLinks({
   if (variant === 'inline') {
     return (
       <div className={`my-8 p-6 bg-cream rounded-lg ${centered ? 'text-center' : ''}`}>
-        <h4 className={`font-semibold text-charcoal mb-4 ${centered ? 'text-center' : ''}`}>{title}</h4>
+        <Heading level={4} className={`font-semibold text-charcoal mb-4 ${centered ? 'text-center' : ''}`}>{title}</Heading>
         <ul className={`space-y-3 ${centered ? 'max-w-2xl mx-auto' : ''}`}>
           {links.map((link, index) => (
             <li key={index} className={`flex items-start gap-2 ${centered ? 'justify-center' : ''}`}>
@@ -92,7 +93,7 @@ export default function RelatedLinks({
                   {link.title}
                 </Link>
                 {link.description && (
-                  <p className="text-sm text-charcoal/70 mt-1">{link.description}</p>
+                  <Text size="sm" className="text-charcoal/70 mt-1">{link.description}</Text>
                 )}
               </div>
             </li>
@@ -105,9 +106,9 @@ export default function RelatedLinks({
   // Compact variant - for footer or sidebar links
   return (
     <div className="space-y-2">
-      <h4 className="font-semibold text-sm uppercase tracking-wider text-charcoal/60 mb-3">
+      <Heading level={4} className="font-semibold text-sm uppercase tracking-wider text-charcoal/60 mb-3">
         {title}
-      </h4>
+      </Heading>
       <ul className="space-y-2">
         {links.map((link, index) => (
           <li key={index}>

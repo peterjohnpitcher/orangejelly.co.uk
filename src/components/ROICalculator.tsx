@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import WhatsAppButton from './WhatsAppButton';
 import Card from './Card';
+import Heading from './Heading';
+import Text from './Text';
 
 export default function ROICalculator() {
   const [adminHours, setAdminHours] = useState(10);
@@ -19,9 +21,9 @@ export default function ROICalculator() {
   
   return (
     <Card background="orange-light" padding="large" className="bg-gradient-to-br from-orange/10 to-orange/5 shadow-xl">
-      <h3 className="text-2xl font-bold mb-6 text-center">
+      <Heading level={3} align="center" className="mb-6">
         Calculate Your Time & Money Savings
-      </h3>
+      </Heading>
       
       <div className="space-y-6">
         {/* Admin Hours */}
@@ -99,29 +101,29 @@ export default function ROICalculator() {
       
       {/* Results */}
       <Card className="mt-8 shadow-inner" padding="medium">
-        <h4 className="font-bold text-lg mb-4 text-center">Your Potential Savings:</h4>
+        <Heading level={4} align="center" className="mb-4">Your Potential Savings:</Heading>
         
         <div className="grid md:grid-cols-3 gap-4 text-center mb-6">
           <div>
-            <p className="text-3xl font-bold text-orange">{totalHoursSaved}h</p>
-            <p className="text-sm text-charcoal/70">Saved per week</p>
+            <Text size="2xl" weight="bold" color="orange">{totalHoursSaved}h</Text>
+            <Text size="sm" className="text-charcoal/70">Saved per week</Text>
           </div>
           <div>
-            <p className="text-3xl font-bold text-orange">£{moneySaved}</p>
-            <p className="text-sm text-charcoal/70">Time value per week</p>
+            <Text size="2xl" weight="bold" color="orange">£{moneySaved}</Text>
+            <Text size="sm" className="text-charcoal/70">Time value per week</Text>
           </div>
           <div>
-            <p className="text-3xl font-bold text-orange">£{menuRevenue}</p>
-            <p className="text-sm text-charcoal/70">Extra revenue per week</p>
+            <Text size="2xl" weight="bold" color="orange">£{menuRevenue}</Text>
+            <Text size="sm" className="text-charcoal/70">Extra revenue per week</Text>
           </div>
         </div>
         
         <div className="text-center border-t pt-4">
-          <p className="text-sm text-charcoal/70 mb-2">Total weekly benefit:</p>
-          <p className="text-4xl font-bold text-orange mb-4">£{totalBenefit}</p>
-          <p className="text-xs text-charcoal/60 mb-6">
+          <Text size="sm" className="text-charcoal/70 mb-2">Total weekly benefit:</Text>
+          <Text size="2xl" weight="bold" color="orange" className="mb-4">£{totalBenefit}</Text>
+          <Text size="xs" className="text-charcoal/60 mb-6">
             That's £{Math.round(totalBenefit * 52 / 1000)}k per year!
-          </p>
+          </Text>
           
           <WhatsAppButton
             text={`I want to save ${totalHoursSaved} hours a week - let's chat!`}
@@ -131,9 +133,9 @@ export default function ROICalculator() {
         </div>
       </Card>
       
-      <p className="text-xs text-center mt-4 text-charcoal/60">
+      <Text size="xs" align="center" className="mt-4 text-charcoal/60">
         * Based on real results from The Anchor and similar pubs
-      </p>
+      </Text>
     </Card>
   );
 }

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import Card from '@/components/Card';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
@@ -48,7 +48,7 @@ export default function Partnerships({
             external
             className="opacity-60 hover:opacity-100 transition-opacity"
           >
-            <Image
+            <OptimizedImage
               src={partner.logo}
               alt={partner.name}
               width={Math.round(partner.width * 0.6)}
@@ -75,7 +75,7 @@ export default function Partnerships({
               external
               className="opacity-70 hover:opacity-100 transition-opacity"
             >
-              <Image
+              <OptimizedImage
                 src={partner.logo}
                 alt={partner.name}
                 width={Math.round(partner.width * 0.8)}
@@ -104,7 +104,7 @@ export default function Partnerships({
                 external
                 className="inline-block mb-4 opacity-80 hover:opacity-100 transition-opacity"
               >
-                <Image
+                <OptimizedImage
                   src={partner.logo}
                   alt={partner.name}
                   width={partner.width}

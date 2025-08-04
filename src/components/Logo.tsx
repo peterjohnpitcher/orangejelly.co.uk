@@ -1,5 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import OptimizedImage from './OptimizedImage';
+import Heading from './Heading';
+import Text from './Text';
 
 interface LogoProps {
   variant?: 'default' | 'icon' | 'horizontal' | 'stacked';
@@ -30,7 +32,7 @@ export default function Logo({
       case 'icon':
         return (
           <div className="relative">
-            <Image
+            <OptimizedImage
               src="/logo.png"
               alt="Orange Jelly"
               width={currentSize.logo}
@@ -45,7 +47,7 @@ export default function Logo({
       case 'horizontal':
         return (
           <div className="flex items-center gap-3">
-            <Image
+            <OptimizedImage
               src="/logo.png"
               alt="Orange Jelly"
               width={currentSize.logo}
@@ -54,11 +56,11 @@ export default function Logo({
               priority
             />
             <div>
-              <h3 className={`font-bold ${currentSize.text} text-charcoal`}>
+              <Heading level={3} className={`font-bold ${currentSize.text} text-charcoal`}>
                 Orange Jelly
-              </h3>
+              </Heading>
               {showTagline && (
-                <p className="text-xs text-charcoal/60">AI Solutions for Smarter Pub Marketing</p>
+                <Text size="xs" className="text-charcoal/60">AI Solutions for Smarter Pub Marketing</Text>
               )}
             </div>
           </div>
@@ -67,7 +69,7 @@ export default function Logo({
       case 'stacked':
         return (
           <div className="text-center">
-            <Image
+            <OptimizedImage
               src="/logo.png"
               alt="Orange Jelly"
               width={currentSize.logo}
@@ -75,18 +77,18 @@ export default function Logo({
               className="rounded-lg mx-auto mb-2"
               priority
             />
-            <h3 className={`font-bold ${currentSize.text} text-charcoal`}>
+            <Heading level={3} className={`font-bold ${currentSize.text} text-charcoal`}>
               Orange Jelly
-            </h3>
+            </Heading>
             {showTagline && (
-              <p className="text-sm text-charcoal/60 mt-1">AI Solutions for Smarter Pub Marketing</p>
+              <Text size="sm" className="text-charcoal/60 mt-1">AI Solutions for Smarter Pub Marketing</Text>
             )}
           </div>
         );
 
       default:
         return (
-          <Image
+          <OptimizedImage
             src="/logo.png"
             alt="Orange Jelly"
             width={currentSize.logo}
