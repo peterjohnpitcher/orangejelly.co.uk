@@ -17,6 +17,14 @@ import Text from '@/components/Text';
 import { FAQSchema } from '@/components/StructuredData';
 import { SpeakableContent } from '@/components/SpeakableContent';
 import Partnerships from '@/components/Partnerships';
+import { generateMetadata } from '@/lib/metadata';
+
+export const metadata = generateMetadata({
+  title: 'How to Fill Empty Pub Tables | Pub Marketing That Works',
+  description: 'Struggling with empty pub tables? We use AI-powered marketing strategies that transformed The Anchor from struggling to thriving. From one licensee to another. £62.50 per hour plus VAT.',
+  path: '/',
+  keywords: 'pub marketing UK, fill empty pub tables, pub marketing strategies, increase pub customers, pub social media marketing, pub turnaround, empty pub solutions',
+});
 
 export default function Home() {
   // Comprehensive FAQ data for homepage

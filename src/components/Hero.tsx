@@ -2,6 +2,7 @@ import WhatsAppButton from './WhatsAppButton';
 import Button from './Button';
 import OptimizedImage from '@/components/OptimizedImage';
 import Text from './Text';
+import Heading from './Heading';
 
 interface HeroProps {
   title: string | React.ReactNode;
@@ -43,9 +44,9 @@ export default function Hero({
       
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24">
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-charcoal mb-6 animate-fade-in">
+          <Heading level={1} align="center" className="text-4xl md:text-6xl mb-6 animate-fade-in">
             {title}
-          </h1>
+          </Heading>
           
           {subtitle && (
             <Text size="lg" color="muted" align="center" className="md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in-delay">

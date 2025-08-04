@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import Link from 'next/link';
 import { useState } from 'react';
 import { CONTACT, COMPANY, URLS, formatPhoneDisplay, MESSAGES, SUCCESS_METRICS, PRICING } from '@/lib/constants';
@@ -28,10 +28,10 @@ export default function SuperFooter() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="max-w-2xl mx-auto text-center">
             <Heading level={3} color="white" className="mb-4">Get Free Weekly Pub Marketing Tips</Heading>
-            <p className="mb-6 text-cream/90">
+            <Text className="mb-6 text-cream/90">
               Join 150+ licensees getting practical tips every Tuesday. 
               Real examples from real pubs that actually work.
-            </p>
+            </Text>
             {!isSubscribed ? (
               <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                 <input
@@ -51,9 +51,9 @@ export default function SuperFooter() {
                 ✓ You're in! Check your email for confirmation.
               </div>
             )}
-            <p className="text-xs mt-4 text-cream/70">
+            <Text size="xs" className="mt-4 text-cream/70">
               No spam. Unsubscribe anytime. Usually sent Tuesday mornings.
-            </p>
+            </Text>
           </div>
         </div>
       </div>
@@ -87,15 +87,15 @@ export default function SuperFooter() {
           {/* Orange Jelly Brand Section */}
           <div className="text-center mb-12">
             <div className="inline-block">
-              <Image
+              <OptimizedImage
                 src="/logo.png"
                 alt="Orange Jelly"
                 width={80}
                 height={80}
                 className="mx-auto mb-4 rounded-lg shadow-lg"
               />
-              <h3 className="text-2xl font-bold text-orange mb-2">Orange Jelly</h3>
-              <p className="text-cream/80 text-lg">Save At Least 5 Hours a Week</p>
+              <Heading level={3} color="orange" align="center" className="mb-2">Orange Jelly</Heading>
+              <Text size="lg" className="text-cream/80">Save At Least 5 Hours a Week</Text>
             </div>
           </div>
 
@@ -103,9 +103,9 @@ export default function SuperFooter() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {/* Common Problems Column */}
             <div>
-              <h4 className="font-bold text-lg text-orange mb-4">
+              <Heading level={4} color="orange" className="mb-4">
                 Problems We Solve
-              </h4>
+              </Heading>
               <ul className="space-y-3">
                 <li>
                   <Link href="/services#empty-pub-recovery" className="group">
@@ -152,9 +152,9 @@ export default function SuperFooter() {
 
             {/* Services Column */}
             <div>
-              <h4 className="font-bold text-lg text-orange mb-4">
+              <Heading level={4} color="orange" className="mb-4">
                 Our Services
-              </h4>
+              </Heading>
               <ul className="space-y-3">
                 <li>
                   <Link href="/services#quick-wins" className="group">
@@ -206,9 +206,9 @@ export default function SuperFooter() {
 
             {/* Resources Column */}
             <div>
-              <h4 className="font-bold text-lg text-orange mb-4">
+              <Heading level={4} color="orange" className="mb-4">
                 Resources
-              </h4>
+              </Heading>
               <ul className="space-y-3">
                 <li>
                   <Link href="/results" className="text-sm hover:text-orange transition-colors">
@@ -239,7 +239,7 @@ export default function SuperFooter() {
 
               {/* Quick Contact Info */}
               <div className="mt-6 p-4 bg-cream/10 rounded-lg">
-                <h5 className="font-semibold text-sm mb-2">Quick Contact</h5>
+                <Heading level={5} className="font-semibold text-sm mb-2">Quick Contact</Heading>
                 <div className="space-y-2 text-xs">
                   <a href={URLS.whatsapp()} className="block hover:text-orange transition-colors">
                     📱 {formatPhoneDisplay()}
@@ -256,9 +256,9 @@ export default function SuperFooter() {
 
             {/* Trust & About Column */}
             <div>
-              <h4 className="font-bold text-lg text-orange mb-4">
+              <Heading level={4} color="orange" className="mb-4">
                 Why Choose Us
-              </h4>
+              </Heading>
               
               {/* Trust Badges */}
               <div className="space-y-3 mb-6">
@@ -294,16 +294,16 @@ export default function SuperFooter() {
 
               {/* The Anchor Badge */}
               <div className="p-4 bg-cream/10 rounded-lg">
-                <p className="text-xs uppercase tracking-wider opacity-60 mb-2">
+                <Text size="xs" className="uppercase tracking-wider opacity-60 mb-2">
                   Proven Daily At
-                </p>
+                </Text>
                 <a 
                   href="https://the-anchor.pub" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-block hover:opacity-80 transition-quick"
                 >
-                  <Image
+                  <OptimizedImage
                     src="/logo_the-anchor.png"
                     alt="The Anchor - Stanwell Moor"
                     width={150}
@@ -320,9 +320,9 @@ export default function SuperFooter() {
             {/* Company Info */}
             <div className="text-center mb-6">
               <Text size="lg" className="mb-2">© 2025 Orange Jelly Limited</Text>
-              <p className="text-sm opacity-75 mb-4">
+              <Text size="sm" className="opacity-75 mb-4">
                 Run by licensees, for licensees
-              </p>
+              </Text>
             </div>
             
             {/* Contact Bar */}
