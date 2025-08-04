@@ -126,8 +126,6 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
               className="object-cover"
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-              width={0}
-              height={0}
             />
           </div>
         )}

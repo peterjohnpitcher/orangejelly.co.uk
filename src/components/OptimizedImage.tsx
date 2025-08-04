@@ -6,8 +6,8 @@ import { useState } from 'react';
 interface OptimizedImageProps {
   src: string;
   alt: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   priority?: boolean;
   sizes?: string;
   className?: string;
@@ -169,8 +169,6 @@ export function OptimizedBackground({
         src={src}
         alt={alt}
         fill
-        width={0}
-        height={0}
         sizes="100vw"
         quality={90}
         priority
