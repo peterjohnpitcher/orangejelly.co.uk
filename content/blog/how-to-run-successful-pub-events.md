@@ -4,7 +4,7 @@ excerpt: >-
   Transform your quiet nights into packed events. From planning to promotion,
   learn the proven formula for running profitable pub events that create loyal
   customers.
-publishedDate: 2024-12-16T00:00:00.000Z
+publishedDate: 2025-06-02T00:00:00.000Z
 category: events-promotions
 tags:
   - pub events

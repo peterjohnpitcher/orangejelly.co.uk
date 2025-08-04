@@ -4,7 +4,7 @@ excerpt: >-
   Wetherspoons opened nearby? Don't panic. Learn proven strategies that help
   independent pubs thrive against chain competition by leveraging what Spoons
   can't offer.
-publishedDate: 2024-11-18T00:00:00.000Z
+publishedDate: 2025-03-17T01:00:00.000Z
 category: competition
 tags:
   - competition

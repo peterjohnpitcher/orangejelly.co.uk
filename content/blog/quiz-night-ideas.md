@@ -4,7 +4,7 @@ excerpt: >-
   Transform your quiz night from predictable to unmissable. Discover creative
   formats, round ideas, and hosting tips that create loyal quiz teams and boost
   midweek revenue.
-publishedDate: 2024-12-18T00:00:00.000Z
+publishedDate: 2025-06-16T00:00:00.000Z
 category: events-promotions
 tags:
   - quiz night

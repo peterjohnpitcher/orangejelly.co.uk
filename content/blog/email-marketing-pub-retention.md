@@ -4,7 +4,7 @@ excerpt: >-
   Turn one-time visitors into regulars with email marketing that works. Learn
   list building, automation, and campaign strategies that keep customers coming
   back week after week.
-publishedDate: 2024-12-09T00:00:00.000Z
+publishedDate: 2025-05-12T00:00:00.000Z
 category: social-media
 tags:
   - email marketing for pubs

@@ -4,7 +4,7 @@ excerpt: >-
   Discover proven pub food menu ideas that balance customer appeal with
   profitability. From gastropub classics to street food trends, learn what works
   and why.
-publishedDate: 2024-12-13T00:00:00.000Z
+publishedDate: 2025-05-26T00:00:00.000Z
 category: food-drink
 tags:
   - pub food

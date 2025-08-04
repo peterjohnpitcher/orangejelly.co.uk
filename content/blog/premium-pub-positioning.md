@@ -4,7 +4,7 @@ excerpt: >-
   Learn how to position your pub as a premium destination. From craft cocktails
   to chef partnerships, discover strategies that justify higher prices and
   attract quality customers.
-publishedDate: 2024-11-29T00:00:00.000Z
+publishedDate: 2025-04-14T00:00:00.000Z
 category: competition
 tags:
   - premium strategy

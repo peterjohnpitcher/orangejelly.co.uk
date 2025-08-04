@@ -1,7 +1,7 @@
 ---
 title: 'Christmas Pub Promotion Ideas: 30 Festive Ways to Boost December Revenue'
 category: empty-pub-solutions
-publishedDate: 2024-12-26T00:00:00.000Z
+publishedDate: 2025-06-30T00:00:00.000Z
 excerpt: >-
   Transform your pub into a Christmas destination with these proven festive
   promotion ideas. From budget-friendly decorations to profitable party

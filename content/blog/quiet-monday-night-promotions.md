@@ -3,7 +3,7 @@ title: Monday Night Pub Promotions That Actually Work (Not Another Quiz Night)
 excerpt: >-
   Transform dead Monday nights into thriving profit centres with these proven
   promotional ideas. Real results from UK pubs that cracked the Monday code.
-publishedDate: 2024-11-12T00:00:00.000Z
+publishedDate: 2025-03-03T01:00:00.000Z
 category: events-promotions
 tags:
   - monday night pub ideas

@@ -4,7 +4,7 @@ excerpt: >-
   Transform your pub's Instagram from amateur snapshots to a customer magnet.
   Learn photography tricks, hashtag strategies, and content ideas that fill
   tables and build buzz.
-publishedDate: 2024-12-04T00:00:00.000Z
+publishedDate: 2025-05-05T00:00:00.000Z
 category: social-media
 tags:
   - pub Instagram ideas

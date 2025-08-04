@@ -3,7 +3,7 @@ title: 'How to Fill Empty Pub Tables: 15 Strategies That Actually Work'
 excerpt: >-
   Proven tactics to transform your empty tables into bustling profit centres.
   Real strategies from UK publicans who've cracked the code.
-publishedDate: 2024-11-10T00:00:00.000Z
+publishedDate: 2025-02-17T01:00:00.000Z
 category: empty-pub-solutions
 tags:
   - fill empty tables

@@ -4,7 +4,7 @@ excerpt: >-
   Discover the real reasons your pub is struggling with footfall and learn
   practical, proven solutions that actually work. From a landlord who's been
   there.
-publishedDate: 2024-11-07T00:00:00.000Z
+publishedDate: 2025-02-10T01:00:00.000Z
 category: empty-pub-solutions
 tags:
   - empty pub solutions

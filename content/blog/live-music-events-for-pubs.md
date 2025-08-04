@@ -3,7 +3,7 @@ title: 'Live Music Events for Pubs: The Complete Guide to Booking, Hosting & Pro
 excerpt: >-
   Turn your pub into a thriving music venue. From open mics to ticketed shows,
   learn how to book acts, manage sound, and create profitable live music events.
-publishedDate: 2024-12-20T00:00:00.000Z
+publishedDate: 2025-06-09T00:00:00.000Z
 category: events-promotions
 tags:
   - live music

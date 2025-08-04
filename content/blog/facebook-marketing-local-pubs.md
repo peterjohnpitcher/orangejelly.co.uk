@@ -4,7 +4,7 @@ excerpt: >-
   Unlock Facebook's potential for your pub with proven strategies for events,
   community building, and local marketing. Turn your village Facebook group into
   your biggest revenue driver.
-publishedDate: 2024-12-06T00:00:00.000Z
+publishedDate: 2025-04-28T00:00:00.000Z
 category: social-media
 tags:
   - pub Facebook marketing

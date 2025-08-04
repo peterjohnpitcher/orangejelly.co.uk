@@ -4,7 +4,7 @@ excerpt: >-
   Chain pubs have deep pockets, but you have something they'll never possess –
   soul. Learn how successful independent pubs compete and win against corporate
   giants.
-publishedDate: 2024-11-21T00:00:00.000Z
+publishedDate: 2025-03-24T01:00:00.000Z
 category: competition
 tags:
   - competition

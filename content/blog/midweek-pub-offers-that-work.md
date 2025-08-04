@@ -3,7 +3,7 @@ title: Midweek Pub Offers That Actually Drive Profits (Not Just Footfall)
 excerpt: >-
   Discover midweek promotions that boost both customer numbers AND profits.
   Learn from real UK pubs that transformed their Tuesday-Thursday trade.
-publishedDate: 2024-11-15T00:00:00.000Z
+publishedDate: 2025-03-10T01:00:00.000Z
 category: events-promotions
 tags:
   - midweek pub offers

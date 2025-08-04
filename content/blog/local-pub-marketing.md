@@ -4,7 +4,7 @@ excerpt: >-
   Forget expensive advertising. Learn how successful local pubs use community
   marketing to build loyal customers, increase visits, and become indispensable
   neighbourhood institutions.
-publishedDate: 2024-11-26T00:00:00.000Z
+publishedDate: 2025-03-31T00:00:00.000Z
 category: competition
 tags:
   - marketing

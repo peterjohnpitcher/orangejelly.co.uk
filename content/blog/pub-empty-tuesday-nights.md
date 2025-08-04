@@ -3,7 +3,7 @@ title: Why Your Pub is Empty on Tuesday Nights (And How to Fix It)
 excerpt: >-
   Discover proven strategies to transform dead Tuesday nights into profitable
   evenings. Real solutions from a pub landlord who's been there.
-publishedDate: 2024-11-04T00:00:00.000Z
+publishedDate: 2025-02-24T01:00:00.000Z
 category: empty-pub-solutions
 tags:
   - tuesday night promotions

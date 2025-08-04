@@ -3,7 +3,7 @@ title: >-
   Recession-Proof Pub Strategies: How to Thrive When Customers Tighten Their
   Belts
 category: empty-pub-solutions
-publishedDate: 2025-01-06T00:00:00.000Z
+publishedDate: 2025-07-28T00:00:00.000Z
 excerpt: >-
   Proven strategies to maintain and grow your pub business during economic
   downturns. Learn cost-cutting measures, revenue optimization tactics, and

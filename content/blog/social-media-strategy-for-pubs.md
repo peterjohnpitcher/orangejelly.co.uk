@@ -4,7 +4,7 @@ excerpt: >-
   Master social media marketing for your pub with this comprehensive guide.
   Learn platform-specific strategies, content calendars, and engagement tactics
   that actually fill tables.
-publishedDate: 2024-12-02T00:00:00.000Z
+publishedDate: 2025-04-21T00:00:00.000Z
 category: social-media
 tags:
   - social media for pubs

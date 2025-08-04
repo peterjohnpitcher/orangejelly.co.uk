@@ -4,7 +4,7 @@ excerpt: >-
   Never face a quiet period again. Discover month-by-month seasonal event ideas
   that tap into holidays, trends, and local culture to keep your pub buzzing all
   year.
-publishedDate: 2024-12-23T00:00:00.000Z
+publishedDate: 2025-06-23T00:00:00.000Z
 category: events-promotions
 tags:
   - seasonal events
