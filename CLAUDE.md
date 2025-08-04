@@ -1,125 +1,198 @@
 # CLAUDE.md - Orange Jelly Website Development Guide
 
-This document contains important information for Claude when working on the Orange Jelly website.
+**CRITICAL: This document defines the single source of truth for the Orange Jelly website. Always read this file first before making any changes.**
 
-## Project Overview
+## 🚨 CRITICAL BUSINESS FACTS - NEVER CHANGE THESE
 
-Orange Jelly Limited is a business that helps UK pubs use AI tools for marketing and business improvement. The website is built with:
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS
-- Schema.org structured data
+### Company Information
+- **Company Name**: Orange Jelly Limited
+- **Founder**: Peter Pitcher
+- **Co-owner**: Billy Summers (husband, runs day-to-day at The Anchor)
+- **Founded**: 2019 (pivoted from digital agency)
+- **The Anchor Takeover**: March 5, 2019
+- **Location**: The Anchor, Stanwell Moor, Staines TW19 6AQ
 
-## Key Business Context
+### REAL Metrics - USE ONLY THESE
+- **Quiz Night Attendance**: 25-35 regulars (up from 20)
+- **Food GP Improvement**: 58% to 71%
+- **Social Media Views**: 60,000-70,000 monthly
+- **Customer Database**: 300 opted-in contacts (NOT 850!)
+- **Value Added to Business**: £75,000-£100,000
+- **Sunday Lunch Waste Savings**: £250/week (NOT £500!)
+- **Tasting Night Retention**: 85%
+- **Hours Saved Weekly**: 25 hours using AI
 
-- **Founder**: Peter Pitcher (runs The Anchor pub in Stanwell Moor)
-- **Target Audience**: UK pub licensees struggling with empty tables and time management
-- **Main Services**: Empty pub recovery, menu makeovers, social media automation, business analysis
-- **Key Partnerships**: Greene King and British Institute of Innkeeping (BII)
+### Pricing - NEVER DEVIATE
+- **All Services**: £62.50 per hour plus VAT
+- **NO PACKAGES**: No £99, £499, or fixed price packages
+- **Payment Plans**: Available but not specific amounts
+- **Guarantee**: 30-day money-back guarantee
 
-## Schema Implementation
+### Business Reality Checks
+- **First External Client**: September 2025 (haven't helped other pubs yet!)
+- **NO FALSE CLAIMS**: Never say "dozens of pubs" or "12 pubs helped"
+- **Competition**: No Wetherspoons nearby (30 mins away)
+- **Staff**: Just Peter (part-time around full-time job)
 
-### Implemented Schema Types
+### Partnerships (Use Correct Language)
+- **Greene King**: "Tenant" relationship (not "partner")
+- **BII**: "Member" (featured in Autumn 2025 magazine)
+- **Suppliers**: Barrel And Stone, Brakes, Bidfood (food partnerships)
 
-1. **Organization Schema** (in layout.tsx)
-   - Enhanced with founder details, awards, founding date
-   - Includes contact points and service offerings
+## ⛔ BANNED CONTENT - NEVER USE
 
-2. **FAQ Schema** 
-   - Implemented on all major pages
-   - Problem-focused Q&As that address customer pain points
+### False Metrics
+- ❌ "43% increase" in anything
+- ❌ "85+ people" at quiz (it's 25-35)
+- ❌ "850 contacts" (it's 300)
+- ❌ "Helped 30+ pubs" or "dozens of pubs"
+- ❌ "12 pubs" success stories
+- ❌ "300% increase" claims
+- ❌ Competition with nearby Wetherspoons
 
-3. **BlogPosting Schema**
-   - Automatically added to all blog posts in /licensees-guide/
-   - Includes speakable sections for voice search
+### False Pricing
+- ❌ £99 packages
+- ❌ £499 packages
+- ❌ Any fixed package prices
+- ❌ "Starting from £99"
 
-4. **Product Schema**
-   - Used for service packages (Empty Pub Recovery, Menu Makeover)
-   - Includes pricing and aggregate ratings when available
+### False Timeline
+- ❌ "Since 2021" (pub taken over March 2019)
+- ❌ "Multiple clients" (first one Sept 2025)
 
-5. **HowTo Schema**
-   - Added to solution pages with step-by-step guides
-   - Includes time estimates and required tools/supplies
+## ✅ ALWAYS DO
 
-6. **CollectionPage Schema**
-   - Used on blog listing and category pages
-   - Helps search engines understand content hierarchy
+### Content Standards
+1. **Verify Facts**: Check this document before adding any metrics
+2. **Use Real Examples**: Only from The Anchor's actual experience
+3. **Honest Language**: "We're planning to..." not "We've helped dozens..."
+4. **Clear Pricing**: Always "£62.50/hour plus VAT"
+5. **Real Events**: Quiz, bingo, drag nights, karaoke, games nights, tasting events
 
-7. **Speakable Schema**
-   - Added to key content sections for voice search optimization
-   - Focuses on hero sections and value propositions
+### Technical Standards
 
-### Schema Components Available
+#### URLs and Environment
+- **Base URL**: `https://www.orangejelly.co.uk` (with www)
+- **Use Environment Variables**: `NEXT_PUBLIC_BASE_URL`
+- **Dynamic Generation**: robots.txt and sitemap.xml are dynamic
+- **Never Hardcode**: Always use baseUrl variable
 
-- `/src/components/StructuredData.tsx` - Main schema components
-- `/src/components/BlogPostingSchema.tsx` - Blog post schema
-- `/src/components/SpeakableContent.tsx` - Voice search optimization
-- `/src/components/ProductSchema.tsx` - Product/service schema
-- `/src/components/CollectionPageSchema.tsx` - Collection pages
-- `/src/components/EventSchema.tsx` - Event schema (for future use)
-- `/src/components/VideoObjectSchema.tsx` - Video schema (for future use)
-- `/src/components/AggregateRatingSchema.tsx` - Rating schema (only use with real ratings)
-
-### Important Schema Guidelines
-
-1. **Never add fake data** - Only use real reviews, ratings, and testimonials
-2. **Test with Google's Rich Results Test** - Validate all schema before deployment
-3. **Keep schema up-to-date** - Update prices, hours, and details as they change
-4. **Use appropriate schema types** - Match schema to actual content type
-
-## Development Best Practices
-
-### When Adding New Features
-
-1. Check existing components first - reuse before creating new
-2. Follow the established patterns for styling and structure
-3. Ensure all new pages have appropriate meta tags and schema
-4. Test on mobile first - most pub owners check on phones
-
-### Common Tasks
-
-**Running the development server:**
-```bash
-npm run dev
+#### File Structure
+```
+src/
+├── app/              # Next.js 14 app router
+├── components/       # Reusable components
+├── lib/             
+│   ├── constants.ts  # Business info, pricing
+│   └── metadata.ts   # SEO helpers
+content/
+└── blog/            # Markdown blog posts
 ```
 
-**Building for production:**
-```bash
-npm run build
+#### Schema.org Rules
+1. **Never Add Fake Ratings**: No AggregateRating without real reviews
+2. **Use Correct IDs**: `${baseUrl}/#organization`
+3. **Test Everything**: Google Rich Results Test
+4. **Real Data Only**: Actual business information
+
+#### Component Patterns
+```typescript
+// ALWAYS use these patterns:
+
+// For images
+import OptimizedImage from '@/components/OptimizedImage'
+
+// For content sections
+import Section from '@/components/Section'
+
+// For headings (never use raw h1, h2, etc)
+import Heading from '@/components/Heading'
+
+// For text (never use raw p tags)
+import Text from '@/components/Text'
 ```
 
-**Type checking:**
-```bash
-npm run type-check
-```
+## 📋 CHECKLIST FOR EVERY CHANGE
 
-**Linting:**
-```bash
-npm run lint
-```
+Before committing ANY change, verify:
 
-### Writing Style
+### Content Checks
+- [ ] No false metrics (check against REAL Metrics section)
+- [ ] Pricing is £62.50/hour plus VAT
+- [ ] No claims about helping other pubs
+- [ ] Real partnership language used
+- [ ] Timeline is accurate (March 2019)
 
-- Direct and conversational
-- Focus on problems and solutions
-- Use "you" to address the reader
-- Avoid corporate jargon
-- Include specific examples from The Anchor
+### Technical Checks
+- [ ] Build succeeds: `npm run build`
+- [ ] TypeScript passes: `npm run type-check`
+- [ ] URLs use environment variables
+- [ ] Schema is valid (no fake data)
+- [ ] Mobile responsive
 
-### Important URLs
+### Business Logic
+- [ ] Would Peter approve this?
+- [ ] Is this honest about current situation?
+- [ ] Does this reflect The Anchor's real experience?
 
-- Production: https://www.orangejelly.co.uk
-- The Anchor: https://the-anchor.pub
-- WhatsApp: Use the helper function in lib/constants.ts
+## 🎯 QUICK REFERENCE
 
-## Future Enhancements
+### Key Constants Location
+- **Pricing**: `src/lib/constants.ts` - PRICING object
+- **Contact**: `src/lib/constants.ts` - CONTACT object
+- **Company**: `src/lib/constants.ts` - COMPANY object
 
-1. Add schema validation tests
-2. Set up Google Search Console monitoring for rich results
-3. Implement review collection system for AggregateRating
-4. Add more case studies with detailed metrics
-5. Create video content with VideoObject schema
+### Important Files
+- **Layout**: `src/app/layout.tsx` - Global metadata and schema
+- **Homepage**: `src/app/page.tsx` - Main landing page
+- **Services**: `src/app/services/page.tsx` - Service offerings
+- **Results**: `src/app/results/page.tsx` - Success stories
 
-## Contact
+### Blog Posts
+- **Location**: `content/blog/*.md`
+- **URL Pattern**: `/licensees-guide/[slug]`
+- **Categories**: empty-pub-solutions, social-media, competition, events, menu-pricing
 
-For questions about the codebase or business logic, the founder Peter Pitcher can provide context about the pub industry and specific customer needs.
+## 🔄 MAINTENANCE TASKS
+
+### Regular Updates Needed
+1. **Sitemap**: Automatically includes new blog posts
+2. **Schema**: Update with real reviews when available
+3. **Metrics**: Update as The Anchor achieves new milestones
+4. **First Client**: Update after September 2025 training
+
+### When Adding Blog Posts
+1. Create `.md` file in `content/blog/`
+2. Include all required frontmatter
+3. Sitemap updates automatically
+4. No need to update navigation
+
+## ⚠️ COMMON MISTAKES TO AVOID
+
+1. **Adding Package Prices**: Everything is hourly
+2. **Inflating Metrics**: Use only verified numbers
+3. **Future Promises**: Be clear about "planning to" vs "have done"
+4. **Schema Spam**: Don't add schema for things that don't exist
+5. **Hardcoding URLs**: Always use environment variables
+
+## 🆘 WHEN IN DOUBT
+
+If you're unsure about any content or claim:
+1. Check this document first
+2. Default to conservative/honest claims
+3. Use "The Anchor" as the only proven example
+4. State "First pub chain training September 2025" for credibility
+5. Focus on the journey, not inflated results
+
+## 📞 CONTACT FOR CLARIFICATION
+
+**Peter Pitcher**
+- Email: peter@orangejelly.co.uk
+- Phone: 07990 587315
+- WhatsApp: Available through site buttons
+
+---
+
+**Last Updated**: August 2024
+**Version**: 2.0
+**Status**: ACTIVE - This is the single source of truth
