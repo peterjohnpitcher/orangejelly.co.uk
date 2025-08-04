@@ -70,7 +70,7 @@ export default function OptimizedImage({
   }
 
   return (
-    <div className={`relative ${className}`} style={!fill ? { width, height } : undefined}>
+    <div className={fill ? "absolute inset-0" : `relative ${className}`} style={!fill ? { width, height } : undefined}>
       {/* Loading skeleton */}
       {isLoading && !priority && (
         <div 
@@ -93,6 +93,7 @@ export default function OptimizedImage({
         loading={loadingAttr}
         onLoad={handleLoad}
         onError={handleError}
+        className={className}
         style={{
           ...style,
           opacity: isLoading && !priority ? 0 : 1,
