@@ -1,5 +1,5 @@
 ---
-title: The Complete Social Media Strategy Guide for Pubs in 2024
+title: The Complete Social Media Strategy Guide for Pubs in 2025
 excerpt: >-
   Master social media marketing for your pub with this comprehensive guide.
   Learn platform-specific strategies, content calendars, and engagement tactics
