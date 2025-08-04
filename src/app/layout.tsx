@@ -7,6 +7,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Navigation from "@/components/Navigation";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import PerformanceMonitor, { PreloadResources } from "@/components/PerformanceMonitor";
+import { GoogleTagManager, GoogleTagManagerNoscript } from "@/components/GoogleTagManager";
 import { CONTACT, URLS, MESSAGES } from "@/lib/constants";
 
 const inter = Inter({
@@ -267,8 +268,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }}
         />
+        <GoogleTagManager />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
+        <GoogleTagManagerNoscript />
         {/* Skip to main content link for keyboard navigation */}
         <a 
           href="#main-content" 
