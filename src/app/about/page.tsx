@@ -1,7 +1,7 @@
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import CTASection from '@/components/CTASection';
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import Heading from '@/components/Heading';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
@@ -523,7 +523,7 @@ export default function About() {
           </Text>
           <div className="text-center">
             <Card background="teal-dark" className="inline-block">
-              <Image
+              <OptimizedImage
                 src="/logo_the-anchor.png"
                 alt="The Anchor - Stanwell Moor"
                 width={200}

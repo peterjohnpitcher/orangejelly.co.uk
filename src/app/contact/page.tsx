@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -621,7 +621,7 @@ export default function Contact() {
           
           <Card background="teal-dark" padding="large" className="max-w-2xl mx-auto">
             <div className="mb-6">
-              <Image
+              <OptimizedImage
                 src="/logo_the-anchor.png"
                 alt="The Anchor"
                 width={200}

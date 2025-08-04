@@ -11,7 +11,6 @@ import Heading from '@/components/Heading';
 import { generateMetadata } from '@/lib/metadata';
 import { FAQSchema } from '@/components/StructuredData';
 import { SpeakableContent } from '@/components/SpeakableContent';
-import { ProductSchema } from '@/components/ProductSchema';
 import Partnerships from '@/components/Partnerships';
 
 export const metadata = generateMetadata({
@@ -438,40 +437,7 @@ export default function Services() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(generateServiceSchema()) }}
       />
       <FAQSchema faqs={servicesFAQs} />
-      {/* Product schemas for main packages */}
-      <ProductSchema
-        name="Empty Pub Recovery Package"
-        description="Fill your quiet nights in 30 days with our proven system. Complete marketing setup, event promotions, and personal training included."
-        price="499"
-        url="/services#empty-pub-recovery"
-        category="Marketing Services"
-        aggregateRating={{
-          ratingValue: 4.8,
-          reviewCount: 12
-        }}
-      />
-      <ProductSchema
-        name="Menu Makeover"
-        description="Transform your pub menu with AI-powered design and descriptions that increase average spend by £7 per table."
-        price="99"
-        url="/services#boost-food-sales"
-        category="Marketing Services"
-        aggregateRating={{
-          ratingValue: 4.9,
-          reviewCount: 23
-        }}
-      />
-      <ProductSchema
-        name="Done-For-You Marketing"
-        description="Complete marketing service including social media, emails, events, and promotions. We handle everything while you focus on customers."
-        price="499"
-        url="/services#done-for-you-marketing"
-        category="Marketing Services"
-        aggregateRating={{
-          ratingValue: 4.7,
-          reviewCount: 8
-        }}
-      />
+      {/* Note: ProductSchema removed as we don't have fixed package prices or real reviews yet */}
       <SpeakableContent 
         cssSelectors={[
           '.hero-title',
@@ -531,7 +497,7 @@ export default function Services() {
               emoji: "🍽️"
             },
             {
-              title: "Tuesday Quiz: 25 to 85 People",
+              title: "Tuesday Quiz: Now 25-35 Regulars",
               description: "Smart social media strategy that packed our quiet nights",
               href: "/results#social-media",
               emoji: "📱"

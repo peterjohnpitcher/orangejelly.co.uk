@@ -1,7 +1,7 @@
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import CTASection from '@/components/CTASection';
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import Heading from '@/components/Heading';
 import Card from '@/components/Card';
 import Grid from '@/components/Grid';
@@ -14,7 +14,7 @@ import { generateMetadata } from '@/lib/metadata';
 
 export const metadata = generateMetadata({
   title: 'Pubs That Were Empty. Now They\'re Not',
-  description: 'How did The Anchor increase Sunday roasts by 300%? How do pubs fill empty Tuesday nights? Real success stories from UK pubs using Orange Jelly\'s AI tools. From 5 covers to 50, see the actual numbers and proven strategies.',
+  description: 'How did The Anchor transform Sunday lunches and reduce waste by £250/week? How do pubs grow quiz nights to 25-35 regulars? Real success stories from The Anchor using AI tools. See the actual numbers and proven strategies.',
   path: '/results',
 });
 
@@ -39,7 +39,7 @@ export default function Results() {
         "@type": "HowTo",
         "@id": "https://www.orangejelly.co.uk/results#sunday-lunches",
         "name": "How to Fix Sunday Lunch Chaos with Pre-Order System",
-        "description": "Learn how The Anchor went from 45 to 65 Sunday covers with zero waste using a simple pre-order system",
+        "description": "Learn how The Anchor reduced Sunday lunch waste by £250/week using a simple pre-order system",
         "supply": ["Google Forms or similar", "Payment processor", "SMS system"],
         "tool": ["Online form builder", "Automated SMS tool"],
         "step": [
@@ -87,7 +87,7 @@ export default function Results() {
       {
         "@type": "Article",
         "@id": "https://www.orangejelly.co.uk/results#quiz-night",
-        "headline": "Tuesday Quiz Night: From 25 to 85+ People Using AI",
+        "headline": "Tuesday Quiz Night: From 20 to 25-35 Regulars Using AI",
         "description": "How we ditched expensive quiz subscriptions and created better quizzes with AI in 20 minutes",
         "author": {
           "@id": "https://www.orangejelly.co.uk/#peter-pitcher"
