@@ -18,6 +18,7 @@ import { FAQSchema } from '@/components/StructuredData';
 import { SpeakableContent } from '@/components/SpeakableContent';
 import Partnerships from '@/components/Partnerships';
 import { generateMetadata } from '@/lib/metadata';
+import { homepageFAQs, homeProblems, homeFeatures, homeMetrics } from '@/lib/content/home-content';
 
 export const metadata = generateMetadata({
   title: 'How to Fill Empty Pub Tables | Pub Marketing That Works',
@@ -27,42 +28,7 @@ export const metadata = generateMetadata({
 });
 
 export default function Home() {
-  // Comprehensive FAQ data for homepage
-  const homepageFAQs = [
-    {
-      question: "How quickly can Orange Jelly help fill my empty pub?",
-      answer: "We typically see results within 30 days. Our strategies have been proven at The Anchor where we've turned quiet nights into profitable ones. We use AI-powered marketing that brings customers through the door."
-    },
-    {
-      question: "What does pub marketing cost with Orange Jelly?",
-      answer: "We charge £62.50 per hour plus VAT as a flat rate. I'm always happy to have a free chat first to understand your challenges. All pricing is transparent with no hidden fees, and we offer a 30-day money-back guarantee."
-    },
-    {
-      question: "How long does it take to see ROI from pub marketing?",
-      answer: "Most pubs see positive ROI within 30 days. Our menu makeovers typically pay for themselves in one weekend. Marketing campaigns start showing results within 7-14 days, with full ROI usually achieved by day 30."
-    },
-    {
-      question: "Do I need to understand technology to work with Orange Jelly?",
-      answer: "Not at all! We handle all the technical bits. You just serve the extra customers. We're licensees ourselves - we know you're too busy for complicated tech. Everything we do is designed to be simple and hands-off for you."
-    },
-    {
-      question: "What makes Orange Jelly different from other pub marketing agencies?",
-      answer: "We actually run a pub - The Anchor in Stanwell Moor. Every strategy we recommend has been tested in our own business first. We're not an agency; I'm a licensee who understands your challenges because I face them too. Plus I still work full-time, so I know about juggling everything."
-    },
-    {
-      question: "Can Orange Jelly help if my pub is losing money?",
-      answer: "Absolutely. We've added £75,000-£100,000 worth of value to our own business using AI. Our food GP went from 58% to 71%. We offer a 30-day money-back guarantee because I believe in what AI can do for pubs."
-    },
-    {
-      question: "How do I know if Orange Jelly's strategies will work for my pub?",
-      answer: "Every strategy has been proven at The Anchor where we've been implementing AI solutions since 2021. I offer a free consultation to discuss your specific challenges and show you exactly how we've solved similar problems. Plus, our 30-day guarantee means you can try risk-free."
-    },
-    {
-      question: "What areas does Orange Jelly cover?",
-      answer: "We work with pubs across the UK. For in-person training and consultations, we cover a 30-mile radius from Stanwell Moor (including Surrey, Berkshire, West London). For online services like marketing and menu design, we help pubs nationwide."
-    }
-  ];
-
+  // Problem cards data
   const problems = [
     {
       emoji: '🪑',

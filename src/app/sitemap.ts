@@ -1,34 +1,6 @@
 import { MetadataRoute } from 'next';
-
-// Hardcoded list of blog posts
-// This ensures they're always included in the sitemap
-const blogPosts = [
-  'beat-chain-pubs',
-  'christmas-pub-promotion-ideas',
-  'compete-with-wetherspoons',
-  'content-marketing-ideas-pubs',
-  'email-marketing-pub-retention',
-  'facebook-marketing-local-pubs',
-  'fill-empty-pub-tables',
-  'how-to-run-successful-pub-events',
-  'instagram-marketing-for-pubs',
-  'live-music-events-for-pubs',
-  'local-pub-marketing',
-  'low-budget-pub-marketing-ideas',
-  'midweek-pub-offers-that-work',
-  'premium-pub-positioning',
-  'profitable-pub-food-menu-ideas',
-  'pub-differentiation-strategies',
-  'pub-empty-tuesday-nights',
-  'pub-refurbishment-on-budget',
-  'quiet-monday-night-promotions',
-  'quiz-night-ideas',
-  'recession-proof-pub-strategies',
-  'seasonal-pub-events-calendar',
-  'social-media-strategy-for-pubs',
-  'summer-pub-event-ideas',
-  'why-is-my-pub-empty'
-];
+import { getAllPosts } from '@/lib/blog-md';
+import { blogCategories } from '@/lib/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.orangejelly.co.uk';
@@ -127,25 +99,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ];
 
-  // Add blog posts
-  const blogPages = blogPosts.map(slug => ({
-    url: `${baseUrl}/licensees-guide/${slug}`,
-    lastModified: currentDate,
+  // Dynamically get all blog posts
+  const allPosts = getAllPosts();
+  const blogPages = allPosts.map(post => ({
+    url: `${baseUrl}/licensees-guide/${post.slug}`,
+    lastModified: post.updatedDate || post.publishedDate,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
-  // Add category pages
-  const categories = [
-    'empty-pub-solutions',
-    'social-media',
-    'competition',
-    'events',
-    'menu-pricing'
-  ];
-
-  const categoryPages = categories.map(category => ({
-    url: `${baseUrl}/licensees-guide/category/${category}`,
+  // Dynamically get all categories
+  const categoryPages = blogCategories.map(category => ({
+    url: `${baseUrl}/licensees-guide/category/${category.slug}`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: 0.5,
