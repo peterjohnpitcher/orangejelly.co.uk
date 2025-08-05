@@ -1,7 +1,7 @@
 'use client';
 
 import BlogPost from '@/components/blog/BlogPost';
-import { BlogPost as BlogPostType } from '@/lib/blog';
+import { BlogPost as BlogPostType } from '@/lib/content-source';
 
 interface BlogPostClientProps {
   post: BlogPostType;

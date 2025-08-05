@@ -11,8 +11,16 @@ import AuthorInfo from './AuthorInfo';
 import TableOfContents from './TableOfContents';
 import RelatedPosts from './RelatedPosts';
 import StickyCTA from './StickyCTA';
+import QuickAnswer from './QuickAnswer';
+import QuickStats from './QuickStats';
 import { formatDate } from '@/lib/utils';
-import { BlogPost as BlogPostType } from '@/lib/blog';
+import { BlogPost as BlogPostType } from '@/lib/content-source';
+import dynamic from 'next/dynamic';
+
+// Lazy load PortableTextContent for Sanity content
+const PortableTextContent = dynamic(() => import('@/components/PortableTextContent'), {
+  ssr: true
+});
 import { MESSAGES, URLS } from '@/lib/constants';
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';
@@ -23,18 +31,20 @@ interface BlogPostProps {
 }
 
 export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
-  // Convert markdown to HTML
+  // Convert markdown to HTML (only for markdown content)
   const [contentHtml, setContentHtml] = React.useState('');
   
   React.useEffect(() => {
     async function processContent() {
-      const processedContent = await remark()
-        .use(remarkHtml)
-        .process(post.content);
-      setContentHtml(processedContent.toString());
+      if (!post.isPortableText && typeof post.content === 'string') {
+        const processedContent = await remark()
+          .use(remarkHtml)
+          .process(post.content);
+        setContentHtml(processedContent.toString());
+      }
     }
     processContent();
-  }, [post.content]);
+  }, [post.content, post.isPortableText]);
   // Track reading progress
   useEffect(() => {
     const updateProgress = () => {
@@ -83,12 +93,12 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
         <header className="mb-8">
           <div className="mb-6">
             <Button
-              href={`/licensees-guide/category/${post.category.slug}`}
+              href={`/licensees-guide/category/${post.category}`}
               variant="ghost"
               size="small"
               className="text-orange hover:text-orange-dark font-medium text-sm p-0"
             >
-              {post.category.name}
+              {post.category}
             </Button>
           </div>
           
@@ -101,13 +111,27 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
           </Text>
           
           <div className="flex flex-wrap items-center gap-4 text-sm text-charcoal/60 mb-8">
-            <AuthorInfo author={post.author} variant="compact" />
+            {post.author && (
+              <AuthorInfo 
+                author={{
+                  name: post.author.name,
+                  role: 'Founder & Licensee',
+                  bio: post.author.bio || 'Founder of Orange Jelly Limited and licensee of The Anchor pub',
+                  image: post.author.image || '/images/peter-pitcher.svg'
+                }} 
+                variant="compact" 
+              />
+            )}
             <span>•</span>
             <time dateTime={post.publishedDate}>
               {formatDate(post.publishedDate)}
             </time>
-            <span>•</span>
-            <span>{post.readingTime} min read</span>
+            {post.readingTime && (
+              <>
+                <span>•</span>
+                <span>{post.readingTime} min read</span>
+              </>
+            )}
           </div>
 
           {/* Share buttons (inline on mobile) */}
@@ -124,8 +148,8 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
         {post.featuredImage && (
           <div className="relative aspect-[16/9] mb-8 -mx-4 sm:mx-0 sm:rounded-lg overflow-hidden">
             <OptimizedImage
-              src={post.featuredImage.src}
-              alt={post.featuredImage.alt}
+              src={typeof post.featuredImage === 'string' ? post.featuredImage : (post.featuredImage as any).src}
+              alt={typeof post.featuredImage === 'string' ? post.title : (post.featuredImage as any).alt}
               fill
               className="object-cover"
               priority
@@ -134,13 +158,51 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
           </div>
         )}
 
+        {/* Quick Answer for featured snippets */}
+        {post.quickAnswer && (
+          <QuickAnswer answer={post.quickAnswer} className="mb-8" />
+        )}
+
+        {/* Quick Stats for AI Overview extraction */}
+        {post.quickStats && post.quickStats.length > 0 && (
+          <QuickStats stats={post.quickStats} className="mb-8" />
+        )}
+
         {/* Main content - removed empty sidebar */}
         <div className="mb-12">
-          <div 
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: contentHtml }}
-          />
+          {post.isPortableText ? (
+            <div className="prose prose-lg max-w-none">
+              <PortableTextContent value={post.content as any[]} />
+            </div>
+          ) : (
+            <div 
+              className="prose prose-lg max-w-none"
+              dangerouslySetInnerHTML={{ __html: contentHtml }}
+            />
+          )}
         </div>
+
+        {/* FAQs Section for Voice Search */}
+        {post.faqs && post.faqs.length > 0 && (
+          <Card variant="bordered" className="mb-12">
+            <Heading level={2} className="mb-6 flex items-center gap-2">
+              <span>❓</span> Frequently Asked Questions
+            </Heading>
+            <div className="space-y-4">
+              {post.faqs.map((faq, index) => (
+                <div key={index} className="border-b border-charcoal/10 last:border-0 pb-4 last:pb-0">
+                  <Heading level={3} className="mb-2 flex items-start gap-2">
+                    {faq.isVoiceOptimized && <span className="text-orange">🎙️</span>}
+                    {faq.question}
+                  </Heading>
+                  <Text className="text-charcoal/80">
+                    {faq.answer}
+                  </Text>
+                </div>
+              ))}
+            </div>
+          </Card>
+        )}
 
         {/* Call to action */}
         <Card variant="bordered" className="bg-orange-light mb-12">
@@ -153,18 +215,30 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
               Let's chat about your specific situation - no sales pitch, just licensee to licensee.
             </Text>
             <Button
-              href={URLS.whatsapp(MESSAGES.whatsapp.blog)}
+              href={URLS.whatsapp(
+                post.ctaSettings?.whatsappMessage || MESSAGES.whatsapp.blog
+              )}
               variant="primary"
               size="large"
               external
             >
-              Get Free Advice on WhatsApp
+              {post.ctaSettings?.primaryCTA || 'Get Free Advice on WhatsApp'}
             </Button>
           </div>
         </Card>
 
         {/* Author bio */}
-        <AuthorInfo author={post.author} variant="full" />
+        {post.author && (
+          <AuthorInfo 
+            author={{
+              name: post.author.name,
+              role: 'Founder & Licensee',
+              bio: post.author.bio || 'Founder of Orange Jelly Limited and licensee of The Anchor pub',
+              image: post.author.image || '/images/peter-pitcher.svg'
+            }} 
+            variant="full" 
+          />
+        )}
 
         {/* Tags */}
         {post.tags.length > 0 && (
@@ -187,7 +261,26 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
       {/* Related posts */}
       {relatedPosts.length > 0 && (
         <div className="mt-12">
-          <RelatedPosts posts={relatedPosts} />
+          <RelatedPosts 
+            posts={relatedPosts.map(post => ({
+              slug: post.slug,
+              title: post.title,
+              excerpt: post.excerpt,
+              publishedDate: post.publishedDate,
+              category: {
+                name: post.category,
+                slug: post.category.toLowerCase().replace(/\s+/g, '-')
+              },
+              featuredImage: {
+                src: typeof post.featuredImage === 'string' ? post.featuredImage : '/images/blog/default.jpg',
+                alt: post.title
+              },
+              author: {
+                name: post.author?.name || 'Peter Pitcher'
+              },
+              readingTime: post.readingTime || 5
+            }))} 
+          />
         </div>
       )}
     </>

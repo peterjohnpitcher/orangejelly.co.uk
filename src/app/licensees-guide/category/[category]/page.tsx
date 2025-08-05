@@ -56,7 +56,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   const posts = getAllPosts();
   const categories = getCategories();
   
-  const categoryPosts = posts.filter(post => post.category.slug === params.category);
+  const categoryPosts = posts.filter(post => post.category === params.category);
   
   if (categoryPosts.length === 0) {
     notFound();
@@ -76,8 +76,8 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           name: post.title,
           description: post.excerpt,
           datePublished: post.publishedDate,
-          author: post.author.name,
-          image: post.featuredImage.src
+          author: 'Peter Pitcher',
+          image: post.featuredImage || '/images/blog/default.svg'
         }))}
         breadcrumbs={[
           { name: 'Home', url: '/' },
@@ -120,7 +120,27 @@ export default function CategoryPage({ params }: CategoryPageProps) {
         {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categoryPosts.map((post) => (
-            <BlogPostCard key={post.slug} post={post} />
+            <BlogPostCard 
+              key={post.slug} 
+              post={{
+                slug: post.slug,
+                title: post.title,
+                excerpt: post.excerpt,
+                publishedDate: post.publishedDate,
+                category: {
+                  name: categoryTitle,
+                  slug: params.category
+                },
+                featuredImage: {
+                  src: post.featuredImage || '/images/blog/default.svg',
+                  alt: post.title
+                },
+                author: {
+                  name: 'Peter Pitcher'
+                },
+                readingTime: post.readingTime || 5
+              }} 
+            />
           ))}
         </div>
         </div>

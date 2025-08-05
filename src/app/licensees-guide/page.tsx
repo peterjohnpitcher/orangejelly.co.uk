@@ -5,7 +5,8 @@ import BlogPostCard from '@/components/blog/BlogPostCard';
 import CategoryList from '@/components/blog/CategoryList';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
-import { getAllPosts, getCategories } from '@/lib/blog-md';
+import { getContentPosts, getContentSource } from '@/lib/content-source';
+import { getCategories } from '@/lib/blog-md';
 import { CollectionPageSchema } from '@/components/CollectionPageSchema';
 
 export const metadata: Metadata = {
@@ -19,13 +20,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LicenseesGuidePage() {
+export default async function LicenseesGuidePage() {
   let posts: any[] = [];
   let categories: any[] = [];
+  const contentSource = getContentSource();
   
   try {
-    posts = getAllPosts();
+    posts = await getContentPosts();
     categories = getCategories();
+    
+    // Log content source for debugging
+    console.log(`Loading blog posts from: ${contentSource}`);
   } catch (error) {
     console.error('Error loading blog data:', error);
     // Return a fallback UI
@@ -59,8 +64,8 @@ export default function LicenseesGuidePage() {
             name: post.title,
             description: post.excerpt,
             datePublished: post.publishedDate,
-            author: post.author.name,
-            image: post.featuredImage.src
+            author: post.author?.name || 'Peter Pitcher',
+            image: typeof post.featuredImage === 'string' ? post.featuredImage : '/images/blog/default.svg'
           }))}
           breadcrumbs={[
             { name: 'Home', url: '/' },
@@ -92,7 +97,27 @@ export default function LicenseesGuidePage() {
         {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
-            <BlogPostCard key={post.slug} post={post} />
+            <BlogPostCard 
+              key={post.slug} 
+              post={{
+                slug: post.slug,
+                title: post.title,
+                excerpt: post.excerpt,
+                publishedDate: post.publishedDate,
+                category: {
+                  name: post.category,
+                  slug: post.category.toLowerCase().replace(/\s+/g, '-')
+                },
+                featuredImage: {
+                  src: typeof post.featuredImage === 'string' ? post.featuredImage : '/images/blog/default.svg',
+                  alt: post.title
+                },
+                author: {
+                  name: post.author?.name || 'Peter Pitcher'
+                },
+                readingTime: post.readingTime || 5
+              }} 
+            />
           ))}
         </div>
 

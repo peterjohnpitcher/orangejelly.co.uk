@@ -1,7 +1,23 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { BlogPost, Category, calculateReadingTime, defaultAuthor, getCategoryBySlug, blogCategories } from './blog';
+import { Category, calculateReadingTime, defaultAuthor, getCategoryBySlug, blogCategories } from './blog';
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  publishedDate: string;
+  updatedDate?: string;
+  category: string;
+  tags: string[];
+  featuredImage?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  keywords?: string[];
+  readingTime?: number;
+}
 
 const postsDirectory = path.join(process.cwd(), 'content/blog');
 
@@ -69,23 +85,14 @@ export function getPostBySlug(slug: string): BlogPost | null {
       title: meta.title,
       excerpt: meta.excerpt,
       content,
-      author: defaultAuthor,
       publishedDate: meta.publishedDate,
       updatedDate: meta.updatedDate,
-      category,
+      category: category.slug,
       tags: meta.tags,
-      featuredImage: meta.featuredImage ? {
-        src: meta.featuredImage,
-        alt: meta.title
-      } : {
-        src: '/images/blog/default.svg',
-        alt: meta.title
-      },
-      seo: {
-        metaTitle: meta.seo?.title,
-        metaDescription: meta.seo?.description || meta.excerpt,
-        keywords: meta.seo?.keywords || meta.tags
-      },
+      featuredImage: meta.featuredImage || '/images/blog/default.svg',
+      metaTitle: meta.seo?.title,
+      metaDescription: meta.seo?.description || meta.excerpt,
+      keywords: meta.seo?.keywords || meta.tags,
       readingTime: calculateReadingTime(content)
     };
     
@@ -112,7 +119,7 @@ export function getAllPosts(): BlogPost[] {
 // Get posts by category
 export function getPostsByCategory(categorySlug: string): BlogPost[] {
   const allPosts = getAllPosts();
-  return allPosts.filter(post => post.category.slug === categorySlug);
+  return allPosts.filter(post => post.category === categorySlug);
 }
 
 // Get recent posts
@@ -128,9 +135,9 @@ export function getFeaturedPosts(): BlogPost[] {
   const categories = new Set<string>();
   
   for (const post of allPosts) {
-    if (!categories.has(post.category.slug)) {
+    if (!categories.has(post.category)) {
       featured.push(post);
-      categories.add(post.category.slug);
+      categories.add(post.category);
     }
     if (featured.length >= 5) break;
   }
@@ -162,8 +169,8 @@ export function getCategories(): Category[] {
   
   // Count posts per category
   allPosts.forEach(post => {
-    const count = categoryMap.get(post.category.slug) || 0;
-    categoryMap.set(post.category.slug, count + 1);
+    const count = categoryMap.get(post.category) || 0;
+    categoryMap.set(post.category, count + 1);
   });
   
   // Return categories that have posts
