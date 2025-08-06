@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Card from './Card';
 import Grid from './Grid';
 import Heading from './Heading';
@@ -11,7 +13,7 @@ interface ResultCardProps {
   className?: string;
 }
 
-export default function ResultCard({
+function ResultCard({
   pub,
   before,
   after,
@@ -38,3 +40,5 @@ export default function ResultCard({
     </Card>
   );
 }
+
+export default memo(ResultCard);

@@ -13,7 +13,7 @@ export default function PerformanceMonitor() {
     // Dynamically import web-vitals to reduce bundle size
     import('web-vitals').then(({ onCLS, onFID, onFCP, onLCP, onTTFB }) => {
       // Log metrics to console or send to analytics
-      const logMetric = (metric: any) => {
+      const logMetric = (metric: { name: string; value: number; id: string; delta: number }) => {
         // In a real app, you'd send this to your analytics service
         // Example: sendToAnalytics(metric);
         

@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import OptimizedImage from '@/components/OptimizedImage';
 import Link from 'next/link';
 import Card from '@/components/Card';
@@ -14,7 +16,7 @@ interface AuthorInfoProps {
   variant?: 'full' | 'compact';
 }
 
-export default function AuthorInfo({ author, variant = 'full' }: AuthorInfoProps) {
+function AuthorInfo({ author, variant = 'full' }: AuthorInfoProps) {
   if (variant === 'compact') {
     return (
       <div className="flex items-center gap-3">
@@ -68,3 +70,5 @@ export const defaultAuthor = {
   bio: 'I run The Anchor in Stanwell Moor with my husband Billy. After struggling with empty tables and overwhelming marketing tasks, I discovered how AI could transform pub marketing. Now I help other licensees implement the same strategies that saved our pub.',
   image: '/images/peter-pitcher.svg'
 };
+
+export default memo(AuthorInfo);

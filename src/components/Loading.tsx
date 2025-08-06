@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 interface LoadingProps {
   size?: 'small' | 'medium' | 'large';
   color?: 'orange' | 'white' | 'charcoal';
@@ -6,7 +8,7 @@ interface LoadingProps {
   className?: string;
 }
 
-export default function Loading({
+function Loading({
   size = 'medium',
   color = 'orange',
   text,
@@ -81,3 +83,5 @@ export function ButtonLoading({ children }: { children: React.ReactNode }) {
     </span>
   );
 }
+
+export default memo(Loading);

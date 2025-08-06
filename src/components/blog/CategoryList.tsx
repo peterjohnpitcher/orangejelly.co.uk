@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Link from 'next/link';
 import Card from '@/components/Card';
 import Heading from '@/components/Heading';
@@ -15,7 +17,7 @@ interface CategoryListProps {
   variant?: 'sidebar' | 'grid';
 }
 
-export default function CategoryList({ 
+function CategoryList({ 
   categories, 
   currentCategory,
   variant = 'sidebar' 
@@ -129,3 +131,5 @@ export const defaultCategories: Category[] = [
     description: 'Events and promotions that actually bring customers in'
   }
 ];
+
+export default memo(CategoryList);

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import { CONTACT, COMPANY, URLS, formatPhoneDisplay } from '@/lib/constants';
 import RelatedLinks, { linkClusters } from '@/components/RelatedLinks';
 import Text from '@/components/Text';
@@ -13,7 +13,7 @@ export default function Footer() {
         {/* Orange Jelly Brand Section */}
         <div className="text-center mb-12">
           <div className="inline-block">
-            <Image
+            <OptimizedImage
               src="/logo.png"
               alt="Orange Jelly"
               width={80}
@@ -34,7 +34,7 @@ export default function Footer() {
             external
             className="inline-block hover:opacity-80 transition-quick group"
           >
-            <Image
+            <OptimizedImage
               src="/logo_the-anchor.png"
               alt="The Anchor - Stanwell Moor"
               width={200}

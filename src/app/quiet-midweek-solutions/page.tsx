@@ -9,6 +9,7 @@ import CTASection from '@/components/CTASection';
 import TrustBar from '@/components/TrustBar';
 import Text from '@/components/Text';
 import FeatureList from '@/components/FeatureList';
+import { breadcrumbPaths } from '@/components/Breadcrumb';
 import { URLS, CONTACT } from '@/lib/constants';
 import { generateMetadata } from '@/lib/metadata';
 import { HowToSchema } from '@/components/StructuredData';
@@ -224,6 +225,10 @@ export default function QuietMidweekSolutions() {
         title={<>Monday to Thursday:<br />From Ghost Town to Gold Mine</>}
         subtitle="Stop bleeding money on quiet nights. Proven system fills tables midweek."
         bottomText="🎯 Most pubs see 200% increase in midweek revenue within 30 days"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Quiet Midweek Solutions' }
+        ]}
       />
 
       <TrustBar />

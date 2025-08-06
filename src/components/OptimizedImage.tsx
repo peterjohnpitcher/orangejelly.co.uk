@@ -95,9 +95,9 @@ export default function OptimizedImage({
         onError={handleError}
         className={className}
         style={{
-          ...style,
           opacity: isLoading && !priority ? 0 : 1,
-          transition: 'opacity 0.3s ease-in-out'
+          transition: 'opacity 0.3s ease-in-out',
+          ...style
         }}
         // SEO optimizations
         decoding="async"

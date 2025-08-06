@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import OptimizedImage from '@/components/OptimizedImage';
 import Text from '@/components/Text';
 
@@ -6,7 +8,7 @@ interface AnchorBadgeProps {
   size?: 'small' | 'medium' | 'large';
 }
 
-export default function AnchorBadge({ 
+function AnchorBadge({ 
   variant = 'inline', 
   size = 'medium' 
 }: AnchorBadgeProps) {
@@ -46,3 +48,5 @@ export default function AnchorBadge({
     </a>
   );
 }
+
+export default memo(AnchorBadge);

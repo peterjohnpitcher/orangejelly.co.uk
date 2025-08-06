@@ -15,6 +15,39 @@ export default {
       type: 'string',
     },
     {
+      name: 'company',
+      title: 'Company Information',
+      type: 'object',
+      fields: [
+        {
+          name: 'registrationNumber',
+          title: 'Registration Number',
+          type: 'string',
+        },
+        {
+          name: 'vatNumber',
+          title: 'VAT Number',
+          type: 'string',
+        },
+        {
+          name: 'vatRegistered',
+          title: 'VAT Registered',
+          type: 'boolean',
+          initialValue: false,
+        },
+        {
+          name: 'owner',
+          title: 'Owner Name',
+          type: 'string',
+        },
+        {
+          name: 'coOwner',
+          title: 'Co-Owner Name',
+          type: 'string',
+        },
+      ],
+    },
+    {
       name: 'contact',
       title: 'Contact Information',
       type: 'object',
@@ -40,6 +73,12 @@ export default {
           type: 'text',
           rows: 2,
         },
+        {
+          name: 'whatsappNumber',
+          title: 'WhatsApp Number (for URL)',
+          type: 'string',
+          description: 'Format: 447990587315 (country code + number, no spaces)',
+        },
       ],
     },
     {
@@ -59,6 +98,18 @@ export default {
           type: 'string',
           initialValue: 'GBP',
         },
+        {
+          name: 'vatRate',
+          title: 'VAT Rate (%)',
+          type: 'number',
+          initialValue: 20,
+        },
+        {
+          name: 'includesVAT',
+          title: 'Price Includes VAT',
+          type: 'boolean',
+          initialValue: false,
+        },
       ],
     },
     {
@@ -77,6 +128,11 @@ export default {
             {
               name: 'value',
               title: 'Value',
+              type: 'string',
+            },
+            {
+              name: 'description',
+              title: 'Description',
               type: 'string',
             },
           ],

@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 // Mobile-optimized CTA component with minimum 44px touch targets
 import Button from './Button';
 import WhatsAppButton from './WhatsAppButton';
@@ -10,7 +12,7 @@ interface MobileCTAProps {
   className?: string;
 }
 
-export default function MobileCTA({
+function MobileCTA({
   variant = 'inline',
   primaryText = 'Get Started',
   whatsappText,
@@ -80,3 +82,5 @@ export function addSafeAreaStyles() {
     }
   `;
 }
+
+export default memo(MobileCTA);

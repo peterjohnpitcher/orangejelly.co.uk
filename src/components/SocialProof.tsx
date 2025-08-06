@@ -5,12 +5,23 @@ import OptimizedImage from '@/components/OptimizedImage';
 import Card from './Card';
 import Button from './Button';
 import Text from './Text';
+import { type SocialProofItem } from '@/lib/sanity-social-proof';
 
-export default function SocialProof() {
+interface SocialProofProps {
+  socialProofItems?: SocialProofItem[];
+}
+
+export default function SocialProof({ socialProofItems }: SocialProofProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const notifications = [
+  // Transform Sanity data to notification format
+  const notifications = socialProofItems?.map(item => ({
+    pub: item.location || "The Anchor",
+    location: "Stanwell Moor",
+    message: item.displayText,
+    time: item.timeframe || "Ongoing"
+  })) || [
     {
       pub: "The Anchor",
       location: "Stanwell Moor",

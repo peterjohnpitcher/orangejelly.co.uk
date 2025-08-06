@@ -1,0 +1,5297 @@
+[
+  {
+    "initialValue": {
+      "status": "draft",
+      "quickStats": [
+        {
+          "label": "Investment",
+          "value": "£X",
+          "highlight": false
+        },
+        {
+          "label": "Time to Results",
+          "value": "X weeks",
+          "highlight": true
+        },
+        {
+          "label": "ROI",
+          "value": "X%",
+          "highlight": false
+        }
+      ],
+      "localSEO": {
+        "targetLocation": "Surrey",
+        "nearbyLandmarks": [
+          "Heathrow",
+          "Staines",
+          "M25"
+        ],
+        "localModifiers": [
+          "near me",
+          "local",
+          "in my area"
+        ]
+      },
+      "ctaSettings": {
+        "primaryCTA": "Get Help Now",
+        "whatsappMessage": "Hi Peter, I need help with my pub.",
+        "urgency": "medium"
+      }
+    },
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Use question format for voice search. E.g., \"Why Is My Pub Empty on Tuesday Nights?\"",
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Draft",
+              "value": "draft"
+            },
+            {
+              "title": "Published",
+              "value": "published"
+            }
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "draft",
+        "name": "status",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 160
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Brief description for listings and meta description",
+        "name": "excerpt",
+        "type": "text"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 30
+              },
+              {
+                "flag": "max",
+                "constraint": 80
+              }
+            ],
+            "level": "warning",
+            "message": "Should be 40-60 words for optimal featured snippet capture"
+          }
+        ],
+        "description": "CRITICAL: 40-60 words answering the title question. This appears right after intro and targets featured snippets.",
+        "name": "quickAnswer",
+        "type": "text",
+        "title": "Quick Answer (Featured Snippet)"
+      },
+      {
+        "description": "Natural language questions. E.g., \"How do I get more people in my pub on Tuesday?\"",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "voiceSearchQueries",
+        "type": "array"
+      },
+      {
+        "description": "Key statistics for AI Overview extraction",
+        "of": [
+          {
+            "fields": [
+              {
+                "description": "E.g., \"Quiz Attendance\"",
+                "name": "label",
+                "type": "string",
+                "title": "Stat Label"
+              },
+              {
+                "description": "E.g., \"25-35 regulars\"",
+                "name": "value",
+                "type": "string",
+                "title": "Stat Value"
+              },
+              {
+                "initialValue": false,
+                "name": "highlight",
+                "type": "boolean",
+                "title": "Highlight this stat"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "quickStats",
+        "type": "array",
+        "title": "Quick Stats Box"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/"
+                                  ],
+                                  "allowRelative": false,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "name": "href",
+                      "type": "url",
+                      "title": "URL"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object",
+                  "title": "URL"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Bold"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bullet"
+              },
+              {
+                "value": "number",
+                "title": "Number"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h2",
+                "title": "H2"
+              },
+              {
+                "value": "h3",
+                "title": "H3"
+              },
+              {
+                "value": "h4",
+                "title": "H4"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "alt",
+                "type": "string",
+                "title": "Alt Text"
+              },
+              {
+                "name": "caption",
+                "type": "string"
+              }
+            ],
+            "type": "image"
+          },
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string",
+                "title": "Table Title"
+              },
+              {
+                "of": [
+                  {
+                    "fields": [
+                      {
+                        "name": "option",
+                        "type": "string",
+                        "title": "Option/Method"
+                      },
+                      {
+                        "name": "cost",
+                        "type": "string"
+                      },
+                      {
+                        "name": "time",
+                        "type": "string"
+                      },
+                      {
+                        "name": "results",
+                        "type": "string"
+                      }
+                    ],
+                    "type": "object"
+                  }
+                ],
+                "name": "rows",
+                "type": "array",
+                "title": "Table Rows"
+              }
+            ],
+            "type": "object",
+            "name": "comparisonTable"
+          },
+          {
+            "fields": [
+              {
+                "options": {
+                  "list": [
+                    {
+                      "title": "JavaScript",
+                      "value": "javascript"
+                    },
+                    {
+                      "title": "TypeScript",
+                      "value": "typescript"
+                    },
+                    {
+                      "title": "JSON",
+                      "value": "json"
+                    },
+                    {
+                      "title": "Markdown",
+                      "value": "markdown"
+                    }
+                  ]
+                },
+                "name": "language",
+                "type": "string"
+              },
+              {
+                "name": "code",
+                "type": "text"
+              }
+            ],
+            "type": "object",
+            "name": "codeBlock"
+          }
+        ],
+        "name": "content",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 3
+              }
+            ],
+            "level": "warning",
+            "message": "Add at least 3 FAQs for better SEO"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "description": "Use natural language as people would ask",
+                "name": "question",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "description": "Direct answer in first sentence. Details follow.",
+                "name": "answer",
+                "type": "text"
+              },
+              {
+                "initialValue": false,
+                "description": "Common voice search query?",
+                "name": "isVoiceOptimized",
+                "type": "boolean",
+                "title": "Voice Search Optimized"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "faqs",
+        "type": "array",
+        "title": "FAQs (Critical for Voice Search)"
+      },
+      {
+        "fields": [
+          {
+            "description": "E.g., \"Surrey\", \"Staines\", \"West London\"",
+            "name": "targetLocation",
+            "type": "string"
+          },
+          {
+            "description": "E.g., \"near Heathrow\", \"M25 corridor\"",
+            "of": [
+              {
+                "type": "string"
+              }
+            ],
+            "name": "nearbyLandmarks",
+            "type": "array"
+          },
+          {
+            "description": "E.g., \"near me\", \"in my area\", \"local\"",
+            "of": [
+              {
+                "type": "string"
+              }
+            ],
+            "name": "localModifiers",
+            "type": "array",
+            "title": "Local Search Modifiers"
+          }
+        ],
+        "name": "localSEO",
+        "type": "object"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "alt",
+            "type": "string",
+            "title": "Alt Text"
+          }
+        ],
+        "name": "featuredImage",
+        "type": "image"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "to": [
+          {
+            "type": "category"
+          }
+        ],
+        "name": "category",
+        "type": "reference"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "tags",
+        "type": "array"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "max",
+                    "constraint": 60
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "description": "Leave blank to use post title",
+            "name": "metaTitle",
+            "type": "string"
+          },
+          {
+            "rows": 2,
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "max",
+                    "constraint": 160
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "description": "Leave blank to use excerpt",
+            "name": "metaDescription",
+            "type": "text"
+          },
+          {
+            "description": "Focus keywords for this post",
+            "of": [
+              {
+                "type": "string"
+              }
+            ],
+            "name": "keywords",
+            "type": "array"
+          }
+        ],
+        "name": "seo",
+        "type": "object",
+        "title": "SEO Metadata"
+      },
+      {
+        "to": [
+          {
+            "type": "author"
+          }
+        ],
+        "name": "author",
+        "type": "reference"
+      },
+      {
+        "name": "publishedDate",
+        "type": "datetime"
+      },
+      {
+        "name": "updatedDate",
+        "type": "datetime"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Get Help Now",
+            "name": "primaryCTA",
+            "type": "string",
+            "title": "Primary CTA Text"
+          },
+          {
+            "rows": 2,
+            "initialValue": "Hi Peter, I read your article about [topic] and need help with my pub.",
+            "description": "Pre-filled message when users click WhatsApp",
+            "name": "whatsappMessage",
+            "type": "text",
+            "title": "WhatsApp Pre-filled Message"
+          },
+          {
+            "options": {
+              "list": [
+                {
+                  "title": "High (Crisis)",
+                  "value": "high"
+                },
+                {
+                  "title": "Medium (Planning)",
+                  "value": "medium"
+                },
+                {
+                  "title": "Low (Research)",
+                  "value": "low"
+                }
+              ]
+            },
+            "initialValue": "medium",
+            "name": "urgency",
+            "type": "string",
+            "title": "Urgency Level"
+          }
+        ],
+        "name": "ctaSettings",
+        "type": "object",
+        "title": "Call-to-Action Settings"
+      }
+    ],
+    "name": "blogPost",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "description": "Optional emoji for the service card",
+        "name": "emoji",
+        "type": "string"
+      },
+      {
+        "description": "Lower numbers appear first",
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      },
+      {
+        "rows": 2,
+        "description": "The problem this service solves",
+        "name": "problem",
+        "type": "text",
+        "title": "Problem Statement"
+      },
+      {
+        "description": "Clear, specific deliverable",
+        "name": "deliverable",
+        "type": "string"
+      },
+      {
+        "rows": 4,
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "features",
+        "type": "array"
+      },
+      {
+        "description": "e.g., \"6 hours per month\"",
+        "name": "timeEstimate",
+        "type": "string"
+      },
+      {
+        "description": "e.g., \"6 hours × £62.50 = £375 + VAT\"",
+        "name": "priceBreakdown",
+        "type": "string"
+      },
+      {
+        "description": "Display price, e.g., \"£375 + VAT\"",
+        "name": "price",
+        "type": "string"
+      },
+      {
+        "description": "e.g., \"Results in 2-3 weeks\"",
+        "name": "timeline",
+        "type": "string"
+      },
+      {
+        "initialValue": false,
+        "description": "Featured service?",
+        "name": "highlight",
+        "type": "boolean"
+      },
+      {
+        "fields": [
+          {
+            "description": "Situation before the service",
+            "name": "before",
+            "type": "string"
+          },
+          {
+            "description": "Situation after the service",
+            "name": "after",
+            "type": "string"
+          },
+          {
+            "description": "The measurable outcome",
+            "name": "result",
+            "type": "string"
+          }
+        ],
+        "name": "example",
+        "type": "object",
+        "title": "Example/Case Study"
+      }
+    ],
+    "name": "service",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "description": "Brief description of the case study",
+        "name": "subtitle",
+        "type": "string"
+      },
+      {
+        "description": "Optional - leave blank for anonymous case studies",
+        "name": "client",
+        "type": "string",
+        "title": "Client Name"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "problem",
+        "type": "array",
+        "title": "The Problem"
+      },
+      {
+        "description": "List of failed attempts (one per line)",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "failedAttempts",
+        "type": "array",
+        "title": "What They Tried That Failed"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "solution",
+        "type": "array",
+        "title": "Our Solution"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "metric",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "description": "e.g., \"+25%\" or \"up from 20\"",
+                "name": "improvement",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "results",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "e.g., \"4 hours setup + 30 mins weekly\"",
+        "name": "timeInvestment",
+        "type": "string"
+      },
+      {
+        "description": "Bullet points of key takeaways",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "learnings",
+        "type": "array",
+        "title": "Key Learnings"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "text",
+            "type": "text",
+            "title": "Quote Text"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "author",
+            "type": "string"
+          },
+          {
+            "description": "e.g., \"Pub Owner\"",
+            "name": "role",
+            "type": "string"
+          }
+        ],
+        "name": "quote",
+        "type": "object",
+        "title": "Customer Quote"
+      },
+      {
+        "description": "Link to the service used in this case study",
+        "to": [
+          {
+            "type": "service"
+          }
+        ],
+        "name": "relatedService",
+        "type": "reference"
+      },
+      {
+        "initialValue": 0,
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      }
+    ],
+    "name": "caseStudy",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "name": "bio",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "description": "e.g., \"Founder & Licensee\"",
+        "name": "role",
+        "type": "string"
+      }
+    ],
+    "name": "author",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "name",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "rows": 2,
+        "name": "description",
+        "type": "text"
+      }
+    ],
+    "name": "category",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "businessName",
+        "type": "string"
+      },
+      {
+        "name": "tagline",
+        "type": "string"
+      },
+      {
+        "fields": [
+          {
+            "name": "registrationNumber",
+            "type": "string"
+          },
+          {
+            "name": "vatNumber",
+            "type": "string",
+            "title": "VAT Number"
+          },
+          {
+            "initialValue": false,
+            "name": "vatRegistered",
+            "type": "boolean",
+            "title": "VAT Registered"
+          },
+          {
+            "name": "owner",
+            "type": "string",
+            "title": "Owner Name"
+          },
+          {
+            "name": "coOwner",
+            "type": "string",
+            "title": "Co-Owner Name"
+          }
+        ],
+        "name": "company",
+        "type": "object",
+        "title": "Company Information"
+      },
+      {
+        "fields": [
+          {
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "name": "phone",
+            "type": "string"
+          },
+          {
+            "name": "whatsapp",
+            "type": "string",
+            "title": "WhatsApp"
+          },
+          {
+            "rows": 2,
+            "name": "address",
+            "type": "text"
+          },
+          {
+            "description": "Format: 447990587315 (country code + number, no spaces)",
+            "name": "whatsappNumber",
+            "type": "string",
+            "title": "WhatsApp Number (for URL)"
+          }
+        ],
+        "name": "contact",
+        "type": "object",
+        "title": "Contact Information"
+      },
+      {
+        "fields": [
+          {
+            "description": "Base hourly rate in pounds",
+            "name": "hourlyRate",
+            "type": "number"
+          },
+          {
+            "initialValue": "GBP",
+            "name": "currency",
+            "type": "string"
+          },
+          {
+            "initialValue": 20,
+            "name": "vatRate",
+            "type": "number",
+            "title": "VAT Rate (%)"
+          },
+          {
+            "initialValue": false,
+            "name": "includesVAT",
+            "type": "boolean",
+            "title": "Price Includes VAT"
+          }
+        ],
+        "name": "pricing",
+        "type": "object"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "metrics",
+        "type": "array",
+        "title": "Business Metrics"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "facebook",
+            "type": "url",
+            "title": "Facebook URL"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "instagram",
+            "type": "url",
+            "title": "Instagram URL"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "linkedin",
+            "type": "url",
+            "title": "LinkedIn URL"
+          }
+        ],
+        "name": "socialMedia",
+        "type": "object"
+      }
+    ],
+    "name": "siteSettings",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "question",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "answer",
+        "type": "array"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "General",
+              "value": "general"
+            },
+            {
+              "title": "Service",
+              "value": "service"
+            },
+            {
+              "title": "Pricing",
+              "value": "pricing"
+            },
+            {
+              "title": "Process",
+              "value": "process"
+            },
+            {
+              "title": "Results",
+              "value": "results"
+            }
+          ]
+        },
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "initialValue": false,
+        "description": "Is this FAQ optimized for voice search?",
+        "name": "isVoiceOptimized",
+        "type": "boolean",
+        "title": "Voice Search Optimized"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Home",
+              "value": "home"
+            },
+            {
+              "title": "Services",
+              "value": "services"
+            },
+            {
+              "title": "Contact",
+              "value": "contact"
+            },
+            {
+              "title": "About",
+              "value": "about"
+            }
+          ]
+        },
+        "description": "Which page this FAQ appears on",
+        "name": "page",
+        "type": "string"
+      },
+      {
+        "description": "Lower numbers appear first",
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      }
+    ],
+    "name": "faq",
+    "type": "document",
+    "title": "FAQ"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Main Navigation",
+        "hidden": true,
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "href",
+                "type": "string",
+                "title": "Link URL"
+              },
+              {
+                "description": "Lower numbers appear first",
+                "name": "order",
+                "type": "number"
+              },
+              {
+                "initialValue": false,
+                "description": "Opens in new tab if true",
+                "name": "external",
+                "type": "boolean",
+                "title": "External Link"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "mainMenu",
+        "type": "array",
+        "title": "Main Menu Items"
+      },
+      {
+        "description": "Optional: Different menu for mobile. If empty, uses main menu.",
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "href",
+                "type": "string",
+                "title": "Link URL"
+              },
+              {
+                "name": "order",
+                "type": "number"
+              },
+              {
+                "initialValue": false,
+                "name": "external",
+                "type": "boolean",
+                "title": "External Link"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "mobileMenu",
+        "type": "array",
+        "title": "Mobile Menu Items"
+      }
+    ],
+    "name": "navigation",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Internal name for this content block",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "name",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Unique key for fetching this block",
+        "name": "identifier",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Hero",
+              "value": "hero"
+            },
+            {
+              "title": "CTA",
+              "value": "cta"
+            },
+            {
+              "title": "Features",
+              "value": "features"
+            },
+            {
+              "title": "Problems",
+              "value": "problems"
+            },
+            {
+              "title": "Metrics",
+              "value": "metrics"
+            },
+            {
+              "title": "Steps",
+              "value": "steps"
+            },
+            {
+              "title": "Generic",
+              "value": "generic"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "hero",
+                  "cta",
+                  "features",
+                  "problems",
+                  "metrics",
+                  "steps",
+                  "generic"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "type",
+        "type": "string",
+        "title": "Block Type"
+      },
+      {
+        "fields": [
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "subtitle",
+            "type": "string"
+          },
+          {
+            "of": [
+              {
+                "marks": {
+                  "annotations": [
+                    {
+                      "i18nTitleKey": "inputs.portable-text.annotation.link",
+                      "options": {
+                        "modal": {
+                          "type": "popover"
+                        }
+                      },
+                      "fields": [
+                        {
+                          "validation": [
+                            {
+                              "rules": [
+                                {
+                                  "flag": "uri",
+                                  "constraint": {
+                                    "options": {
+                                      "scheme": [
+                                        "/^http$/",
+                                        "/^https$/",
+                                        "/^tel$/",
+                                        "/^mailto$/"
+                                      ],
+                                      "allowRelative": true,
+                                      "relativeOnly": false,
+                                      "allowCredentials": false
+                                    }
+                                  }
+                                }
+                              ],
+                              "level": "error"
+                            }
+                          ],
+                          "description": "A valid web, email, phone, or relative link.",
+                          "name": "href",
+                          "type": "url",
+                          "title": "Link"
+                        }
+                      ],
+                      "name": "link",
+                      "type": "object"
+                    }
+                  ],
+                  "decorators": [
+                    {
+                      "value": "strong",
+                      "title": "Strong"
+                    },
+                    {
+                      "value": "em",
+                      "title": "Italic"
+                    },
+                    {
+                      "value": "code",
+                      "title": "Code"
+                    },
+                    {
+                      "value": "underline",
+                      "title": "Underline"
+                    },
+                    {
+                      "value": "strike-through",
+                      "title": "Strike"
+                    }
+                  ]
+                },
+                "lists": [
+                  {
+                    "value": "bullet",
+                    "title": "Bulleted list"
+                  },
+                  {
+                    "value": "number",
+                    "title": "Numbered list"
+                  }
+                ],
+                "styles": [
+                  {
+                    "value": "normal",
+                    "title": "Normal"
+                  },
+                  {
+                    "value": "h1",
+                    "title": "Heading 1"
+                  },
+                  {
+                    "value": "h2",
+                    "title": "Heading 2"
+                  },
+                  {
+                    "value": "h3",
+                    "title": "Heading 3"
+                  },
+                  {
+                    "value": "h4",
+                    "title": "Heading 4"
+                  },
+                  {
+                    "value": "h5",
+                    "title": "Heading 5"
+                  },
+                  {
+                    "value": "h6",
+                    "title": "Heading 6"
+                  },
+                  {
+                    "value": "blockquote",
+                    "title": "Quote"
+                  }
+                ],
+                "of": [],
+                "type": "block"
+              }
+            ],
+            "name": "description",
+            "type": "array"
+          },
+          {
+            "description": "For features, problems, steps, etc.",
+            "of": [
+              {
+                "fields": [
+                  {
+                    "name": "title",
+                    "type": "string"
+                  },
+                  {
+                    "rows": 3,
+                    "name": "description",
+                    "type": "text"
+                  },
+                  {
+                    "name": "icon",
+                    "type": "string",
+                    "title": "Icon/Emoji"
+                  },
+                  {
+                    "initialValue": false,
+                    "name": "highlight",
+                    "type": "boolean"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "items",
+            "type": "array"
+          },
+          {
+            "fields": [
+              {
+                "name": "text",
+                "type": "string",
+                "title": "Button Text"
+              },
+              {
+                "name": "href",
+                "type": "string",
+                "title": "Link URL"
+              },
+              {
+                "description": "Pre-filled message for WhatsApp links",
+                "name": "whatsappMessage",
+                "type": "string",
+                "title": "WhatsApp Message"
+              }
+            ],
+            "name": "cta",
+            "type": "object",
+            "title": "Call to Action"
+          }
+        ],
+        "name": "content",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "description": "Which page this block belongs to",
+            "name": "page",
+            "type": "string"
+          },
+          {
+            "description": "Which section of the page",
+            "name": "section",
+            "type": "string"
+          },
+          {
+            "description": "Display order if multiple blocks",
+            "name": "order",
+            "type": "number"
+          }
+        ],
+        "name": "metadata",
+        "type": "object"
+      }
+    ],
+    "name": "contentBlock",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Page Title"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 160
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "SEO description - max 160 characters",
+        "name": "metaDescription",
+        "type": "text"
+      },
+      {
+        "description": "SEO keywords for this page",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "keywords",
+        "type": "array"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Hero Title"
+          },
+          {
+            "rows": 2,
+            "name": "subtitle",
+            "type": "text",
+            "title": "Hero Subtitle"
+          },
+          {
+            "name": "ctaText",
+            "type": "string",
+            "title": "CTA Button Text"
+          },
+          {
+            "name": "ctaLink",
+            "type": "string",
+            "title": "CTA Button Link"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "name": "backgroundImage",
+            "type": "image"
+          }
+        ],
+        "name": "heroSection",
+        "type": "object"
+      },
+      {
+        "description": "Reusable content blocks for this page",
+        "of": [
+          {
+            "to": [
+              {
+                "type": "contentBlock"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to content block"
+          }
+        ],
+        "name": "contentSections",
+        "type": "array"
+      },
+      {
+        "description": "Select FAQs to display on this page",
+        "of": [
+          {
+            "to": [
+              {
+                "type": "faq"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to faq"
+          }
+        ],
+        "name": "faqs",
+        "type": "array",
+        "title": "FAQs"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Get Started",
+            "name": "primaryCTA",
+            "type": "string",
+            "title": "Primary CTA Text"
+          },
+          {
+            "description": "Pre-filled WhatsApp message for this page",
+            "name": "whatsappMessage",
+            "type": "string",
+            "title": "WhatsApp Message"
+          },
+          {
+            "initialValue": false,
+            "name": "showCalculator",
+            "type": "boolean",
+            "title": "Show ROI Calculator"
+          }
+        ],
+        "name": "ctaSettings",
+        "type": "object",
+        "title": "CTA Settings"
+      },
+      {
+        "initialValue": true,
+        "description": "Toggle to show/hide this landing page",
+        "name": "isActive",
+        "type": "boolean"
+      }
+    ],
+    "name": "landingPage",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "About Orange Jelly",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Hero Title"
+          },
+          {
+            "rows": 2,
+            "name": "subtitle",
+            "type": "text",
+            "title": "Hero Subtitle"
+          }
+        ],
+        "name": "heroSection",
+        "type": "object"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "The main story content",
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "story",
+        "type": "array",
+        "title": "Our Story"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "date",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string",
+                "title": "Event Title"
+              },
+              {
+                "rows": 2,
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "initialValue": false,
+                "name": "highlight",
+                "type": "boolean",
+                "title": "Highlight Event"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "timeline",
+        "type": "array"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "description": "Emoji or icon identifier",
+                "name": "icon",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string",
+                "title": "Value Title"
+              },
+              {
+                "rows": 2,
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "description",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "values",
+        "type": "array",
+        "title": "Our Values"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "name",
+            "type": "string",
+            "title": "Founder Name"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "role",
+            "type": "string"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "of": [
+              {
+                "marks": {
+                  "annotations": [
+                    {
+                      "i18nTitleKey": "inputs.portable-text.annotation.link",
+                      "options": {
+                        "modal": {
+                          "type": "popover"
+                        }
+                      },
+                      "fields": [
+                        {
+                          "validation": [
+                            {
+                              "rules": [
+                                {
+                                  "flag": "uri",
+                                  "constraint": {
+                                    "options": {
+                                      "scheme": [
+                                        "/^http$/",
+                                        "/^https$/",
+                                        "/^tel$/",
+                                        "/^mailto$/"
+                                      ],
+                                      "allowRelative": true,
+                                      "relativeOnly": false,
+                                      "allowCredentials": false
+                                    }
+                                  }
+                                }
+                              ],
+                              "level": "error"
+                            }
+                          ],
+                          "description": "A valid web, email, phone, or relative link.",
+                          "name": "href",
+                          "type": "url",
+                          "title": "Link"
+                        }
+                      ],
+                      "name": "link",
+                      "type": "object"
+                    }
+                  ],
+                  "decorators": [
+                    {
+                      "value": "strong",
+                      "title": "Strong"
+                    },
+                    {
+                      "value": "em",
+                      "title": "Italic"
+                    },
+                    {
+                      "value": "code",
+                      "title": "Code"
+                    },
+                    {
+                      "value": "underline",
+                      "title": "Underline"
+                    },
+                    {
+                      "value": "strike-through",
+                      "title": "Strike"
+                    }
+                  ]
+                },
+                "lists": [
+                  {
+                    "value": "bullet",
+                    "title": "Bulleted list"
+                  },
+                  {
+                    "value": "number",
+                    "title": "Numbered list"
+                  }
+                ],
+                "styles": [
+                  {
+                    "value": "normal",
+                    "title": "Normal"
+                  },
+                  {
+                    "value": "h1",
+                    "title": "Heading 1"
+                  },
+                  {
+                    "value": "h2",
+                    "title": "Heading 2"
+                  },
+                  {
+                    "value": "h3",
+                    "title": "Heading 3"
+                  },
+                  {
+                    "value": "h4",
+                    "title": "Heading 4"
+                  },
+                  {
+                    "value": "h5",
+                    "title": "Heading 5"
+                  },
+                  {
+                    "value": "h6",
+                    "title": "Heading 6"
+                  },
+                  {
+                    "value": "blockquote",
+                    "title": "Quote"
+                  }
+                ],
+                "of": [],
+                "type": "block"
+              }
+            ],
+            "name": "bio",
+            "type": "array",
+            "title": "Biography"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "name": "image",
+            "type": "image",
+            "title": "Founder Image"
+          },
+          {
+            "rows": 3,
+            "name": "quote",
+            "type": "text",
+            "title": "Featured Quote"
+          }
+        ],
+        "name": "founderSection",
+        "type": "object"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "role",
+                "type": "string"
+              },
+              {
+                "rows": 2,
+                "name": "bio",
+                "type": "text",
+                "title": "Short Bio"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "name": "image",
+                "type": "image",
+                "title": "Photo"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "teamMembers",
+        "type": "array"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "name",
+                "type": "string",
+                "title": "Partner Name"
+              },
+              {
+                "rows": 2,
+                "name": "description",
+                "type": "text",
+                "title": "Partnership Description"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "name": "logo",
+                "type": "image",
+                "title": "Partner Logo"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "uri",
+                        "constraint": {
+                          "options": {
+                            "scheme": [
+                              "/^http$/",
+                              "/^https$/"
+                            ],
+                            "allowRelative": false,
+                            "relativeOnly": false,
+                            "allowCredentials": false
+                          }
+                        }
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "url",
+                "type": "url",
+                "title": "Partner Website"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "partnerships",
+        "type": "array"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Why Orange Jelly?",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "of": [
+              {
+                "marks": {
+                  "annotations": [
+                    {
+                      "i18nTitleKey": "inputs.portable-text.annotation.link",
+                      "options": {
+                        "modal": {
+                          "type": "popover"
+                        }
+                      },
+                      "fields": [
+                        {
+                          "validation": [
+                            {
+                              "rules": [
+                                {
+                                  "flag": "uri",
+                                  "constraint": {
+                                    "options": {
+                                      "scheme": [
+                                        "/^http$/",
+                                        "/^https$/",
+                                        "/^tel$/",
+                                        "/^mailto$/"
+                                      ],
+                                      "allowRelative": true,
+                                      "relativeOnly": false,
+                                      "allowCredentials": false
+                                    }
+                                  }
+                                }
+                              ],
+                              "level": "error"
+                            }
+                          ],
+                          "description": "A valid web, email, phone, or relative link.",
+                          "name": "href",
+                          "type": "url",
+                          "title": "Link"
+                        }
+                      ],
+                      "name": "link",
+                      "type": "object"
+                    }
+                  ],
+                  "decorators": [
+                    {
+                      "value": "strong",
+                      "title": "Strong"
+                    },
+                    {
+                      "value": "em",
+                      "title": "Italic"
+                    },
+                    {
+                      "value": "code",
+                      "title": "Code"
+                    },
+                    {
+                      "value": "underline",
+                      "title": "Underline"
+                    },
+                    {
+                      "value": "strike-through",
+                      "title": "Strike"
+                    }
+                  ]
+                },
+                "lists": [
+                  {
+                    "value": "bullet",
+                    "title": "Bulleted list"
+                  },
+                  {
+                    "value": "number",
+                    "title": "Numbered list"
+                  }
+                ],
+                "styles": [
+                  {
+                    "value": "normal",
+                    "title": "Normal"
+                  },
+                  {
+                    "value": "h1",
+                    "title": "Heading 1"
+                  },
+                  {
+                    "value": "h2",
+                    "title": "Heading 2"
+                  },
+                  {
+                    "value": "h3",
+                    "title": "Heading 3"
+                  },
+                  {
+                    "value": "h4",
+                    "title": "Heading 4"
+                  },
+                  {
+                    "value": "h5",
+                    "title": "Heading 5"
+                  },
+                  {
+                    "value": "h6",
+                    "title": "Heading 6"
+                  },
+                  {
+                    "value": "blockquote",
+                    "title": "Quote"
+                  }
+                ],
+                "of": [],
+                "type": "block"
+              }
+            ],
+            "name": "content",
+            "type": "array"
+          }
+        ],
+        "name": "whyOrangeJelly",
+        "type": "object",
+        "title": "Why Orange Jelly Section"
+      }
+    ],
+    "name": "aboutContent",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Footer Content",
+        "hidden": true,
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "fields": [
+          {
+            "rows": 3,
+            "name": "description",
+            "type": "text",
+            "title": "Company Description"
+          },
+          {
+            "description": "e.g., \"Company Registration No: 12345678\"",
+            "name": "registrationInfo",
+            "type": "string",
+            "title": "Registration Information"
+          },
+          {
+            "description": "e.g., \"VAT Registration No: GB123456789\"",
+            "name": "vatInfo",
+            "type": "string",
+            "title": "VAT Information"
+          }
+        ],
+        "name": "companyInfo",
+        "type": "object",
+        "title": "Company Information"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string",
+                "title": "Link Title"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "href",
+                "type": "string",
+                "title": "Link URL"
+              },
+              {
+                "initialValue": false,
+                "name": "external",
+                "type": "boolean",
+                "title": "External Link"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "quickLinks",
+        "type": "array"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string",
+                "title": "Service Title"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "href",
+                "type": "string",
+                "title": "Service URL"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "services",
+        "type": "array",
+        "title": "Services Links"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string",
+                "title": "Link Title"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "href",
+                "type": "string",
+                "title": "Link URL"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "legalLinks",
+        "type": "array"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Get in Touch",
+            "name": "title",
+            "type": "string",
+            "title": "Contact Title"
+          },
+          {
+            "name": "phone",
+            "type": "string",
+            "title": "Phone Number"
+          },
+          {
+            "name": "email",
+            "type": "string",
+            "title": "Email Address"
+          },
+          {
+            "rows": 3,
+            "name": "address",
+            "type": "text"
+          }
+        ],
+        "name": "contactInfo",
+        "type": "object",
+        "title": "Contact Information"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "options": {
+                  "list": [
+                    {
+                      "title": "Facebook",
+                      "value": "facebook"
+                    },
+                    {
+                      "title": "Twitter",
+                      "value": "twitter"
+                    },
+                    {
+                      "title": "LinkedIn",
+                      "value": "linkedin"
+                    },
+                    {
+                      "title": "Instagram",
+                      "value": "instagram"
+                    },
+                    {
+                      "title": "YouTube",
+                      "value": "youtube"
+                    },
+                    {
+                      "title": "TikTok",
+                      "value": "tiktok"
+                    }
+                  ]
+                },
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "valid",
+                        "constraint": [
+                          "facebook",
+                          "twitter",
+                          "linkedin",
+                          "instagram",
+                          "youtube",
+                          "tiktok"
+                        ]
+                      },
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "platform",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "uri",
+                        "constraint": {
+                          "options": {
+                            "scheme": [
+                              "/^http$/",
+                              "/^https$/"
+                            ],
+                            "allowRelative": false,
+                            "relativeOnly": false,
+                            "allowCredentials": false
+                          }
+                        }
+                      },
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "url",
+                "type": "url",
+                "title": "URL"
+              },
+              {
+                "description": "e.g., \"Follow us on Facebook\"",
+                "name": "label",
+                "type": "string",
+                "title": "Accessibility Label"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "socialLinks",
+        "type": "array",
+        "title": "Social Media Links"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Stay Updated",
+            "name": "title",
+            "type": "string",
+            "title": "Newsletter Title"
+          },
+          {
+            "rows": 2,
+            "name": "description",
+            "type": "text",
+            "title": "Newsletter Description"
+          },
+          {
+            "initialValue": "Subscribe",
+            "name": "buttonText",
+            "type": "string",
+            "title": "Subscribe Button Text"
+          },
+          {
+            "description": "e.g., \"We respect your privacy. Unsubscribe anytime.\"",
+            "name": "privacyText",
+            "type": "string"
+          }
+        ],
+        "name": "newsletter",
+        "type": "object",
+        "title": "Newsletter Section"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "© {year} Orange Jelly Limited. All rights reserved.",
+            "description": "Use {year} for current year",
+            "name": "copyrightText",
+            "type": "string"
+          },
+          {
+            "description": "e.g., \"Made with ❤️ in Stanwell Moor\"",
+            "name": "additionalText",
+            "type": "string"
+          }
+        ],
+        "name": "bottomBar",
+        "type": "object"
+      }
+    ],
+    "name": "footerContent",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Home",
+              "value": "home"
+            },
+            {
+              "title": "About",
+              "value": "about"
+            },
+            {
+              "title": "Services",
+              "value": "services"
+            },
+            {
+              "title": "Results",
+              "value": "results"
+            },
+            {
+              "title": "Contact",
+              "value": "contact"
+            },
+            {
+              "title": "Licensees Guide",
+              "value": "licensees-guide"
+            },
+            {
+              "title": "Default",
+              "value": "default"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "home",
+                  "about",
+                  "services",
+                  "results",
+                  "contact",
+                  "licensees-guide",
+                  "default"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "page",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "SEO title - max 60 characters",
+        "name": "title",
+        "type": "string",
+        "title": "Page Title"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 160
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "SEO description - max 160 characters",
+        "name": "description",
+        "type": "text",
+        "title": "Meta Description"
+      },
+      {
+        "description": "SEO keywords for this page",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "keywords",
+        "type": "array"
+      },
+      {
+        "fields": [
+          {
+            "description": "Leave blank to use page title",
+            "name": "title",
+            "type": "string",
+            "title": "OG Title"
+          },
+          {
+            "rows": 2,
+            "description": "Leave blank to use meta description",
+            "name": "description",
+            "type": "text",
+            "title": "OG Description"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Recommended: 1200x630px",
+            "name": "image",
+            "type": "image",
+            "title": "OG Image"
+          }
+        ],
+        "name": "openGraph",
+        "type": "object",
+        "title": "Open Graph Settings"
+      },
+      {
+        "fields": [
+          {
+            "description": "Leave blank to use OG title",
+            "name": "title",
+            "type": "string",
+            "title": "Twitter Title"
+          },
+          {
+            "rows": 2,
+            "description": "Leave blank to use OG description",
+            "name": "description",
+            "type": "text",
+            "title": "Twitter Description"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Leave blank to use OG image",
+            "name": "image",
+            "type": "image",
+            "title": "Twitter Image"
+          }
+        ],
+        "name": "twitter",
+        "type": "object",
+        "title": "Twitter Card Settings"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Leave blank for default",
+        "name": "canonicalUrl",
+        "type": "url",
+        "title": "Canonical URL"
+      },
+      {
+        "initialValue": false,
+        "description": "Prevent search engines from indexing this page",
+        "name": "noIndex",
+        "type": "boolean"
+      },
+      {
+        "description": "Additional JSON-LD structured data (advanced)",
+        "name": "structuredData",
+        "type": "text",
+        "title": "Additional Structured Data"
+      }
+    ],
+    "name": "seoMetadata",
+    "type": "document",
+    "title": "SEO Metadata"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "The achievement or metric",
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "The specific number or result (e.g., \"£400+\", \"80%\", \"25-35\")",
+        "name": "value",
+        "type": "string"
+      },
+      {
+        "description": "When this was achieved (e.g., \"per week\", \"monthly\", \"since 2019\")",
+        "name": "timeframe",
+        "type": "string"
+      },
+      {
+        "description": "Where this happened (e.g., \"The Anchor\", \"Sunday lunch\")",
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Revenue",
+              "value": "revenue"
+            },
+            {
+              "title": "Attendance",
+              "value": "attendance"
+            },
+            {
+              "title": "Efficiency",
+              "value": "efficiency"
+            },
+            {
+              "title": "Growth",
+              "value": "growth"
+            },
+            {
+              "title": "Cost Savings",
+              "value": "savings"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "revenue",
+                  "attendance",
+                  "efficiency",
+                  "growth",
+                  "savings"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Full text to display in notifications (e.g., \"Sunday roast sales up £400+ per week\")",
+        "name": "displayText",
+        "type": "string"
+      },
+      {
+        "description": "Order in which to display (lower numbers first)",
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      },
+      {
+        "initialValue": true,
+        "description": "Whether to show this proof point",
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Active"
+      }
+    ],
+    "name": "socialProof",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Main badge text (e.g., \"No Agency Fees\")",
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Supporting text (e.g., \"Just honest pricing\")",
+        "name": "subtitle",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Money",
+              "value": "money"
+            },
+            {
+              "title": "Clock",
+              "value": "clock"
+            },
+            {
+              "title": "Shield",
+              "value": "shield"
+            },
+            {
+              "title": "Star",
+              "value": "star"
+            },
+            {
+              "title": "Check",
+              "value": "check"
+            },
+            {
+              "title": "Heart",
+              "value": "heart"
+            }
+          ]
+        },
+        "description": "Icon identifier or emoji",
+        "name": "icon",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Orange",
+              "value": "orange"
+            },
+            {
+              "title": "Teal",
+              "value": "teal"
+            },
+            {
+              "title": "Default",
+              "value": "default"
+            }
+          ]
+        },
+        "initialValue": "default",
+        "name": "color",
+        "type": "string",
+        "title": "Color Scheme"
+      },
+      {
+        "description": "Order in which to display (lower numbers first)",
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      },
+      {
+        "initialValue": true,
+        "description": "Whether to show this badge",
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Active"
+      }
+    ],
+    "name": "trustBadge",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Page Title"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "subtitle",
+            "type": "string"
+          },
+          {
+            "name": "ctaText",
+            "type": "string",
+            "title": "CTA Button Text"
+          },
+          {
+            "name": "bottomText",
+            "type": "string"
+          }
+        ],
+        "name": "hero",
+        "type": "object",
+        "title": "Hero Section"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "emoji",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "description",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "problems",
+        "type": "array",
+        "title": "Common Problems"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "icon",
+                "type": "string",
+                "title": "Icon (Emoji)"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "description",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "features",
+        "type": "array"
+      },
+      {
+        "fields": [
+          {
+            "description": "e.g., \"25-35 regulars\"",
+            "name": "quizNight",
+            "type": "string",
+            "title": "Quiz Night Attendance"
+          },
+          {
+            "description": "e.g., \"Tuesday quiz (was 20)\"",
+            "name": "quizNightContext",
+            "type": "string"
+          },
+          {
+            "description": "e.g., \"71%\"",
+            "name": "foodGP",
+            "type": "string"
+          },
+          {
+            "description": "e.g., \"Food GP (was 58%)\"",
+            "name": "foodGPContext",
+            "type": "string"
+          },
+          {
+            "description": "e.g., \"60-70k\"",
+            "name": "socialViews",
+            "type": "string",
+            "title": "Social Media Views"
+          },
+          {
+            "description": "e.g., \"Monthly social views\"",
+            "name": "socialViewsContext",
+            "type": "string"
+          },
+          {
+            "description": "e.g., \"25 hours\"",
+            "name": "hoursSaved",
+            "type": "string"
+          },
+          {
+            "description": "e.g., \"Saved weekly with AI\"",
+            "name": "hoursSavedContext",
+            "type": "string"
+          }
+        ],
+        "name": "metrics",
+        "type": "object",
+        "title": "Key Metrics"
+      },
+      {
+        "of": [
+          {
+            "to": [
+              {
+                "type": "faq"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to faq"
+          }
+        ],
+        "name": "faqs",
+        "type": "array",
+        "title": "Homepage FAQs"
+      },
+      {
+        "name": "seo",
+        "type": "seoMetadata",
+        "title": "SEO Metadata"
+      }
+    ],
+    "name": "homepageContent",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "id",
+        "type": "slug",
+        "title": "Service ID"
+      },
+      {
+        "description": "Emoji to represent this service",
+        "name": "emoji",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "What problem does this service solve?",
+        "name": "problem",
+        "type": "string",
+        "title": "Problem Statement"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "What the customer gets",
+        "name": "deliverable",
+        "type": "string",
+        "title": "Key Deliverable"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "description",
+        "type": "text",
+        "title": "Full Description"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 3
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "features",
+        "type": "array"
+      },
+      {
+        "description": "Real result from The Anchor",
+        "name": "example",
+        "type": "string",
+        "title": "Real Example"
+      },
+      {
+        "description": "e.g., \"15-25 hours over 30 days\"",
+        "name": "timeEstimate",
+        "type": "string"
+      },
+      {
+        "description": "Explanation of typical costs",
+        "name": "priceBreakdown",
+        "type": "text"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "price",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "ctaText",
+        "type": "string",
+        "title": "CTA Button Text"
+      },
+      {
+        "description": "Show this service as featured/highlighted",
+        "name": "highlight",
+        "type": "boolean",
+        "title": "Highlight Service"
+      },
+      {
+        "of": [
+          {
+            "to": [
+              {
+                "type": "faq"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to faq"
+          }
+        ],
+        "name": "faqs",
+        "type": "array",
+        "title": "Service FAQs"
+      },
+      {
+        "description": "Order in which to display this service",
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      }
+    ],
+    "name": "serviceDetail",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Company Constants",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "readOnly": true,
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "name",
+            "type": "string",
+            "title": "Company Name"
+          },
+          {
+            "name": "tagline",
+            "type": "string"
+          },
+          {
+            "name": "registrationNumber",
+            "type": "string"
+          },
+          {
+            "name": "vatNumber",
+            "type": "string",
+            "title": "VAT Number"
+          },
+          {
+            "name": "vatRegistered",
+            "type": "boolean",
+            "title": "VAT Registered"
+          },
+          {
+            "name": "owner",
+            "type": "string"
+          },
+          {
+            "name": "coOwner",
+            "type": "string",
+            "title": "Co-Owner"
+          },
+          {
+            "name": "founded",
+            "type": "string",
+            "title": "Founded Date"
+          }
+        ],
+        "name": "company",
+        "type": "object",
+        "title": "Company Details"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "phone",
+            "type": "string"
+          },
+          {
+            "description": "How to display WhatsApp number",
+            "name": "whatsapp",
+            "type": "string",
+            "title": "WhatsApp Display"
+          },
+          {
+            "description": "WhatsApp number for links",
+            "name": "whatsappNumber",
+            "type": "string",
+            "title": "WhatsApp Number"
+          },
+          {
+            "name": "address",
+            "type": "text"
+          }
+        ],
+        "name": "contact",
+        "type": "object",
+        "title": "Contact Information"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "perHour",
+            "type": "string",
+            "title": "Hourly Rate"
+          },
+          {
+            "description": "VAT rate as a decimal (e.g., 0.20 for 20%)",
+            "name": "vatRate",
+            "type": "number",
+            "title": "VAT Rate"
+          },
+          {
+            "initialValue": "GBP",
+            "name": "currency",
+            "type": "string"
+          },
+          {
+            "description": "e.g., \"30-day money-back guarantee\"",
+            "name": "guarantee",
+            "type": "string"
+          }
+        ],
+        "name": "pricing",
+        "type": "object",
+        "title": "Pricing Configuration"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "description": "Additional context for the metric",
+                "name": "context",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "metrics",
+        "type": "array",
+        "title": "Key Metrics"
+      },
+      {
+        "fields": [
+          {
+            "of": [
+              {
+                "type": "string"
+              }
+            ],
+            "name": "trust",
+            "type": "array",
+            "title": "Trust Messages"
+          },
+          {
+            "fields": [
+              {
+                "name": "default",
+                "type": "string",
+                "title": "Default Message"
+              },
+              {
+                "name": "services",
+                "type": "text",
+                "title": "Services Inquiry"
+              },
+              {
+                "name": "consultation",
+                "type": "text",
+                "title": "Consultation Request"
+              }
+            ],
+            "name": "whatsappTemplates",
+            "type": "object",
+            "title": "WhatsApp Message Templates"
+          },
+          {
+            "fields": [
+              {
+                "name": "hours",
+                "type": "string",
+                "title": "Business Hours"
+              },
+              {
+                "name": "response",
+                "type": "string",
+                "title": "Response Time"
+              }
+            ],
+            "name": "availability",
+            "type": "object",
+            "title": "Availability Messages"
+          }
+        ],
+        "name": "messages",
+        "type": "object",
+        "title": "Common Messages"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "facebook",
+            "type": "url",
+            "title": "Facebook URL"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "instagram",
+            "type": "url",
+            "title": "Instagram URL"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "linkedin",
+            "type": "url",
+            "title": "LinkedIn URL"
+          }
+        ],
+        "name": "socialMedia",
+        "type": "object",
+        "title": "Social Media Links"
+      }
+    ],
+    "name": "companyConstants",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Unique identifier for this CTA",
+        "name": "identifier",
+        "type": "slug"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "For internal reference only",
+        "name": "title",
+        "type": "string",
+        "title": "Internal Title"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "heading",
+        "type": "string",
+        "title": "CTA Heading"
+      },
+      {
+        "name": "subheading",
+        "type": "text",
+        "title": "CTA Subheading"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "buttonText",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "WhatsApp",
+              "value": "whatsapp"
+            },
+            {
+              "title": "Phone Call",
+              "value": "phone"
+            },
+            {
+              "title": "Email",
+              "value": "email"
+            },
+            {
+              "title": "Internal Link",
+              "value": "internal"
+            },
+            {
+              "title": "External Link",
+              "value": "external"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "whatsapp",
+                  "phone",
+                  "email",
+                  "internal",
+                  "external"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "buttonAction",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "WhatsApp message, link URL, etc.",
+        "name": "actionValue",
+        "type": "string"
+      },
+      {
+        "description": "Text below the button",
+        "name": "bottomText",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Orange Background",
+              "value": "orange"
+            },
+            {
+              "title": "Teal Background",
+              "value": "teal"
+            },
+            {
+              "title": "White Background",
+              "value": "white"
+            },
+            {
+              "title": "Cream Background",
+              "value": "cream"
+            }
+          ]
+        },
+        "initialValue": "orange",
+        "name": "variant",
+        "type": "string",
+        "title": "Visual Variant"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Homepage",
+              "value": "homepage"
+            },
+            {
+              "title": "Services Page",
+              "value": "services"
+            },
+            {
+              "title": "About Page",
+              "value": "about"
+            },
+            {
+              "title": "Contact Page",
+              "value": "contact"
+            },
+            {
+              "title": "Blog Posts",
+              "value": "blog"
+            },
+            {
+              "title": "Landing Pages",
+              "value": "landing"
+            }
+          ]
+        },
+        "description": "Where this CTA is used (e.g., \"homepage\", \"services page\")",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "usage",
+        "type": "array",
+        "title": "Usage Context"
+      }
+    ],
+    "name": "ctaMessage",
+    "type": "document",
+    "title": "CTA Message"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Homepage",
+              "value": "home"
+            },
+            {
+              "title": "About Page",
+              "value": "about"
+            },
+            {
+              "title": "Services Page",
+              "value": "services"
+            },
+            {
+              "title": "Contact Page",
+              "value": "contact"
+            },
+            {
+              "title": "Results Page",
+              "value": "results"
+            },
+            {
+              "title": "Blog Posts",
+              "value": "blog"
+            },
+            {
+              "title": "Pub Rescue",
+              "value": "pubRescue"
+            },
+            {
+              "title": "Legal Pages",
+              "value": "legal"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "home",
+                  "about",
+                  "services",
+                  "contact",
+                  "results",
+                  "blog",
+                  "pubRescue",
+                  "legal"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Which page/section these links belong to",
+        "name": "cluster",
+        "type": "string",
+        "title": "Link Cluster"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Title shown above the links",
+        "name": "title",
+        "type": "string",
+        "title": "Section Title"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "text",
+                "type": "string",
+                "title": "Link Text"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "href",
+                "type": "string",
+                "title": "Link URL"
+              },
+              {
+                "description": "Optional description shown under the link",
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "description": "Emoji or icon identifier",
+                "name": "icon",
+                "type": "string"
+              },
+              {
+                "initialValue": false,
+                "description": "Opens in new tab",
+                "name": "external",
+                "type": "boolean",
+                "title": "External Link"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "links",
+        "type": "array"
+      },
+      {
+        "description": "Order in which to display this cluster",
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      }
+    ],
+    "name": "relatedLinks",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "list": [
+            {
+              "title": "About",
+              "value": "about"
+            },
+            {
+              "title": "Services",
+              "value": "services"
+            },
+            {
+              "title": "Results",
+              "value": "results"
+            },
+            {
+              "title": "Contact",
+              "value": "contact"
+            },
+            {
+              "title": "Blog",
+              "value": "blog"
+            },
+            {
+              "title": "Blog Post",
+              "value": "blogPost"
+            },
+            {
+              "title": "Licensees Guide",
+              "value": "licenseesGuide"
+            },
+            {
+              "title": "Guide Article",
+              "value": "guideArticle"
+            },
+            {
+              "title": "Empty Pub Solutions",
+              "value": "emptyPubSolutions"
+            },
+            {
+              "title": "Pub Marketing No Budget",
+              "value": "pubMarketingNoBudget"
+            },
+            {
+              "title": "Compete with Pub Chains",
+              "value": "competeWithChains"
+            },
+            {
+              "title": "Quiet Midweek Solutions",
+              "value": "quietMidweek"
+            },
+            {
+              "title": "Legal",
+              "value": "legal"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "about",
+                  "services",
+                  "results",
+                  "contact",
+                  "blog",
+                  "blogPost",
+                  "licenseesGuide",
+                  "guideArticle",
+                  "emptyPubSolutions",
+                  "pubMarketingNoBudget",
+                  "competeWithChains",
+                  "quietMidweek",
+                  "legal"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Which page this breadcrumb is for",
+        "name": "page",
+        "type": "string",
+        "title": "Page Identifier"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "For internal reference",
+        "name": "title",
+        "type": "string",
+        "title": "Internal Title"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 2
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "href",
+                "type": "string",
+                "title": "Link URL"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "items",
+        "type": "array",
+        "title": "Breadcrumb Items"
+      }
+    ],
+    "name": "breadcrumbPaths",
+    "type": "document"
+  }
+]

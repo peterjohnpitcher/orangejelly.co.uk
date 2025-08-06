@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 interface TextProps {
   children: React.ReactNode;
   size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl';
@@ -7,7 +9,7 @@ interface TextProps {
   className?: string;
 }
 
-export default function Text({
+function Text({
   children,
   size = 'base',
   color = 'default',
@@ -54,3 +56,5 @@ export default function Text({
     </p>
   );
 }
+
+export default memo(Text);

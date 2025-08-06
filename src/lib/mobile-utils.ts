@@ -54,7 +54,7 @@ export const getViewportHeight = () => {
 };
 
 // Debounce function for scroll/resize events
-export const debounce = <T extends (...args: any[]) => any>(
+export const debounce = <T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): ((...args: Parameters<T>) => void) => {

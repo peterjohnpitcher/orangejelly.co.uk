@@ -89,9 +89,9 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
       <StickyCTA />
 
       <article id="blog-article">
-        {/* Hero section */}
+        {/* Post metadata */}
         <header className="mb-8">
-          <div className="mb-6">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-charcoal/60 mb-6">
             <Button
               href={`/licensees-guide/category/${post.category}`}
               variant="ghost"
@@ -100,24 +100,14 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
             >
               {post.category}
             </Button>
-          </div>
-          
-          <Heading level={1} className="mb-4">
-            {post.title}
-          </Heading>
-          
-          <Text size="lg" color="muted" className="mb-6">
-            {post.excerpt}
-          </Text>
-          
-          <div className="flex flex-wrap items-center gap-4 text-sm text-charcoal/60 mb-8">
+            <span>•</span>
             {post.author && (
               <AuthorInfo 
                 author={{
                   name: post.author.name,
                   role: 'Founder & Licensee',
                   bio: post.author.bio || 'Founder of Orange Jelly Limited and licensee of The Anchor pub',
-                  image: post.author.image || '/images/peter-pitcher.svg'
+                  image: post.author.image || '/peter-pitcher.jpg'
                 }} 
                 variant="compact" 
               />
@@ -234,7 +224,7 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
               name: post.author.name,
               role: 'Founder & Licensee',
               bio: post.author.bio || 'Founder of Orange Jelly Limited and licensee of The Anchor pub',
-              image: post.author.image || '/images/peter-pitcher.svg'
+              image: post.author.image || '/peter-pitcher.jpg'
             }} 
             variant="full" 
           />

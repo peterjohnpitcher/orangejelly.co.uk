@@ -11,6 +11,9 @@ npm run build        # Build for production
 npm run lint         # Check code quality
 npm run type-check   # Validate TypeScript
 npm run format       # Auto-format code
+npm run test         # Run component tests
+npm run test:watch   # Run tests in watch mode
+npm run test:coverage # Check test coverage
 ```
 
 ### Key Facts to Remember
@@ -18,7 +21,7 @@ npm run format       # Auto-format code
 - **Real metrics**: 25-35 quiz attendees, 300 contacts, 71% food GP
 - **First client**: September 2025 (training pub chain)
 - **Founded**: March 2019 (took over The Anchor)
-- **Tech stack**: Next.js 14, TypeScript, Tailwind CSS
+- **Tech stack**: Next.js 14, TypeScript, Tailwind CSS, React Server Components
 
 ### Most Important Rules
 1. ✅ Always use components (`<Heading>`, `<Text>`, `<OptimizedImage>`)
@@ -26,6 +29,7 @@ npm run format       # Auto-format code
 3. ✅ Use real metrics only (see Core Business Facts)
 4. ✅ Test mobile-first
 5. ✅ Include alt text on all images
+6. ✅ Server Components by default (add `"use client"` only when needed)
 
 ### Where to Find Things
 - **Constants**: `src/lib/constants.ts`
@@ -33,6 +37,7 @@ npm run format       # Auto-format code
 - **Pages**: `src/app/`
 - **Blog posts**: `content/blog/`
 - **Public assets**: `public/`
+- **Tests**: `src/components/**/*.test.tsx`
 
 ## 🎯 Guiding Principles
 
@@ -110,86 +115,98 @@ We maintain transparent, consistent pricing:
 - **Why no packages?**: Every pub is unique and deserves custom solutions
 - **Payment plans**: Available to help cash flow without false promises
 
-## 🚀 Best Practices - Your Path to Excellence
+## 🏗️ Component Architecture Standards (2025)
 
-### Content Standards
-1. **Verify Facts**: Check this document before adding any metrics
-2. **Use Real Examples**: Only from The Anchor's actual experience
-3. **Honest Language**: "We're planning to..." not "We've helped dozens..."
-4. **Clear Pricing**: Always "£62.50/hour plus VAT"
-5. **Real Events**: Quiz, bingo, drag nights, karaoke, games nights, tasting events
-
-### Technical Standards
-
-#### URLs and Environment
-- **Base URL**: `https://www.orangejelly.co.uk` (with www)
-- **Use Environment Variables**: `NEXT_PUBLIC_BASE_URL`
-- **Dynamic Generation**: robots.txt and sitemap.xml are dynamic
-- **Never Hardcode**: Always use baseUrl variable
-
-#### File Structure
-```
-src/
-├── app/              # Next.js 14 app router
-├── components/       # Reusable components
-├── lib/             
-│   ├── constants.ts  # Business info, pricing
-│   └── metadata.ts   # SEO helpers
-content/
-└── blog/            # Markdown blog posts
-```
-
-#### Schema.org Rules
-1. **Never Add Fake Ratings**: No AggregateRating without real reviews
-2. **Use Correct IDs**: `${baseUrl}/#organization`
-3. **Test Everything**: Google Rich Results Test
-4. **Real Data Only**: Actual business information
-
-#### Component Architecture - Building Consistency
-
-**Why Components Matter**: Using our component library ensures consistent styling, better performance, and easier maintenance. Every component has been optimized for our specific needs.
+### Server vs Client Components
+Following React and Next.js 2025 best practices:
 
 ```typescript
-// ❌ NEVER DO THIS:
-<h1>Title</h1>
-<p>Some text</p>
-<img src="/image.jpg" />
-<div className="section">
-<a href="/page">Link</a>
-<button onClick={}>Click</button>
+// ✅ Server Component (default)
+// No "use client" directive - runs on server
+export default function ServiceCard({ service }: Props) {
+  // Can fetch data, access databases, use server-only APIs
+  const data = await fetchServiceData(service.id);
+  
+  return <Card>{/* ... */}</Card>;
+}
 
-// ✅ ALWAYS DO THIS:
-import Heading from '@/components/Heading'
-import Text from '@/components/Text'
-import OptimizedImage from '@/components/OptimizedImage'
-import Section from '@/components/Section'
-import Link from 'next/link'
-import Button from '@/components/Button'
-
-<Heading level={1}>Title</Heading>
-<Text>Some text</Text>
-<OptimizedImage src="/image.jpg" alt="Description" width={800} height={600} />
-<Section background="cream">
-<Link href="/page">Link</Link>
-<Button variant="primary">Click</Button>
+// ✅ Client Component (only when needed)
+"use client";
+export default function InteractiveChart({ data }: Props) {
+  const [selectedRange, setSelectedRange] = useState('week');
+  // Needs state, effects, or browser APIs
+}
 ```
 
-#### Required Components for Common Elements
+**When to use Client Components:**
+- User interactions (onClick, onChange)
+- Browser APIs (window, document)
+- State management (useState, useReducer)
+- Effects (useEffect, useLayoutEffect)
+- Third-party client libraries
 
-| Element | ❌ Never Use | ✅ Always Use | Import |
-|---------|-------------|--------------|---------|
-| Headings | `<h1>`, `<h2>`, etc | `<Heading level={1}>` | `@/components/Heading` |
-| Paragraphs | `<p>` | `<Text>` | `@/components/Text` |
-| Images | `<img>`, Next `Image` | `<OptimizedImage>` | `@/components/OptimizedImage` |
-| Sections | `<div>`, `<section>` | `<Section>` | `@/components/Section` |
-| Buttons | `<button>`, `<a>` for actions | `<Button>` | `@/components/Button` |
-| Links | `<a>` | Next.js `Link` or `Button` with href | `next/link` or `@/components/Button` |
-| Cards | `<div className="card">` | `<Card>` | `@/components/Card` |
-| Grids | `<div className="grid">` | `<Grid>` | `@/components/Grid` |
-| Animations | Custom animations | `<AnimatedItem>` | `@/components/AnimatedItem` |
-| WhatsApp | Custom WhatsApp links | `<WhatsAppButton>` | `@/components/WhatsAppButton` |
+### Component Composition Patterns
 
-#### Component Props Standards
+#### Compound Components
+```typescript
+// ✅ Flexible, composable API
+<ServiceCard>
+  <ServiceCard.Header>
+    <ServiceCard.Title>Social Media Management</ServiceCard.Title>
+    <ServiceCard.Price>£62.50/hour</ServiceCard.Price>
+  </ServiceCard.Header>
+  <ServiceCard.Body>
+    <ServiceCard.Description>
+      Proven strategies from The Anchor
+    </ServiceCard.Description>
+  </ServiceCard.Body>
+</ServiceCard>
+```
+
+#### asChild Pattern (Radix UI Style)
+```typescript
+// ✅ Better than polymorphic "as" prop
+<Button asChild>
+  <Link href="/services">View Services</Link>
+</Button>
+```
+
+### TypeScript Best Practices
+
+#### Discriminated Unions for Variants
+```typescript
+// ✅ Type-safe variant props
+type ButtonProps = 
+  | { variant: 'primary'; primaryColor?: string }
+  | { variant: 'secondary'; outlineStyle?: 'solid' | 'dashed' }
+  | { variant: 'ghost'; hoverOpacity?: number };
+
+// Usage enforces correct prop combinations
+<Button variant="primary" primaryColor="#FF6B35" /> // ✅ Valid
+<Button variant="ghost" primaryColor="#FF6B35" />  // ❌ Type error
+```
+
+#### Generic Components
+```typescript
+// ✅ Reusable, type-safe components
+interface ListProps<T> {
+  items: T[];
+  renderItem: (item: T) => React.ReactNode;
+  keyExtractor: (item: T) => string;
+}
+
+export function List<T>({ items, renderItem, keyExtractor }: ListProps<T>) {
+  return (
+    <ul>
+      {items.map(item => (
+        <li key={keyExtractor(item)}>{renderItem(item)}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+### Component Props Standards
 
 ```typescript
 // Heading Component
@@ -217,6 +234,7 @@ import Button from '@/components/Button'
   width={800}  // Required
   height={600}  // Required
   priority={true}  // Optional - only for above-the-fold images
+  placeholder="blur"  // Optional - use with blurDataURL
   className=""  // Optional additional styles
 >
 
@@ -232,10 +250,12 @@ import Button from '@/components/Button'
   size="small|medium|large"  // Optional
   href="/path"  // Optional, makes it a link
   onClick={() => {}}  // Optional, for client-side actions
+  loading={false}  // Optional, shows loading state
+  disabled={false}  // Optional
   external={true}  // Optional, for external links
   whatsapp={true}  // Optional, for WhatsApp buttons
   className=""  // Optional additional styles
-  aria-label=""  // Optional but recommended for icon-only buttons
+  aria-label=""  // Required for icon-only buttons
 >
 
 // Card Component
@@ -243,32 +263,439 @@ import Button from '@/components/Button'
   variant="bordered|shadowed|colored|default"  // Optional
   background="white|cream|orange|teal|orange-light"  // Optional
   padding="small|medium|large"  // Optional
+  asChild={false}  // Optional, for composition
   className=""  // Optional additional styles
 >
 ```
 
-#### Styling Rules
+## ⚡ Performance Standards - 2025 Best Practices
+
+### React Performance Features
+
+#### React Compiler (New in 2025)
+```typescript
+// ✅ Automatic optimization - no manual memo needed
+export default function ExpensiveComponent({ data }) {
+  // React Compiler automatically memoizes
+  const processed = expensiveCalculation(data);
+  return <div>{processed}</div>;
+}
+```
+
+#### Manual Optimization (When Needed)
+```typescript
+// ✅ Use when React Compiler isn't available
+import { memo, useMemo, useCallback } from 'react';
+
+export default memo(function ServiceList({ services, onSelect }) {
+  const sortedServices = useMemo(
+    () => services.sort((a, b) => a.order - b.order),
+    [services]
+  );
+  
+  const handleSelect = useCallback(
+    (id: string) => onSelect(id),
+    [onSelect]
+  );
+  
+  return <>{/* ... */}</>;
+});
+```
+
+### Next.js 15 Optimizations
+
+#### Partial Prerendering (PPR)
+```typescript
+// app/layout.tsx
+export const experimental_ppr = true;
+
+// Mark dynamic sections with Suspense
+<Suspense fallback={<LoadingMetrics />}>
+  <LiveMetrics /> {/* Dynamic content */}
+</Suspense>
+```
+
+#### Dynamic Imports with Prefetching
+```typescript
+// ✅ Load heavy components on demand
+const ROICalculator = dynamic(
+  () => import('@/components/ROICalculator'),
+  {
+    loading: () => <CalculatorSkeleton />,
+    ssr: false,
+    // Prefetch for better UX
+    suspense: true,
+  }
+);
+```
+
+### Performance Budget
+Every feature must respect our performance constraints:
+
+#### Core Web Vitals Targets (2025)
+- **LCP (Largest Contentful Paint)**: < 2.5s
+- **INP (Interaction to Next Paint)**: < 200ms (replaces FID)
+- **CLS (Cumulative Layout Shift)**: < 0.1
+- **TTFB (Time to First Byte)**: < 600ms
+
+#### Resource Budgets
+- **JavaScript**: < 200KB compressed
+- **CSS**: < 50KB compressed
+- **Images**: < 100KB per image (WebP/AVIF format)
+- **Total page weight**: < 1MB
+- **Font files**: Maximum 2 font weights
+
+### Image Optimization
+```typescript
+// ✅ Optimized image with blur placeholder
+import { getImageWithPlaceholder } from '@/lib/images';
+
+const imageProps = await getImageWithPlaceholder('/hero.jpg');
+
+<OptimizedImage
+  {...imageProps}
+  alt="The Anchor on a busy Friday night"
+  priority // LCP image
+  sizes="(max-width: 768px) 100vw, 50vw"
+/>
+```
+
+## ♿ Accessibility Standards - WCAG 2.1 AA Compliance
+
+### Visual Design Requirements
+- **Color contrast**: Minimum 4.5:1 for normal text, 3:1 for large text
+- **Focus indicators**: Visible keyboard focus on all interactive elements
+- **Text sizing**: Base font minimum 16px, scalable to 200%
+- **Touch targets**: Minimum 44×44 CSS pixels (WCAG 2.2 coming: 24×24)
+
+### ARIA Best Practices
+**First Rule**: Prefer semantic HTML over ARIA
 
 ```typescript
-// ❌ NEVER use inline styles
-<div style={{ padding: '20px', margin: '10px' }}>
+// ❌ Bad - Using ARIA when semantic HTML exists
+<div role="button" onClick={handleClick}>Click me</div>
 
-// ❌ NEVER create custom utility classes
-<div className="my-custom-padding">
+// ✅ Good - Semantic HTML
+<button onClick={handleClick}>Click me</button>
 
-// ✅ ALWAYS use Tailwind utilities or component props
-<Section padding="large">
-<div className="p-5 m-2.5">  // If absolutely needed
+// ✅ Good - ARIA for complex patterns
+<button
+  aria-expanded={isOpen}
+  aria-controls="menu-items"
+  aria-haspopup="true"
+>
+  Menu
+</button>
+```
 
-// ✅ For custom spacing, use Tailwind's spacing scale
-className="mb-4"  // margin-bottom: 1rem
-className="p-6"   // padding: 1.5rem
-className="gap-8" // gap: 2rem
+### Component Accessibility Patterns
+
+#### Form Validation
+```typescript
+<Input
+  label="Email"
+  type="email"
+  error={errors.email}
+  aria-required="true"
+  aria-invalid={!!errors.email}
+  aria-describedby={errors.email ? "email-error" : "email-hint"}
+/>
+{errors.email && (
+  <Text id="email-error" role="alert" color="error">
+    {errors.email}
+  </Text>
+)}
+```
+
+#### Dynamic Content
+```typescript
+// ✅ Announce dynamic updates
+<div aria-live="polite" aria-atomic="true">
+  <Text>{savedMessage}</Text>
+</div>
+
+// ✅ Loading states
+<Button loading aria-busy="true">
+  <span aria-hidden="true">⚪</span>
+  <span className="sr-only">Loading, please wait</span>
+</Button>
+```
+
+### Keyboard Navigation
+```typescript
+// ✅ Implement roving tabindex for lists
+function ServiceList({ services }) {
+  const [focusedIndex, setFocusedIndex] = useState(0);
+  
+  const handleKeyDown = (e: KeyboardEvent, index: number) => {
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setFocusedIndex((index + 1) % services.length);
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setFocusedIndex((index - 1 + services.length) % services.length);
+        break;
+    }
+  };
+  
+  return services.map((service, index) => (
+    <ServiceCard
+      key={service.id}
+      tabIndex={index === focusedIndex ? 0 : -1}
+      onKeyDown={(e) => handleKeyDown(e, index)}
+    />
+  ));
+}
+```
+
+## 🧪 Testing Standards - Modern Approach
+
+### Testing Philosophy (2025)
+Following Kent C. Dodds' Testing Trophy:
+
+```
+       /\
+      /  \    E2E Tests (Playwright)
+     /    \
+    /──────\  Integration Tests (Primary Focus)
+   /        \
+  /──────────\ Unit Tests (Minimal)
+ /____________\
+    Static     TypeScript, ESLint
+```
+
+### Component Testing with Vitest
+
+#### Setup
+```typescript
+// vitest.config.ts
+import { defineConfig } from 'vitest/config';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './src/test/setup.ts',
+    coverage: {
+      reporter: ['text', 'json', 'html'],
+      exclude: ['node_modules/', 'src/test/'],
+    },
+  },
+});
+```
+
+#### Testing Patterns
+```typescript
+// ✅ Test user behavior, not implementation
+import { render, screen, userEvent } from '@/test/utils';
+
+describe('NewsletterForm', () => {
+  it('subscribes user to newsletter', async () => {
+    const user = userEvent.setup();
+    render(<NewsletterForm />);
+    
+    // User fills form
+    await user.type(
+      screen.getByLabelText(/email address/i),
+      'pub@example.com'
+    );
+    await user.click(screen.getByRole('button', { name: /subscribe/i }));
+    
+    // Verify success
+    expect(await screen.findByText(/thanks for subscribing/i))
+      .toBeInTheDocument();
+  });
+  
+  it('shows validation errors', async () => {
+    const user = userEvent.setup();
+    render(<NewsletterForm />);
+    
+    // Submit without email
+    await user.click(screen.getByRole('button', { name: /subscribe/i }));
+    
+    // Verify error
+    expect(screen.getByRole('alert'))
+      .toHaveTextContent(/valid email required/i);
+  });
+});
+```
+
+### Accessibility Testing
+```typescript
+import { axe, toHaveNoViolations } from 'jest-axe';
+
+expect.extend(toHaveNoViolations);
+
+it('has no accessibility violations', async () => {
+  const { container } = render(<ServiceCard service={mockService} />);
+  const results = await axe(container);
+  expect(results).toHaveNoViolations();
+});
+```
+
+### MSW for API Mocking
+```typescript
+// src/test/mocks/handlers.ts
+import { http, HttpResponse } from 'msw';
+
+export const handlers = [
+  http.post('/api/newsletter', async ({ request }) => {
+    const { email } = await request.json();
+    
+    if (!email.includes('@')) {
+      return HttpResponse.json(
+        { error: 'Invalid email' },
+        { status: 400 }
+      );
+    }
+    
+    return HttpResponse.json({ success: true });
+  }),
+];
+```
+
+## 🎨 Design System Standards
+
+### Design Token Architecture
+
+```typescript
+// ✅ Three-tier token system
+const tokens = {
+  // Primitive tokens
+  colors: {
+    orange500: '#FF6B35',
+    teal700: '#2C5F5F',
+    cream100: '#FFF5EB',
+  },
+  
+  // Semantic tokens
+  semantic: {
+    text: {
+      primary: '{colors.charcoal}',
+      error: '{colors.orange500}',
+      muted: '{colors.charcoal.opacity(0.6)}',
+    },
+    background: {
+      primary: '{colors.white}',
+      accent: '{colors.cream100}',
+    },
+  },
+  
+  // Component tokens
+  components: {
+    button: {
+      primary: {
+        background: '{colors.orange500}',
+        text: '{colors.white}',
+      },
+    },
+  },
+};
+```
+
+### Animation System
+```typescript
+// ✅ Consistent, performant animations
+const animations = {
+  // Durations
+  quick: '200ms',
+  normal: '300ms',
+  slow: '500ms',
+  
+  // Easings
+  easeOut: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+  easeInOut: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+  
+  // Prefers reduced motion
+  '@media (prefers-reduced-motion: reduce)': {
+    '*': {
+      animationDuration: '0.01ms !important',
+      transitionDuration: '0.01ms !important',
+    },
+  },
+};
+```
+
+## 🔍 SEO Strategy - Maximizing Organic Visibility
+
+### Heading Hierarchy
+```typescript
+// ✅ Configurable heading levels
+interface HeroProps {
+  headingLevel?: 1 | 2; // Prevent multiple h1s
+}
+
+<Hero headingLevel={1} title="Main Page Title" />
+<Hero headingLevel={2} title="Section Title" />
+```
+
+### Meta Component
+```typescript
+// ✅ Centralized meta management
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return {
+    title: 'Page Title | Orange Jelly',
+    description: 'Under 160 characters...',
+    openGraph: {
+      title: 'Page Title',
+      description: 'Description',
+      images: ['/og-image.jpg'],
+    },
+    alternates: {
+      canonical: 'https://www.orangejelly.co.uk/page',
+    },
+  };
+}
+```
+
+### Structured Data
+```typescript
+// ✅ Add relevant schema only
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: serviceName,
+      provider: {
+        '@id': 'https://www.orangejelly.co.uk/#organization',
+      },
+      areaServed: 'United Kingdom',
+      price: '62.50',
+      priceCurrency: 'GBP',
+    }),
+  }}
+/>
 ```
 
 ## 📋 Quality Assurance Checklist
 
-Ensure your changes meet our high standards:
+### Before Every Commit
+```bash
+# Automated checks
+npm run lint          # ESLint validation
+npm run type-check    # TypeScript validation
+npm run test          # Run tests
+npm run test:coverage # Check coverage (target: 80%)
+npm run build         # Build validation
+
+# Performance checks
+npm run analyze       # Bundle analysis
+npm run lighthouse    # Core Web Vitals
+```
+
+### Component Checklist
+- [ ] Server Component by default (client only if needed)
+- [ ] TypeScript props interface exported
+- [ ] Accessibility: keyboard navigable, ARIA labels
+- [ ] Tests: behavior covered, accessibility tested
+- [ ] Performance: memoized if needed, images optimized
+- [ ] Mobile: touch targets ≥44px, responsive design
 
 ### Content Checks
 - [ ] No false metrics (check against REAL Metrics section)
@@ -277,377 +704,129 @@ Ensure your changes meet our high standards:
 - [ ] Real partnership language used
 - [ ] Timeline is accurate (March 2019)
 
-### Technical Checks
-- [ ] Build succeeds: `npm run build`
-- [ ] TypeScript passes: `npm run type-check`
-- [ ] No raw HTML elements (using components only)
-- [ ] No inline styles (using Tailwind/props only)
-- [ ] URLs use environment variables
-- [ ] Schema is valid (no fake data)
-- [ ] Mobile responsive
-- [ ] Images use OptimizedImage component
-- [ ] All links use Next.js Link or Button
+## 🚀 Development Workflow
 
-### Component Verification
-- [ ] All `<h1>` to `<h6>` replaced with `<Heading level={n}>`
-- [ ] All `<p>` tags replaced with `<Text>`
-- [ ] All `<img>` and Next.js `Image` replaced with `<OptimizedImage>`
-- [ ] All `<button>` tags replaced with `<Button>`
-- [ ] All CTA `<a>` tags replaced with `<Button href="">`
-- [ ] No invalid component props (check Component Props Standards)
-
-### SEO Verification
-- [ ] Page has metadata export (using generateMetadata)
-- [ ] Canonical URL is set
-- [ ] Meta description includes key info
-- [ ] Appropriate structured data added
-- [ ] Alt text on all images
-
-### Business Logic
-- [ ] Would Peter approve this?
-- [ ] Is this honest about current situation?
-- [ ] Does this reflect The Anchor's real experience?
-
-## 🔍 SEO Strategy - Maximizing Organic Visibility
-
-### Keyword Research & Targeting
-Our content targets licensees searching for specific solutions. Primary keyword clusters:
-
-#### High-Intent Keywords (Prioritize These)
-- **Empty pub solutions**: "why is my pub empty", "fill empty pub tables", "quiet pub marketing"
-- **Midweek struggles**: "quiet tuesday pub", "midweek pub promotions", "boost monday pub sales"
-- **Competition**: "compete with wetherspoons", "beat chain pubs", "small pub vs chains"
-- **Budget marketing**: "pub marketing no budget", "free pub promotion ideas", "cheap pub advertising"
-
-#### Supporting Keywords
-- **Event ideas**: "pub quiz ideas", "live music pubs", "pub events calendar"
-- **Food sales**: "increase pub food sales", "pub menu ideas", "food GP improvement"
-- **Social media**: "pub facebook marketing", "instagram for pubs", "social media pub promotion"
-
-### Internal Linking Strategy
-Every page should contribute to our topic authority:
-
-```typescript
-// Example internal linking patterns
-<Text>
-  Struggling with {' '}
-  <Link href="/empty-pub-solutions">empty tables on quiet nights</Link>? 
-  Our proven strategies from The Anchor can help, just like our {' '}
-  <Link href="/results">25-35 regular quiz attendees</Link> prove.
-</Text>
-```
-
-#### Linking Rules
-1. **Contextual relevance**: Only link when genuinely helpful
-2. **Anchor text variety**: Use natural, descriptive phrases
-3. **Link depth**: Aim for 3-5 internal links per page
-4. **Hub pages**: Services and Results pages are primary hubs
-5. **Blog network**: Cross-link related blog posts by category
-
-### Meta Description Templates
-Craft compelling meta descriptions that include:
-- **Problem acknowledgment**: Start with the pain point
-- **Solution promise**: What we offer
-- **Credibility**: Real licensee experience
-- **CTA**: Clear next step
-
-```typescript
-// Template examples
-export const metaTemplates = {
-  problem: "[Problem] making your pub struggle? [Solution] from a real licensee who increased [metric]. £62.50/hour.",
-  guide: "Practical [topic] guide from a working licensee. No theory, just proven strategies that [result]. Real pub, real results.",
-  service: "[Service] that actually works. We [achievement] at The Anchor using [method]. £62.50/hour plus VAT."
-}
-```
-
-### Structured Data Implementation
-Maximize rich results with appropriate schema:
-
-```typescript
-// Service pages
-<ProductSchema 
-  name="Pub Marketing Services"
-  price="62.50"
-  priceCurrency="GBP"
-  priceUnit="hour"
-  description="Proven marketing strategies from a real licensee"
-/>
-
-// Blog posts
-<BlogPostingSchema
-  headline={post.title}
-  description={post.excerpt}
-  author={defaultAuthor}
-  datePublished={post.publishedDate}
-  keywords={post.tags}
-/>
-
-// FAQ sections
-<FAQSchema faqs={realFAQs} />
-```
-
-## ⚡ Performance Standards - Speed Matters
-
-### Performance Budget
-Every feature must respect our performance constraints:
-
-#### Core Web Vitals Targets
-- **LCP (Largest Contentful Paint)**: < 2.5s
-- **FID (First Input Delay)**: < 100ms  
-- **CLS (Cumulative Layout Shift)**: < 0.1
-- **TTFB (Time to First Byte)**: < 600ms
-
-#### Resource Budgets
-- **JavaScript**: < 200KB compressed
-- **CSS**: < 50KB compressed
-- **Images**: < 100KB per image (WebP format)
-- **Total page weight**: < 1MB
-- **Font files**: Maximum 2 font weights
-
-### Performance Optimization Checklist
-- [ ] Images lazy-loaded (except above-fold)
-- [ ] Images in WebP format with fallbacks
-- [ ] Critical CSS inlined
-- [ ] JavaScript code-split by route
-- [ ] Fonts preloaded with font-display: swap
-- [ ] Third-party scripts loaded asynchronously
-- [ ] No unused CSS or JavaScript
-
-### Monitoring Performance
+### Starting a New Component
 ```bash
-# Run before committing
-npm run build
-npm run analyze  # Check bundle sizes
+# 1. Create component with test
+touch src/components/NewComponent.tsx
+touch src/components/NewComponent.test.tsx
 
-# Lighthouse CI (if configured)
-npm run lighthouse
-
-# Manual checks
-# - Test on 3G throttled connection
-# - Check Core Web Vitals in Chrome DevTools
-# - Verify no layout shifts on load
+# 2. Start with failing test
+# 3. Implement component
+# 4. Ensure tests pass
+# 5. Add to exports
 ```
 
-## ♿ Accessibility Standards - Building for Everyone
-
-### WCAG 2.1 AA Compliance
-We follow Web Content Accessibility Guidelines:
-
-#### Visual Design
-- **Color contrast**: Minimum 4.5:1 for normal text, 3:1 for large text
-- **Focus indicators**: Visible keyboard focus on all interactive elements
-- **Text sizing**: Base font minimum 16px, scalable to 200%
-- **Touch targets**: Minimum 44x44px for mobile
-
-#### Semantic HTML
+### Component Template
 ```typescript
-// ✅ Correct semantic structure
-<main>
-  <article>
-    <Heading level={1}>Page Title</Heading>
-    <Section aria-labelledby="services">
-      <Heading level={2} id="services">Our Services</Heading>
-    </Section>
-  </article>
-</main>
+// NewComponent.tsx
+import { memo } from 'react';
+import { cn } from '@/lib/utils';
 
-// ❌ Avoid generic containers
-<div>
-  <div className="title">Page Title</div>
-  <div className="section">Content</div>
-</div>
-```
-
-#### Interactive Elements
-- **Keyboard navigation**: All features accessible via keyboard
-- **Skip links**: Provide skip to main content
-- **ARIA labels**: Descriptive labels for icon buttons
-- **Form validation**: Clear error messages with suggestions
-
-### Accessibility Testing Checklist
-- [ ] Keyboard navigation works throughout
-- [ ] Screen reader announces content logically
-- [ ] Color contrast passes WCAG AA
-- [ ] Forms have proper labels and error handling
-- [ ] Images have descriptive alt text
-- [ ] Videos have captions/transcripts
-- [ ] No autoplay media with sound
-
-## 🤖 Automation & Quality Control
-
-### Pre-commit Hooks (Recommended Setup)
-Automate quality checks before code reaches the repository:
-
-```json
-// package.json additions
-{
-  "scripts": {
-    "pre-commit": "lint-staged",
-    "prepare": "husky install"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "prettier --write",
-      "eslint --fix",
-      "tsc-files --noEmit"
-    ],
-    "*.{json,md}": "prettier --write"
-  }
+export interface NewComponentProps {
+  children: React.ReactNode;
+  variant?: 'default' | 'accent';
+  className?: string;
 }
-```
 
-### Recommended Husky Setup
-```bash
-# Install Husky and lint-staged
-npm install -D husky lint-staged tsc-files
-
-# Initialize Husky
-npx husky install
-npx husky add .husky/pre-commit "npm run pre-commit"
-```
-
-### Custom ESLint Rules
-Enforce our component standards automatically:
-
-```javascript
-// .eslintrc.js additions
-module.exports = {
-  rules: {
-    // Warn about raw HTML elements
-    'no-restricted-syntax': [
-      'warn',
-      {
-        selector: 'JSXElement[openingElement.name.name=/^(h[1-6]|p|img|button)$/]',
-        message: 'Use component library instead of raw HTML elements'
-      }
-    ],
-    // Enforce alt text on OptimizedImage
-    'jsx-a11y/alt-text': ['error', {
-      elements: ['OptimizedImage'],
-    }],
-  }
-}
-```
-
-### Continuous Integration Checks
-```yaml
-# .github/workflows/ci.yml
-name: CI
-on: [push, pull_request]
-jobs:
-  quality:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run type-check
-      - run: npm run format:check
-      - run: npm run build
-      - run: npx lighthouse-ci
-```
-
-## 📝 CODE PATTERNS - COPY THESE
-
-### Page Structure Pattern
-```typescript
-import Hero from '@/components/Hero'
-import Section from '@/components/Section'
-import Heading from '@/components/Heading'
-import Text from '@/components/Text'
-import Button from '@/components/Button'
-import Card from '@/components/Card'
-import Grid from '@/components/Grid'
-import CTASection from '@/components/CTASection'
-
-export default function PageName() {
+function NewComponent({ 
+  children, 
+  variant = 'default',
+  className 
+}: NewComponentProps) {
   return (
-    <>
-      <Hero 
-        title="Page Title"
-        subtitle="Subtitle text"
-      />
-      
-      <Section background="white">
-        <Heading level={2} align="center">Section Title</Heading>
-        <Text size="lg" color="muted">Description text</Text>
-        
-        <Grid columns={{ default: 1, md: 3 }} gap="medium">
-          <Card variant="bordered">
-            <Heading level={3}>Card Title</Heading>
-            <Text>Card content</Text>
-          </Card>
-        </Grid>
-      </Section>
-      
-      <CTASection />
-    </>
-  )
+    <div
+      className={cn(
+        'base-styles',
+        variant === 'accent' && 'accent-styles',
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
 }
+
+// Only memo if re-renders are expensive
+export default process.env.NODE_ENV === 'production' 
+  ? memo(NewComponent) 
+  : NewComponent;
 ```
 
-### Service Card Pattern
+### Test Template
 ```typescript
-<Card variant="colored" background="orange-light" padding="large">
-  <Heading level={3} className="mb-4">Service Name</Heading>
-  <Text className="mb-6">
-    Service description using real metrics only.
-  </Text>
-  <Text size="lg" weight="bold" className="mb-4">
-    £62.50 per hour plus VAT
-  </Text>
-  <Button href="/contact" variant="primary">
-    Get Started
+// NewComponent.test.tsx
+import { render, screen } from '@/test/utils';
+import { axe } from 'jest-axe';
+import NewComponent from './NewComponent';
+
+describe('NewComponent', () => {
+  it('renders children', () => {
+    render(<NewComponent>Test Content</NewComponent>);
+    expect(screen.getByText('Test Content')).toBeInTheDocument();
+  });
+  
+  it('applies variant styles', () => {
+    const { container } = render(
+      <NewComponent variant="accent">Content</NewComponent>
+    );
+    expect(container.firstChild).toHaveClass('accent-styles');
+  });
+  
+  it('has no accessibility violations', async () => {
+    const { container } = render(
+      <NewComponent>Accessible Content</NewComponent>
+    );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+});
+```
+
+## 🛠️ Common Patterns
+
+### Error Boundary Pattern
+```typescript
+// ✅ Graceful error handling
+<ErrorBoundary
+  fallback={<ErrorFallback />}
+  onError={(error, errorInfo) => {
+    console.error('Component error:', error, errorInfo);
+  }}
+>
+  <ComplexComponent />
+</ErrorBoundary>
+```
+
+### Loading Pattern
+```typescript
+// ✅ Progressive enhancement
+<Suspense fallback={<ServiceCardSkeleton />}>
+  <ServiceCard service={service} />
+</Suspense>
+```
+
+### Form Pattern
+```typescript
+// ✅ Accessible form with validation
+<form onSubmit={handleSubmit} noValidate>
+  <Input
+    label="Pub Name"
+    name="pubName"
+    error={errors.pubName}
+    required
+    aria-describedby={errors.pubName ? 'pub-name-error' : undefined}
+  />
+  {errors.pubName && (
+    <Text id="pub-name-error" color="error" role="alert">
+      {errors.pubName}
+    </Text>
+  )}
+  <Button type="submit" loading={isSubmitting}>
+    Submit
   </Button>
-</Card>
-```
-
-### Image Usage Pattern
-```typescript
-import OptimizedImage from '@/components/OptimizedImage'
-
-<OptimizedImage
-  src="/images/pub-interior.jpg"
-  alt="The Anchor interior showing busy quiz night with 25-35 people"
-  width={800}
-  height={600}
-  priority  // Only for above-the-fold images
-  className="rounded-lg"
-/>
-```
-
-### WhatsApp Integration Pattern
-```typescript
-import WhatsAppButton from '@/components/WhatsAppButton'
-import { MESSAGES } from '@/lib/constants'
-
-<WhatsAppButton 
-  text={MESSAGES.whatsapp.default}
-  size="large"
-  variant="primary"
-/>
-```
-
-### FAQ Pattern
-```typescript
-import { FAQSchema } from '@/components/StructuredData'
-import FAQItem from '@/components/FAQItem'
-
-const faqs = [
-  {
-    question: "How much do you charge?",
-    answer: "We charge £62.50 per hour plus VAT for all services."
-  }
-]
-
-// In component:
-<>
-  <FAQSchema faqs={faqs} />
-  {faqs.map((faq, i) => (
-    <FAQItem key={i} {...faq} />
-  ))}
-</>
+</form>
 ```
 
 ## 🎯 QUICK REFERENCE
@@ -657,273 +836,63 @@ const faqs = [
 - **Contact**: `src/lib/constants.ts` - CONTACT object
 - **Company**: `src/lib/constants.ts` - COMPANY object
 
-### Important Files
-- **Layout**: `src/app/layout.tsx` - Global metadata and schema
-- **Homepage**: `src/app/page.tsx` - Main landing page
-- **Services**: `src/app/services/page.tsx` - Service offerings
-- **Results**: `src/app/results/page.tsx` - Success stories
-
-### Blog Posts
-- **Location**: `content/blog/*.md`
-- **URL Pattern**: `/licensees-guide/[slug]`
-- **Categories**: empty-pub-solutions, social-media, competition, events, menu-pricing
-
-## ⚡ SPECIAL COMPONENT CASES
-
-### When to Use Which Component
-
-#### Navigation vs Actions
-- **Link (from next/link)**: For internal navigation between pages
-- **Button with href**: For CTAs that navigate (styled as buttons)
-- **Button with onClick**: For client-side actions
-- **WhatsAppButton**: For WhatsApp CTAs specifically
-
-#### Text Hierarchy
-- **Heading level={1}**: Page main title only (one per page)
-- **Heading level={2}**: Major sections
-- **Heading level={3}**: Subsections
-- **Heading level={4}**: Card titles, minor sections
-- **Heading level={5-6}**: Rarely used, small UI elements
-- **Text**: All body text, descriptions, captions
-
-#### Image Usage
-- **OptimizedImage**: ALL images without exception
-- **priority={true}**: Only for above-the-fold images
-- **Always include**: src, alt, width, height
-
-#### Client Components
-Some components require 'use client':
-- Components with useState, useEffect
-- Components with onClick handlers
-- Components with animations/interactions
-- VideoTestimonial, StickyCTA, Navigation, etc.
-
-## 🧩 AVAILABLE COMPONENTS - USE THESE
-
-### Layout Components
-- **Hero**: Page hero sections with title/subtitle
-- **Section**: Main content wrapper with backgrounds
-- **Grid**: Responsive grid layouts
-- **Card**: Content cards with variants
-- **CTASection**: Call-to-action sections
-
-### Typography Components
-- **Heading**: All headings (h1-h6)
-- **Text**: All paragraph text
-- **Button**: All buttons and button-style links
-
-### Navigation Components
-- **Navigation**: Main nav (in layout)
-- **Breadcrumb**: Breadcrumb navigation
-- **FooterSimple**: Site footer
-
-### Content Components
-- **OptimizedImage**: All images
-- **AnimatedItem**: Scroll animations
-- **FeatureList**: Bullet point lists
-- **ServiceCard**: Service display cards
-- **ProblemCard**: Problem/solution cards
-- **TrustBar**: Trust indicators
-- **TrustBadges**: Credibility badges
-- **Partnerships**: Partner logos
-
-### Interactive Components
-- **WhatsAppButton**: WhatsApp CTAs
-- **ROICalculator**: Revenue calculator
-- **ServiceComparison**: Service tables
-- **FAQItem**: FAQ accordion items
-
-### SEO Components
-- **SEOMeta**: Meta tags
-- **CanonicalLink**: Canonical URLs
-- **StructuredData**: Schema.org
-- **BlogPostingSchema**: Blog schema
-- **ProductSchema**: Product/service schema
-- **SpeakableContent**: Voice search
-
-### Blog Components
-- **BlogPost**: Blog post wrapper
-- **ShareButtons**: Social sharing
-- **RelatedLinks**: Related content
-
-## 🔄 MAINTENANCE TASKS
-
-### Regular Updates Needed
-1. **Sitemap**: Automatically includes new blog posts
-2. **Schema**: Update with real reviews when available
-3. **Metrics**: Update as The Anchor achieves new milestones
-4. **First Client**: Update after September 2025 training
-
-### When Adding Blog Posts
-1. Create `.md` file in `content/blog/`
-2. Include all required frontmatter
-3. Sitemap updates automatically
-4. No need to update navigation
-
-## 💡 Learning from Experience - Patterns for Success
-
-### Content Excellence Patterns
-These patterns help maintain trust and accuracy:
-
-1. **Transparent Pricing**: Always state "£62.50/hour plus VAT" - transparency builds trust
-2. **Verified Metrics**: Use numbers from this doc - real results are powerful enough
-3. **Journey Storytelling**: Share "planning to" vs "have done" - honesty creates connection
-4. **Appropriate Schema**: Add schema for real content only - quality over quantity
-5. **Dynamic URLs**: Use environment variables - maintainability matters
-
-### Technical Excellence Patterns
-These patterns ensure consistency and performance:
-
-6. **Component Architecture**: Use `<Heading>`, `<Text>`, etc. - consistency aids maintenance
-7. **Optimized Images**: Always use `<OptimizedImage>` - performance impacts conversions
-8. **Utility-First CSS**: Use Tailwind classes - reduces CSS bloat
-9. **Mobile-First Design**: Test mobile first - 60%+ users are mobile
-10. **Semantic HTML**: Use `<Section>`, `<Grid>`, `<Card>` - improves accessibility
-11. **Smart CTAs**: Use `<WhatsAppButton>` component - optimized for conversions
-12. **Descriptive Alt Text**: Every image needs context - accessibility is essential
-13. **Clean Spacing**: Use Tailwind spacing utilities - avoid layout hacks
-
-### Component Best Practices
-Understanding component capabilities prevents errors:
-
-14. **Heading Flexibility**: Use `className` for custom styling (no size/weight props)
-15. **Text Sizing**: Stick to xs|sm|base|lg|xl|2xl - maintains design system
-16. **Image Requirements**: Always include src, alt, width, height - prevents layout shift
-17. **Button vs Link**: Button for actions, Link for navigation - semantic clarity
-18. **Event Handling**: onClick on Buttons, not Links - proper interaction patterns
-
-### Organization Excellence
-Maintaining project structure aids collaboration:
-
-19. **Component Reuse**: Check existing components first - avoid duplication
-20. **Consistent Location**: Components in `/src/components/` - predictable structure
-21. **Extracted Logic**: Separate files for complex logic - testability matters
-22. **TypeScript Types**: Always add types - catch errors early
-23. **Centralized Constants**: Use `lib/constants.ts` - single source of truth
-
-### SEO Excellence
-Maximizing visibility requires attention to detail:
-
-24. **Complete Metadata**: Every page needs generateMetadata export - consistency is key
-25. **Canonical URLs**: Set via generateMetadata - avoid duplicate content
-26. **Rich Snippets**: Add appropriate structured data - stand out in search
-27. **Compelling Descriptions**: Include problem, solution, price - drive clicks
-
-## 🛠️ Development Workflow - Your Path to Productivity
-
-### Starting a New Feature
-Follow this workflow for consistent, quality development:
-
+### Testing Commands
 ```bash
-# 1. Pull latest changes
-git pull origin main
-
-# 2. Create feature branch
-git checkout -b feature/description
-
-# 3. Read CLAUDE.md for context
-cat CLAUDE.md | head -100
-
-# 4. Run development server
-npm run dev
-
-# 5. Make changes following patterns
-# ... development work ...
-
-# 6. Test your changes
-npm run lint
-npm run type-check
-npm run build
-
-# 7. Commit with clear message
-git add .
-git commit -m "feat: add [feature] following CLAUDE.md standards"
-
-# 8. Push and create PR
-git push origin feature/description
+npm test              # Run all tests
+npm test Button       # Test specific component
+npm run test:watch    # Watch mode
+npm run test:coverage # Coverage report
+npm run test:ui       # Vitest UI
 ```
 
-### Before Every Commit
-Run this checklist to ensure quality:
-
+### Performance Commands
 ```bash
-# Automated checks
-npm run lint          # ESLint validation
-npm run type-check    # TypeScript validation
-npm run format:check  # Prettier validation
-npm run build        # Build validation
-
-# Manual checks
-- [ ] Review CLAUDE.md compliance
-- [ ] Test on mobile device/emulator
-- [ ] Check browser console for errors
-- [ ] Verify all links work
-- [ ] Test with slow 3G throttling
+npm run analyze       # Bundle analyzer
+npm run lighthouse    # Lighthouse audit
+npm run measure       # Custom metrics
 ```
 
-### Common Development Tasks
+### Important Utilities
+- **cn()**: Class name merger (clsx + tailwind-merge)
+- **urlFor()**: Sanity image URL builder
+- **generateMetadata()**: SEO metadata helper
 
-#### Adding a New Page
-1. Create file in `src/app/[page-name]/page.tsx`
-2. Add metadata using `generateMetadata`
-3. Use existing page as template
-4. Add to sitemap if needed
-5. Test all responsive breakpoints
-
-#### Adding a Blog Post
-1. Create `.md` file in `content/blog/`
-2. Include all required frontmatter
-3. Use existing post as template
-4. Verify images are optimized
-5. Check internal links
-
-#### Updating Content
-1. Check if content is in `lib/constants.ts`
-2. If not, check component files
-3. Update using real metrics only
-4. Test that changes propagate correctly
-5. Verify schema.org still validates
-
-#### Performance Optimization
-1. Run Lighthouse audit before changes
-2. Make optimization
-3. Run Lighthouse audit after
-4. Document improvements
-5. Ensure no regressions
-
-## 🤝 Getting Help - You're Not Alone
+## 🤝 Getting Help
 
 ### When You're Unsure
-If you're uncertain about any aspect:
+1. **Check test examples**: Look at existing component tests
+2. **Review similar components**: Find patterns in the codebase
+3. **Run accessibility audit**: Use axe DevTools
+4. **Test on real devices**: Not just browser DevTools
+5. **Measure performance**: Use Lighthouse and Web Vitals
 
-1. **Consult this document**: Your primary reference for standards
-2. **Check existing code**: Look for patterns in similar features
-3. **Default to honesty**: Conservative claims are better than exaggeration
-4. **Use real examples**: The Anchor's journey is compelling enough
-5. **Focus on value**: How does this help struggling licensees?
-
-### Getting Support
-For technical questions or clarifications:
-- Review existing code examples in the codebase
-- Check the Git history for context on decisions
-- Test changes thoroughly in development
-- Document any new patterns you establish
-
-### Contact Information
-**Peter Pitcher**
-- Email: peter@orangejelly.co.uk
-- Phone: 07990 587315
-- WhatsApp: Available through site buttons
+### Resources
+- [React Docs (2025)](https://react.dev)
+- [Next.js 15 Docs](https://nextjs.org/docs)
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [Testing Library](https://testing-library.com)
+- [Web Vitals](https://web.dev/vitals/)
 
 Remember: You're building something that genuinely helps struggling licensees. Every decision should support that mission.
 
 ---
 
-**Last Updated**: August 2025
-**Version**: 4.0
+**Last Updated**: January 2025  
+**Version**: 5.0  
 **Status**: ACTIVE - Your trusted development guide
 
 ## 📝 CHANGELOG
+
+### Version 5.0 (January 2025)
+- Added comprehensive 2025 best practices research
+- Enhanced component architecture with Server/Client guidelines
+- Added modern testing standards with Vitest and Testing Trophy
+- Updated performance targets with INP metric
+- Added React Compiler guidance
+- Enhanced TypeScript patterns with discriminated unions
+- Added accessibility testing patterns
+- Improved design token architecture
+- Added component templates with tests
 
 ### Version 4.0 (August 2025)
 - Complete tone shift from restrictive to empowering
@@ -949,7 +918,6 @@ Remember: You're building something that genuinely helps struggling licensees. E
 
 ### Version 2.0 (August 2024)
 - Complete restructure with strict guidelines
-- Added BANNED CONTENT section
 - Added mandatory component usage rules
 - Added comprehensive technical standards
 

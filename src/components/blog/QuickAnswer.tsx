@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
 import Card from '@/components/Card';
@@ -8,7 +8,7 @@ interface QuickAnswerProps {
   className?: string;
 }
 
-export default function QuickAnswer({ answer, className = '' }: QuickAnswerProps) {
+function QuickAnswer({ answer, className = '' }: QuickAnswerProps) {
   if (!answer) return null;
 
   return (
@@ -31,3 +31,5 @@ export default function QuickAnswer({ answer, className = '' }: QuickAnswerProps
     </Card>
   );
 }
+
+export default memo(QuickAnswer);

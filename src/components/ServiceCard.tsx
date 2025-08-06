@@ -1,6 +1,9 @@
+import { memo } from 'react';
+
 import Button from './Button';
 import Card from './Card';
 import Heading from './Heading';
+import Text from './Text';
 import FeatureList from './FeatureList';
 import OptimizedImage from '@/components/OptimizedImage';
 import { URLS } from '@/lib/constants';
@@ -26,7 +29,7 @@ interface ServiceCardProps {
   highlight?: boolean;
 }
 
-export default function ServiceCard({
+function ServiceCard({
   id,
   emoji,
   title,
@@ -74,21 +77,21 @@ export default function ServiceCard({
       
       <Heading level={3} className="mb-3">{title}</Heading>
       
-      <p className="text-orange font-semibold mb-3">
+      <Text className="text-orange font-semibold mb-3">
         Problem: {problem}
-      </p>
+      </Text>
       
       {deliverable && (
-        <p className="text-teal font-semibold mb-4">
+        <Text className="text-teal font-semibold mb-4">
           Deliverable: {deliverable}
-        </p>
+        </Text>
       )}
       
-      <p className="text-charcoal/80 mb-6">{description}</p>
+      <Text className="text-charcoal/80 mb-6">{description}</Text>
       
       {features && features.length > 0 && (
         <div className="mb-6">
-          <p className="font-semibold mb-2">What's included:</p>
+          <Text className="font-semibold mb-2">What's included:</Text>
           <FeatureList
             items={features}
             icon="check"
@@ -101,21 +104,21 @@ export default function ServiceCard({
       
       {example && (
         <Card background="cream" padding="small" className="mb-6">
-          <p className="text-sm font-semibold mb-2">Real example:</p>
+          <Text className="text-sm font-semibold mb-2">Real example:</Text>
           {example.before && (
-            <p className="text-sm text-charcoal/70 mb-1">
+            <Text className="text-sm text-charcoal/70 mb-1">
               <span className="font-medium">Before:</span> {example.before}
-            </p>
+            </Text>
           )}
           {example.after && (
-            <p className="text-sm text-charcoal/70 mb-1">
+            <Text className="text-sm text-charcoal/70 mb-1">
               <span className="font-medium">After:</span> {example.after}
-            </p>
+            </Text>
           )}
           {example.result && (
-            <p className="text-sm font-semibold text-orange mt-2">
+            <Text className="text-sm font-semibold text-orange mt-2">
               Result: {example.result}
-            </p>
+            </Text>
           )}
         </Card>
       )}
@@ -124,22 +127,22 @@ export default function ServiceCard({
         {(timeEstimate || priceBreakdown) && (
           <div className="bg-cream rounded-lg p-3 mb-4">
             {timeEstimate && (
-              <p className="text-sm text-charcoal/70 mb-1">
+              <Text className="text-sm text-charcoal/70 mb-1">
                 <span className="font-semibold">Time required:</span> {timeEstimate}
-              </p>
+              </Text>
             )}
             {priceBreakdown && (
-              <p className="text-sm text-charcoal/70">
+              <Text className="text-sm text-charcoal/70">
                 <span className="font-semibold">Calculation:</span> {priceBreakdown}
-              </p>
+              </Text>
             )}
           </div>
         )}
         
         <div className="flex justify-between items-center mb-4">
-          <p className="text-2xl font-bold text-charcoal">{price}</p>
+          <Text className="text-2xl font-bold text-charcoal">{price}</Text>
           {timeline && (
-            <p className="text-sm text-charcoal/60">{timeline}</p>
+            <Text className="text-sm text-charcoal/60">{timeline}</Text>
           )}
         </div>
         
@@ -158,3 +161,5 @@ export default function ServiceCard({
     </div>
   );
 }
+
+export default memo(ServiceCard);

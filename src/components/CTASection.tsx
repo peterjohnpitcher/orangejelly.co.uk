@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Button from './Button';
 import Heading from './Heading';
 import AnimatedItem from './AnimatedItem';
@@ -13,7 +15,7 @@ interface CTASectionProps {
   bottomText?: string;
 }
 
-export default function CTASection({
+function CTASection({
   title,
   subtitle,
   buttonText = MESSAGES.cta.primary,
@@ -73,3 +75,5 @@ export default function CTASection({
     </section>
   );
 }
+
+export default memo(CTASection);

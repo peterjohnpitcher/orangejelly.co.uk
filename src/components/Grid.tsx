@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 interface GridProps {
   children: React.ReactNode;
   columns?: {
@@ -10,7 +12,7 @@ interface GridProps {
   className?: string;
 }
 
-export default function Grid({
+function Grid({
   children,
   columns = { default: 1, md: 2 },
   gap = 'medium',
@@ -39,3 +41,5 @@ export default function Grid({
     </div>
   );
 }
+
+export default memo(Grid);

@@ -75,8 +75,20 @@ function normalizeSanityPost(post: any): BlogPost {
   const defaultAuthor = {
     name: 'Peter Pitcher',
     bio: 'Licensee of The Anchor and founder of Orange Jelly. Helping pubs thrive with proven strategies.',
-    image: '/images/peter-pitcher.jpg'
+    image: '/peter-pitcher.jpg'
   };
+
+  // Process author data if it exists
+  let processedAuthor = defaultAuthor;
+  if (post.author) {
+    processedAuthor = {
+      name: post.author.name || defaultAuthor.name,
+      bio: post.author.bio || defaultAuthor.bio,
+      image: post.author.image?.asset 
+        ? urlFor(post.author.image).url() 
+        : (post.author.image || defaultAuthor.image)
+    };
+  }
 
   return {
     title: post.title,
@@ -91,7 +103,7 @@ function normalizeSanityPost(post: any): BlogPost {
     metaTitle: post.seo?.metaTitle || post.title,
     metaDescription: post.seo?.metaDescription || post.excerpt,
     keywords: post.seo?.keywords || post.tags || [],
-    author: post.author || defaultAuthor,
+    author: processedAuthor,
     readingTime: Math.ceil((post.content?.length || 0) / 1500) * 5, // Estimate reading time
     isPortableText: true,
     // Include new SEO fields from Sanity

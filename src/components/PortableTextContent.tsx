@@ -8,17 +8,59 @@ import OptimizedImage from '@/components/OptimizedImage';
 import Link from 'next/link';
 import { urlFor } from '@/lib/sanity.client';
 
+interface PortableTextBlock {
+  _type: string;
+  _key?: string;
+  style?: string;
+  children?: Array<{
+    _type: string;
+    text?: string;
+    marks?: string[];
+  }>;
+  level?: number;
+  listItem?: string;
+  markDefs?: Array<any>;
+}
+
+interface PortableTextImage {
+  _type: 'image';
+  asset?: {
+    _ref: string;
+  };
+  alt?: string;
+  caption?: string;
+}
+
+interface PortableTextCodeBlock {
+  _type: 'codeBlock';
+  language?: string;
+  code: string;
+}
+
+interface PortableTextComparisonTable {
+  _type: 'comparisonTable';
+  title?: string;
+  rows: Array<{
+    option: string;
+    cost: string;
+    time: string;
+    results: string;
+  }>;
+}
+
+type PortableTextValue = PortableTextBlock | PortableTextImage | PortableTextCodeBlock | PortableTextComparisonTable;
+
 interface PortableTextContentProps {
-  value: any[];
+  value: PortableTextValue[];
 }
 
 const components = {
   block: {
-    h1: ({ children }: any) => <Heading level={1} className="mt-8 mb-4">{children}</Heading>,
-    h2: ({ children }: any) => <Heading level={2} className="mt-8 mb-4">{children}</Heading>,
-    h3: ({ children }: any) => <Heading level={3} className="mt-6 mb-3">{children}</Heading>,
-    h4: ({ children }: any) => <Heading level={4} className="mt-4 mb-2">{children}</Heading>,
-    normal: ({ children }: any) => {
+    h1: ({ children }: { children?: React.ReactNode }) => <Heading level={1} className="mt-8 mb-4">{children}</Heading>,
+    h2: ({ children }: { children?: React.ReactNode }) => <Heading level={2} className="mt-8 mb-4">{children}</Heading>,
+    h3: ({ children }: { children?: React.ReactNode }) => <Heading level={3} className="mt-6 mb-3">{children}</Heading>,
+    h4: ({ children }: { children?: React.ReactNode }) => <Heading level={4} className="mt-4 mb-2">{children}</Heading>,
+    normal: ({ children }: { children?: React.ReactNode }) => {
       // Check if the text starts with # (markdown header)
       // Handle both string children and array of children with spans
       let textContent = '';
@@ -45,22 +87,22 @@ const components = {
       
       return <Text className="mb-4">{children}</Text>;
     },
-    blockquote: ({ children }: any) => (
+    blockquote: ({ children }: { children?: React.ReactNode }) => (
       <blockquote className="border-l-4 border-orange pl-4 italic my-6">
         <Text>{children}</Text>
       </blockquote>
     ),
   },
   list: {
-    bullet: ({ children }: any) => (
+    bullet: ({ children }: { children?: React.ReactNode }) => (
       <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>
     ),
-    number: ({ children }: any) => (
+    number: ({ children }: { children?: React.ReactNode }) => (
       <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>
     ),
   },
   listItem: {
-    bullet: ({ children }: any) => {
+    bullet: ({ children }: { children?: React.ReactNode }) => {
       // Parse markdown bold syntax in list items
       const processedChildren = React.Children.map(children, child => {
         if (typeof child === 'string') {
@@ -76,7 +118,7 @@ const components = {
       });
       return <li className="ml-4 text-charcoal">{processedChildren}</li>;
     },
-    number: ({ children }: any) => {
+    number: ({ children }: { children?: React.ReactNode }) => {
       // Parse markdown bold syntax in list items
       const processedChildren = React.Children.map(children, child => {
         if (typeof child === 'string') {
@@ -94,12 +136,12 @@ const components = {
     },
   },
   marks: {
-    strong: ({ children }: any) => <strong className="font-bold">{children}</strong>,
-    em: ({ children }: any) => <em className="italic">{children}</em>,
-    code: ({ children }: any) => (
+    strong: ({ children }: { children?: React.ReactNode }) => <strong className="font-bold">{children}</strong>,
+    em: ({ children }: { children?: React.ReactNode }) => <em className="italic">{children}</em>,
+    code: ({ children }: { children?: React.ReactNode }) => (
       <code className="bg-gray-100 rounded px-1 py-0.5 text-sm">{children}</code>
     ),
-    link: ({ value, children }: any) => {
+    link: ({ value, children }: { value?: { href?: string }; children?: React.ReactNode }) => {
       const target = value?.href?.startsWith('http') ? '_blank' : undefined;
       const rel = target === '_blank' ? 'noopener noreferrer' : undefined;
       return (
@@ -115,7 +157,7 @@ const components = {
     },
   },
   types: {
-    image: ({ value }: any) => {
+    image: ({ value }: { value: PortableTextImage }) => {
       if (!value?.asset) return null;
       
       // Get image dimensions from Sanity
@@ -123,13 +165,15 @@ const components = {
       
       return (
         <figure className="my-8">
-          <OptimizedImage
-            src={imageUrl}
-            alt={value.alt || ''}
-            width={800}
-            height={600}
-            className="rounded-lg w-full"
-          />
+          <div className="relative w-full aspect-[4/3]">
+            <OptimizedImage
+              src={imageUrl}
+              alt={value.alt || ''}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+              className="rounded-lg object-cover"
+            />
+          </div>
           {value.caption && (
             <figcaption className="text-center mt-2">
               <Text size="sm" color="muted">{value.caption}</Text>
@@ -138,14 +182,14 @@ const components = {
         </figure>
       );
     },
-    codeBlock: ({ value }: any) => (
+    codeBlock: ({ value }: { value: PortableTextCodeBlock }) => (
       <pre className="bg-gray-100 rounded p-4 overflow-x-auto mb-4">
         <code className="text-sm" data-language={value.language}>
           {value.code}
         </code>
       </pre>
     ),
-    comparisonTable: ({ value }: any) => {
+    comparisonTable: ({ value }: { value: PortableTextComparisonTable }) => {
       if (!value?.rows || value.rows.length === 0) return null;
       
       return (
@@ -171,7 +215,7 @@ const components = {
               </tr>
             </thead>
             <tbody>
-              {value.rows.map((row: any, index: number) => (
+              {value.rows.map((row, index) => (
                 <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-cream'}>
                   <td className="border border-charcoal/20 px-4 py-2 font-medium">
                     {row.option}

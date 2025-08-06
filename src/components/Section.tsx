@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
@@ -5,7 +7,7 @@ interface SectionProps {
   padding?: 'small' | 'medium' | 'large';
 }
 
-export default function Section({
+function Section({
   children,
   className = '',
   background = 'cream',
@@ -26,10 +28,12 @@ export default function Section({
   };
 
   return (
-    <section className={`${bgClasses[background]} ${paddingClasses[padding]} ${className}`}>
+    <section className={`${bgClasses[background]} ${paddingClasses[padding]} overflow-hidden ${className}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {children}
       </div>
     </section>
   );
 }
+
+export default memo(Section);

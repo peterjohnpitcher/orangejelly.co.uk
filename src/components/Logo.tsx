@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Link from 'next/link';
 import OptimizedImage from './OptimizedImage';
 import Heading from './Heading';
@@ -11,7 +13,7 @@ interface LogoProps {
   href?: string;
 }
 
-export default function Logo({
+function Logo({
   variant = 'default',
   size = 'medium',
   showTagline = false,
@@ -116,3 +118,5 @@ export default function Logo({
 
   return content;
 }
+
+export default memo(Logo);

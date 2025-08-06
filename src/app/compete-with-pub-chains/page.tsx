@@ -9,6 +9,7 @@ import CTASection from '@/components/CTASection';
 import TrustBar from '@/components/TrustBar';
 import Text from '@/components/Text';
 import FeatureList from '@/components/FeatureList';
+import { breadcrumbPaths } from '@/components/Breadcrumb';
 import { URLS, CONTACT } from '@/lib/constants';
 import { generateMetadata } from '@/lib/metadata';
 
@@ -171,6 +172,10 @@ export default function CompeteWithPubChains() {
         title={<>Chain Pubs Stealing Your Trade?<br />Here's How to Fight Back</>}
         subtitle="Stop competing on price. Start winning on everything else that matters."
         bottomText="🏆 Independent pubs CAN beat the chains - we'll show you how"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Compete with Pub Chains' }
+        ]}
       />
 
       <TrustBar />

@@ -9,6 +9,7 @@ import Card from '@/components/Card';
 import TrustBadges from '@/components/TrustBadges';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
+import Input from '@/components/forms/Input';
 
 export default function SuperFooter() {
   const [email, setEmail] = useState('');
@@ -34,12 +35,12 @@ export default function SuperFooter() {
             </Text>
             {!isSubscribed ? (
               <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
+                <Input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email address"
-                  className="flex-1 px-4 py-3 rounded-lg text-charcoal min-h-[48px]"
+                  className="flex-1 text-charcoal min-h-[48px]"
                   required
                 />
                 <Button variant="primary" size="medium">

@@ -52,13 +52,13 @@ export default function RelatedLinks({
                   variant={link.highlight ? 'colored' : 'default'} 
                   className="h-full"
                 >
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-4">
                     {link.emoji && (
                       <span className="text-2xl flex-shrink-0" aria-hidden="true">
                         {link.emoji}
                       </span>
                     )}
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <Heading level={4} className="font-semibold text-charcoal mb-2 group-hover:text-orange transition-colors">
                         {link.title}
                       </Heading>
@@ -128,6 +128,48 @@ export default function RelatedLinks({
 
 // Pre-defined link clusters for common use cases
 export const linkClusters = {
+  about: [
+    {
+      title: "Our Services",
+      description: "See how we can help transform your pub",
+      href: "/services",
+      emoji: "🚀"
+    },
+    {
+      title: "Success Stories",
+      description: "Real results from real pubs",
+      href: "/results",
+      emoji: "📈"
+    },
+    {
+      title: "Get Started",
+      description: "Book a free chat with Peter",
+      href: "/contact",
+      emoji: "💬"
+    }
+  ],
+  
+  quickWins: [
+    {
+      title: "Quick Wins Consultation",
+      description: "5 instant improvements for your pub",
+      href: "/services#quick-wins",
+      emoji: "⚡"
+    },
+    {
+      title: "30-Minute AI Demo",
+      description: "See AI in action for pub marketing",
+      href: "/services#training",
+      emoji: "🤖"
+    },
+    {
+      title: "Free Social Media Review",
+      description: "Get personalized improvement tips",
+      href: "/contact",
+      emoji: "📱"
+    }
+  ],
+  
   emptyPub: [
     {
       title: "Empty Pub Recovery Package",
@@ -232,6 +274,48 @@ export const linkClusters = {
       description: "Real results from real pubs like yours",
       href: "/results",
       emoji: "🎯"
+    }
+  ],
+
+  services: [
+    {
+      title: "Empty Pub Recovery",
+      description: "Turn quiet nights into profitable ones",
+      href: "/solutions/empty-pub-midweek",
+      emoji: "🚨"
+    },
+    {
+      title: "About Peter Pitcher",
+      description: "The licensee behind Orange Jelly",
+      href: "/about",
+      emoji: "👤"
+    },
+    {
+      title: "Real Pub Results",
+      description: "See what's possible for your pub",
+      href: "/results",
+      emoji: "📊"
+    }
+  ],
+
+  contact: [
+    {
+      title: "View Our Services",
+      description: "Find the right solution for your pub",
+      href: "/services",
+      emoji: "🛠️"
+    },
+    {
+      title: "Empty Pub Solutions",
+      description: "Fill your quiet nights fast",
+      href: "/solutions/empty-pub-midweek",
+      emoji: "🌙"
+    },
+    {
+      title: "Pub Marketing Guide",
+      description: "Free marketing tips for licensees",
+      href: "/licensees-guide",
+      emoji: "📚"
     }
   ]
 };

@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Grid from '@/components/Grid';
 import Heading from '@/components/Heading';
 import BlogPostCard from './BlogPostCard';
@@ -24,7 +26,7 @@ interface RelatedPostsProps {
   currentPostSlug?: string;
 }
 
-export default function RelatedPosts({ posts, currentPostSlug }: RelatedPostsProps) {
+function RelatedPosts({ posts, currentPostSlug }: RelatedPostsProps) {
   // Filter out current post and limit to 3
   const relatedPosts = posts
     .filter(post => post.slug !== currentPostSlug)
@@ -43,3 +45,5 @@ export default function RelatedPosts({ posts, currentPostSlug }: RelatedPostsPro
     </section>
   );
 }
+
+export default memo(RelatedPosts);

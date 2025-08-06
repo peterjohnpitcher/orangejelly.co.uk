@@ -8,12 +8,18 @@ import { LandmarkNav } from '@/components/AriaLandmarks';
 import { ariaLabels } from '@/lib/accessibility';
 import OptimizedImage from './OptimizedImage';
 import Button from './Button';
+import type { Navigation as NavigationType } from '@/lib/sanity.types';
 
-export default function Navigation() {
+interface NavigationProps {
+  navigation?: NavigationType;
+}
+
+export default function Navigation({ navigation }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const navLinks = [
+  // Use navigation from props or fallback to hardcoded
+  const navLinks = navigation?.mainMenu || [
     { href: '/', label: 'Home' },
     { href: '/services', label: 'Services' },
     { href: '/licensees-guide', label: "Licensee's Guide" },
@@ -37,6 +43,7 @@ export default function Navigation() {
                 width={48}
                 height={48}
                 className="rounded-lg transition-normal group-hover:scale-110"
+                style={{ width: 'auto', height: 'auto' }}
                 priority
               />
               <div className="absolute inset-0 bg-orange/20 rounded-lg blur-xl group-hover:bg-orange/30 transition-normal -z-10"></div>
@@ -66,7 +73,7 @@ export default function Navigation() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             variant="ghost"
             size="small"
-            className="md:hidden p-2 rounded-lg hover:bg-orange/10 transition-quick"
+            className="md:hidden p-3 min-h-[44px] min-w-[44px] rounded-lg hover:bg-orange/10 transition-quick"
             aria-label={isMenuOpen ? ariaLabels.buttons.close : ariaLabels.buttons.menu}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
@@ -93,7 +100,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-3 px-4 text-charcoal hover:text-orange hover:bg-orange/5 rounded-lg transition-quick"
+                className="block py-3 px-4 min-h-[44px] flex items-center text-charcoal hover:text-orange hover:bg-orange/5 rounded-lg transition-quick"
                 onClick={() => setIsMenuOpen(false)}
                 aria-current={pathname === link.href ? 'page' : undefined}
               >

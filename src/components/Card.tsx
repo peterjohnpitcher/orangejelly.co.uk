@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 interface CardProps {
   children: React.ReactNode;
   variant?: 'default' | 'bordered' | 'shadowed' | 'colored';
@@ -6,7 +8,7 @@ interface CardProps {
   className?: string;
 }
 
-export default function Card({
+function Card({
   children,
   variant = 'default',
   background = 'white',
@@ -39,3 +41,5 @@ export default function Card({
     </div>
   );
 }
+
+export default memo(Card);

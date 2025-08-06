@@ -5,6 +5,18 @@ export interface FAQ {
   answer: string;
 }
 
+interface PortableTextChild {
+  text?: string;
+  [key: string]: unknown;
+}
+
+interface PortableTextBlock {
+  _type: string;
+  style?: string;
+  children?: PortableTextChild[];
+  [key: string]: unknown;
+}
+
 // Extract FAQs from Markdown content
 export function extractFAQsFromMarkdown(content: string): FAQ[] {
   const faqs: FAQ[] = [];
@@ -27,7 +39,7 @@ export function extractFAQsFromMarkdown(content: string): FAQ[] {
 }
 
 // Extract FAQs from Portable Text (Sanity content)
-export function extractFAQsFromPortableText(blocks: any[]): FAQ[] {
+export function extractFAQsFromPortableText(blocks: PortableTextBlock[]): FAQ[] {
   const faqs: FAQ[] = [];
   let inFAQSection = false;
   let currentQuestion: string | null = null;
@@ -65,12 +77,12 @@ export function extractFAQsFromPortableText(blocks: any[]): FAQ[] {
           });
         }
         // Start new FAQ
-        currentQuestion = block.children?.map((c: any) => c.text).join('') || '';
+        currentQuestion = block.children?.map((c) => c.text).join('') || '';
         currentAnswer = [];
       }
       // Answer (normal text)
       else if (block.style === 'normal' && currentQuestion) {
-        const text = block.children?.map((c: any) => c.text).join('') || '';
+        const text = block.children?.map((c) => c.text).join('') || '';
         if (text) currentAnswer.push(text);
       }
     }
@@ -88,7 +100,7 @@ export function extractFAQsFromPortableText(blocks: any[]): FAQ[] {
 }
 
 // Extract FAQs from any content type
-export function extractFAQs(content: string | any[], isPortableText: boolean): FAQ[] {
+export function extractFAQs(content: string | PortableTextBlock[], isPortableText: boolean): FAQ[] {
   if (isPortableText && Array.isArray(content)) {
     return extractFAQsFromPortableText(content);
   } else if (typeof content === 'string') {

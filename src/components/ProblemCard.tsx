@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Card from './Card';
 import Heading from './Heading';
 import Button from './Button';
@@ -10,7 +12,7 @@ interface ProblemCardProps {
   linkHref: string;
 }
 
-export default function ProblemCard({
+function ProblemCard({
   emoji,
   problem,
   solution,
@@ -32,3 +34,5 @@ export default function ProblemCard({
     </Card>
   );
 }
+
+export default memo(ProblemCard);

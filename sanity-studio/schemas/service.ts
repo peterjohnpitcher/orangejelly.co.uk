@@ -10,6 +10,22 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'emoji',
+      title: 'Emoji',
+      type: 'string',
+      description: 'Optional emoji for the service card',
+    },
+    {
       name: 'order',
       title: 'Display Order',
       type: 'number',
@@ -74,9 +90,27 @@ export default {
     {
       name: 'example',
       title: 'Example/Case Study',
-      type: 'text',
-      rows: 3,
-      description: 'Real example from The Anchor',
+      type: 'object',
+      fields: [
+        {
+          name: 'before',
+          title: 'Before',
+          type: 'string',
+          description: 'Situation before the service',
+        },
+        {
+          name: 'after',
+          title: 'After',
+          type: 'string',
+          description: 'Situation after the service',
+        },
+        {
+          name: 'result',
+          title: 'Result',
+          type: 'string',
+          description: 'The measurable outcome',
+        },
+      ],
     },
   ],
   preview: {

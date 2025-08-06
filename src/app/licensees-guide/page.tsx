@@ -5,6 +5,7 @@ import BlogPostCard from '@/components/blog/BlogPostCard';
 import CategoryList from '@/components/blog/CategoryList';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
+import { breadcrumbPaths } from '@/components/Breadcrumb';
 import { getContentPosts, getContentSource } from '@/lib/content-source';
 import { getCategories } from '@/lib/blog-md';
 import { CollectionPageSchema } from '@/components/CollectionPageSchema';
@@ -78,6 +79,7 @@ export default async function LicenseesGuidePage() {
         title="The Licensee's Guide"
         subtitle="Proven strategies that increase revenue and build thriving pubs"
         showCTA={false}
+        breadcrumbs={breadcrumbPaths.licenseesGuide}
       />
 
       <Section background="white">

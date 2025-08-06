@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 interface FeatureListProps {
   items: string[];
   icon?: 'check' | 'cross' | 'arrow' | 'star' | 'bullet';
@@ -7,7 +9,7 @@ interface FeatureListProps {
   className?: string;
 }
 
-export default function FeatureList({
+function FeatureList({
   items,
   icon = 'check',
   iconColor = 'orange',
@@ -55,3 +57,5 @@ export default function FeatureList({
     </ul>
   );
 }
+
+export default memo(FeatureList);

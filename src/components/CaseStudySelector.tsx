@@ -27,8 +27,18 @@ interface CaseStudySelectorProps {
 }
 
 export default function CaseStudySelector({ results, defaultStudy = 'sunday-roast' }: CaseStudySelectorProps) {
-  const [activeStudy, setActiveStudy] = useState(defaultStudy);
-  const activeStudyData = results.find(study => study.id === activeStudy)!;
+  // Ensure we have results before trying to use them
+  if (!results || results.length === 0) {
+    return null;
+  }
+  
+  // Use the first available study if the default isn't found
+  const validDefaultStudy = results.find(study => study.id === defaultStudy) 
+    ? defaultStudy 
+    : results[0].id;
+  
+  const [activeStudy, setActiveStudy] = useState(validDefaultStudy);
+  const activeStudyData = results.find(study => study.id === activeStudy) || results[0];
 
   return (
     <>

@@ -14,6 +14,7 @@ import ResultCard from '@/components/ResultCard';
 import { URLS, CONTACT } from '@/lib/constants';
 import { generateMetadata } from '@/lib/metadata';
 import { HowToSchema } from '@/components/StructuredData';
+import { breadcrumbPaths } from '@/components/Breadcrumb';
 
 export const metadata = generateMetadata({
   title: '30 Days to Fuller Tables - Transform Your Empty Pub',
@@ -230,6 +231,10 @@ export default function EmptyPubSolutions() {
         title={<>Your Pub is Empty.<br />We'll Fill It in 30 Days.</>}
         subtitle="Proven strategies that transformed The Anchor from empty to thriving"
         bottomText="💰 Money-back guarantee if we don't increase covers by 25%"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Empty Pub Solutions' }
+        ]}
       />
 
       <TrustBar />

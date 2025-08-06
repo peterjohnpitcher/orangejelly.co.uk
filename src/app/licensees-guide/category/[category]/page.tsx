@@ -1,13 +1,12 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import BlogLayout from '@/components/blog/BlogLayout';
+import Hero from '@/components/Hero';
+import Section from '@/components/Section';
 import BlogPostCard from '@/components/blog/BlogPostCard';
 import CategoryList from '@/components/blog/CategoryList';
-import Heading from '@/components/Heading';
-import Text from '@/components/Text';
-import Link from 'next/link';
 import { getAllPosts, getCategories } from '@/lib/blog-md';
 import { CollectionPageSchema } from '@/components/CollectionPageSchema';
+import { breadcrumbPaths } from '@/components/Breadcrumb';
 
 interface CategoryPageProps {
   params: {
@@ -85,32 +84,18 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           { name: categoryTitle, url: `/licensees-guide/category/${params.category}` }
         ]}
       />
-      <BlogLayout>
+      <Hero
+        title={categoryTitle}
+        subtitle={categoryDescription}
+        showCTA={false}
+        breadcrumbs={[
+          ...breadcrumbPaths.licenseesGuide,
+          { label: categoryTitle, href: `/licensees-guide/category/${params.category}` }
+        ]}
+      />
+      
+      <Section background="white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        {/* Breadcrumb */}
-        <nav className="mb-8">
-          <ol className="flex items-center space-x-2 text-sm">
-            <li>
-              <Link href="/licensees-guide" className="text-charcoal/60 hover:text-orange transition-colors">
-                The Licensee's Guide
-              </Link>
-            </li>
-            <li className="text-charcoal/60">/</li>
-            <li className="text-charcoal">{categoryTitle}</li>
-          </ol>
-        </nav>
-
-        {/* Category Header */}
-        <div className="text-center mb-12">
-          <Heading level={1} className="mb-4">
-            {categoryTitle}
-          </Heading>
-          {categoryDescription && (
-            <Text size="lg" className="text-charcoal/70 max-w-3xl mx-auto">
-              {categoryDescription}
-            </Text>
-          )}
-        </div>
 
         {/* Category Navigation */}
         <div className="mb-12">
@@ -144,7 +129,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           ))}
         </div>
         </div>
-      </BlogLayout>
+      </Section>
     </>
   );
 }

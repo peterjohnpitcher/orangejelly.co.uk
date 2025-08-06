@@ -12,7 +12,7 @@ import FeatureList from '@/components/FeatureList';
 import AnimatedItem from '@/components/AnimatedItem';
 import Button from '@/components/Button';
 import FAQItem from '@/components/FAQItem';
-import Breadcrumb, { breadcrumbPaths } from '@/components/Breadcrumb';
+import { breadcrumbPaths } from '@/components/Breadcrumb';
 import RelatedLinks, { linkClusters } from '@/components/RelatedLinks';
 import { generateMetadata } from '@/lib/metadata';
 import { FAQSchema } from '@/components/StructuredData';
@@ -211,17 +211,11 @@ export default function PubRescue() {
         title="Pub Rescue Emergency Service"
         subtitle="When your pub is in crisis, you need help NOW. Not next month."
         showCTA={false}
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Pub Rescue' }
+        ]}
       />
-
-      {/* Breadcrumb */}
-      <Section background="white" padding="small">
-        <div className="max-w-6xl mx-auto">
-          <Breadcrumb items={[
-            { label: 'Home', href: '/' },
-            { label: 'Pub Rescue', href: '/pub-rescue' }
-          ]} />
-        </div>
-      </Section>
 
       {/* Emergency Banner */}
       <Section background="orange-light" padding="small">

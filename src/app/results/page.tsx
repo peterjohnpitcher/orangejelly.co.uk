@@ -1,40 +1,24 @@
-import Hero from '@/components/Hero';
-import Section from '@/components/Section';
-import CTASection from '@/components/CTASection';
-import OptimizedImage from '@/components/OptimizedImage';
-import Heading from '@/components/Heading';
-import Card from '@/components/Card';
-import Grid from '@/components/Grid';
-import AnimatedItem from '@/components/AnimatedItem';
-import CaseStudySelector from '@/components/CaseStudySelector';
-import Breadcrumb, { breadcrumbPaths } from '@/components/Breadcrumb';
-import RelatedLinks, { linkClusters } from '@/components/RelatedLinks';
-import Text from '@/components/Text';
-import { generateMetadata } from '@/lib/metadata';
+import { generateSanityMetadata } from '@/lib/metadata-sanity';
+import ResultsPage from './ResultsPage';
+import { getCaseStudies } from '@/lib/sanity-case-studies';
 
-export const metadata = generateMetadata({
-  title: 'Pubs That Were Empty. Now They\'re Not',
-  description: 'How did The Anchor transform Sunday lunches and reduce waste by £250/week? How we grew quiz nights from zero to 25-35 regulars? Real success stories from The Anchor using AI tools. See the actual numbers and proven strategies.',
-  path: '/results',
-});
-
-interface Result {
-  id: string;
-  title: string;
-  subtitle: string;
-  problem: string[];
-  failed: string[];
-  solution: string[];
-  results: { metric: string; value: string }[];
-  timeInvestment: string[];
-  learnings: string[];
-  quote?: string;
+export async function generateMetadata() {
+  return generateSanityMetadata('results', {
+    title: 'Pubs That Were Empty. Now They\'re Not',
+    description: 'How did The Anchor transform Sunday lunches and reduce waste by £250/week? How we grew quiz nights from zero to 25-35 regulars? Real success stories from The Anchor using AI tools. See the actual numbers and proven strategies.',
+    path: '/results',
+    keywords: ['pub success stories', 'pub turnaround case studies', 'increase pub revenue', 'pub marketing results', 'The Anchor success', 'pub transformation'],
+  });
 }
 
-export default function Results() {
+export default async function Results() {
+  // Fetch case studies from Sanity
+  const caseStudies = await getCaseStudies();
+
   // Generate comprehensive schema for Results
-  const resultsSchema = (() => {
-    const caseStudySchemas = [
+  const resultsSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
       {
         "@type": "HowTo",
         "@id": "https://www.orangejelly.co.uk/results#sunday-lunches",
@@ -98,33 +82,31 @@ export default function Results() {
       {
         "@type": "HowTo",
         "@id": "https://www.orangejelly.co.uk/results#quiet-weeks",
-        "name": "How to Fill Quiet Weeknights with Tasting Events",
-        "description": "Turn dead Monday-Thursday nights into profitable tasting experiences",
-        "supply": ["Local suppliers", "Tasting glasses", "Simple nibbles"],
-        "tool": ["AI for market research", "WhatsApp for bookings"],
+        "name": "Transform Quiet Weeks into Premium Events",
+        "description": "How The Anchor created sold-out tasting events charging £25+ per ticket",
         "step": [
           {
             "@type": "HowToStep",
-            "name": "Research what locals actually want",
-            "text": "Use AI to analyze local preferences and gaps"
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Keep it casual and affordable",
-            "text": "£35 for tasting samples and themed meal - premium experience"
+            "name": "Ask locals what they want",
+            "text": "Use AI to analyze feedback and identify gaps"
           },
           {
             "@type": "HowToStep",
             "name": "Partner with local suppliers",
-            "text": "They love the exposure and often help with costs"
+            "text": "Gin distilleries and breweries love showcasing products"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Price for value not volume",
+            "text": "£25 tickets with proper experience beats cheap offers"
           },
           {
             "@type": "HowToStep",
             "name": "Build WhatsApp community",
-            "text": "Create group for regulars to build repeat business"
+            "text": "Direct communication with interested customers"
           }
         ],
-        "totalTime": "PT5H",
+        "totalTime": "PT3H",
         "estimatedCost": {
           "@type": "MonetaryAmount",
           "currency": "GBP",
@@ -132,388 +114,36 @@ export default function Results() {
         },
         "performTime": "PT2H",
         "yield": "Sold out tasting nights at 25 tickets, 85% retention rate"
-      }
-    ];
-
-    const reviewSchema = {
-      "@type": "Review",
-      "itemReviewed": {
-        "@type": "Service",
-        "name": "Orange Jelly Pub Consulting",
-        "provider": {
-          "@id": "https://www.orangejelly.co.uk/#organization"
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "Service",
+          "name": "Orange Jelly Pub Consulting",
+          "provider": {
+            "@id": "https://www.orangejelly.co.uk/#organization"
+          }
+        },
+        "reviewBody": "Peter's AI strategies transformed our pub. Quiz nights now 25-35 regulars, food GP from 58% to 71%, and we actually have evenings off now. Best investment we've made.",
+        "author": {
+          "@type": "Restaurant",
+          "name": "The Anchor"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
         }
-      },
-      "reviewBody": "Peter's AI strategies transformed our pub. Quiz nights now 25-35 regulars, food GP from 58% to 71%, and we actually have evenings off now. Best investment we've made.",
-      "author": {
-        "@type": "Restaurant",
-        "name": "The Anchor"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
       }
-    };
-
-    return {
-      "@context": "https://schema.org",
-      "@graph": [...caseStudySchemas, reviewSchema]
-    };
-  })();
-
-  const results: Result[] = [
-    {
-      id: 'quiet-weeks',
-      title: 'How We Turned Dead Nights Into Sold-Out Events',
-      subtitle: 'The story of creating premium experiences our locals actually wanted.',
-      problem: [
-        'Needed premium events to boost revenue',
-        'Regular events getting stale',
-        'Missing opportunities for higher spend',
-        'No special occasion offerings'
-      ],
-      failed: [
-        'Generic "2-for-1" offers attracted wrong crowd',
-        'Wine tasting too fancy for our locals',
-        'Theme nights felt forced and fake',
-        'Discounting just lost us money'
-      ],
-      solution: [
-        'AI analyzed what our actual customers wanted',
-        'Created gin, rum, and tequila tasting nights',
-        'Winter Warmers event - seasonal themed drinks',
-        'Work with Greene King for brand partnerships',
-        'Premium experience: samples, themed meal, quiz, £35'
-      ],
-      results: [
-        { metric: 'Tasting night attendance', value: 'Limited to 25 (sells out)' },
-        { metric: 'Ticket price', value: '£35 inc. meal' },
-        { metric: 'Retention rate', value: '85% repeat bookings' },
-        { metric: 'Staff morale', value: 'Love the variety' }
-      ],
-      timeInvestment: [
-        'AI research and planning: 2 hours',
-        'Setting up with suppliers: 3 hours',
-        'Running each event: Already there anyway'
-      ],
-      learnings: [
-        'Keep tastings informal and fun',
-        'Local suppliers love being involved',
-        'Pre-booking essential for stock',
-        'Create WhatsApp group for regulars'
-      ],
-      quote: '"We went from generic 2-for-1 offers attracting the wrong crowd to sold-out tasting events at £35 a ticket. The secret? We asked AI to analyze what our actual customers wanted, not what we thought they wanted."'
-    },
-    {
-      id: 'sunday-lunches',
-      title: 'The £250 Weekly Wake-Up Call',
-      subtitle: 'How watching perfectly good food hit the bin led to our pre-order system.',
-      problem: [
-        'Throwing away £250 worth of food weekly',
-        'Prepping for 70 but only serving 45-50',
-        'Last-minute cancellations killed us',
-        'Never knew numbers until Sunday morning'
-      ],
-      failed: [
-        'Deposits scared regular customers away',
-        'Complicated booking systems confused everyone',
-        'Full payment upfront - nobody trusted it',
-        'Paper forms got lost constantly'
-      ],
-      solution: [
-        'Simple online pre-order form (Google Forms)',
-        '£5 per person deposit - reasonable',
-        'Confirmation texts automated',
-        'Menu choices locked in = no waste'
-      ],
-      results: [
-        { metric: 'Weekly savings', value: '£250 in reduced waste' },
-        { metric: 'Food waste', value: 'Down 90%' },
-        { metric: 'No-shows', value: 'Almost eliminated' },
-        { metric: 'Predictability', value: 'Know numbers by Friday' }
-      ],
-      timeInvestment: [
-        'Setting up system: 4 hours',
-        'Training team: 1 hour',
-        'Weekly management: 20 minutes'
-      ],
-      learnings: [
-        '£5 deposit is the sweet spot',
-        'Text reminders prevent no-shows',
-        'Regulars now book weeks ahead',
-        'Predictability changes everything'
-      ],
-      quote: '"Every Sunday we\'d prep for 70 covers hoping for the best. When only 45 showed up, I\'d watch £250 worth of beautiful food go in the bin. Now with pre-orders and a £5 deposit, we prep exactly what we need. The waste is gone, the stress is gone, and regulars actually book weeks ahead."'
-    },
-    {
-      id: 'social-media',
-      title: 'From Social Media Nightmare to 70,000 Views Monthly',
-      subtitle: 'How AI turned our biggest weakness into our strongest marketing tool.',
-      problem: [
-        'Posting maybe once a week if remembered',
-        'No consistency across platforms',
-        'Spending hours for mediocre results',
-        'Missing opportunities to promote events'
-      ],
-      failed: [
-        'Hiring social media manager - too expensive',
-        'Staff posting randomly - no consistency',
-        'Generic template posts - no personality',
-        'Posting at wrong times - no engagement'
-      ],
-      solution: [
-        'AI creates month of content in 30 minutes',
-        'Maintains our voice - casual, friendly, local',
-        'Auto-schedules for peak engagement times',
-        'Different versions for each platform'
-      ],
-      results: [
-        { metric: 'Posting frequency', value: 'Daily across 3 platforms' },
-        { metric: 'Engagement rate', value: 'Up 240%' },
-        { metric: 'Event attendance', value: '30% increase' },
-        { metric: 'Time saved', value: '6 hours per week' }
-      ],
-      timeInvestment: [
-        'Initial AI training: 2 hours',
-        'Monthly content creation: 30 minutes',
-        'Daily management: 5 minutes'
-      ],
-      learnings: [
-        'Consistency beats perfection',
-        'Local groups drive real customers',
-        'Behind-scenes content performs best',
-        'Schedule everything in advance'
-      ],
-      quote: '"I used to spend Sunday nights stressed about what to post on Monday. Now AI creates a month\'s worth of content in 30 minutes that sounds exactly like us - casual, friendly, local. We\'re getting 60,000-70,000 views monthly and people actually come in saying they saw our posts."'
-    },
-    {
-      id: 'search-visibility',
-      title: 'Why Heathrow Tourists Now Find Us First',
-      subtitle: 'Building a web presence that captures customers we never knew existed.',
-      problem: [
-        'Didn\'t show up for "pubs near me"',
-        'Old website looked amateur',
-        'No online booking system',
-        'Lost customers to pubs with better web presence'
-      ],
-      failed: [
-        'Cheap website builder - looked terrible',
-        'Paying for Google ads - too expensive',
-        'Complicated SEO that we didn\'t understand',
-        'Facebook page as main website - unprofessional'
-      ],
-      solution: [
-        'Built proper website focused on local SEO',
-        'Online booking for events and Sundays',
-        'Google Business profile optimization',
-        'Mobile-first design (everyone searches on phones)'
-      ],
-      results: [
-        { metric: 'Google ranking', value: '#1 for "pub Stanwell Moor"' },
-        { metric: 'Website visits', value: 'Up 450%' },
-        { metric: 'Online bookings', value: '40% of all bookings' },
-        { metric: 'New customers', value: '25% say "found you online"' }
-      ],
-      timeInvestment: [
-        'Website build: 2 days with AI help',
-        'Weekly updates: 15 minutes',
-        'Review responses: 10 minutes daily'
-      ],
-      learnings: [
-        'Mobile experience is everything',
-        'Local SEO beats paid ads',
-        'Fast loading speeds matter',
-        'Update Google Business weekly'
-      ],
-      quote: '"Tourists staying at Heathrow hotels now find us easily. That\'s an extra 15-20 covers we never had before."'
-    },
-    {
-      id: 'quiz-night',
-      title: 'From Zero Teams to 35 Quiz Regulars',
-      subtitle: 'The night QuestionOne failed us was the night everything changed.',
-      problem: [
-        'QuestionOne quiz was stale and predictable',
-        'Same 20-25 people every week',
-        'No local flavor or personality',
-        'Expensive monthly subscription'
-      ],
-      failed: [
-        'Writing quizzes took 3+ hours weekly',
-        'Downloaded quiz packs were boring',
-        'Too hard or too easy - never right',
-        'No connection to local area or events'
-      ],
-      solution: [
-        'AI creates custom quizzes in 20 minutes',
-        'Mix of local knowledge and general trivia',
-        'Adjustable difficulty based on crowd',
-        'Topical rounds about current events'
-      ],
-      results: [
-        { metric: 'Quiz attendance', value: 'From sometimes 0 to 25-35 regulars' },
-        { metric: 'Average spend', value: '£25 per person' },
-        { metric: 'Quiz quality', value: 'Best in the area' },
-        { metric: 'Time saved', value: '2.5 hours weekly' }
-      ],
-      timeInvestment: [
-        'AI quiz creation: 20 minutes',
-        'Customizing for locals: 10 minutes',
-        'Running quiz night: 2 hours (same as before)'
-      ],
-      learnings: [
-        'Local questions create connection',
-        'Picture rounds on phones work great',
-        'Consistency matters more than perfection',
-        'Make it an event, not just a quiz'
-      ],
-      quote: '"QuestionOne was killing our quiz night - sometimes we\'d have zero teams show up and still pay their fee. We asked them to help renovate it but they couldn\'t. Now I use AI to create custom quizzes with local questions in 20 minutes. We\'re back to 25-35 regulars every week, each spending about £25. The difference? Our quiz has personality now."'
-    },
-    {
-      id: 'customer-engagement',
-      title: 'Why 300 Phone Numbers Beat 10,000 Facebook Followers',
-      subtitle: 'Building a customer database that actually drives revenue.',
-      problem: [
-        'No customer database at all',
-        'Birthday offers going to waste',
-        'No way to contact regulars',
-        'Missing opportunities for repeat business'
-      ],
-      failed: [
-        'Email newsletters - nobody read them',
-        'Loyalty cards - too complicated',
-        'App-based system - older customers hated it',
-        'Paper mailing list - expensive and slow'
-      ],
-      solution: [
-        'Simple SMS system for updates',
-        'Birthday club with automatic vouchers',
-        'Booking confirmations via text',
-        'WhatsApp groups for different events'
-      ],
-      results: [
-        { metric: 'Customer database', value: '300 opted-in contacts' },
-        { metric: 'Birthday voucher redemption', value: '65%' },
-        { metric: 'Repeat visit rate', value: 'Up 40%' },
-        { metric: 'Event sell-out rate', value: 'Most events full' }
-      ],
-      timeInvestment: [
-        'Initial setup: Half day',
-        'Weekly SMS blast: 10 minutes',
-        'Birthday vouchers: Automated'
-      ],
-      learnings: [
-        'SMS beats email every time',
-        'Keep messages short and valuable',
-        'Birthday offers bring groups',
-        'Different groups want different things'
-      ],
-      quote: '"We tried everything - email newsletters nobody read, loyalty cards that confused everyone, even an app that our older customers hated. Then we went simple: SMS for updates, WhatsApp for groups, birthday texts with genuine offers. Now our 300 contacts are worth more than any social media following. The birthday club alone brings 30+ tables monthly."'
-    }
-  ];
-
+    ]
+  };
 
   return (
     <>
+      <ResultsPage caseStudies={caseStudies} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(resultsSchema) }}
-      />
-      <Hero
-        title="Pubs That Were Empty. Now They're Not. Here's How"
-        subtitle="Real stories from pubs that turned their biggest problems into their biggest wins."
-        showCTA={false}
-      />
-
-      <Section background="white">
-        <div className="max-w-6xl mx-auto mb-8">
-          <Breadcrumb items={breadcrumbPaths.results} />
-        </div>
-        
-        <CaseStudySelector results={results} defaultStudy="quiet-weeks" />
-        
-        <RelatedLinks
-          title="Ready to Write Your Own Success Story?"
-          subtitle="Choose the problem that's hurting your business most"
-          links={[
-            {
-              title: "Empty Pub Recovery",
-              description: "Fill your quiet nights in 30 days or your money back",
-              href: "/services#empty-pub-recovery",
-              emoji: "⏰",
-              highlight: true
-            },
-            {
-              title: "Boost Food Sales",
-              description: "Turn your menu into a profit machine with psychology",
-              href: "/services#boost-food-sales",
-              emoji: "💷"
-            },
-            {
-              title: "Done-For-You Marketing",
-              description: "We handle everything while you serve customers",
-              href: "/services#done-for-you-marketing",
-              emoji: "📱"
-            }
-          ]}
-          variant="card"
-          columns={{ default: 1, md: 3 }}
-        />
-      </Section>
-
-      {/* Bottom Line */}
-      <Section background="orange-light" padding="small">
-        <AnimatedItem animation="scale" delay={200}>
-        <div className="text-center max-w-3xl mx-auto">
-          <Heading level={2} align="center" className="mb-6">The Bottom Line</Heading>
-          <Grid columns={{ default: 1, md: 2 }} gap="medium" className="mb-8">
-            <Card variant="shadowed">
-              <Text align="center" className="text-2xl font-bold text-orange mb-2">25 hours</Text>
-              <Text align="center" color="muted">Added value weekly through AI</Text>
-            </Card>
-            <Card variant="shadowed">
-              <Text align="center" className="text-2xl font-bold text-orange mb-2">£75k-£100k</Text>
-              <Text align="center" color="muted">Value added to business</Text>
-            </Card>
-          </Grid>
-          <Text size="lg" color="muted" align="center">
-            <strong>Investment:</strong> Less than we spent on that failed coffee machine
-          </Text>
-        </div>
-        </AnimatedItem>
-      </Section>
-
-      {/* Transparency Note */}
-      <Section>
-        <AnimatedItem animation="fade-in" delay={300}>
-        <div className="max-w-3xl mx-auto text-center">
-          <Card variant="bordered" padding="large" className="shadow-lg border-2 border-orange/20">
-            <Heading level={3} className="mb-4">Want to See the Proof?</Heading>
-            <Text size="lg" color="muted" className="mb-6">
-              Every pub is different. These are our real results - yours might be 
-              better or take longer. But we'll be honest about what's possible and 
-              use everything we learned to help you skip our mistakes.
-            </Text>
-            <Card variant="colored" className="bg-teal-dark text-white">
-              <Text className="font-semibold mb-2">Visit The Anchor</Text>
-              <Text size="sm" className="mb-4">
-                See our menus, check our social media, talk to Billy about how much time he saves.
-              </Text>
-              <Text size="xs" className="opacity-80">
-                Screenshots, photos, and actual examples available on request. 
-                We're transparent about everything - including what didn't work!
-              </Text>
-            </Card>
-          </Card>
-        </div>
-        </AnimatedItem>
-      </Section>
-
-      <CTASection
-        title="Want These Results for Your Pub?"
-        subtitle="Tell me your biggest challenge and I'll show you how we solved it."
-        whatsappMessage="Hi Peter, just read your case studies. Can we chat?"
-        buttonText="Get More Customers"
       />
     </>
   );

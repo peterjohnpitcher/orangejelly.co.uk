@@ -12,9 +12,30 @@ export default {
     {
       name: 'answer',
       title: 'Answer',
-      type: 'text',
-      rows: 4,
+      type: 'array',
+      of: [{ type: 'block' }],
       validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'General', value: 'general' },
+          { title: 'Service', value: 'service' },
+          { title: 'Pricing', value: 'pricing' },
+          { title: 'Process', value: 'process' },
+          { title: 'Results', value: 'results' },
+        ],
+      },
+    },
+    {
+      name: 'isVoiceOptimized',
+      title: 'Voice Search Optimized',
+      type: 'boolean',
+      initialValue: false,
+      description: 'Is this FAQ optimized for voice search?',
     },
     {
       name: 'page',

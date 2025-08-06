@@ -82,6 +82,10 @@ export const breadcrumbPaths = {
     { label: 'Home', href: '/' },
     { label: 'Contact' }
   ],
+  licenseesGuide: [
+    { label: 'Home', href: '/' },
+    { label: "The Licensee's Guide", href: '/licensees-guide' }
+  ],
   // Service-specific breadcrumbs
   emptyPubRecovery: [
     { label: 'Home', href: '/' },

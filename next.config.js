@@ -6,6 +6,7 @@ const nextConfig = {
   trailingSlash: false,
   images: {
     formats: ['image/avif', 'image/webp'],
+    domains: ['cdn.sanity.io'],
   },
   async headers() {
     return [

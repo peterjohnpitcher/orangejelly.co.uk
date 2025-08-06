@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
+import Text from '@/components/Text';
 
 export default function Loading() {
   return (
@@ -6,7 +7,7 @@ export default function Loading() {
       <div className="text-center">
         <div className="relative inline-block">
           {/* Animated logo */}
-          <Image
+          <OptimizedImage
             src="/logo.png"
             alt="Orange Jelly"
             width={100}
@@ -19,15 +20,15 @@ export default function Loading() {
           <div className="absolute inset-0 bg-orange/30 rounded-lg blur-2xl animate-pulse"></div>
         </div>
         
-        <p className="mt-6 text-charcoal font-semibold animate-fade-in">
+        <Text className="mt-6 text-charcoal font-semibold animate-fade-in">
           Loading Orange Jelly...
-        </p>
+        </Text>
         
         {/* Loading dots */}
         <div className="flex justify-center gap-2 mt-4">
-          <div className="w-2 h-2 bg-orange rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-          <div className="w-2 h-2 bg-orange rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-          <div className="w-2 h-2 bg-orange rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+          <div className="w-2 h-2 bg-orange rounded-full animate-bounce animation-delay-0"></div>
+          <div className="w-2 h-2 bg-orange rounded-full animate-bounce animation-delay-150"></div>
+          <div className="w-2 h-2 bg-orange rounded-full animate-bounce animation-delay-300"></div>
         </div>
       </div>
     </div>

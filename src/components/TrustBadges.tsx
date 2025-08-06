@@ -2,17 +2,35 @@ import Card from './Card';
 import Heading from './Heading';
 import Text from './Text';
 import OptimizedImage from './OptimizedImage';
+import { type TrustBadge } from '@/lib/sanity-social-proof';
 
 interface TrustBadgesProps {
   variant?: 'horizontal' | 'vertical' | 'compact';
   showAll?: boolean;
+  trustBadges?: TrustBadge[];
 }
 
 export default function TrustBadges({ 
   variant = 'horizontal',
-  showAll = true 
+  showAll = true,
+  trustBadges
 }: TrustBadgesProps) {
-  const badges = [
+  // Map icon names to emojis
+  const iconMap: Record<string, string> = {
+    money: '💰',
+    clock: '📅',
+    shield: '🛡️',
+    star: '⭐',
+    check: '✅',
+    heart: '❤️',
+  };
+  
+  // Transform Sanity data or use fallback
+  const badges = trustBadges?.map(badge => ({
+    icon: iconMap[badge.icon] || '📌',
+    title: badge.title,
+    subtitle: badge.subtitle
+  })) || [
     {
       icon: '🚫',
       title: 'No Agency Fees',

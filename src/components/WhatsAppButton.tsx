@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { CONTACT, URLS } from '@/lib/constants';
 
 interface WhatsAppButtonProps {
@@ -9,7 +11,7 @@ interface WhatsAppButtonProps {
 }
 
 // WhatsApp button with mobile-first touch target sizing (min 44px)
-export default function WhatsAppButton({
+function WhatsAppButton({
   text,
   variant = 'primary',
   size = 'medium',
@@ -45,3 +47,5 @@ export default function WhatsAppButton({
     </a>
   );
 }
+
+export default memo(WhatsAppButton);

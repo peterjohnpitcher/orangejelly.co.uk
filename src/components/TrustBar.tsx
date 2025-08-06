@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Grid from '@/components/Grid';
 import { PRICING, MESSAGES } from '@/lib/constants';
 
@@ -16,7 +18,7 @@ const defaultItems: TrustItem[] = [
   { value: MESSAGES.trust.resultsIn14Days, label: 'Guaranteed quick results' }
 ];
 
-export default function TrustBar({ items = defaultItems }: TrustBarProps) {
+function TrustBar({ items = defaultItems }: TrustBarProps) {
   return (
     <section className="bg-orange/10 py-8 relative overflow-hidden">
       {/* Decorative orange shapes with logo influence */}
@@ -36,3 +38,5 @@ export default function TrustBar({ items = defaultItems }: TrustBarProps) {
     </section>
   );
 }
+
+export default memo(TrustBar);

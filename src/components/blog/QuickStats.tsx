@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
 import Card from '@/components/Card';
@@ -15,7 +15,7 @@ interface QuickStatsProps {
   className?: string;
 }
 
-export default function QuickStats({ stats, className = '' }: QuickStatsProps) {
+function QuickStats({ stats, className = '' }: QuickStatsProps) {
   if (!stats || stats.length === 0) return null;
 
   return (
@@ -53,3 +53,5 @@ export default function QuickStats({ stats, className = '' }: QuickStatsProps) {
     </Card>
   );
 }
+
+export default memo(QuickStats);

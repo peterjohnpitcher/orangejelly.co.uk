@@ -9,6 +9,7 @@ import CTASection from '@/components/CTASection';
 import TrustBar from '@/components/TrustBar';
 import Text from '@/components/Text';
 import FeatureList from '@/components/FeatureList';
+import { breadcrumbPaths } from '@/components/Breadcrumb';
 import { URLS, CONTACT } from '@/lib/constants';
 import { generateMetadata } from '@/lib/metadata';
 
@@ -199,6 +200,10 @@ export default function PubMarketingNoBudget() {
         title={<>No Marketing Budget?<br />No Problem.</>}
         subtitle="Free strategies that filled our pub (and will fill yours too)"
         bottomText="💪 From empty Tuesday nights to turning people away - all with £0 spend"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Pub Marketing No Budget' }
+        ]}
       />
 
       <TrustBar />

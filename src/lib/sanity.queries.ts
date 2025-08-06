@@ -1,5 +1,86 @@
 // GROQ queries for fetching content from Sanity
 
+// Site settings query
+export const siteSettingsQuery = `
+  *[_type == "siteSettings"][0] {
+    businessName,
+    tagline,
+    company,
+    contact,
+    pricing,
+    metrics,
+    socialMedia
+  }
+`;
+
+// Navigation query  
+export const navigationQuery = `
+  *[_id == "mainNavigation"][0] {
+    mainMenu[] | order(order asc) {
+      label,
+      href,
+      external
+    },
+    mobileMenu[] | order(order asc) {
+      label,
+      href,
+      external
+    }
+  }
+`;
+
+// Services query
+export const servicesQuery = `
+  *[_type == "service"] | order(order asc) {
+    _id,
+    title,
+    "slug": slug.current,
+    emoji,
+    problem,
+    deliverable,
+    description,
+    features,
+    example,
+    timeEstimate,
+    priceBreakdown,
+    price,
+    timeline,
+    highlight
+  }
+`;
+
+// Homepage FAQs query
+export const homepageFAQsQuery = `
+  *[_type == "faq" && page == "home"] | order(order asc) {
+    _id,
+    question,
+    answer,
+    category,
+    isVoiceOptimized
+  }
+`;
+
+// Content blocks query
+export const contentBlockQuery = `
+  *[_type == "contentBlock" && identifier.current == $identifier][0] {
+    name,
+    type,
+    content,
+    metadata
+  }
+`;
+
+// Multiple content blocks query
+export const contentBlocksByPageQuery = `
+  *[_type == "contentBlock" && metadata.page == $page] | order(metadata.order asc) {
+    name,
+    "identifier": identifier.current,
+    type,
+    content,
+    metadata
+  }
+`;
+
 export const blogPostsQuery = `
   *[_type == "blogPost" && status == "published"] | order(publishedDate desc) {
     _id,
@@ -17,7 +98,12 @@ export const blogPostsQuery = `
     "author": author->{
       name,
       bio,
-      image
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
     }
   }
 `;
@@ -42,7 +128,12 @@ export const blogPostBySlugQuery = `
     "author": author->{
       name,
       bio,
-      image
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
     },
     quickAnswer,
     voiceSearchQueries,
@@ -70,55 +161,22 @@ export const blogPostsByCategoryQuery = `
   }
 `;
 
-export const servicesQuery = `
-  *[_type == "service"] | order(order asc) {
-    _id,
-    title,
-    problem,
-    deliverable,
-    description,
-    features,
-    timeEstimate,
-    priceBreakdown,
-    price,
-    timeline,
-    highlight,
-    example
-  }
-`;
-
 export const caseStudiesQuery = `
   *[_type == "caseStudy"] | order(order asc) {
     _id,
     title,
+    "slug": slug.current,
     subtitle,
+    client,
     problem,
-    failed,
+    failedAttempts,
     solution,
     results,
     timeInvestment,
     learnings,
-    quote
-  }
-`;
-
-export const siteSettingsQuery = `
-  *[_type == "siteSettings"][0] {
-    _id,
-    businessName,
-    tagline,
-    contact {
-      email,
-      phone,
-      whatsapp,
-      address
-    },
-    pricing {
-      hourlyRate,
-      currency
-    },
-    metrics,
-    socialMedia
+    quote,
+    relatedService->,
+    order
   }
 `;
 
@@ -131,6 +189,108 @@ export const faqsQuery = `
 `;
 
 // Draft preview queries (for preview mode)
+// About content query
+export const aboutContentQuery = `
+  *[_type == "aboutContent"][0] {
+    _id,
+    title,
+    heroSection,
+    story,
+    timeline,
+    values,
+    founderSection {
+      name,
+      role,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      },
+      quote
+    },
+    teamMembers[] {
+      name,
+      role,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    partnerships[] {
+      name,
+      description,
+      logo {
+        asset->{
+          _id,
+          url
+        }
+      },
+      url
+    },
+    whyOrangeJelly
+  }
+`;
+
+// Footer content query
+export const footerContentQuery = `
+  *[_type == "footerContent"][0] {
+    _id,
+    companyInfo,
+    quickLinks,
+    services,
+    legalLinks,
+    contactInfo,
+    socialLinks,
+    newsletter,
+    bottomBar
+  }
+`;
+
+// SEO metadata query
+export const seoMetadataQuery = `
+  *[_type == "seoMetadata" && page == $page][0] {
+    _id,
+    page,
+    title,
+    description,
+    keywords,
+    openGraph,
+    twitter,
+    canonicalUrl,
+    noIndex,
+    structuredData
+  }
+`;
+
+// Social proof query
+export const socialProofQuery = `
+  *[_type == "socialProof" && isActive == true] | order(order asc) {
+    _id,
+    title,
+    value,
+    timeframe,
+    location,
+    category,
+    displayText
+  }
+`;
+
+// Trust badges query
+export const trustBadgesQuery = `
+  *[_type == "trustBadge" && isActive == true] | order(order asc) {
+    _id,
+    title,
+    subtitle,
+    icon,
+    color
+  }
+`;
+
 export const draftBlogPostQuery = `
   *[_type == "blogPost" && slug.current == $slug][0] {
     _id,
@@ -152,7 +312,12 @@ export const draftBlogPostQuery = `
     "author": author->{
       name,
       bio,
-      image
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
     },
     quickAnswer,
     voiceSearchQueries,

@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Card from './Card';
 import Heading from './Heading';
 import Text from './Text';
@@ -8,7 +10,7 @@ interface FAQItemProps {
   icon?: string;
 }
 
-export default function FAQItem({ question, answer, icon }: FAQItemProps) {
+function FAQItem({ question, answer, icon }: FAQItemProps) {
   return (
     <Card variant="shadowed">
       <Heading level={3} className="mb-2 flex items-start">
@@ -21,3 +23,5 @@ export default function FAQItem({ question, answer, icon }: FAQItemProps) {
     </Card>
   );
 }
+
+export default memo(FAQItem);

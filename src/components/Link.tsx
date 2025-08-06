@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import NextLink from 'next/link';
 
 interface LinkProps {
@@ -14,7 +16,7 @@ interface LinkProps {
   'aria-label'?: string;
 }
 
-export default function Link({
+function Link({
   href,
   children,
   external = false,
@@ -85,3 +87,5 @@ export default function Link({
     </NextLink>
   );
 }
+
+export default memo(Link);

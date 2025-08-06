@@ -49,13 +49,21 @@ export default function Input({
       <input
         id={inputId}
         className={inputClasses}
+        aria-describedby={
+          error ? `${inputId}-error` : helperText ? `${inputId}-helper` : undefined
+        }
+        aria-invalid={!!error}
         {...props}
       />
       {error && (
-        <p className="mt-2 text-sm text-red-600">{error}</p>
+        <p id={`${inputId}-error`} className="mt-2 text-sm text-red-600" role="alert">
+          {error}
+        </p>
       )}
       {helperText && !error && (
-        <p className="mt-2 text-sm text-charcoal/60">{helperText}</p>
+        <p id={`${inputId}-helper`} className="mt-2 text-sm text-charcoal/60">
+          {helperText}
+        </p>
       )}
     </div>
   );

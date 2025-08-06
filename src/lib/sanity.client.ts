@@ -11,13 +11,13 @@ export const client = createClient({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   apiVersion: '2024-01-01',
   useCdn: process.env.NODE_ENV === 'production',
-  // Only include token for server-side operations
-  token: process.env.SANITY_API_TOKEN,
+  // Don't include token for public read operations
+  // token: process.env.SANITY_API_TOKEN,
 });
 
 // Helper for generating image URLs
 const builder = imageUrlBuilder(client);
 
-export function urlFor(source: any) {
+export function urlFor(source: { _ref?: string; _type?: string; asset?: { _ref: string } } | string) {
   return builder.image(source);
 }

@@ -1,11 +1,13 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import BlogLayout from '@/components/blog/BlogLayout';
+import Hero from '@/components/Hero';
+import Section from '@/components/Section';
 import BlogPostClient from './BlogPostClient';
 import { getContentPostBySlug, getContentPosts } from '@/lib/content-source';
 import { BlogPostingSchema } from '@/components/BlogPostingSchema';
 import { FAQSchema } from '@/components/StructuredData';
 import EnhancedBlogSchema from '@/components/blog/EnhancedBlogSchema';
+import { breadcrumbPaths } from '@/components/Breadcrumb';
 
 interface BlogPostPageProps {
   params: {
@@ -116,15 +118,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         speakableSections={['.prose h2', '.prose h3', '.prose > p:first-of-type', '.quick-answer']}
       />
       {faqs.length > 0 && <FAQSchema faqs={faqs} />}
-      <BlogLayout 
+      <Hero
+        title={post.title}
+        subtitle={post.excerpt}
+        showCTA={false}
         breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: "The Licensee's Guide", href: '/licensees-guide' },
+          ...breadcrumbPaths.licenseesGuide,
           { label: post.title }
         ]}
-      >
-        <BlogPostClient post={post} relatedPosts={relatedPosts} />
-      </BlogLayout>
+      />
+      <Section background="white">
+        <div className="max-w-6xl mx-auto">
+          <BlogPostClient post={post} relatedPosts={relatedPosts} />
+        </div>
+      </Section>
     </>
   );
 }

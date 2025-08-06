@@ -4,9 +4,35 @@ import Button from '@/components/Button';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
 import OptimizedImage from '@/components/OptimizedImage';
+import { type FooterContent } from '@/lib/sanity-footer';
 
-export default function FooterSimple() {
+interface FooterSimpleProps {
+  footerContent?: FooterContent | null;
+}
+
+export default function FooterSimple({ footerContent }: FooterSimpleProps) {
   const currentYear = new Date().getFullYear();
+  
+  // Fallback data
+  const defaultServices = [
+    { title: 'Empty Pub Recovery', href: '/services#empty-pub-recovery' },
+    { title: 'Menu Makeover', href: '/services#boost-food-sales' },
+    { title: 'Marketing Package', href: '/services#done-for-you-marketing' },
+    { title: 'View All →', href: '/services' },
+  ];
+  
+  const defaultQuickLinks = [
+    { title: 'About Us', href: '/about' },
+    { title: 'Success Stories', href: '/results' },
+    { title: 'Contact', href: '/contact' },
+    { title: 'The Anchor', href: 'https://the-anchor.pub', external: true },
+  ];
+  
+  // Use Sanity data with fallbacks
+  const services = footerContent?.services?.slice(0, 4) || defaultServices;
+  const quickLinks = footerContent?.quickLinks?.filter(link => 
+    ['/about', '/results', '/contact'].includes(link.href) || link.external
+  ) || defaultQuickLinks;
 
   return (
     <footer className="bg-charcoal text-cream">
@@ -31,20 +57,33 @@ export default function FooterSimple() {
             <div>
               <Heading level={5} color="orange" className="mb-3">Services</Heading>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/services#empty-pub-recovery" className="hover:text-orange transition-colors">Empty Pub Recovery</Link></li>
-                <li><Link href="/services#boost-food-sales" className="hover:text-orange transition-colors">Menu Makeover</Link></li>
-                <li><Link href="/services#done-for-you-marketing" className="hover:text-orange transition-colors">Marketing Package</Link></li>
-                <li><Link href="/services" className="text-orange hover:underline">View All →</Link></li>
+                {services.map((service, index) => (
+                  <li key={index}>
+                    <Link 
+                      href={service.href} 
+                      className={service.href === '/services' ? "text-orange hover:underline" : "hover:text-orange transition-colors"}
+                    >
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             
             <div>
               <Heading level={5} color="orange" className="mb-3">Company</Heading>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/about" className="hover:text-orange transition-colors">About Us</Link></li>
-                <li><Link href="/results" className="hover:text-orange transition-colors">Success Stories</Link></li>
-                <li><Link href="/contact" className="hover:text-orange transition-colors">Contact</Link></li>
-                <li><a href="https://the-anchor.pub" target="_blank" rel="noopener noreferrer" className="hover:text-orange transition-colors">The Anchor</a></li>
+                {quickLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link 
+                      href={link.href} 
+                      className="hover:text-orange transition-colors"
+                      {...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
+                    >
+                      {link.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             
@@ -60,13 +99,13 @@ export default function FooterSimple() {
             <div>
               <Heading level={5} color="orange" className="mb-3">Get in Touch</Heading>
               <div className="space-y-2 text-sm">
-                <a href={URLS.whatsapp()} className="block hover:text-orange transition-colors">
+                <Link href={URLS.whatsapp()} className="block hover:text-orange transition-colors" target="_blank" rel="noopener noreferrer">
                   📱 WhatsApp
+                </Link>
+                <a href={`tel:${footerContent?.contactInfo?.phone || CONTACT.phone}`} className="block hover:text-orange transition-colors">
+                  📞 {footerContent?.contactInfo?.phone || CONTACT.phone}
                 </a>
-                <a href={`tel:${CONTACT.phone}`} className="block hover:text-orange transition-colors">
-                  📞 {CONTACT.phone}
-                </a>
-                <a href={URLS.email} className="block hover:text-orange transition-colors">
+                <a href={`mailto:${footerContent?.contactInfo?.email || CONTACT.email}`} className="block hover:text-orange transition-colors">
                   ✉️ Email Us
                 </a>
               </div>
@@ -78,7 +117,10 @@ export default function FooterSimple() {
             {/* Bottom Info */}
             <div className="text-center">
               <Text size="sm" align="center" className="mb-4">
-                © {currentYear} Orange Jelly Limited | Run by licensees, for licensees
+                {footerContent?.bottomBar?.copyrightText?.replace('{year}', currentYear.toString()) || 
+                 `© ${currentYear} Orange Jelly Limited`} | 
+                {footerContent?.bottomBar?.additionalText?.replace(' | Made with ❤️ in Stanwell Moor', '') || 
+                 'Run by licensees, for licensees'}
               </Text>
               
               {/* CTA Button */}
