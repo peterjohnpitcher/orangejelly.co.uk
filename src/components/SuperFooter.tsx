@@ -374,6 +374,7 @@ export default function SuperFooter() {
             </div>
           </div>
         </div>
+      </div>
     </footer>
   );
 }
