@@ -73,19 +73,25 @@ export default async function QuietMidweekSolutions() {
             
             <Grid columns={{ default: 1, md: 3 }} gap="medium" className="mb-8">
               <ProblemCard
-                icon="💀"
-                title="Ghost Town Tuesdays"
-                description="5 tables out of 30 occupied. Staff standing around. Losing £300+ per night."
+                emoji="💀"
+                problem="Ghost Town Tuesdays"
+                solution="5 tables out of 30 occupied. Staff standing around. Losing £300+ per night."
+                linkText="Fix Tuesdays"
+                linkHref="/services#quick-wins"
               />
               <ProblemCard
-                icon="📉"
-                title="Wednesday Wasteland"
-                description="Kitchen prepped for 50, serving 12. Food waste mounting. Morale dropping."
+                emoji="📉"
+                problem="Wednesday Wasteland"
+                solution="Kitchen prepped for 50, serving 12. Food waste mounting. Morale dropping."
+                linkText="Fix Wednesdays"
+                linkHref="/services#menu-makeover"
               />
               <ProblemCard
-                icon="🔄"
-                title="The Vicious Cycle"
-                description="Empty pub looks closed → People avoid it → Gets emptier → Death spiral."
+                emoji="🔄"
+                problem="The Vicious Cycle"
+                solution="Empty pub looks closed → People avoid it → Gets emptier → Death spiral."
+                linkText="Break the cycle"
+                linkHref="/services#done-for-you-marketing"
               />
             </Grid>
 
