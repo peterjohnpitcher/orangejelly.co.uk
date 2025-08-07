@@ -293,7 +293,7 @@ export default async function QuietMidweekSolutions() {
               <div className="grid md:grid-cols-4 gap-6 mb-12">
                 {successMetrics.metrics.map((metric) => (
                   <Card key={metric._key} background="cream" padding="large">
-                    <Text size="3xl" weight="bold" className="text-orange mb-2">
+                    <Text size="2xl" weight="bold" className="text-orange mb-2">
                       {metric.value}
                     </Text>
                     <Text weight="semibold" className="mb-1">
