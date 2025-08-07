@@ -261,8 +261,8 @@ export default function AboutPage({ aboutContent, faqs, siteSettings, author }: 
             <Card variant="shadowed" className="inline-block max-w-md bg-black/20 backdrop-blur" padding="large">
               <Heading level={4} color="white" className="mb-2">{aboutContent?.visitCTA?.locationName || "The Anchor"}</Heading>
               {aboutContent?.visitCTA?.address ? (
-                aboutContent.visitCTA.address.split('\n').map((line, i) => (
-                  <Text key={i} color="white" className={i === aboutContent.visitCTA.address.split('\n').length - 1 ? "mb-4" : ""}>
+                aboutContent.visitCTA.address.split('\n').map((line, i, arr) => (
+                  <Text key={i} color="white" className={i === arr.length - 1 ? 'mb-4' : ''}>
                     {line}
                   </Text>
                 ))
