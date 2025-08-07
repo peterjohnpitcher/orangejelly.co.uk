@@ -43,7 +43,6 @@ async function HomePageData() {
         problems={problems}
         features={features}
         metrics={metrics}
-        sectionHeadings={sectionHeadings}
         trustBadges={trustBadges}
         siteSettings={siteSettings}
         partnerships={aboutContent?.partnerships}
