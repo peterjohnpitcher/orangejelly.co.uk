@@ -1,6 +1,6 @@
 import OptimizedImage from '@/components/OptimizedImage';
 import { CONTACT, COMPANY, URLS, formatPhoneDisplay } from '@/lib/constants';
-import RelatedLinks, { linkClusters } from '@/components/RelatedLinks';
+import RelatedLinks from '@/components/RelatedLinks';
 import Text from '@/components/Text';
 import Heading from '@/components/Heading';
 import Link from '@/components/Link';

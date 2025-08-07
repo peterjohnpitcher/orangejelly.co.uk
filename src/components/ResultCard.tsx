@@ -26,11 +26,11 @@ function ResultCard({
       <Grid columns={{ default: 1, md: 3 }} gap="medium" className="text-center">
         <div>
           <Text size="sm" color="muted" align="center" className="mb-1">Before</Text>
-          <Text weight="semibold" color="red" align="center">{before}</Text>
+          <Text weight="semibold" align="center" className="text-red-600">{before}</Text>
         </div>
         <div>
           <Text size="sm" color="muted" align="center" className="mb-1">After</Text>
-          <Text weight="semibold" color="green" align="center">{after}</Text>
+          <Text weight="semibold" className="text-green-600" align="center">{after}</Text>
         </div>
         <div>
           <Text size="sm" color="muted" align="center" className="mb-1">Time</Text>

@@ -26,17 +26,18 @@ import { remark } from 'remark';
 import remarkHtml from 'remark-html';
 
 interface BlogPostProps {
-  post: BlogPostType;
+  post: BlogPostType & { contentHtml?: string; isPreProcessed?: boolean };
   relatedPosts?: BlogPostType[];
 }
 
 export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
-  // Convert markdown to HTML (only for markdown content)
-  const [contentHtml, setContentHtml] = React.useState('');
+  // Use pre-processed HTML if available, otherwise process client-side as fallback
+  const [contentHtml, setContentHtml] = React.useState(post.contentHtml || '');
   
   React.useEffect(() => {
     async function processContent() {
-      if (!post.isPortableText && typeof post.content === 'string') {
+      // Only process client-side if not already processed server-side
+      if (!post.isPreProcessed && !post.isPortableText && typeof post.content === 'string') {
         const processedContent = await remark()
           .use(remarkHtml)
           .process(post.content);
@@ -44,7 +45,7 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
       }
     }
     processContent();
-  }, [post.content, post.isPortableText]);
+  }, [post.content, post.isPortableText, post.isPreProcessed]);
   // Track reading progress
   useEffect(() => {
     const updateProgress = () => {

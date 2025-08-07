@@ -27,15 +27,17 @@ export function CollectionPageSchema({
   items,
   breadcrumbs = []
 }: CollectionPageSchemaProps) {
+  const isAbsolute = (u: string) => /^https?:\/\//i.test(u);
+  const site = 'https://www.orangejelly.co.uk';
   const schema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": name,
     "description": description,
-    "url": `https://www.orangejelly.co.uk${url}`,
+    "url": isAbsolute(url) ? url : `${site}${url}`,
     "isPartOf": {
       "@type": "WebSite",
-      "@id": "https://www.orangejelly.co.uk/#website"
+      "@id": `${site}/#website`
     },
     "breadcrumb": breadcrumbs.length > 0 ? {
       "@type": "BreadcrumbList",
@@ -43,7 +45,7 @@ export function CollectionPageSchema({
         "@type": "ListItem",
         "position": index + 1,
         "name": crumb.name,
-        "item": `https://www.orangejelly.co.uk${crumb.url}`
+        "item": isAbsolute(crumb.url) ? crumb.url : `${site}${crumb.url}`
       }))
     } : undefined,
     "mainEntity": {
@@ -51,7 +53,7 @@ export function CollectionPageSchema({
       "itemListElement": items.map((item, index) => ({
         "@type": "BlogPosting",
         "position": index + 1,
-        "url": `https://www.orangejelly.co.uk${item.url}`,
+        "url": isAbsolute(item.url) ? item.url : `${site}${item.url}`,
         "headline": item.name,
         ...(item.description && { "description": item.description }),
         ...(item.datePublished && { "datePublished": item.datePublished }),
@@ -64,7 +66,7 @@ export function CollectionPageSchema({
         ...(item.image && {
           "image": {
             "@type": "ImageObject",
-            "url": `https://www.orangejelly.co.uk${item.image}`
+            "url": isAbsolute(item.image) ? item.image : `${site}${item.image}`
           }
         }),
         "publisher": {

@@ -57,30 +57,35 @@ const aboutContent = {
   ],
   timeline: [
     {
+      _key: 'timeline_0',
       date: 'March 2019',
       title: 'Took Over The Anchor',
       description: 'Faced with a struggling pub, empty tables, and no idea what we were doing.',
       highlight: true,
     },
     {
+      _key: 'timeline_1',
       date: '2021',
       title: 'Discovered AI Tools',
       description: 'Started experimenting with early AI models for pub operations.',
       highlight: false,
     },
     {
+      _key: 'timeline_2',
       date: 'Jan-Feb 2024',
       title: 'The Turning Point',
       description: 'Six brutal weeks that forced us to embrace AI fully. GP hit 71%.',
       highlight: true,
     },
     {
+      _key: 'timeline_3',
       date: '2024',
       title: 'Orange Jelly Reborn',
       description: 'Started helping other licensees with proven AI strategies.',
       highlight: false,
     },
     {
+      _key: 'timeline_4',
       date: 'September 2025',
       title: 'First Pub Chain Training',
       description: 'Scheduled to train our first multi-site pub company.',
@@ -89,21 +94,25 @@ const aboutContent = {
   ],
   values: [
     {
+      _key: 'value_0',
       icon: '🎯',
       title: 'Real Experience',
       description: 'We run an actual pub. Every strategy has been tested at The Anchor first.',
     },
     {
+      _key: 'value_1',
       icon: '💰',
       title: 'Honest Pricing',
       description: '£62.50 per hour plus VAT. No packages, no hidden fees, no surprises.',
     },
     {
+      _key: 'value_2',
       icon: '🛡️',
       title: 'Guaranteed Results',
       description: '30-day money-back guarantee because we believe in what we do.',
     },
     {
+      _key: 'value_3',
       icon: '🤝',
       title: 'Personal Service',
       description: 'Just me, no sales team. You get direct access to someone who understands.',
@@ -142,6 +151,7 @@ const aboutContent = {
   },
   teamMembers: [
     {
+      _key: 'team_0',
       name: 'Billy Summers',
       role: 'Co-Owner, The Anchor',
       bio: 'My husband Billy handles day-to-day operations at The Anchor. His operational expertise combined with our AI tools has transformed how we run the pub.',
@@ -149,19 +159,25 @@ const aboutContent = {
   ],
   partnerships: [
     {
+      _key: 'partner_0',
       name: 'Greene King',
       description: 'We operate The Anchor as a Greene King tenant, sharing our AI innovations with one of the UK\'s leading pub companies.',
       url: 'https://www.greeneking.co.uk',
+      logoUrl: '/partners/greene-king-logo.svg',
     },
     {
+      _key: 'partner_1',
       name: 'British Institute of Innkeeping',
       description: 'Proud BII members, featured in their Autumn 2025 magazine for our AI innovation in hospitality.',
       url: 'https://www.bii.org',
+      logoUrl: '/partners/bii-logo.svg',
     },
     {
+      _key: 'partner_2',
       name: 'Federation of Small Businesses',
       description: 'FSB members supporting the UK\'s small business community.',
       url: 'https://www.fsb.org.uk',
+      logoUrl: '/partners/fsb-logo.svg',
     },
   ],
   whyOrangeJelly: {

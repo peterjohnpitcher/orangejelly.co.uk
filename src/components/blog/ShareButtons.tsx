@@ -85,7 +85,7 @@ export default function ShareButtons({ url, title, variant = 'inline' }: ShareBu
         onClick={copyToClipboard}
         variant="custom"
         className={buttonClass}
-        ariaLabel="Copy link"
+        aria-label="Copy link"
       >
         {copied ? (
           <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

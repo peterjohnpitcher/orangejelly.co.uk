@@ -23,7 +23,6 @@ interface ServiceCardProps {
   };
   timeEstimate?: string;
   priceBreakdown?: string;
-  price: string;
   timeline?: string;
   ctaText?: string;
   highlight?: boolean;
@@ -40,7 +39,6 @@ function ServiceCard({
   example,
   timeEstimate,
   priceBreakdown,
-  price,
   timeline,
   ctaText = "I'm interested in",
   highlight = false
@@ -139,12 +137,11 @@ function ServiceCard({
           </div>
         )}
         
-        <div className="flex justify-between items-center mb-4">
-          <Text className="text-2xl font-bold text-charcoal">{price}</Text>
-          {timeline && (
+        {timeline && (
+          <div className="mb-4">
             <Text className="text-sm text-charcoal/60">{timeline}</Text>
-          )}
-        </div>
+          </div>
+        )}
         
         <Button
           href={URLS.whatsapp(`${ctaText} ${title}`)}
@@ -152,7 +149,7 @@ function ServiceCard({
           size="small"
           fullWidth
           external
-          ariaLabel={`Contact us on WhatsApp about ${title} service`}
+          aria-label={`Contact us on WhatsApp about ${title} service`}
         >
           {ctaText} {title}
         </Button>

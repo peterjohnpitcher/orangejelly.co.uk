@@ -58,7 +58,7 @@ function CTASection({
             size="large"
             className="bg-white text-orange hover:bg-cream"
             external
-            ariaLabel="Contact us on WhatsApp about Orange Jelly services"
+            aria-label="Contact us on WhatsApp about Orange Jelly services"
           >
             {buttonText}
           </Button>

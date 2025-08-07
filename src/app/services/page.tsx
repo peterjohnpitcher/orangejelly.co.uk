@@ -1,6 +1,9 @@
+import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import Loading from '@/components/Loading';
 import { generateSanityMetadata } from '@/lib/metadata-sanity';
+import { AsyncErrorBoundary } from '@/components/ErrorBoundary';
+import { PageLoading } from '@/components/Loading';
 
 const ServicesPage = dynamic(
   () => import('./ServicesPage'),
@@ -19,11 +22,47 @@ export async function generateMetadata() {
   });
 }
 
-export default async function Services() {
-  // Fetch FAQs from Sanity
-  const { client } = await import('@/lib/sanity.client');
-  const { faqsQuery } = await import('@/lib/sanity.queries');
-  const faqs = await client.fetch(faqsQuery, { page: 'services' });
-  
-  return <ServicesPage faqs={faqs} />;
+// Async component that fetches data
+async function ServicesPageData() {
+  try {
+    // Import our new services content functions
+    const {
+      getServicesPageContent,
+      getServicePackages,
+      getServicesFAQs
+    } = await import('@/lib/sanity-services-page');
+    
+    // Fetch all services content from Sanity
+    const [servicesPageContent, servicePackages, servicesFAQs] = await Promise.all([
+      getServicesPageContent(),
+      getServicePackages(),
+      getServicesFAQs()
+    ]);
+    
+    // Fetch partnerships from About content
+    const { getAboutContent } = await import('@/lib/sanity-about');
+    const aboutContent = await getAboutContent();
+    
+    return (
+      <ServicesPage 
+        servicesPageContent={servicesPageContent}
+        servicePackages={servicePackages}
+        servicesFAQs={servicesFAQs}
+        partnerships={aboutContent?.partnerships} 
+      />
+    );
+  } catch (error) {
+    console.error('Error fetching services page data:', error);
+    throw new Error('Failed to load services page content. Please try again.');
+  }
+}
+
+export default function Services() {
+  return (
+    <AsyncErrorBoundary>
+      <Suspense fallback={<PageLoading message="Loading our services..." />}>
+        <ServicesPageData />
+      </Suspense>
+    </AsyncErrorBoundary>
+  );
 }

@@ -7,6 +7,7 @@ import Text from '@/components/Text';
 import Heading from '@/components/Heading';
 import { emailSchema } from '@/lib/validation';
 import { useFormValidation } from '@/hooks/useFormValidation';
+import { PLACEHOLDERS, SUCCESS_MESSAGES, FORM_DESCRIPTIONS } from '@/lib/validation-messages';
 
 interface NewsletterSignupProps {
   title?: string;
@@ -18,8 +19,8 @@ interface NewsletterSignupProps {
 }
 
 export default function NewsletterSignup({
-  title = "Get Pub Marketing Tips",
-  description = "Weekly tips that actually work. No corporate nonsense.",
+  title = FORM_DESCRIPTIONS.newsletter.title,
+  description = FORM_DESCRIPTIONS.newsletter.description,
   buttonText = "Subscribe",
   variant = 'default',
   className = '',
@@ -60,7 +61,7 @@ export default function NewsletterSignup({
       <form onSubmit={handleFormSubmit} className={`flex gap-2 ${className}`}>
         <Input
           type="email"
-          placeholder="Your email"
+          placeholder={PLACEHOLDERS.email.simple}
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
@@ -94,14 +95,14 @@ export default function NewsletterSignup({
       
       {success ? (
         <div className="bg-green-50 text-green-800 p-4 rounded-lg">
-          <Text weight="semibold">Success! Check your email to confirm.</Text>
+          <Text weight="semibold">{SUCCESS_MESSAGES.newsletter.subscribed}</Text>
         </div>
       ) : (
         <form onSubmit={handleFormSubmit} className="space-y-4">
           <Input
             type="email"
             label={variant === 'compact' ? undefined : "Email Address"}
-            placeholder="peter@yourpub.co.uk"
+            placeholder={PLACEHOLDERS.email.newsletter}
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
@@ -118,11 +119,11 @@ export default function NewsletterSignup({
             loading={isSubmitting}
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Subscribing...' : buttonText}
+            {isSubmitting ? SUCCESS_MESSAGES.newsletter.subscribing : buttonText}
           </FormButton>
           
           <Text size="xs" color="muted" className="text-center">
-            No spam. Unsubscribe anytime. We respect pub life hours.
+            {FORM_DESCRIPTIONS.newsletter.disclaimer}
           </Text>
         </form>
       )}

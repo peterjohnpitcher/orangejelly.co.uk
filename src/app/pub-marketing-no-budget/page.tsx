@@ -6,6 +6,7 @@ import Button from '@/components/Button';
 import Grid from '@/components/Grid';
 import AnimatedItem from '@/components/AnimatedItem';
 import CTASection from '@/components/CTASection';
+import FAQItem from '@/components/FAQItem';
 import TrustBar from '@/components/TrustBar';
 import Text from '@/components/Text';
 import FeatureList from '@/components/FeatureList';
@@ -20,52 +21,42 @@ export const metadata = generateMetadata({
 });
 
 export default function PubMarketingNoBudget() {
+  // FAQ data
+  const faqs = [
+    {
+      question: "Can I really market my pub without spending money?",
+      answer: "Absolutely. The best pub marketing is often free - word of mouth, social media, community partnerships, and email marketing cost nothing but time. We filled The Anchor using mostly free strategies before investing in paid advertising."
+    },
+    {
+      question: "What free marketing works best for pubs?",
+      answer: "Social media (especially local Facebook groups), Google My Business optimization, email marketing to existing customers, community partnerships, and creating shareable moments. These strategies consistently outperform paid ads for local pubs."
+    },
+    {
+      question: "How long until free marketing shows results?",
+      answer: "Immediate to 30 days. Fixing your Google listing can bring customers tomorrow. Social media posts work within days. Email campaigns see instant results. Community partnerships take 2-4 weeks to build momentum."
+    },
+    {
+      question: "Do I need to be good at social media?",
+      answer: "No. Authentic posts outperform polished content for pubs. Phone photos, genuine updates, and community focus work better than professional content. We'll show you simple formulas anyone can follow."
+    },
+    {
+      question: "What if I don't have time for marketing?",
+      answer: "15 minutes daily is enough with the right systems. Batch content creation, automation tools, and simple templates mean you can market effectively in less time than counting the till. We'll set up systems that run themselves."
+    }
+  ];
+
   // Generate FAQ schema
   const generateFAQSchema = () => {
     const faqSchema = {
       "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Can I really market my pub without spending money?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely. The best pub marketing is often free - word of mouth, social media, community partnerships, and email marketing cost nothing but time. We filled The Anchor using mostly free strategies before investing in paid advertising."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What free marketing works best for pubs?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Social media (especially local Facebook groups), Google My Business optimization, email marketing to existing customers, community partnerships, and creating shareable moments. These strategies consistently outperform paid ads for local pubs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long until free marketing shows results?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Immediate to 30 days. Fixing your Google listing can bring customers tomorrow. Social media posts work within days. Email campaigns see instant results. Community partnerships take 2-4 weeks to build momentum."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I need to be good at social media?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Authentic posts outperform polished content for pubs. Phone photos, genuine updates, and community focus work better than professional content. We'll show you simple formulas anyone can follow."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What if I don't have time for marketing?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "15 minutes daily is enough with the right systems. Batch content creation, automation tools, and simple templates mean you can market effectively in less time than counting the till. We'll set up systems that run themselves."
-          }
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
         }
-      ]
+      }))
     };
 
     return {
@@ -221,15 +212,15 @@ export default function PubMarketingNoBudget() {
             </Text>
             <Grid columns={{ default: 1, md: 3 }} gap="medium">
               <Card variant="bordered" padding="medium" className="text-center">
-                <Text size="2xl" weight="bold" color="orange" className="text-3xl mb-2">85%</Text>
+                <Text size="2xl" weight="bold" className="text-orange text-3xl mb-2">85%</Text>
                 <Text size="sm">of new customers came from free marketing</Text>
               </Card>
               <Card variant="bordered" padding="medium" className="text-center">
-                <Text size="2xl" weight="bold" color="teal" className="text-3xl mb-2">£0</Text>
+                <Text size="2xl" weight="bold" className="text-teal text-3xl mb-2">£0</Text>
                 <Text size="sm">spent to double our Tuesday trade</Text>
               </Card>
               <Card variant="bordered" padding="medium" className="text-center">
-                <Text size="2xl" weight="bold" color="green" className="text-3xl mb-2">4x</Text>
+                <Text size="2xl" weight="bold" className="text-green-600 text-3xl mb-2">4x</Text>
                 <Text size="sm">ROI vs paid advertising</Text>
               </Card>
             </Grid>
@@ -250,7 +241,7 @@ export default function PubMarketingNoBudget() {
                   <Heading level={3} color="teal">{item.strategy}</Heading>
                   <Text size="sm" color="muted">{item.effort}</Text>
                 </div>
-                <Text weight="semibold" color="green" className="mb-4">Result: {item.impact}</Text>
+                <Text weight="semibold" className="text-green-600 mb-4">Result: {item.impact}</Text>
                 <FeatureList 
                   items={item.tactics}
                   icon="bullet"
@@ -280,7 +271,7 @@ export default function PubMarketingNoBudget() {
                   <div className="bg-white rounded p-4 mb-3 italic">
                     <Text>"{item.template}"</Text>
                   </div>
-                  <Text size="sm" color="green" weight="semibold">
+                  <Text size="sm" className="text-green-600" weight="semibold">
                     Typical result: {item.result}
                   </Text>
                 </Card>
@@ -309,7 +300,7 @@ export default function PubMarketingNoBudget() {
                       <Text size="sm" color="muted">{item.time}</Text>
                     </div>
                     <Text weight="semibold" className="mb-1">{item.task}</Text>
-                    <Text size="sm" color="green">→ {item.result}</Text>
+                    <Text size="sm" className="text-green-600">→ {item.result}</Text>
                   </div>
                 ))}
               </Grid>
@@ -338,7 +329,7 @@ export default function PubMarketingNoBudget() {
                   icon="bullet"
                   spacing="normal"
                 />
-                <Text color="green" weight="semibold" className="mt-4">Worth £1000s in content</Text>
+                <Text className="text-green-600 mt-4" weight="semibold">Worth £1000s in content</Text>
               </Card>
               <Card background="white" padding="large">
                 <Heading level={3} color="orange" className="mb-4">Local Partnerships</Heading>
@@ -352,7 +343,7 @@ export default function PubMarketingNoBudget() {
                   icon="bullet"
                   spacing="normal"
                 />
-                <Text color="green" weight="semibold" className="mt-4">30+ guaranteed customers</Text>
+                <Text className="text-green-600 mt-4" weight="semibold">30+ guaranteed customers</Text>
               </Card>
               <Card background="white" padding="large">
                 <Heading level={3} color="orange" className="mb-4">Staff Advocacy</Heading>
@@ -366,7 +357,7 @@ export default function PubMarketingNoBudget() {
                   icon="bullet"
                   spacing="normal"
                 />
-                <Text color="green" weight="semibold" className="mt-4">Most powerful marketing</Text>
+                <Text className="text-green-600 mt-4" weight="semibold">Most powerful marketing</Text>
               </Card>
             </Grid>
           </div>
@@ -417,6 +408,22 @@ export default function PubMarketingNoBudget() {
             </Card>
           </div>
         </AnimatedItem>
+      </Section>
+
+      {/* FAQ Section */}
+      <Section background="cream">
+        <Heading level={2} className="text-center mb-8">
+          Common Questions About Free Pub Marketing
+        </Heading>
+        <div className="max-w-3xl mx-auto space-y-4">
+          {faqs.map((faq, index) => (
+            <FAQItem
+              key={index}
+              question={faq.question}
+              answer={faq.answer}
+            />
+          ))}
+        </div>
       </Section>
 
       <CTASection

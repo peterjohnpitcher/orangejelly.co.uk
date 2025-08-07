@@ -48,7 +48,7 @@ function AuthorInfo({ author, variant = 'full' }: AuthorInfoProps) {
         
         <div className="text-center sm:text-left">
           <Heading level={3} className="mb-1">{author.name}</Heading>
-          <Text color="orange" className="mb-3">{author.role}</Text>
+          <Text className="text-orange mb-3">{author.role}</Text>
           <Text color="muted" className="mb-4">{author.bio}</Text>
           
           <Link 

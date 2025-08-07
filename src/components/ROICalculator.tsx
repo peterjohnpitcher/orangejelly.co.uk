@@ -1,16 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useROICalculator } from '@/contexts/ROICalculatorContext';
 import WhatsAppButton from './WhatsAppButton';
 import Card from './Card';
 import Heading from './Heading';
 import Text from './Text';
 
 export default function ROICalculator() {
-  const [adminHours, setAdminHours] = useState(10);
-  const [socialMediaHours, setSocialMediaHours] = useState(5);
-  const [menuUpdates, setMenuUpdates] = useState(2);
-  const [averageSpend, setAverageSpend] = useState(15);
+  const { state, updateState } = useROICalculator();
+  const { adminHours, socialMediaHours, menuUpdates, averageSpend } = state;
   
   // Calculations
   const totalHoursSaved = Math.round((adminHours * 0.5) + (socialMediaHours * 0.8) + (menuUpdates * 0.75));
@@ -37,7 +35,7 @@ export default function ROICalculator() {
               min="0"
               max="20"
               value={adminHours}
-              onChange={(e) => setAdminHours(Number(e.target.value))}
+              onChange={(e) => updateState({ adminHours: Number(e.target.value) })}
               className="flex-1 accent-orange"
             />
             <span className="font-bold text-lg w-12">{adminHours}h</span>
@@ -55,7 +53,7 @@ export default function ROICalculator() {
               min="0"
               max="15"
               value={socialMediaHours}
-              onChange={(e) => setSocialMediaHours(Number(e.target.value))}
+              onChange={(e) => updateState({ socialMediaHours: Number(e.target.value) })}
               className="flex-1 accent-orange"
             />
             <span className="font-bold text-lg w-12">{socialMediaHours}h</span>
@@ -73,7 +71,7 @@ export default function ROICalculator() {
               min="0"
               max="10"
               value={menuUpdates}
-              onChange={(e) => setMenuUpdates(Number(e.target.value))}
+              onChange={(e) => updateState({ menuUpdates: Number(e.target.value) })}
               className="flex-1 accent-orange"
             />
             <span className="font-bold text-lg w-12">{menuUpdates}h</span>
@@ -91,7 +89,7 @@ export default function ROICalculator() {
               min="10"
               max="30"
               value={averageSpend}
-              onChange={(e) => setAverageSpend(Number(e.target.value))}
+              onChange={(e) => updateState({ averageSpend: Number(e.target.value) })}
               className="flex-1 accent-orange"
             />
             <span className="font-bold text-lg w-16">£{averageSpend}</span>
@@ -105,22 +103,22 @@ export default function ROICalculator() {
         
         <div className="grid md:grid-cols-3 gap-4 text-center mb-6">
           <div>
-            <Text size="2xl" weight="bold" color="orange">{totalHoursSaved}h</Text>
+            <Text size="2xl" weight="bold" className="text-orange">{totalHoursSaved}h</Text>
             <Text size="sm" className="text-charcoal/70">Saved per week</Text>
           </div>
           <div>
-            <Text size="2xl" weight="bold" color="orange">£{moneySaved}</Text>
+            <Text size="2xl" weight="bold" className="text-orange">£{moneySaved}</Text>
             <Text size="sm" className="text-charcoal/70">Time value per week</Text>
           </div>
           <div>
-            <Text size="2xl" weight="bold" color="orange">£{menuRevenue}</Text>
+            <Text size="2xl" weight="bold" className="text-orange">£{menuRevenue}</Text>
             <Text size="sm" className="text-charcoal/70">Extra revenue per week</Text>
           </div>
         </div>
         
         <div className="text-center border-t pt-4">
           <Text size="sm" className="text-charcoal/70 mb-2">Total weekly benefit:</Text>
-          <Text size="2xl" weight="bold" color="orange" className="mb-4">£{totalBenefit}</Text>
+          <Text size="2xl" weight="bold" className="text-orange mb-4">£{totalBenefit}</Text>
           <Text size="xs" className="text-charcoal/60 mb-6">
             That's £{Math.round(totalBenefit * 52 / 1000)}k per year!
           </Text>

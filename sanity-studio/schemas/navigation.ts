@@ -96,6 +96,45 @@ export default {
         },
       ],
     },
+    {
+      name: 'whatsappCta',
+      title: 'WhatsApp CTA Button',
+      type: 'object',
+      fields: [
+        {
+          name: 'enabled',
+          title: 'Show WhatsApp Button',
+          type: 'boolean',
+          initialValue: true,
+        },
+        {
+          name: 'text',
+          title: 'WhatsApp Message',
+          type: 'string',
+          description: 'Pre-filled message when user clicks the button',
+          initialValue: "Hi Peter, I'd like to chat about Orange Jelly",
+        },
+        {
+          name: 'phoneNumber',
+          title: 'WhatsApp Phone Number',
+          type: 'string',
+          description: 'Phone number in international format (e.g., 447990587315)',
+          initialValue: '447990587315',
+        },
+        {
+          name: 'showInDesktop',
+          title: 'Show in Desktop Navigation',
+          type: 'boolean',
+          initialValue: true,
+        },
+        {
+          name: 'showInMobile',
+          title: 'Show in Mobile Navigation',
+          type: 'boolean',
+          initialValue: true,
+        },
+      ],
+    },
   ],
   preview: {
     select: {

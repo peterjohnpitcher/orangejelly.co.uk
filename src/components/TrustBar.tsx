@@ -1,7 +1,5 @@
 import { memo } from 'react';
-
 import Grid from '@/components/Grid';
-import { PRICING, MESSAGES } from '@/lib/constants';
 
 interface TrustItem {
   value: string;
@@ -12,13 +10,11 @@ interface TrustBarProps {
   items?: TrustItem[];
 }
 
-const defaultItems: TrustItem[] = [
-  { value: MESSAGES.trust.coversIncrease, label: MESSAGES.trust.coversIncreaseLabel },
-  { value: MESSAGES.trust.costEffective, label: 'AI-powered marketing solutions' },
-  { value: MESSAGES.trust.resultsIn14Days, label: 'Guaranteed quick results' }
-];
-
-function TrustBar({ items = defaultItems }: TrustBarProps) {
+function TrustBar({ items }: TrustBarProps) {
+  // Don't render if no items provided
+  if (!items || items.length === 0) {
+    return null;
+  }
   return (
     <section className="bg-orange/10 py-8 relative overflow-hidden">
       {/* Decorative orange shapes with logo influence */}

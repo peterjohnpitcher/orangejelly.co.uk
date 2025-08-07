@@ -11,15 +11,21 @@ import AnimatedItem from '@/components/AnimatedItem';
 import FeatureList from '@/components/FeatureList';
 import AvailabilityStatus from '@/components/AvailabilityStatus';
 import { breadcrumbPaths } from '@/components/Breadcrumb';
-import RelatedLinks, { linkClusters } from '@/components/RelatedLinks';
+import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity';
 import Text from '@/components/Text';
 import { CONTACT, URLS, MESSAGES } from '@/lib/constants';
 import { FAQSchema } from '@/components/StructuredData';
 import { HandshakeIcon, IdeaIcon, SupportIcon } from '@/components/icons/JourneyIcons';
 import Link from 'next/link';
+import { portableTextToPlainText } from '@/lib/portable-text-utils';
+import type { ContactFAQ } from '@/lib/sanity-contact-faqs';
 
-// Move the large FAQ data to a separate constant
-const contactFAQs = [
+interface ContactPageProps {
+  faqs?: ContactFAQ[];
+}
+
+// Legacy hardcoded FAQs (will be removed once Sanity is confirmed working)
+const fallbackFAQs = [
   {
     question: "I'm losing money every day - how quickly can you help?",
     answer: "I understand the urgency - every day matters when you're bleeding money. WhatsApp me right now and I'll respond within hours (or after service if I'm behind the bar). We can often implement quick wins within days that start stemming losses immediately. Our Empty Pub Recovery Package shows results within 7-14 days."
@@ -70,7 +76,14 @@ const contactFAQs = [
   }
 ];
 
-export default function ContactPage() {
+export default function ContactPage({ faqs }: ContactPageProps) {
+  // Use Sanity FAQs if available, otherwise use fallback
+  const displayFAQs = faqs && faqs.length > 0 
+    ? faqs.map(faq => ({
+        question: faq.question,
+        answer: portableTextToPlainText(faq.answer)
+      }))
+    : fallbackFAQs;
   // Generate comprehensive schema for Contact page
   const contactSchema = (() => {
 
@@ -155,7 +168,7 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
 
-      <FAQSchema faqs={contactFAQs} />
+      <FAQSchema faqs={displayFAQs} />
 
       <Hero 
         title="Talk to Someone Who Gets It"
@@ -331,23 +344,23 @@ export default function ContactPage() {
                   <Heading level={3} className="mb-4">What Happens Next?</Heading>
                   <div className="space-y-3">
                     <div className="flex gap-3">
-                      <Text weight="bold" color="orange">1.</Text>
+                      <Text weight="bold" className="text-orange">1.</Text>
                       <Text>You message me about your situation</Text>
                     </div>
                     <div className="flex gap-3">
-                      <Text weight="bold" color="orange">2.</Text>
+                      <Text weight="bold" className="text-orange">2.</Text>
                       <Text>We have a proper chat (no scripts!)</Text>
                     </div>
                     <div className="flex gap-3">
-                      <Text weight="bold" color="orange">3.</Text>
+                      <Text weight="bold" className="text-orange">3.</Text>
                       <Text>I share what worked for us</Text>
                     </div>
                     <div className="flex gap-3">
-                      <Text weight="bold" color="orange">4.</Text>
+                      <Text weight="bold" className="text-orange">4.</Text>
                       <Text>We create a plan that fits your pub</Text>
                     </div>
                     <div className="flex gap-3">
-                      <Text weight="bold" color="orange">5.</Text>
+                      <Text weight="bold" className="text-orange">5.</Text>
                       <Text>You start seeing results in days</Text>
                     </div>
                   </div>
@@ -402,7 +415,7 @@ export default function ContactPage() {
           </Text>
           
           <div className="space-y-6">
-            {contactFAQs.map((faq, index) => (
+            {displayFAQs.map((faq, index) => (
               <AnimatedItem key={index} animation="slide-up" delay={index * 50}>
                 <FAQItem 
                   question={faq.question}
@@ -483,9 +496,9 @@ export default function ContactPage() {
 
       {/* Related links */}
       <Section background="cream" padding="medium">
-        <RelatedLinks
+        <RelatedLinksFromSanity
+          clusterId="contact"
           title="Next Steps"
-          links={linkClusters.contact}
         />
       </Section>
     </>

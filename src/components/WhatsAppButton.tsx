@@ -4,6 +4,7 @@ import { CONTACT, URLS } from '@/lib/constants';
 
 interface WhatsAppButtonProps {
   text: string;
+  phoneNumber?: string;
   variant?: 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
@@ -13,12 +14,15 @@ interface WhatsAppButtonProps {
 // WhatsApp button with mobile-first touch target sizing (min 44px)
 function WhatsAppButton({
   text,
+  phoneNumber,
   variant = 'primary',
   size = 'medium',
   fullWidth = false,
   className = ''
 }: WhatsAppButtonProps) {
-  const whatsappUrl = URLS.whatsapp(text);
+  const whatsappUrl = phoneNumber 
+    ? `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`
+    : URLS.whatsapp(text);
 
   const baseClasses = 'font-medium rounded-lg whatsapp-button inline-block text-center';
   

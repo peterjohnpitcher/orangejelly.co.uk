@@ -15,7 +15,7 @@ export const siteSettingsQuery = `
 
 // Navigation query  
 export const navigationQuery = `
-  *[_id == "mainNavigation"][0] {
+  *[_id == "navigation"][0] {
     mainMenu[] | order(order asc) {
       label,
       href,
@@ -25,7 +25,8 @@ export const navigationQuery = `
       label,
       href,
       external
-    }
+    },
+    whatsappCta
   }
 `;
 
@@ -46,6 +47,40 @@ export const servicesQuery = `
     price,
     timeline,
     highlight
+  }
+`;
+
+// Homepage content query
+export const homepageContentQuery = `
+  *[_type == "homepageContent" && _id == "homepage-main"][0] {
+    _id,
+    title,
+    hero {
+      title,
+      subtitle,
+      ctaText,
+      bottomText
+    },
+    problems[] {
+      _key,
+      emoji,
+      title,
+      description,
+      linkHref
+    },
+    features[] {
+      _key,
+      icon,
+      title,
+      description
+    },
+    metrics,
+    faqs[]->{
+      _id,
+      question,
+      answer
+    },
+    seo
   }
 `;
 
@@ -188,6 +223,54 @@ export const faqsQuery = `
   }
 `;
 
+// Services page content query
+export const servicesPageQuery = `
+  *[_type == "servicesPage" && _id == "servicesPage"][0] {
+    _id,
+    title,
+    hero,
+    introSection,
+    processSection,
+    guaranteeSection,
+    faqSection,
+    ctaSection,
+    relatedLinksSection,
+    speakableContent
+  }
+`;
+
+// Service packages query
+export const servicePackagesQuery = `
+  *[_type == "servicePackage" && isActive == true] | order(order asc) {
+    _id,
+    "id": id.current,
+    title,
+    emoji,
+    problem,
+    deliverable,
+    description,
+    features,
+    example,
+    timeEstimate,
+    priceBreakdown,
+    price,
+    ctaText,
+    highlight,
+    order
+  }
+`;
+
+// Services FAQs query
+export const servicesFAQsQuery = `
+  *[_type == "servicesFAQ" && isActive == true] | order(category asc, order asc) {
+    _id,
+    question,
+    answer,
+    category,
+    order
+  }
+`;
+
 // Draft preview queries (for preview mode)
 // About content query
 export const aboutContentQuery = `
@@ -232,6 +315,8 @@ export const aboutContentQuery = `
       },
       url
     },
+    quickFacts,
+    visitCTA,
     whyOrangeJelly
   }
 `;

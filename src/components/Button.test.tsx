@@ -73,8 +73,8 @@ describe('Button', () => {
     expect(screen.getByRole('button').className).toContain('custom-class');
   });
 
-  it('renders with ariaLabel when provided', () => {
-    render(<Button ariaLabel="Custom label">Icon</Button>);
+  it('renders with aria-label when provided', () => {
+    render(<Button aria-label="Custom label">Icon</Button>);
     expect(screen.getByRole('button')).toHaveAttribute('aria-label', 'Custom label');
   });
 

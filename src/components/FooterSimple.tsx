@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import NextLink from 'next/link';
+import Link from '@/components/Link';
 import { CONTACT, URLS, formatPhoneDisplay } from '@/lib/constants';
 import Button from '@/components/Button';
 import Heading from '@/components/Heading';
@@ -13,26 +14,11 @@ interface FooterSimpleProps {
 export default function FooterSimple({ footerContent }: FooterSimpleProps) {
   const currentYear = new Date().getFullYear();
   
-  // Fallback data
-  const defaultServices = [
-    { title: 'Empty Pub Recovery', href: '/services#empty-pub-recovery' },
-    { title: 'Menu Makeover', href: '/services#boost-food-sales' },
-    { title: 'Marketing Package', href: '/services#done-for-you-marketing' },
-    { title: 'View All →', href: '/services' },
-  ];
-  
-  const defaultQuickLinks = [
-    { title: 'About Us', href: '/about' },
-    { title: 'Success Stories', href: '/results' },
-    { title: 'Contact', href: '/contact' },
-    { title: 'The Anchor', href: 'https://the-anchor.pub', external: true },
-  ];
-  
-  // Use Sanity data with fallbacks
-  const services = footerContent?.services?.slice(0, 4) || defaultServices;
+  // Use Sanity data - no fallbacks
+  const services = footerContent?.services?.slice(0, 4) || [];
   const quickLinks = footerContent?.quickLinks?.filter(link => 
     ['/about', '/results', '/contact'].includes(link.href) || link.external
-  ) || defaultQuickLinks;
+  ) || [];
 
   return (
     <footer className="bg-charcoal text-cream">
@@ -102,12 +88,12 @@ export default function FooterSimple({ footerContent }: FooterSimpleProps) {
                 <Link href={URLS.whatsapp()} className="block hover:text-orange transition-colors" target="_blank" rel="noopener noreferrer">
                   📱 WhatsApp
                 </Link>
-                <a href={`tel:${footerContent?.contactInfo?.phone || CONTACT.phone}`} className="block hover:text-orange transition-colors">
+                <Link href={`tel:${footerContent?.contactInfo?.phone || CONTACT.phone}`} className="block hover:text-orange transition-colors">
                   📞 {footerContent?.contactInfo?.phone || CONTACT.phone}
-                </a>
-                <a href={`mailto:${footerContent?.contactInfo?.email || CONTACT.email}`} className="block hover:text-orange transition-colors">
+                </Link>
+                <Link href={`mailto:${footerContent?.contactInfo?.email || CONTACT.email}`} className="block hover:text-orange transition-colors">
                   ✉️ Email Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>

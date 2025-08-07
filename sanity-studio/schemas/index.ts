@@ -19,6 +19,18 @@ import companyConstants from './companyConstants';
 import ctaMessage from './ctaMessage';
 import relatedLinks from './relatedLinks';
 import breadcrumbPaths from './breadcrumbPaths';
+import claims from './claims';
+import landingPageContent from './landingPageContent';
+import testimonial from './testimonial';
+import contactFAQ from './contactFAQ';
+import errorPage from './errorPage';
+import resultsMetrics from './resultsMetrics';
+import servicesPage from './servicesPage';
+import servicePackage from './servicePackage';
+import servicesFAQ from './servicesFAQ';
+import whatsappTemplates from './whatsappTemplates';
+import roiCalculator from './roiCalculator';
+import trustBar from './trustBar';
 
 export const schemaTypes = [
   blogPost,
@@ -42,4 +54,16 @@ export const schemaTypes = [
   ctaMessage,
   relatedLinks,
   breadcrumbPaths,
+  claims,
+  landingPageContent,
+  testimonial,
+  contactFAQ,
+  errorPage,
+  resultsMetrics,
+  servicesPage,
+  servicePackage,
+  servicesFAQ,
+  whatsappTemplates,
+  roiCalculator,
+  trustBar,
 ];
