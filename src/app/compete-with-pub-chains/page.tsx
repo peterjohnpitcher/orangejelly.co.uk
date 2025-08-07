@@ -93,7 +93,7 @@ export default async function CompeteWithPubChains() {
               </Card>
             </Grid>
 
-            <Card background="red-50" padding="large" variant="bordered" className="border-red-200">
+            <Card background="cream" padding="large" variant="bordered" className="border-red-200">
               <Text size="lg" weight="semibold" className="text-red-600 mb-4">
                 Here's the truth: You'll NEVER beat them at their own game
               </Text>
