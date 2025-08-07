@@ -51,10 +51,14 @@ export function PreloadResources() {
         type="image/png"
       />
       
-      {/* DNS prefetch for external resources */}
+      {/* DNS prefetch / preconnect for external resources used by analytics */}
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://region1.google-analytics.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://www.clarity.ms" crossOrigin="anonymous" />
     </>
   );
 }
