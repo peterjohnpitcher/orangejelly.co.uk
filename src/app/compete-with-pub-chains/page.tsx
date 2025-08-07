@@ -265,7 +265,7 @@ export default async function CompeteWithPubChains() {
                 return (
                   <Grid columns={{ default: 1, md: mdCols }} gap="large" className="mb-12">
                     {successMetrics.metrics.map((metric) => (
-                      <Card key={metric._key} background="gradient" padding="large">
+                      <Card key={metric._key} background="orange" padding="large">
                         <Text size="3xl" weight="bold" className="text-white mb-2">
                           {metric.value}
                         </Text>
