@@ -59,9 +59,9 @@ export default function SuperFooter() {
             <Text size="xs" className="mt-4 text-cream/70">
               No spam. Unsubscribe anytime. Usually sent Tuesday mornings.
             </Text>
-          </div>
-        </div>
-      </div>
+          </Container>
+        </Container>
+      </Box>
 
       {/* Success Metrics Bar */}
       <div className="bg-orange py-8">
@@ -369,9 +369,8 @@ export default function SuperFooter() {
                 No contracts. Cancel anytime. Money-back guarantee.
               </Text>
             </div>
-          </Container>
-        </Container>
-      </Box>
+          </div>
+        </div>
     </footer>
   );
 }
