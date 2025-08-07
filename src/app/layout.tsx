@@ -65,9 +65,9 @@ export const metadata: Metadata = {
     canonical: 'https://www.orangejelly.co.uk',
   },
   icons: {
-    icon: '/icon.png',
-    apple: '/apple-icon.png',
-    shortcut: '/icon.png',
+    icon: '/icon',
+    apple: '/apple-icon',
+    shortcut: '/icon',
   },
   manifest: '/manifest.json',
   other: {

@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
   response.headers.set('X-Frame-Options', 'SAMEORIGIN');
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  // Note: FLoC is obsolete; use browsing-topics to opt-out of Topics API
+  // Note: FLoC is obsolete; use browsing-topics to opt-out of Topics API (Issue #21)
   response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), browsing-topics=()');
   
   // Strict Transport Security (HSTS) - only on production
