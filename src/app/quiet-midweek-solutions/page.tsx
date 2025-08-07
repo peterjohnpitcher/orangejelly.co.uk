@@ -114,7 +114,7 @@ export default async function QuietMidweekSolutions() {
       </Section>
 
       {/* Our Results */}
-      <Section background="teal-dark">
+      <Section background="teal">
         <AnimatedItem animation="slide-up">
           <div className="max-w-4xl mx-auto text-center">
             <Heading level={2} color="white" className="mb-8">
