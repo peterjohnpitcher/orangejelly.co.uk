@@ -85,6 +85,9 @@ export default function SuperFooter() {
           </div>
         </div>
 
+        {/* Close Success Metrics Bar wrapper */}
+      </div>
+
       {/* Main Footer Content */}
       <div className="py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
