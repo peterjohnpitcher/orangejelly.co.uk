@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: 'Orange Jelly',
     images: [
       {
-        url: `${baseUrl}/images/og/default.png`,
+        url: `${baseUrl}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Orange Jelly — Pub marketing that works",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "How to Fill Empty Pub Tables | Pub Marketing That Works | Orange Jelly",
     description: "Struggling with empty pub tables? AI-powered marketing tools for UK pubs. Save 5+ hours weekly.",
-    images: [`${baseUrl}/images/og/default.png`],
+    images: [`${baseUrl}/opengraph-image`],
   },
   robots: {
     index: true,
@@ -63,6 +63,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.orangejelly.co.uk',
+  },
+  icons: {
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
+    shortcut: '/icon.png',
   },
   manifest: '/manifest.json',
   other: {
@@ -78,7 +83,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Comprehensive schema.org structured data
+  // Simplified, performance-conscious schema.org structured data
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -94,59 +99,15 @@ export default function RootLayout({
     },
     "image": `${baseUrl}/logo.png`,
     "description": "Struggling with empty pub tables? We use AI-powered marketing strategies that transformed The Anchor from struggling to thriving. From one licensee to another.",
-    "slogan": "Fill Empty Pub Tables with Marketing That Works",
     "founder": {
       "@type": "Person",
       "@id": `${baseUrl}/#peter-pitcher`,
       "name": "Peter Pitcher",
       "jobTitle": "Founder & AI Consultant",
-      "description": "Former struggling pub owner who discovered how AI could transform pub marketing. Now helps other licensees save time and fill empty tables.",
-      "knowsAbout": ["AI Tools", "Pub Management", "Marketing Automation", "Hospitality", "Small Business"],
-      "spouse": {
-        "@type": "Person",
-        "name": "Billy Summers",
-        "jobTitle": "Operations Manager at The Anchor"
-      },
-      "worksFor": [
-        {
-          "@id": `${baseUrl}/#organization`
-        },
-        {
-          "@type": "Restaurant",
-          "name": "The Anchor",
-          "url": "https://the-anchor.pub",
-          "foundingDate": "2019-03-05",
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-              "opens": "16:00",
-              "closes": "22:00"
-            },
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Friday", "Saturday", "Sunday"],
-              "opens": "12:00",
-              "closes": "23:00"
-            }
-          ]
-        }
-      ]
+      "description": "Former struggling pub owner who discovered how AI could transform pub marketing. Now helps other licensees save time and fill empty tables."
     },
     "foundingDate": "2019",
-    "numberOfEmployees": {
-      "@type": "QuantitativeValue",
-      "value": 1
-    },
-    "knowsAbout": ["Pub Marketing", "AI Tools", "Social Media Automation", "Menu Design", "Customer Retention", "Event Promotion"],
-    "award": [
-      "Turned The Anchor from empty to thriving in 12 months",
-      "Improved The Anchor's food GP from 58% to 71% using AI"
-    ],
-    "areaServed": {
-      "@type": "Country",
-      "name": "United Kingdom"
-    },
+    "areaServed": "GB",
     "priceRange": "££",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -157,76 +118,7 @@ export default function RootLayout({
       "contactOption": ["TollFree"],
       "areaServed": "GB"
     },
-    "sameAs": [
-      "https://the-anchor.pub"
-    ],
-    "parentOrganization": {
-      "@type": "Organization", 
-      "name": "Small UK Pub Network",
-      "description": "Independent pub owners supporting each other"
-    },
-    "memberOf": [
-      {
-        "@type": "Organization",
-        "name": "Federation of Small Businesses"
-      },
-      {
-        "@type": "Organization",
-        "name": "Greene King",
-        "url": "https://www.greeneking.co.uk",
-        "description": "We operate The Anchor as a Greene King tenant and share our AI innovations with them"
-      },
-      {
-        "@type": "Organization",
-        "name": "British Institute of Innkeeping",
-        "url": "https://www.bii.org",
-        "description": "Members of BII - Featured in BII's Autumn 2025 magazine for AI innovation"
-      }
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Pub Recovery Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "name": "Empty Pub Recovery Package",
-          "price": "499",
-          "priceCurrency": "GBP"
-        },
-        {
-          "@type": "Offer", 
-          "name": "Menu Makeover",
-          "price": "99",
-          "priceCurrency": "GBP"
-        }
-      ]
-    },
-    "makesOffer": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Pub Marketing Services",
-          "description": "Proven marketing strategies to fill empty pub tables and increase revenue"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Social Media Marketing for Pubs",
-          "description": "Engaging social media campaigns that bring customers through your doors"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Menu Design and Marketing",
-          "description": "Create menus that sell and market them effectively to your target audience"
-        }
-      }
-    ]
+    "sameAs": ["https://the-anchor.pub"]
   };
 
   const websiteSchema = {
