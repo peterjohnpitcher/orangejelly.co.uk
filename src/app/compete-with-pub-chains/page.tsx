@@ -259,23 +259,29 @@ export default async function CompeteWithPubChains() {
                 {successMetrics.title || 'What Happens When You Stop Competing on Price'}
               </Heading>
 
-              <Grid columns={{ default: 1, md: successMetrics.metrics.length }} gap="large" className="mb-12">
-                {successMetrics.metrics.map((metric) => (
-                  <Card key={metric._key} background="gradient" padding="large">
-                    <Text size="3xl" weight="bold" className="text-white mb-2">
-                      {metric.value}
-                    </Text>
-                    <Text weight="semibold" color="white" className="mb-1">
-                      {metric.label}
-                    </Text>
-                    {metric.description && (
-                      <Text size="sm" color="white" className="opacity-90">
-                        {metric.description}
-                      </Text>
-                    )}
-                  </Card>
-                ))}
-              </Grid>
+              {(() => {
+                const count = successMetrics.metrics.length;
+                const mdCols = (count >= 4 ? 4 : count === 3 ? 3 : count === 2 ? 2 : 1) as 1 | 2 | 3 | 4;
+                return (
+                  <Grid columns={{ default: 1, md: mdCols }} gap="large" className="mb-12">
+                    {successMetrics.metrics.map((metric) => (
+                      <Card key={metric._key} background="gradient" padding="large">
+                        <Text size="3xl" weight="bold" className="text-white mb-2">
+                          {metric.value}
+                        </Text>
+                        <Text weight="semibold" color="white" className="mb-1">
+                          {metric.label}
+                        </Text>
+                        {metric.description && (
+                          <Text size="sm" color="white" className="opacity-90">
+                            {metric.description}
+                          </Text>
+                        )}
+                      </Card>
+                    ))}
+                  </Grid>
+                );
+              })()}
 
               <Text size="lg" className="max-w-3xl mx-auto">
                 When you stop trying to be a cheaper Wetherspoons and start being the best 
