@@ -450,7 +450,7 @@ export default async function QuietMidweekSolutions() {
       <Section background="white">
         <AnimatedItem animation="slide-up">
           <div className="max-w-4xl mx-auto">
-            <Card background="gradient" padding="large" className="text-center">
+            <Card background="orange-light" padding="large" className="text-center">
               <Heading level={2} className="mb-8">
                 Transform Your Midweek Nights in 30 Days
               </Heading>
