@@ -11,6 +11,7 @@ import PerformanceMonitor, { PreloadResources } from "@/components/PerformanceMo
 import { GoogleTagManager, GoogleTagManagerNoscript } from "@/components/GoogleTagManager";
 import { CONTACT, URLS, MESSAGES } from "@/lib/constants";
 import Button from "@/components/Button";
+import { ROICalculatorProvider } from "@/contexts/ROICalculatorContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -40,10 +41,10 @@ export const metadata: Metadata = {
     siteName: 'Orange Jelly',
     images: [
       {
-        url: "/logo.png",
-        width: 800,
-        height: 800,
-        alt: "Orange Jelly - AI tools for UK licensees",
+        url: `${baseUrl}/images/og/default.png`,
+        width: 1200,
+        height: 630,
+        alt: "Orange Jelly — Pub marketing that works",
       },
     ],
   },
@@ -51,6 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "How to Fill Empty Pub Tables | Pub Marketing That Works | Orange Jelly",
     description: "Struggling with empty pub tables? AI-powered marketing tools for UK pubs. Save 5+ hours weekly.",
+    images: [`${baseUrl}/images/og/default.png`],
   },
   robots: {
     index: true,
@@ -284,11 +286,13 @@ export default function RootLayout({
         
         {/* Navigation only - SuperHeader removed for cleaner layout */}
         <NavigationWrapper />
-        <ErrorBoundary>
-          <main id="main-content" className="min-h-screen pt-16">
-            {children}
-          </main>
-        </ErrorBoundary>
+        <ROICalculatorProvider>
+          <ErrorBoundary>
+            <main id="main-content" className="min-h-screen pt-16">
+              {children}
+            </main>
+          </ErrorBoundary>
+        </ROICalculatorProvider>
         <FooterWrapper />
         <PerformanceMonitor />
         
@@ -314,7 +318,7 @@ export default function RootLayout({
               href={URLS.whatsapp(MESSAGES.whatsapp.services)}
               variant="custom"
               className="block bg-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 relative overflow-hidden"
-              ariaLabel={`Contact us on WhatsApp at ${CONTACT.phone}`}
+              aria-label={`Contact us on WhatsApp at ${CONTACT.phone}`}
               external={true}
             >
               {/* Orange accent */}

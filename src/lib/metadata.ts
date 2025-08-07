@@ -18,7 +18,7 @@ export function generateMetadata({
   description,
   path,
   keywords,
-  ogImage = '/logo.png',
+  ogImage = '/images/og/default.png',
   noIndex = false,
   ogType = 'website',
   publishedTime,

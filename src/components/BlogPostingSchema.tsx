@@ -28,6 +28,8 @@ export function BlogPostingSchema({
   keywords = [],
   speakableSections = []
 }: BlogPostingSchemaProps) {
+  const isAbsolute = (u: string) => /^https?:\/\//i.test(u);
+  const site = 'https://www.orangejelly.co.uk';
   const schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -35,7 +37,7 @@ export function BlogPostingSchema({
     "description": description,
     "image": {
       "@type": "ImageObject",
-      "url": `https://www.orangejelly.co.uk${image}`,
+      "url": isAbsolute(image) ? image : `${site}${image}`,
       "width": 1200,
       "height": 630
     },
@@ -44,7 +46,7 @@ export function BlogPostingSchema({
     "author": {
       "@type": "Person",
       "name": author.name,
-      ...(author.url && { "url": `https://www.orangejelly.co.uk${author.url}` })
+      ...(author.url && { "url": isAbsolute(author.url) ? author.url : `${site}${author.url}` })
     },
     "publisher": {
       "@type": "Organization",
@@ -58,7 +60,7 @@ export function BlogPostingSchema({
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://www.orangejelly.co.uk${url}`
+      "@id": isAbsolute(url) ? url : `${site}${url}`
     },
     "articleBody": content,
     ...(keywords.length > 0 && { "keywords": keywords.join(", ") }),
