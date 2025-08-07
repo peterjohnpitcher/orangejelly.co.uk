@@ -7,6 +7,7 @@ import CategoryList from '@/components/blog/CategoryList';
 import { getAllPosts, getCategories } from '@/lib/blog-md';
 import { CollectionPageSchema } from '@/components/CollectionPageSchema';
 import { breadcrumbPaths } from '@/components/Breadcrumb';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 interface CategoryPageProps {
   params: {
@@ -82,6 +83,13 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           { name: 'Home', url: '/' },
           { name: "The Licensee's Guide", url: '/licensees-guide' },
           { name: categoryTitle, url: `/licensees-guide/category/${params.category}` }
+        ]}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: '/' },
+          { name: "The Licensee's Guide", url: '/licensees-guide' },
+          { name: categoryTitle, url: `/licensees-guide/category/${params.category}` },
         ]}
       />
       <Hero
