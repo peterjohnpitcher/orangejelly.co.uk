@@ -1,10 +1,9 @@
-'use client';
-
 import Hero from '@/components/Hero';
 import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
 import ProblemCard from '@/components/ProblemCard';
 import CTASection from '@/components/CTASection';
+import FAQItem from '@/components/FAQItem';
 import Section from '@/components/Section';
 import ROICalculator from '@/components/ROICalculator';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -13,9 +12,12 @@ import Card from '@/components/Card';
 import Button from '@/components/Button';
 import Grid from '@/components/Grid';
 import AnimatedItem from '@/components/AnimatedItem';
-import RelatedLinks, { linkClusters } from '@/components/RelatedLinks';
+import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity';
+import Link from '@/components/Link';
 import { URLS, MESSAGES, CONTACT } from '@/lib/constants';
 import Text from '@/components/Text';
+import Container from '@/components/Container';
+import Box from '@/components/Box';
 import { FAQSchema } from '@/components/StructuredData';
 import { SpeakableContent } from '@/components/SpeakableContent';
 import Partnerships from '@/components/Partnerships';
@@ -24,8 +26,6 @@ import { portableTextToPlainText } from '@/lib/portable-text-utils';
 import type { TrustBadge } from '@/lib/sanity-social-proof';
 import type { SiteSettings } from '@/lib/sanity.types';
 
-// Import fallback content
-import { homepageFAQs as fallbackFAQs, homeProblems as fallbackProblems, homeFeatures as fallbackFeatures, homeMetrics as fallbackMetrics } from '@/lib/content/home-content';
 
 interface Problem {
   emoji?: string;
@@ -34,6 +34,7 @@ interface Problem {
   description?: string;
   problem?: string;
   solution?: string;
+  linkHref?: string; // Add linkHref to Problem interface
 }
 
 interface Feature {
@@ -55,6 +56,29 @@ interface Metrics {
   [key: string]: any; // Allow additional properties from Sanity
 }
 
+interface SectionHeadings {
+  problemsHeading?: string;
+  solutionsHeading?: string;
+  resultsHeading?: string;
+  resultsTestimonial?: string;
+  resultsSubtext?: string;
+  resultsButtonText?: string;
+  calculatorHeading?: string;
+  calculatorSubtext?: string;
+  aboutHeading?: string;
+  aboutText1?: string;
+  aboutText2?: string;
+  aboutButtonText?: string;
+  aboutCardText?: string;
+  aboutCardLabel?: string;
+  ctaBannerHeading?: string;
+  ctaBannerText?: string;
+  ctaBannerButton?: string;
+  faqHeading?: string;
+  finalCtaTitle?: string;
+  finalCtaSubtitle?: string;
+}
+
 interface HomePageProps {
   faqs?: FAQ[];
   problems?: Problem[];
@@ -62,79 +86,84 @@ interface HomePageProps {
   metrics?: Metrics;
   trustBadges?: TrustBadge[];
   siteSettings?: SiteSettings | null;
+  partnerships?: any[];
+  hero?: {
+    // Add hero prop
+    title: string;
+    subtitle: string;
+    ctaText: string;
+    bottomText: string;
+  };
+  sectionHeadings?: SectionHeadings;
+  trustBarItems?: Array<{ value: string; label: string; }> | null;
 }
 
-export default function HomePage({ faqs, problems, features, metrics, trustBadges, siteSettings }: HomePageProps) {
-  // Use Sanity content or fallback to hardcoded content
-  const sanityFAQs = faqs && faqs.length > 0 ? faqs.map(faq => ({
+export default function HomePage({
+  faqs,
+  problems,
+  features,
+  metrics,
+  trustBadges,
+  siteSettings,
+  partnerships,
+  hero,
+  sectionHeadings,
+  trustBarItems,
+}: HomePageProps) {
+  // Process FAQs if available
+  const displayFAQs = faqs?.map((faq) => ({
     ...faq,
-    answer: portableTextToPlainText(faq.answer) // Convert Portable Text to plain string
-  })) : [];
-  
-  const displayFAQs = sanityFAQs.length > 0 ? sanityFAQs : fallbackFAQs;
-  const displayProblems = problems && problems.length > 0 ? problems : fallbackProblems;
-  const displayFeatures = features && features.length > 0 ? features : fallbackFeatures;
-  const displayMetrics = metrics && Object.keys(metrics).length > 0 ? metrics : fallbackMetrics;
+    answer: portableTextToPlainText(faq.answer), // Convert Portable Text to plain string
+  })) || [];
+
+  const displayProblems = problems || [];
+  const displayFeatures = features || [];
+  const displayMetrics = metrics || {};
 
   // Transform problems data for ProblemCard component if from Sanity
-  const problemCards = displayProblems.map((problem: any, index) => {
-    if (problem.emoji && problem.problem && problem.solution) {
-      // Sanity format
-      return problem;
-    } else {
-      // Fallback format - transform to match expected structure
+  const problemCards = displayProblems
+    .map((problem: any, index) => {
       return {
         emoji: problem.emoji || problem.icon || '🍺',
         problem: problem.title || problem.problem,
-        solution: problem.description || problem.solution || 'We have the solution to help your pub thrive.',
+        solution:
+          problem.description ||
+          problem.solution ||
+          'We have the solution to help your pub thrive.',
         linkText: 'Learn More',
-        linkHref: '/services'
+        linkHref: problem.linkHref || '/services', // Use linkHref from Sanity or default
       };
-    }
-  }).slice(0, 3); // Only show first 3 problems
+    })
+    .slice(0, 3); // Only show first 3 problems
 
   return (
     <>
       <FAQSchema faqs={displayFAQs} />
-      <SpeakableContent 
+      <SpeakableContent
         cssSelectors={[
           '.hero-title',
-          '.hero-subtitle', 
+          '.hero-subtitle',
           '.trust-bar',
           '.problem-card h3',
           '.cta-section h2',
-          '.cta-section p'
+          '.cta-section p',
         ]}
         url="/"
       />
-      
-      <Hero
-        title={<>Your Pub is Struggling.<br />We Know How to Fix It.</>}
-        subtitle="AI-powered marketing strategies from real licensees who turned their pubs around"
-        secondaryAction={{
-          text: 'See What Works',
-          href: '/services'
-        }}
-        bottomText={(() => {
-          const address = siteSettings?.contact?.address;
-          if (!address) {
-            return "📍 We run The Anchor in Stanwell Moor - come see the results yourself!";
-          }
-          // Extract location from address, handling various formats
-          const location = address.includes(',') 
-            ? address.split(',')[0].replace('The Anchor', '').trim()
-            : address.replace('The Anchor', '').trim();
-          
-          // If location is empty or just "The Anchor", use default
-          if (!location || location === '') {
-            return "📍 We run The Anchor in Stanwell Moor - come see the results yourself!";
-          }
-          
-          return `📍 We run The Anchor in ${location} - come see the results yourself!`;
-        })()}
-      />
 
-      <TrustBar />
+      {hero && (
+        <Hero
+          title={hero.title}
+          subtitle={hero.subtitle}
+          secondaryAction={{
+            text: hero.ctaText,
+            href: '/services',
+          }}
+          bottomText={hero.bottomText}
+        />
+      )}
+
+      <TrustBar items={trustBarItems || undefined} />
 
       {/* Trust Badges */}
       <Section padding="small">
@@ -143,179 +172,226 @@ export default function HomePage({ faqs, problems, features, metrics, trustBadge
 
       {/* Partnerships */}
       <Section background="cream" padding="small">
-        <Partnerships variant="compact" />
+        <Partnerships variant="compact" partners={partnerships} />
       </Section>
 
       {/* Problems We Solve */}
       <Section>
         <AnimatedItem animation="fade-in">
-        <Heading level={2} align="center" className="mb-12">
-          What's Killing Your Business?
-        </Heading>
-        
-        <Grid columns={{ default: 1, md: 3 }} gap="medium">
-          {problemCards.map((problem, index) => (
-            <ProblemCard key={index} {...problem} />
-          ))}
-        </Grid>
-        
-        <RelatedLinks
-          title="Explore Solutions to Your Biggest Problems"
-          links={[
-            ...linkClusters.emptyPub.slice(0, 2),
-            linkClusters.competition[0],
-            linkClusters.time[0]
-          ]}
-          variant="inline"
-          centered={true}
-        />
+          <Heading level={2} align="center" className="mb-12">
+            {sectionHeadings?.problemsHeading || "What's Killing Your Business?"}
+          </Heading>
+
+          <Grid columns={{ default: 1, md: 3 }} gap="medium">
+            {problemCards.map((problem, index) => (
+              <ProblemCard key={index} {...problem} />
+            ))}
+          </Grid>
+
+          {/* Solution Links - Dynamically generated from problems */}
+          {displayProblems.length > 0 && (
+            <Container className="mt-12 pt-8 border-t border-gray-200">
+              <Heading level={3} align="center" className="mb-6">
+                {sectionHeadings?.solutionsHeading || 'Explore Solutions to Your Biggest Problems'}
+              </Heading>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                {displayProblems.slice(0, 6).map((problem, index) => (
+                  <Link
+                    key={index}
+                    href={problem.linkHref ? `/services#${problem.linkHref}` : '/services'}
+                    className="block hover:no-underline"
+                  >
+                    <Card
+                      variant="bordered"
+                      padding="medium"
+                      className="h-full hover:shadow-lg transition-all hover:-translate-y-1 hover:border-orange"
+                    >
+                      <div className="text-center space-y-2">
+                        <Text as="span" align="center" className="text-3xl block">
+                          {problem.emoji || problem.icon || '🍺'}
+                        </Text>
+                        <Text size="sm" weight="semibold" align="center" className="text-charcoal">
+                          {problem.title}
+                        </Text>
+                        <Text size="xs" align="center" className="text-charcoal/70">
+                          {problem.description}
+                        </Text>
+                      </div>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            </Container>
+          )}
         </AnimatedItem>
       </Section>
 
       {/* Mini Case Study */}
       <Section background="teal">
         <AnimatedItem animation="slide-up">
-        <div className="text-center">
-          <Heading level={2} color="white" align="center" className="mb-6">
-            Real Results from The Anchor
-          </Heading>
-          <div className="bg-teal-dark/30 rounded-lg p-8 mb-8 max-w-4xl mx-auto">
-            <Text size="lg" color="white" align="center" className="mb-4">
-              "We've added £75,000-£100,000 of value to our business using AI. 
-              Our food GP improved from 58% to 71%. Every strategy we share has been proven in our own pub."
-            </Text>
-            <Text size="lg" align="center" className="text-cream/90">
-              Featured in BII's Autumn 2025 magazine for AI innovation. From quiz nights to tasting events - 
-              see how we turned our pub around.
-            </Text>
-          </div>
-          <Button
-            href="/results"
-            variant="secondary"
-            className="bg-cream text-teal hover:bg-cream-light"
-          >
-            See More Pub Turnarounds
-          </Button>
-        </div>
+          <Box textAlign="center">
+            <Heading level={2} color="white" align="center" className="mb-6">
+              {sectionHeadings?.resultsHeading || 'Real Results from The Anchor'}
+            </Heading>
+            <Container maxWidth="4xl" className="bg-teal-dark/30 rounded-lg p-8 mb-8">
+              <Text size="lg" color="white" align="center" className="mb-4">
+                {sectionHeadings?.resultsTestimonial || 
+                  "We've added £75,000-£100,000 of value to our business using AI. Our food GP improved from 58% to 71%. Every strategy we share has been proven in our own pub."}
+              </Text>
+              <Text size="lg" align="center" className="text-cream/90">
+                {sectionHeadings?.resultsSubtext || 
+                  "Featured in BII's Autumn 2025 magazine for AI innovation. From quiz nights to tasting events - see how we turned our pub around."}
+              </Text>
+            </Container>
+            <Button
+              href="/results"
+              variant="secondary"
+              className="bg-cream text-teal hover:bg-cream-light"
+            >
+              {sectionHeadings?.resultsButtonText || 'See More Pub Turnarounds'}
+            </Button>
+          </Box>
         </AnimatedItem>
       </Section>
-
 
       {/* ROI Calculator Section */}
-      <div id="roi-calculator">
-      <Section background="white">
-        <AnimatedItem animation="fade-in" delay={100}>
-        <div className="max-w-4xl mx-auto">
-          <Heading level={2} align="center" className="mb-4">
-            Calculate Your Potential Revenue
-          </Heading>
-          <Text size="lg" color="muted" align="center" className="mb-12 max-w-2xl mx-auto">
-            Every pub is different. See exactly how much more revenue 
-            you could generate with proven strategies.
-          </Text>
-          <ROICalculator />
-          
-          <RelatedLinks
-            title="Ready to Increase Your Revenue?"
-            subtitle="Choose the solution that fits your budget and timeline"
-            links={linkClusters.budget}
-            variant="card"
-            columns={{ default: 1, md: 3 }}
-          />
-        </div>
-        </AnimatedItem>
-      </Section>
-      </div>
+      <Box id="roi-calculator">
+        <Section background="white">
+          <AnimatedItem animation="fade-in" delay={100}>
+            <Container maxWidth="4xl">
+              <Heading level={2} align="center" className="mb-4">
+                {sectionHeadings?.calculatorHeading || 'Calculate Your Potential Revenue'}
+              </Heading>
+              <Text size="lg" color="muted" align="center" className="mb-12 max-w-2xl mx-auto">
+                {sectionHeadings?.calculatorSubtext || 
+                  'Every pub is different. See exactly how much more revenue you could generate with proven strategies.'}
+              </Text>
+              <ROICalculator />
+
+              <RelatedLinksFromSanity
+                clusterId="budget"
+                title="Ready to Increase Your Revenue?"
+                subtitle="Choose the solution that fits your budget and timeline"
+                variant="card"
+                columns={{ default: 1, md: 3 }}
+              />
+            </Container>
+          </AnimatedItem>
+        </Section>
+      </Box>
 
       {/* About Preview with The Anchor Logo */}
       <Section>
         <AnimatedItem animation="slide-up" delay={200}>
-        <Grid columns={{ default: 1, md: 2 }} gap="large" className="items-center">
-          <div>
-            <Heading level={2} className="mb-6">
-              We're licensees, Just Like You
-            </Heading>
-            <Text size="lg" color="muted" className="mb-4">
-              I'm Peter. My husband Billy and I have run The Anchor in Stanwell Moor since March 2019. 
-              We faced the same struggles - empty tables, rising costs, fierce competition.
-            </Text>
-            <Text size="lg" color="muted" className="mb-6">
-              Orange Jelly exists because we discovered how AI can add 25 hours of value per week. 
-              I've been an early AI adopter since 2021, and now I help other pubs implement 
-              the same strategies that transformed our business.
-            </Text>
-            <Button
-              href="/about"
-              variant="ghost"
-              className="text-lg"
+          <Grid columns={{ default: 1, md: 2 }} gap="large" className="items-center">
+            <Box>
+              <Heading level={2} className="mb-6">
+                {sectionHeadings?.aboutHeading || "We're licensees, Just Like You"}
+              </Heading>
+              <Text size="lg" color="muted" className="mb-4">
+                {sectionHeadings?.aboutText1 || 
+                  "I'm Peter. My husband Billy and I have run The Anchor in Stanwell Moor since March 2019. We faced the same struggles - empty tables, rising costs, fierce competition."}
+              </Text>
+              <Text size="lg" color="muted" className="mb-6">
+                {sectionHeadings?.aboutText2 || 
+                  "Orange Jelly exists because we discovered how AI can add 25 hours of value per week. I've been an early AI adopter since 2021, and now I help other pubs implement the same strategies that transformed our business."}
+              </Text>
+              <Button href="/about" variant="ghost" className="text-lg">
+                {sectionHeadings?.aboutButtonText || 'Read Our Full Story →'}
+              </Button>
+            </Box>
+            <Card
+              variant="colored"
+              background="white"
+              padding="large"
+              className="!bg-teal text-center relative overflow-hidden"
             >
-              Read Our Full Story →
-            </Button>
-          </div>
-          <Card variant="colored" background="white" padding="large" className="!bg-teal text-center relative overflow-hidden">
-            {/* Orange Jelly watermark in corner */}
-            <div className="absolute top-2 right-2 opacity-20">
+              {/* Orange Jelly watermark in corner */}
+              <Box className="absolute top-2 right-2 opacity-20" position="absolute">
+                <OptimizedImage
+                  src="/logo.png"
+                  alt=""
+                  width={60}
+                  height={60}
+                  className="rounded-lg"
+                  loading="lazy"
+                  style={{ width: 'auto', height: 'auto' }}
+                />
+              </Box>
+
+              <Text size="xs" color="white" align="center" className="mb-4 opacity-90">
+                {sectionHeadings?.aboutCardLabel || 'Proven Daily At'}
+              </Text>
               <OptimizedImage
-                src="/logo.png"
-                alt=""
-                width={60}
-                height={60}
-                className="rounded-lg"
-                loading="lazy"
+                src="/logo_the-anchor.png"
+                alt="The Anchor - Stanwell Moor"
+                width={240}
+                height={120}
+                className="mx-auto mb-4"
+                priority
                 style={{ width: 'auto', height: 'auto' }}
               />
-            </div>
-            
-            <Text size="xs" color="white" align="center" className="mb-4 opacity-90">
-              Proven Daily At
-            </Text>
-            <OptimizedImage
-              src="/logo_the-anchor.png"
-              alt="The Anchor - Stanwell Moor"
-              width={240}
-              height={120}
-              className="mx-auto mb-4"
-              priority
-              style={{ width: 'auto', height: 'auto' }}
-            />
-            <Text color="white" align="center" className="opacity-90 font-semibold">
-              Real pub experience + proven strategies = Orange Jelly
-            </Text>
-            
-            {/* Orange accent line */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-orange to-transparent"></div>
-          </Card>
-        </Grid>
+              <Text color="white" align="center" className="opacity-90 font-semibold">
+                {sectionHeadings?.aboutCardText || 'Real pub experience + proven strategies = Orange Jelly'}
+              </Text>
+
+              {/* Orange accent line */}
+              <Box
+                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-orange to-transparent"
+                position="absolute"
+              ></Box>
+            </Card>
+          </Grid>
         </AnimatedItem>
       </Section>
 
       {/* Free Chat Banner */}
       <Section background="orange-light" padding="small">
         <AnimatedItem animation="scale" delay={300}>
-        <div className="text-center max-w-3xl mx-auto">
-          <Heading level={3} align="center" className="mb-4">
-            Stop Struggling. Start Thriving.
-          </Heading>
-          <Text size="lg" align="center" className="mb-6 max-w-2xl mx-auto">
-            Tell me what's killing your business. I'll share exactly how we fixed 
-            the same problems at The Anchor. Real solutions, no fluff.
-          </Text>
-          <Button
-            href={URLS.whatsapp()}
-            variant="primary"
-            size="medium"
-            external
-            ariaLabel={`Contact ${CONTACT.owner} on WhatsApp at ${CONTACT.phone}`}
-          >
-            Get Marketing Help
-          </Button>
-        </div>
+          <Container maxWidth="3xl" center className="text-center">
+            <Heading level={3} align="center" className="mb-4">
+              {sectionHeadings?.ctaBannerHeading || 'Stop Struggling. Start Thriving.'}
+            </Heading>
+            <Text size="lg" align="center" className="mb-6 max-w-2xl mx-auto">
+              {sectionHeadings?.ctaBannerText || 
+                "Tell me what's killing your business. I'll share exactly how we fixed the same problems at The Anchor. Real solutions, no fluff."}
+            </Text>
+            <Button
+              href={URLS.whatsapp()}
+              variant="primary"
+              size="medium"
+              external
+              aria-label={`Contact ${CONTACT.owner} on WhatsApp at ${CONTACT.phone}`}
+            >
+              {sectionHeadings?.ctaBannerButton || 'Get Marketing Help'}
+            </Button>
+          </Container>
         </AnimatedItem>
       </Section>
 
+      {/* FAQ Section */}
+      {displayFAQs.length > 0 && (
+        <Section background="cream">
+          <Heading level={2} className="text-center mb-8">
+            {sectionHeadings?.faqHeading || 'Frequently Asked Questions'}
+          </Heading>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {displayFAQs.map((faq, index) => (
+              <FAQItem
+                key={index}
+                question={faq.question}
+                answer={
+                  typeof faq.answer === 'string' ? faq.answer : portableTextToPlainText(faq.answer)
+                }
+              />
+            ))}
+          </div>
+        </Section>
+      )}
+
       <CTASection
-        title="Ready to Turn Your Pub Around?"
-        subtitle="Let's talk about what's really hurting your business. I'll share the exact strategies that saved ours."
+        title={sectionHeadings?.finalCtaTitle || "Ready to Turn Your Pub Around?"}
+        subtitle={sectionHeadings?.finalCtaSubtitle || "Let's talk about what's really hurting your business. I'll share the exact strategies that saved ours."}
       />
     </>
   );
