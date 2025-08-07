@@ -502,7 +502,7 @@ export default async function QuietMidweekSolutions() {
       </Section>
 
       {/* Urgency Section */}
-      <Section background="red-50">
+      <Section background="cream">
         <div className="max-w-4xl mx-auto text-center">
           <Heading level={2} className="mb-6 text-red-700">
             ⚠️ Every Dead Tuesday Costs You £400. Every Dead Wednesday Another £400.
