@@ -1,13 +1,29 @@
 import { MetadataRoute } from 'next';
 import { getAllPosts } from '@/lib/blog-md';
 import { blogCategories } from '@/lib/blog';
+import { client } from '@/lib/sanity.client';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.orangejelly.co.uk';
   const currentDate = new Date().toISOString();
 
-  // Define pages with their priorities and change frequencies
-  const pages = [
+  // Fetch all landing pages
+  const landingPages = await client.fetch(`*[_type == "landingPage" && isActive == true]{
+    "slug": slug.current,
+    _updatedAt
+  }`);
+
+  const dynamicLandingPages = landingPages.map((page: any) => ({
+    url: `${baseUrl}/${page.slug}`,
+    lastModified: page._updatedAt || currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }));
+
+  // Services are represented on a single page; avoid fragment URLs in sitemap
+
+  // Define static pages
+  const staticPages = [
     {
       url: baseUrl,
       lastModified: currentDate,
@@ -38,65 +54,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
-    // Problem-specific landing pages
-    {
-      url: `${baseUrl}/empty-pub-solutions`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/quiet-midweek-solutions`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/compete-with-pub-chains`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/pub-marketing-no-budget`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    // Pub Rescue section
-    {
-      url: `${baseUrl}/pub-rescue`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    },
-  ];
-
-  // Add individual service anchor links as separate entries
-  const serviceAnchors = [
-    'empty-pub-recovery',
-    'boost-food-sales',
-    'done-for-you-marketing',
-    'website',
-    'training',
-    'business'
-  ];
-
-  const servicePages = serviceAnchors.map(anchor => ({
-    url: `${baseUrl}/services#${anchor}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }));
-
-  // Add licensees-guide main page
-  const licenseeGuidePages = [
     {
       url: `${baseUrl}/licensees-guide`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
-    }
+    },
   ];
 
   // Dynamically get all blog posts
@@ -116,5 +79,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...pages, ...servicePages, ...licenseeGuidePages, ...blogPages, ...categoryPages];
+  return [...staticPages, ...dynamicLandingPages, ...blogPages, ...categoryPages];
 }
