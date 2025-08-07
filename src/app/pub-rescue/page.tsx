@@ -328,8 +328,12 @@ export default async function PubRescue() {
                 <Text size="lg" align="center" weight="semibold" className="mb-4">
                   {successMetrics.title || 'Most Pubs See These Results Within 30 Days:'}
                 </Text>
-                <Grid columns={{ default: 1, md: successMetrics.metrics.length }} gap="medium">
-                  {successMetrics.metrics.map((metric) => (
+                {(() => {
+                  const count = successMetrics.metrics.length;
+                  const mdCols = (count >= 4 ? 4 : count === 3 ? 3 : count === 2 ? 2 : 1) as 1 | 2 | 3 | 4;
+                  return (
+                    <Grid columns={{ default: 1, md: mdCols }} gap="medium">
+                      {successMetrics.metrics.map((metric) => (
                     <div key={metric._key} className="text-center">
                       <Text size="2xl" weight="bold" className="text-orange">{metric.value}</Text>
                       <Text size="sm">{metric.label}</Text>
@@ -337,8 +341,10 @@ export default async function PubRescue() {
                         <Text size="xs" className="text-charcoal/60 mt-1">{metric.description}</Text>
                       )}
                     </div>
-                  ))}
-                </Grid>
+                      ))}
+                    </Grid>
+                  );
+                })()}
               </Card>
             )}
           </div>
