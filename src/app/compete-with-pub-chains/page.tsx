@@ -171,7 +171,7 @@ export default async function CompeteWithPubChains() {
       )}
 
       {/* Real Examples */}
-      <Section background="teal-dark">
+      <Section background="teal">
         <AnimatedItem animation="fade-in">
           <div className="max-w-4xl mx-auto text-center">
             <Heading level={2} color="white" className="mb-12">
