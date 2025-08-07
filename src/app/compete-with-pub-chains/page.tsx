@@ -501,7 +501,7 @@ export default async function CompeteWithPubChains() {
       )}
 
       {/* Investment */}
-      <Section background="charcoal" id="cta">
+      <Section background="charcoal">
         <AnimatedItem animation="slide-up">
           <div className="max-w-4xl mx-auto text-center">
             <Heading level={2} color="white" className="mb-8">
