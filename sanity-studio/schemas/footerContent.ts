@@ -13,6 +13,66 @@ export default defineType({
       hidden: true,
     }),
     defineField({
+      name: 'tagline',
+      title: 'Main Tagline',
+      type: 'string',
+      description: 'e.g., "Run by licensees, for licensees"',
+    }),
+    defineField({
+      name: 'quickLinks',
+      title: 'Quick Links',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Link Title',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'href',
+              title: 'Link URL',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'external',
+              title: 'External Link',
+              type: 'boolean',
+              initialValue: false,
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'services',
+      title: 'Services Links',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Service Title',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'href',
+              title: 'Service URL',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: 'brandSection',
       title: 'Brand Section',
       type: 'object',

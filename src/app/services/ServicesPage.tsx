@@ -139,7 +139,7 @@ export default function ServicesPage({
           <Heading level={2} align="center" className="mb-12">
             {servicesPageContent.faqSection.heading}
           </Heading>
-          <div className="space-y-4">
+          <div className="space-y-6">
             {faqsForDisplay.map((faq, index) => (
               <FAQItem
                 key={index}

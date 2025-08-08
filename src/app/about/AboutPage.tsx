@@ -227,7 +227,7 @@ export default function AboutPage({ aboutContent, faqs, siteSettings, author }: 
           </Heading>
           
           {aboutFAQs.length > 0 && (
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl mx-auto space-y-6">
               {aboutFAQs.map((faq, index) => (
                 <FAQItem
                   key={index}

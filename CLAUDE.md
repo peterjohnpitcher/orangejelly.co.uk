@@ -35,9 +35,16 @@ npm run test:coverage # Check test coverage
 - **Constants**: `src/lib/constants.ts`
 - **Components**: `src/components/`
 - **Pages**: `src/app/`
-- **Blog posts**: `content/blog/`
+- **Blog posts**: **IN SANITY CMS** (NOT markdown files!)
 - **Public assets**: `public/`
 - **Tests**: `src/components/**/*.test.tsx`
+
+### ⚠️ CRITICAL: Blog Content Location
+**ALL BLOG CONTENT IS STORED IN SANITY CMS, NOT IN MARKDOWN FILES!**
+- Blog posts are managed through Sanity Studio
+- Any `/content/blog/` folder with markdown files is OBSOLETE and should be deleted
+- To update blog content, use Sanity write client or Sanity Studio
+- Blog schema: `sanity-studio/schemas/blogPost.ts`
 
 ## 🎯 Guiding Principles
 
@@ -1113,6 +1120,12 @@ Remember: You're building something that genuinely helps struggling licensees. E
 **Status**: ACTIVE - Your trusted development guide
 
 ## 📝 CHANGELOG
+
+### Version 5.2 (January 2025)
+- **CRITICAL UPDATE**: Documented that ALL blog content is in Sanity CMS, not markdown files
+- Added warning about obsolete markdown blog files
+- Clarified blog content management through Sanity Studio
+- Updated "Where to Find Things" section with blog location
 
 ### Version 5.1 (August 2025)
 - Added comprehensive Sanity CMS Configuration Guide

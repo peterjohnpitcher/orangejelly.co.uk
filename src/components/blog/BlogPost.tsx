@@ -196,12 +196,12 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
         )}
 
         {/* Call to action */}
-        <Card variant="bordered" className="bg-orange-light mb-12">
+        <Card variant="bordered" className="bg-orange mb-12">
           <div className="text-center">
-            <Heading level={3} className="mb-4">
+            <Heading level={3} align="center" color="white" className="mb-4">
               Need Help Implementing These Ideas?
             </Heading>
-            <Text className="mb-6 max-w-2xl mx-auto">
+            <Text align="center" color="white" className="mb-6 max-w-2xl mx-auto">
               I've proven these strategies work at The Anchor and will start training other pubs from September 2025. 
               Let's chat about your specific situation - no sales pitch, just licensee to licensee.
             </Text>
@@ -209,11 +209,12 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
               href={URLS.whatsapp(
                 post.ctaSettings?.whatsappMessage || MESSAGES.whatsapp.blog
               )}
-              variant="primary"
+              variant="secondary"
               size="large"
               external
+              className="!bg-white !text-charcoal hover:!bg-cream"
             >
-              {post.ctaSettings?.primaryCTA || 'Get Free Advice on WhatsApp'}
+              Get Help Now
             </Button>
           </div>
         </Card>

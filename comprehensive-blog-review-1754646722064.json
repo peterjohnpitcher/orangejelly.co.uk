@@ -1,0 +1,1026 @@
+{
+  "totalPosts": 28,
+  "postsProcessed": 28,
+  "postsWithIssues": 26,
+  "totalIssues": 84,
+  "issuesByType": {
+    "DIRECT_RESULTS": 40,
+    "PUB_NAME": 37,
+    "UNCONTEXTUALIZED_METRICS": 6,
+    "CASE_STUDY": 1
+  },
+  "issuesBySeverity": {
+    "HIGH": 77,
+    "MEDIUM": 1,
+    "LOW": 6
+  },
+  "postReports": [
+    {
+      "postId": "blogPost-low-budget-pub-marketing-ideas",
+      "title": "25 Low Budget Pub Marketing Ideas That Actually Work",
+      "slug": "low-budget-pub-marketing-ideas",
+      "issues": [
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": "Increased curiosity and foot traffic",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 53
+        },
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": "Increased local goodwill and repeat visits",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 117
+        },
+        {
+          "field": "content",
+          "text": "Improved",
+          "context": "Improved rankings and visibility",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 161
+        },
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": "Increased customer loyalty and spend",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 182
+        },
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": "Increased social media mentions",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 215
+        },
+        {
+          "field": "content",
+          "text": "Improved",
+          "context": "Improved offerings based on feedback",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 258
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-content-marketing-ideas-pubs",
+      "title": "Content Marketing for Pubs: Stories That Fill Seats and Build Loyalty",
+      "slug": "content-marketing-ideas-pubs",
+      "issues": [
+        {
+          "field": "content",
+          "text": "The Eagle",
+          "context": "The Blackfriar in London shares daily historical facts and now runs sold-out history tours. The Eagle in Cambridge posts cocktail-making videos and sees 40% of orders from drinks featured online. These...",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Eagle\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 3
+        },
+        {
+          "field": "content",
+          "text": "the local",
+          "context": "Become the local entertainment guide:",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"the local\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 68
+        },
+        {
+          "field": "content",
+          "text": "increased",
+          "context": "Created \"Pub Dog of the Month\" series. User submissions up 400%, Sunday afternoon traffic increased 45%, featured in national press.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 323
+        },
+        {
+          "field": "content",
+          "text": "increased 45%",
+          "context": "Created \"Pub Dog of the Month\" series. User submissions up 400%, Sunday afternoon traffic increased 45%, featured in national press.",
+          "issueType": "UNCONTEXTUALIZED_METRICS",
+          "severity": "LOW",
+          "suggested_fix": "Review and clarify the claim's attribution",
+          "blockIndex": 323
+        },
+        {
+          "field": "content",
+          "text": "The Bell",
+          "context": "The Bell Inn, Cotswolds:",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Bell\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 326
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-email-marketing-pub-retention",
+      "title": "Email Marketing for Pubs: Build a Database That Drives Repeat Business",
+      "slug": "email-marketing-pub-retention",
+      "issues": [
+        {
+          "field": "content",
+          "text": "The Social",
+          "context": "5. The Social Media Bridge",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Social\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 51
+        },
+        {
+          "field": "content",
+          "text": "The Local",
+          "context": "The Local Event Capitalizer",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Local\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 135
+        },
+        {
+          "field": "content",
+          "text": "The Village",
+          "context": "The Village Inn, Cotswolds:",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Village\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 314
+        },
+        {
+          "field": "content",
+          "text": "the house",
+          "context": "🎸 SATURDAY: The Revivals rock the house (9pm)",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"the house\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 325
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-facebook-marketing-local-pubs",
+      "title": "Facebook Marketing for Local Pubs: Your Community Connection Goldmine",
+      "slug": "facebook-marketing-local-pubs",
+      "issues": [
+        {
+          "field": "content",
+          "text": "The Local",
+          "context": "3. The Local Hero",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Local\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 71
+        },
+        {
+          "field": "content",
+          "text": "The Bell",
+          "context": "\"Sunday Roasts at The Bell - Kids Eat Free\"",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Bell\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 90
+        },
+        {
+          "field": "content",
+          "text": "the Local",
+          "context": "Be the Local Hub:",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"the Local\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 240
+        },
+        {
+          "field": "content",
+          "text": "The Plough",
+          "context": "The Plough Inn, Surrey:",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Plough\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 296
+        },
+        {
+          "field": "content",
+          "text": "Grew",
+          "context": "Used Facebook Events for Tuesday quiz nights. Grew from 15 to 65 regular teams in 3 months. Tuesday takings up 250%.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 297
+        },
+        {
+          "field": "content",
+          "text": "The Star",
+          "context": "The Star & Garter, Birmingham:",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Star\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 298
+        },
+        {
+          "field": "content",
+          "text": "The Local",
+          "context": "The Local Influencer Network",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Local\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 311
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-compete-with-wetherspoons",
+      "title": "How to Compete with Wetherspoons: A Survival Guide for Independent Pubs",
+      "slug": "compete-with-wetherspoons",
+      "issues": [
+        {
+          "field": "content",
+          "text": "The Coach",
+          "context": "The Coach House in Reading thrives 200 metres from a Wetherspoons by knowing every customer's birthday and bu...",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Coach\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 18
+        },
+        {
+          "field": "content",
+          "text": "The Local",
+          "context": "\"The Local Living Room\"",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Local\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 36
+        },
+        {
+          "field": "content",
+          "text": "the bar",
+          "context": "Staff spotlights (faces behind the bar)",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"the bar\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 77
+        },
+        {
+          "field": "content",
+          "text": "The Eagle",
+          "context": "The Eagle, Cambridge",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Eagle\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 101
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "f4MV9a6jXUEvA72JBLJLVs",
+      "title": "How to Compete with Wetherspoons: A Survival Guide for Independent Pubs",
+      "slug": "compete-with-wetherspoons",
+      "issues": [
+        {
+          "field": "content",
+          "text": "The Coach",
+          "context": "The Coach House in Reading thrives 200 metres from a Wetherspoons by knowing every customer's birthday and bu...",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Coach\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 18
+        },
+        {
+          "field": "content",
+          "text": "The Local",
+          "context": "\"The Local Living Room\"",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Local\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 36
+        },
+        {
+          "field": "content",
+          "text": "the bar",
+          "context": "Staff spotlights (faces behind the bar)",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"the bar\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 77
+        },
+        {
+          "field": "content",
+          "text": "The Eagle",
+          "context": "The Eagle, Cambridge: Competes through scientific history and unchanged character",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Eagle\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 101
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-pub-differentiation-strategies",
+      "title": "How to Differentiate Your Pub: 15 Unique Ideas That Actually Work",
+      "slug": "pub-differentiation-strategies",
+      "issues": [
+        {
+          "field": "content",
+          "text": "The Fox",
+          "context": "The Fox & Hounds in Surrey",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Fox\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 23
+        },
+        {
+          "field": "content",
+          "text": "The Duke",
+          "context": "The Duke of Cambridge in London",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Duke\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 63
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-fill-empty-pub-tables",
+      "title": "How to Fill Empty Pub Tables: 15 Strategies That Actually Work",
+      "slug": "fill-empty-pub-tables",
+      "issues": [
+        {
+          "field": "content",
+          "text": "increased",
+          "context": ": Weather-triggered social media posts increased rainy day bookings by 40%.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 88
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-how-to-run-successful-pub-events",
+      "title": "How to Run Successful Pub Events: A Complete Guide to Profitable Functions",
+      "slug": "how-to-run-successful-pub-events",
+      "issues": [
+        {
+          "field": "content",
+          "text": "the house",
+          "context": "...peting with Netflix, with staying home, with the gravity of routine. Make your events worth leaving the house for.",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"the house\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 299
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-beat-chain-pubs",
+      "title": "Independent Pub vs Chains: How to Win the David vs Goliath Battle",
+      "slug": "beat-chain-pubs",
+      "issues": [
+        {
+          "field": "content",
+          "text": "the bell",
+          "context": "...our pub's quirks, history, and personality can't be replicated by a brand manual. That wonky floor, the bell that rings for last orders, the dog that thinks he owns the place – these create emotional connecti...",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"the bell\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 29
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "f4MV9a6jXUEvA72JBLJL2q",
+      "title": "Independent Pub vs Chains: How to Win the David vs Goliath Battle",
+      "slug": "beat-chain-pubs",
+      "issues": [
+        {
+          "field": "content",
+          "text": "the bell",
+          "context": "...our pub's quirks, history, and personality can't be replicated by a brand manual. That wonky floor, the bell that rings for last orders, the dog that thinks he owns the place – these create emotional connecti...",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"the bell\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 29
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-instagram-marketing-for-pubs",
+      "title": "Instagram Marketing for Pubs: Turn Food Photos Into Foot Traffic",
+      "slug": "instagram-marketing-for-pubs",
+      "issues": [
+        {
+          "field": "content",
+          "text": "Grew",
+          "context": "Focused on Reels showing cocktail making. Grew from 800 to 12K followers in 4 months. Friday night cocktail sales up 65%.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 290
+        },
+        {
+          "field": "content",
+          "text": "The Fox",
+          "context": "The Fox & Hound, Bristol:",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Fox\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 291
+        },
+        {
+          "field": "content",
+          "text": "increased",
+          "context": "Used Stories for daily specials exclusively. Story views average 1,200 daily, midweek covers increased 35%.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 294
+        },
+        {
+          "field": "content",
+          "text": "increased 35%",
+          "context": "Used Stories for daily specials exclusively. Story views average 1,200 daily, midweek covers increased 35%.",
+          "issueType": "UNCONTEXTUALIZED_METRICS",
+          "severity": "LOW",
+          "suggested_fix": "Review and clarify the claim's attribution",
+          "blockIndex": 294
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-live-music-events-for-pubs",
+      "title": "Live Music Events for Pubs: The Complete Guide to Booking, Hosting & Profiting",
+      "slug": "live-music-events-for-pubs",
+      "issues": [
+        {
+          "field": "content",
+          "text": "the corner",
+          "context": "It's 9 PM on a Friday. The pub down the road has a queue around the corner for their live music night. Meanwhile, you're wondering if the expense and hassle of hosting bands ...",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"the corner\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 1
+        },
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": "Increased food sales (300% during music nights)",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 19
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-local-pub-marketing",
+      "title": "Local Pub Marketing: Community-Focused Strategies That Drive Real Results",
+      "slug": "local-pub-marketing",
+      "issues": [
+        {
+          "field": "content",
+          "text": "The Local",
+          "context": "2. The Local Business Ecosystem",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Local\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 76
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-midweek-pub-offers-that-work",
+      "title": "Midweek Pub Offers That Actually Drive Profits (Not Just Footfall)",
+      "slug": "midweek-pub-offers-that-work",
+      "issues": [
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": "Profitable Promotion = (Increased Volume × Maintained Margins) + Added Value - Hidden Costs",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 13
+        },
+        {
+          "field": "content",
+          "text": "improved",
+          "context": ": Food GP improved from 58% to 71% on these nights.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 33
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-quiet-monday-night-promotions",
+      "title": "Monday Night Pub Promotions That Actually Work (Not Another Quiz Night)",
+      "slug": "quiet-monday-night-promotions",
+      "issues": [
+        {
+          "field": "content",
+          "text": "increased",
+          "context": "Average spend increased from £15 to £28",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 30
+        },
+        {
+          "field": "content",
+          "text": "the market",
+          "context": "A: Learn from them but find your unique angle. Same offerings split the market.",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"the market\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 211
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-premium-pub-positioning",
+      "title": "Premium Pub Positioning: How to Go Upmarket and Increase Profits",
+      "slug": "premium-pub-positioning",
+      "issues": [
+        {
+          "field": "content",
+          "text": "the room",
+          "context": "Let's address the elephant in the room: you're never going to compete with Wetherspoons on price. And that's exactly why you're going to w...",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"the room\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 1
+        },
+        {
+          "field": "content",
+          "text": "increased",
+          "context": "Use increased margins to fund next phase",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 175
+        },
+        {
+          "field": "content",
+          "text": "improved",
+          "context": "Initial investment can be £20-50k, but phased approach works. Often, improved margins fund ongoing improvements.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 212
+        },
+        {
+          "field": "content",
+          "text": "delivered",
+          "context": "Pretension. Premium means excellent quality delivered warmly, not snobbery.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 220
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-profitable-pub-food-menu-ideas",
+      "title": "Profitable Pub Food Menu Ideas: High-Margin Dishes That Actually Sell",
+      "slug": "profitable-pub-food-menu-ideas",
+      "issues": [
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": ": Increased early evening trade by 150%",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 141
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-pub-refurbishment-on-budget",
+      "title": "Pub Refurbishment on a Budget: Transform Your Space for Under £5,000",
+      "slug": "pub-refurbishment-on-budget",
+      "issues": [
+        {
+          "field": "content",
+          "text": "The White Hart",
+          "context": "The White Hart:",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The White Hart\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 310
+        },
+        {
+          "field": "content",
+          "text": "The King's Head",
+          "context": "The King's Head:",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The King's Head\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 314
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-quiz-night-ideas",
+      "title": "Quiz Night Ideas: 25 Formats That Pack Your Pub Every Week",
+      "slug": "quiz-night-ideas",
+      "issues": [],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-recession-proof-pub-strategies",
+      "title": "Recession-Proof Pub Strategies: How to Thrive When Customers Tighten Their Belts",
+      "slug": "recession-proof-pub-strategies",
+      "issues": [
+        {
+          "field": "content",
+          "text": "Improved",
+          "context": "Improved consistency",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 53
+        },
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": "Increased",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 88
+        },
+        {
+          "field": "content",
+          "text": "Improved",
+          "context": "Improved by 15%",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 89
+        },
+        {
+          "field": "content",
+          "text": "Improved",
+          "context": "Improved service and sales",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 267
+        },
+        {
+          "field": "content",
+          "text": "increased",
+          "context": "Focused on lunch deals, increased revenue 20%",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 341
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-seasonal-pub-events-calendar",
+      "title": "Seasonal Pub Events Calendar: Year-Round Ideas That Drive Revenue",
+      "slug": "seasonal-pub-events-calendar",
+      "issues": [
+        {
+          "field": "content",
+          "text": "the house",
+          "context": "...'s understanding that every week of the year offers an opportunity to create an event worth leaving the house for.",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"the house\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 2
+        },
+        {
+          "field": "content",
+          "text": "success story",
+          "context": "Your year-round success story starts with your next event. Which season will you conquer first?",
+          "issueType": "CASE_STUDY",
+          "severity": "MEDIUM",
+          "suggested_fix": "Clarify as \"Industry Example:\" or \"The Anchor Case Study:\"",
+          "blockIndex": 440
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-christmas-pub-promotion-ideas",
+      "title": "Start Planning Christmas Now: 30 Festive Ideas to Secure December Bookings Early",
+      "slug": "christmas-pub-promotion-ideas",
+      "issues": [
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": "Increased goodwill and foot traffic",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 150
+        },
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": "Increased group bookings",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 238
+        },
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": "Increased app usage",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 247
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "f4MV9a6jXUEvA72JBLJL7g",
+      "title": "Start Planning Christmas Now: 30 Festive Ideas to Secure December Bookings Early",
+      "slug": "christmas-pub-promotion-ideas",
+      "issues": [],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-summer-pub-event-ideas",
+      "title": "Summer Pub Event Ideas: 35 Profitable Outdoor Promotions That Pack Your Garden",
+      "slug": "summer-pub-event-ideas",
+      "issues": [
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": "Increased capacity",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 4
+        },
+        {
+          "field": "content",
+          "text": "Increased",
+          "context": "Increased foot traffic",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 313
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-social-media-strategy-for-pubs",
+      "title": "The Complete Social Media Strategy Guide for Pubs in 2025",
+      "slug": "social-media-strategy-for-pubs",
+      "issues": [
+        {
+          "field": "content",
+          "text": "increased",
+          "context": "...Team Monday\" every week, featuring a staff member's story and their favourite menu item. Engagement increased 450% and Monday footfall up 35%.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 50
+        },
+        {
+          "field": "content",
+          "text": "increased 450%",
+          "context": "...Team Monday\" every week, featuring a staff member's story and their favourite menu item. Engagement increased 450% and Monday footfall up 35%.",
+          "issueType": "UNCONTEXTUALIZED_METRICS",
+          "severity": "LOW",
+          "suggested_fix": "Review and clarify the claim's attribution",
+          "blockIndex": 50
+        },
+        {
+          "field": "content",
+          "text": "grew",
+          "context": "The Botanist in Manchester grew from 2K to 15K followers by posting 15-second Reels of cocktails being made. Table bookings increas...",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 68
+        },
+        {
+          "field": "content",
+          "text": "increased",
+          "context": "...er grew from 2K to 15K followers by posting 15-second Reels of cocktails being made. Table bookings increased 40% with customers asking for \"the drinks from Instagram.\"",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 68
+        },
+        {
+          "field": "content",
+          "text": "increased 40%",
+          "context": "...er grew from 2K to 15K followers by posting 15-second Reels of cocktails being made. Table bookings increased 40% with customers asking for \"the drinks from Instagram.\"",
+          "issueType": "UNCONTEXTUALIZED_METRICS",
+          "severity": "LOW",
+          "suggested_fix": "Review and clarify the claim's attribution",
+          "blockIndex": 68
+        },
+        {
+          "field": "content",
+          "text": "The Queen's Head",
+          "context": "The Queen's Head created a \"Queen's VIP\" Facebook group for regulars. Members get first dibs on event tickets and sp...",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Queen's Head\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 163
+        },
+        {
+          "field": "content",
+          "text": "The Local",
+          "context": "The Local SEO Connection:",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Local\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 190
+        },
+        {
+          "field": "content",
+          "text": "grew",
+          "context": "... Stories showing chef's specials. Result: 45% increase in weekday lunch covers, Instagram following grew from 500 to 3,500 in six months.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 263
+        },
+        {
+          "field": "content",
+          "text": "The Ship",
+          "context": "The Ship & Anchor, Bristol:",
+          "issueType": "PUB_NAME",
+          "severity": "HIGH",
+          "suggested_fix": "Replace \"The Ship\" with \"a typical pub\" or similar generic reference",
+          "blockIndex": 264
+        },
+        {
+          "field": "content",
+          "text": "increased",
+          "context": "...ities, from quiz nights to wine tastings. Result: Average event attendance up 60%, advance bookings increased 80%.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 267
+        },
+        {
+          "field": "content",
+          "text": "increased 80%",
+          "context": "...ities, from quiz nights to wine tastings. Result: Average event attendance up 60%, advance bookings increased 80%.",
+          "issueType": "UNCONTEXTUALIZED_METRICS",
+          "severity": "LOW",
+          "suggested_fix": "Review and clarify the claim's attribution",
+          "blockIndex": 267
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-why-is-my-pub-empty",
+      "title": "Why Is My Pub Empty? 12 Brutal Truths and How to Fix Them",
+      "slug": "why-is-my-pub-empty",
+      "issues": [
+        {
+          "field": "content",
+          "text": "increased",
+          "context": ": Our wet sales increased 32% after expanding our craft range.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 35
+        },
+        {
+          "field": "content",
+          "text": "increased 32%",
+          "context": ": Our wet sales increased 32% after expanding our craft range.",
+          "issueType": "UNCONTEXTUALIZED_METRICS",
+          "severity": "LOW",
+          "suggested_fix": "Review and clarify the claim's attribution",
+          "blockIndex": 35
+        },
+        {
+          "field": "content",
+          "text": "increased",
+          "context": ": Switching to a simple, quality menu increased food sales by 78%.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 43
+        },
+        {
+          "field": "content",
+          "text": "increased",
+          "context": ": Happy staff increased our TripAdvisor rating from 3.2 to 4.6 stars.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 59
+        },
+        {
+          "field": "content",
+          "text": "increased",
+          "context": ": Raising prices 10% but improving quality lost us 2 customers but increased profit by 18%.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 83
+        },
+        {
+          "field": "content",
+          "text": "increased",
+          "context": ": Adding background music at the right volume increased dwell time by 23 minutes average.",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 99
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    },
+    {
+      "postId": "blogPost-pub-empty-tuesday-nights",
+      "title": "Why Your Pub is Empty on Tuesday Nights (And How to Fix It)",
+      "slug": "pub-empty-tuesday-nights",
+      "issues": [
+        {
+          "field": "content",
+          "text": "improved",
+          "context": ": Significantly improved (busy shifts are happy shifts)",
+          "issueType": "DIRECT_RESULTS",
+          "severity": "HIGH",
+          "suggested_fix": "Replace with \"industry data shows pubs achieving\" or \"The Anchor achieved\"",
+          "blockIndex": 74
+        }
+      ],
+      "fixesApplied": false,
+      "errors": []
+    }
+  ],
+  "generatedAt": "2025-08-08T09:51:59.808Z"
+}
