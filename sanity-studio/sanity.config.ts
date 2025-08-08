@@ -11,6 +11,12 @@ export default defineConfig({
   projectId: '9brdfanc',
   dataset: 'production',
   
+  // Enable scheduled publishing
+  scheduledPublishing: {
+    enabled: true,
+    inputDateTimeFormat: 'dd/MM/yyyy HH:mm', // UK date format
+  },
+  
   plugins: [
     structureTool({
       structure: (S) =>
