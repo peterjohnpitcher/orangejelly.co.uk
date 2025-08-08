@@ -22,9 +22,9 @@ function Section({
   };
 
   const paddingClasses = {
-    small: 'py-8 md:py-12',
-    medium: 'py-16 md:py-24',
-    large: 'py-24 md:py-32'
+    small: 'py-6 md:py-8',
+    medium: 'py-10 md:py-14',
+    large: 'py-14 md:py-20'
   };
 
   return (

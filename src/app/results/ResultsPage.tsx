@@ -1,5 +1,3 @@
-'use client';
-
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import CTASection from '@/components/CTASection';
@@ -9,7 +7,7 @@ import Grid from '@/components/Grid';
 import AnimatedItem from '@/components/AnimatedItem';
 import CaseStudySelector from '@/components/CaseStudySelector';
 import { breadcrumbPaths } from '@/components/Breadcrumb';
-import RelatedLinks, { linkClusters } from '@/components/RelatedLinks';
+import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity';
 import Text from '@/components/Text';
 import Button from '@/components/Button';
 import { portableTextToPlainText } from '@/lib/portable-text-utils';
@@ -112,16 +110,12 @@ export default function ResultsPage({ caseStudies }: ResultsPageProps) {
 
       {/* Related Links */}
       <Section background="cream" padding="medium">
-        <RelatedLinks
+        <RelatedLinksFromSanity
+          clusterId="quickWins"
           title="Ready to Get Similar Results?"
           subtitle="Choose where to start based on your biggest challenge"
-          links={[
-            ...linkClusters.quickWins,
-            linkClusters.budget[0],
-            linkClusters.emptyPub[0]
-          ]}
           variant="card"
-          columns={{ default: 1, md: 2, lg: 4 }}
+          columns={{ default: 1, md: 2, lg: 3 }}
         />
       </Section>
 

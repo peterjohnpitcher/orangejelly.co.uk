@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
   response.headers.set('X-Frame-Options', 'SAMEORIGIN');
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  // Note: FLoC is obsolete; use browsing-topics to opt-out of Topics API
+  // Note: FLoC is obsolete; use browsing-topics to opt-out of Topics API (Issue #21)
   response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), browsing-topics=()');
   
   // Strict Transport Security (HSTS) - only on production
@@ -25,7 +25,7 @@ export function middleware(request: NextRequest) {
     [
       "default-src 'self'",
       // Use next/script and nonces in future to remove 'unsafe-inline'. Kept temporarily for GTM bootstrap.
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://scripts.clarity.ms",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://scripts.clarity.ms",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: blob: https:",

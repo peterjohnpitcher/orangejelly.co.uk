@@ -1,33 +1,34 @@
 import { z } from 'zod';
+import { VALIDATION_MESSAGES } from './validation-messages';
 
 // Common validation schemas
 export const emailSchema = z
   .string()
-  .min(1, 'Email is required')
-  .email('Please enter a valid email address')
+  .min(1, VALIDATION_MESSAGES.email.required)
+  .email(VALIDATION_MESSAGES.email.invalid)
   .toLowerCase()
   .trim();
 
 export const phoneSchema = z
   .string()
-  .min(1, 'Phone number is required')
+  .min(1, VALIDATION_MESSAGES.phone.required)
   .regex(
     /^(\+44|0)?[1-9]\d{9,10}$/,
-    'Please enter a valid UK phone number'
+    VALIDATION_MESSAGES.phone.invalid
   );
 
 export const nameSchema = z
   .string()
-  .min(1, 'Name is required')
-  .min(2, 'Name must be at least 2 characters')
-  .max(50, 'Name must be less than 50 characters')
+  .min(1, VALIDATION_MESSAGES.name.required)
+  .min(2, VALIDATION_MESSAGES.name.minLength)
+  .max(50, VALIDATION_MESSAGES.name.maxLength)
   .trim();
 
 export const messageSchema = z
   .string()
-  .min(1, 'Message is required')
-  .min(10, 'Message must be at least 10 characters')
-  .max(1000, 'Message must be less than 1000 characters')
+  .min(1, VALIDATION_MESSAGES.message.required)
+  .min(10, VALIDATION_MESSAGES.message.minLength)
+  .max(1000, VALIDATION_MESSAGES.message.maxLength)
   .trim();
 
 // Newsletter form schema
@@ -40,7 +41,7 @@ export const contactFormSchema = z.object({
   name: nameSchema,
   email: emailSchema,
   phone: phoneSchema.optional(),
-  pubName: z.string().min(1, 'Pub name is required').trim(),
+  pubName: z.string().min(1, VALIDATION_MESSAGES.pubName.required).trim(),
   message: messageSchema,
 });
 
@@ -66,7 +67,7 @@ export function validateForm<T>(
       });
       return { success: false, errors };
     }
-    return { success: false, errors: { form: 'Validation failed' } };
+    return { success: false, errors: { form: VALIDATION_MESSAGES.generic.validationFailed } };
   }
 }
 

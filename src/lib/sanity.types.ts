@@ -116,3 +116,83 @@ export interface ContentBlock {
     order?: number;
   };
 }
+
+// Services Page Content types
+export interface ServicesPageContent {
+  _id: string;
+  title: string;
+  hero: {
+    title: string;
+    subtitle: string;
+    ctaText?: string;
+    bottomText?: string;
+  };
+  introSection: {
+    heading: string;
+    description: string;
+  };
+  processSection: {
+    heading: string;
+    steps: Array<{
+      stepNumber: number;
+      title: string;
+      description: string;
+    }>;
+    ctaText?: string;
+    ctaSubtext?: string;
+  };
+  guaranteeSection: {
+    heading: string;
+    description: string;
+    checkmarkText?: string;
+    checkmarkSubtext?: string;
+  };
+  faqSection: {
+    heading: string;
+  };
+  ctaSection: {
+    title: string;
+    subtitle: string;
+    buttonText?: string;
+    whatsappMessage?: string;
+    bottomText?: string;
+  };
+  relatedLinksSection?: {
+    title?: string;
+    clusterId?: string;
+  };
+  speakableContent?: Array<{
+    question: string;
+    answer: string;
+  }>;
+}
+
+export interface ServicePackage {
+  _id: string;
+  id: string;
+  title: string;
+  emoji: string;
+  problem: string;
+  deliverable: string;
+  description: string;
+  features: string[];
+  example?: {
+    before: string;
+    after: string;
+    result: string;
+  };
+  timeEstimate: string;
+  priceBreakdown?: string;
+  price: string;
+  ctaText: string;
+  highlight?: boolean;
+  order: number;
+}
+
+export interface ServicesFAQ {
+  _id: string;
+  question: string;
+  answer: string;
+  category: string;
+  order: number;
+}

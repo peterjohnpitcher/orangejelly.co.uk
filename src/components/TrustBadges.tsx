@@ -8,12 +8,14 @@ interface TrustBadgesProps {
   variant?: 'horizontal' | 'vertical' | 'compact';
   showAll?: boolean;
   trustBadges?: TrustBadge[];
+  isLoading?: boolean;
 }
 
 export default function TrustBadges({ 
   variant = 'horizontal',
   showAll = true,
-  trustBadges
+  trustBadges,
+  isLoading = false
 }: TrustBadgesProps) {
   // Map icon names to emojis
   const iconMap: Record<string, string> = {
@@ -25,33 +27,36 @@ export default function TrustBadges({
     heart: '❤️',
   };
   
-  // Transform Sanity data or use fallback
-  const badges = trustBadges?.map(badge => ({
+  // Show loading state
+  if (isLoading) {
+    return (
+      <div className={variant === 'horizontal' ? 'grid grid-cols-2 md:grid-cols-4 gap-4' : 'grid grid-cols-1 gap-4'}>
+        {[1, 2, 3, 4].map((i) => (
+          <Card key={i} variant="shadowed" padding="small" className="animate-pulse">
+            <div className="h-12 w-12 bg-gray-200 rounded-full mx-auto mb-2"></div>
+            <div className="h-4 bg-gray-200 rounded w-3/4 mx-auto mb-2"></div>
+            <div className="h-3 bg-gray-200 rounded w-1/2 mx-auto"></div>
+          </Card>
+        ))}
+      </div>
+    );
+  }
+  
+  // Show error state if no badges
+  if (!trustBadges || trustBadges.length === 0) {
+    return (
+      <Card variant="bordered" padding="medium" className="text-center">
+        <Text color="muted">Trust badges are currently being updated. Please check back soon.</Text>
+      </Card>
+    );
+  }
+  
+  // Transform Sanity data
+  const badges = trustBadges.map(badge => ({
     icon: iconMap[badge.icon] || '📌',
     title: badge.title,
     subtitle: badge.subtitle
-  })) || [
-    {
-      icon: '🚫',
-      title: 'No Agency Fees',
-      subtitle: 'Just honest pricing'
-    },
-    {
-      icon: '🍺',
-      title: 'From Real licensees',
-      subtitle: 'We run a pub too'
-    },
-    {
-      icon: '📅',
-      title: 'Results in 14 Days',
-      subtitle: 'Or your money back'
-    },
-    {
-      icon: '💰',
-      title: 'Cost Effective',
-      subtitle: 'Less than part-time staff'
-    }
-  ];
+  }));
 
   const displayBadges = showAll ? badges : badges.slice(0, 3);
 
@@ -87,23 +92,36 @@ export default function TrustBadges({
           className="text-center bg-gradient-to-br from-white to-cream hover:shadow-lg transition-normal hover:-translate-y-1"
         >
           <div className="text-4xl mb-2">{badge.icon}</div>
-          <Heading level={4} className="text-charcoal">{badge.title}</Heading>
-          <Text size="xs" className="text-charcoal/60 mt-1">{badge.subtitle}</Text>
+          <Heading level={4} align="center" className="text-charcoal">{badge.title}</Heading>
+          <Text size="xs" align="center" className="text-charcoal/60 mt-1">{badge.subtitle}</Text>
         </Card>
       ))}
     </div>
   );
 }
 
-export function FloatingTrustBadge() {
+export function FloatingTrustBadge({ claims }: { claims?: Record<string, any> }) {
+  // Show loading state
+  if (!claims) {
+    return (
+      <div className="fixed bottom-4 left-4 z-30 hidden lg:block">
+        <Card variant="bordered" padding="small" className="shadow-lg max-w-xs animate-pulse">
+          <div className="h-20 w-64 bg-gray-200 rounded"></div>
+        </Card>
+      </div>
+    );
+  }
+  
   return (
     <div className="fixed bottom-4 left-4 z-30 hidden lg:block">
       <Card variant="bordered" padding="small" className="shadow-lg max-w-xs animate-fade-in border-2">
         <div className="flex items-center gap-3">
           <div className="text-3xl">💰</div>
           <div>
-            <Text size="sm" weight="bold">No Agency Fees</Text>
-            <Text size="xs" className="text-charcoal/60">Less than part-time staff</Text>
+            <Text size="sm" weight="bold">{claims.noAgencyFees?.claim || 'No Agency Fees'}</Text>
+            <Text size="xs" className="text-charcoal/60">
+              {claims.noAgencyFees?.context || 'Honest hourly pricing'}
+            </Text>
           </div>
         </div>
         

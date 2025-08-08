@@ -13,14 +13,15 @@ export default defineType({
       validation: Rule => Rule.required(),
       options: {
         list: [
-          { title: 'Homepage', value: 'home' },
-          { title: 'About Page', value: 'about' },
-          { title: 'Services Page', value: 'services' },
-          { title: 'Contact Page', value: 'contact' },
-          { title: 'Results Page', value: 'results' },
-          { title: 'Blog Posts', value: 'blog' },
-          { title: 'Pub Rescue', value: 'pubRescue' },
-          { title: 'Legal Pages', value: 'legal' }
+          { title: 'About', value: 'about' },
+          { title: 'Quick Wins', value: 'quickWins' },
+          { title: 'Empty Pub', value: 'emptyPub' },
+          { title: 'Competition', value: 'competition' },
+          { title: 'Budget', value: 'budget' },
+          { title: 'Time', value: 'time' },
+          { title: 'Quick Start', value: 'quickStart' },
+          { title: 'Services', value: 'services' },
+          { title: 'Contact', value: 'contact' }
         ]
       }
     }),
@@ -67,6 +68,13 @@ export default defineType({
             title: 'External Link',
             type: 'boolean',
             description: 'Opens in new tab',
+            initialValue: false
+          }),
+          defineField({
+            name: 'highlight',
+            title: 'Highlight',
+            type: 'boolean',
+            description: 'Highlight this link for emphasis',
             initialValue: false
           })
         ]

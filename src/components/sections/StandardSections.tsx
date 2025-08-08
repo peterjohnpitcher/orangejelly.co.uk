@@ -1,6 +1,7 @@
 import Section from '@/components/Section';
 import Partnerships from '@/components/Partnerships';
-import RelatedLinks, { linkClusters } from '@/components/RelatedLinks';
+import RelatedLinks from '@/components/RelatedLinks';
+import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity';
 import CTASection from '@/components/CTASection';
 import TrustBadges from '@/components/TrustBadges';
 import type { RelatedLink } from '@/components/RelatedLinks';
@@ -51,7 +52,7 @@ interface HelpSectionProps {
   title?: string;
   subtitle?: string;
   links?: RelatedLink[];
-  linkCluster?: keyof typeof linkClusters;
+  linkCluster?: string; // Changed to string for Sanity cluster ID
   background?: 'white' | 'cream';
   columns?: {
     default?: 1 | 2 | 3 | 4;
@@ -69,15 +70,30 @@ export function HelpSection({
   background = 'cream',
   columns = { default: 1, md: 2, lg: 3 }
 }: HelpSectionProps) {
-  // Use provided links or fall back to a link cluster
-  const displayLinks = links || (linkCluster ? linkClusters[linkCluster] : linkClusters.quickStart);
+  // If links are provided directly, use them
+  if (links && links.length > 0) {
+    return (
+      <SectionWrapper background={background}>
+        <RelatedLinks
+          title={title}
+          subtitle={subtitle}
+          links={links}
+          variant="card"
+          columns={columns}
+        />
+      </SectionWrapper>
+    );
+  }
+  
+  // Otherwise, fetch from Sanity using cluster ID
+  const clusterId = linkCluster || 'quickStart';
   
   return (
     <SectionWrapper background={background}>
-      <RelatedLinks
+      <RelatedLinksFromSanity
+        clusterId={clusterId}
         title={title}
         subtitle={subtitle}
-        links={displayLinks}
         variant="card"
         columns={columns}
       />

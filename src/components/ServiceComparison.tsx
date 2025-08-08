@@ -4,8 +4,16 @@ import { useState } from 'react';
 import WhatsAppButton from './WhatsAppButton';
 import Card from './Card';
 import { PRICING, MESSAGES, COMPANY } from '@/lib/constants';
-import Heading from './Heading';
 import Text from './Text';
+import Heading from './Heading';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 export default function ServiceComparison() {
   const [selectedService, setSelectedService] = useState('quickwins');
@@ -72,13 +80,13 @@ export default function ServiceComparison() {
       </div>
 
       {/* Desktop Comparison Table */}
-      <div className="hidden md:block overflow-x-auto">
-        <table className="w-full">
-          <thead>
-            <tr className="border-b-2 border-orange/20">
-              <th className="text-left py-4"></th>
+      <div className="hidden md:block">
+        <Table>
+          <TableHeader>
+            <TableRow className="border-b-2 border-orange/20">
+              <TableHead className="text-left py-4"></TableHead>
               {Object.entries(services).map(([key, service]) => (
-                <th key={key} className="text-center px-4 py-4">
+                <TableHead key={key} className="text-center px-4 py-4">
                   <div className={service.highlight ? 'relative' : ''}>
                     {service.highlight && (
                       <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-orange text-white px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
@@ -86,26 +94,26 @@ export default function ServiceComparison() {
                       </div>
                     )}
                     <Heading level={3} className="mb-2">{service.name}</Heading>
-                    <Text size="2xl" weight="bold" color="orange">{service.price}</Text>
+                    <Text size="2xl" weight="bold" className="text-orange">{service.price}</Text>
                     <Text size="sm" className="text-charcoal/60">{service.timeline}</Text>
                   </div>
-                </th>
+                </TableHead>
               ))}
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b">
-              <td className="py-4 font-semibold">Perfect for:</td>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow className="border-b">
+              <TableCell className="py-4 font-semibold">Perfect for:</TableCell>
               {Object.entries(services).map(([key, service]) => (
-                <td key={key} className="px-4 py-4 text-center text-sm">
+                <TableCell key={key} className="px-4 py-4 text-center text-sm">
                   {service.perfect}
-                </td>
+                </TableCell>
               ))}
-            </tr>
-            <tr className="border-b">
-              <td className="py-4 font-semibold align-top">What's included:</td>
+            </TableRow>
+            <TableRow className="border-b">
+              <TableCell className="py-4 font-semibold align-top">What's included:</TableCell>
               {Object.entries(services).map(([key, service]) => (
-                <td key={key} className="px-4 py-4">
+                <TableCell key={key} className="px-4 py-4">
                   <ul className="space-y-2">
                     {service.includes.map((item, index) => (
                       <li key={index} className="flex items-start text-sm">
@@ -114,23 +122,23 @@ export default function ServiceComparison() {
                       </li>
                     ))}
                   </ul>
-                </td>
+                </TableCell>
               ))}
-            </tr>
-            <tr>
-              <td></td>
+            </TableRow>
+            <TableRow>
+              <TableCell></TableCell>
               {Object.entries(services).map(([key, service]) => (
-                <td key={key} className="px-4 py-6 text-center">
+                <TableCell key={key} className="px-4 py-6 text-center">
                   <WhatsAppButton
                     text={`I want the ${service.name}`}
                     size="small"
                     variant={service.highlight ? 'primary' : 'secondary'}
                   />
-                </td>
+                </TableCell>
               ))}
-            </tr>
-          </tbody>
-        </table>
+            </TableRow>
+          </TableBody>
+        </Table>
       </div>
 
       {/* Mobile Selected Service Display */}
@@ -149,7 +157,7 @@ export default function ServiceComparison() {
             )}
             
             <Heading level={3} className="mb-2">{service.name}</Heading>
-            <Text size="2xl" weight="bold" color="orange" className="mb-1">{service.price}</Text>
+            <Text size="2xl" weight="bold" className="text-orange mb-1">{service.price}</Text>
             <Text size="sm" className="text-charcoal/60 mb-4">{service.timeline}</Text>
             
             <div className="mb-6">

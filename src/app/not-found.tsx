@@ -6,7 +6,7 @@ import Button from '@/components/Button';
 import Grid from '@/components/Grid';
 import Card from '@/components/Card';
 import { LandmarkMain } from '@/components/AriaLandmarks';
-import RelatedLinks, { linkClusters } from '@/components/RelatedLinks';
+import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity';
 import { CONTACT } from '@/lib/constants';
 import { generateMetadata as generatePageMetadata } from '@/lib/metadata';
 
@@ -169,10 +169,10 @@ export default function NotFound() {
         </Section>
         
         <Section background="orange-light">
-          <RelatedLinks
+          <RelatedLinksFromSanity
+            clusterId="quickStart"
             title="Popular Pages"
             subtitle="Here's what most pub owners are looking for"
-            links={linkClusters.quickStart}
             variant="card"
             columns={{ default: 1, md: 3 }}
           />

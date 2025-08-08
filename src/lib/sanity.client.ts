@@ -7,7 +7,7 @@ import imageUrlBuilder from '@sanity/image-url';
 // SANITY_API_TOKEN=your-token (for write access)
 
 export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'demo-project',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '9brdfanc',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   apiVersion: '2024-01-01',
   useCdn: process.env.NODE_ENV === 'production',

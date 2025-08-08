@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import Loading from '@/components/Loading';
 import { generateSanityMetadata } from '@/lib/metadata-sanity';
+import { getContactFAQs } from '@/lib/sanity-contact-faqs';
 
 const ContactPage = dynamic(
   () => import('./ContactPage'),
@@ -18,6 +19,7 @@ export async function generateMetadata() {
   });
 }
 
-export default function Contact() {
-  return <ContactPage />;
+export default async function Contact() {
+  const faqs = await getContactFAQs();
+  return <ContactPage faqs={faqs} />;
 }

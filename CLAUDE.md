@@ -35,9 +35,16 @@ npm run test:coverage # Check test coverage
 - **Constants**: `src/lib/constants.ts`
 - **Components**: `src/components/`
 - **Pages**: `src/app/`
-- **Blog posts**: `content/blog/`
+- **Blog posts**: **IN SANITY CMS** (NOT markdown files!)
 - **Public assets**: `public/`
 - **Tests**: `src/components/**/*.test.tsx`
+
+### ⚠️ CRITICAL: Blog Content Location
+**ALL BLOG CONTENT IS STORED IN SANITY CMS, NOT IN MARKDOWN FILES!**
+- Blog posts are managed through Sanity Studio
+- Any `/content/blog/` folder with markdown files is OBSOLETE and should be deleted
+- To update blog content, use Sanity write client or Sanity Studio
+- Blog schema: `sanity-studio/schemas/blogPost.ts`
 
 ## 🎯 Guiding Principles
 
@@ -857,6 +864,237 @@ npm run measure       # Custom metrics
 - **urlFor()**: Sanity image URL builder
 - **generateMetadata()**: SEO metadata helper
 
+## 🏗️ Sanity CMS Configuration Guide
+
+### CRITICAL: When Adding New Schemas to Sanity
+
+**You MUST update THREE places** (not just two!):
+
+1. **Create the schema file** in `sanity-studio/schemas/`
+2. **Add to schema index** in `sanity-studio/schemas/index.ts`
+3. **Add to menu structure** in `sanity-studio/sanity.config.ts`
+
+### Sanity Project Details
+- **Project ID**: `9brdfanc`
+- **Dataset**: `production`
+- **Studio URL**: https://orangejelly.sanity.studio/
+
+### Adding a New Schema - Complete Steps
+
+#### Step 1: Create Schema File
+```typescript
+// sanity-studio/schemas/yourNewSchema.ts
+import { defineType, defineField } from 'sanity'
+
+export default defineType({
+  name: 'yourSchemaName',  // This MUST match filter in menu
+  title: 'Your Schema Title',
+  type: 'document',
+  icon: () => '📄',  // Optional but recommended
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: Rule => Rule.required()
+    }),
+    // ... other fields
+  ]
+})
+```
+
+#### Step 2: Add to Schema Index
+```typescript
+// sanity-studio/schemas/index.ts
+import yourNewSchema from './yourNewSchema';  // Add import
+
+export const schemaTypes = [
+  // ... existing schemas
+  yourNewSchema,  // Add to array
+];
+```
+
+#### Step 3: Add to Menu Structure (OFTEN MISSED!)
+```typescript
+// sanity-studio/sanity.config.ts
+structure: (S) =>
+  S.list()
+    .title('Content')
+    .items([
+      // ... existing items
+      S.listItem()
+        .title('Your Schema Title')
+        .icon(() => '📄')  // Optional
+        .child(
+          S.documentList()
+            .title('Your Schema Title')
+            .filter('_type == "yourSchemaName"')  // MUST match schema name
+        ),
+    ])
+```
+
+### Sanity Commands
+```bash
+# Development (from sanity-studio directory)
+cd sanity-studio
+npm run dev          # Start local studio at http://localhost:3333
+
+# Deployment
+npm run build        # Build studio
+npx sanity deploy    # Deploy to orangejelly.sanity.studio
+
+# Schema operations
+npx sanity schema list     # List deployed schemas
+npx sanity documents query # Query documents
+
+# Migration scripts (from website root)
+npm run migrate:claims     # Example migration script
+```
+
+### Common Sanity Issues & Solutions
+
+#### Issue: New schema not appearing in menu
+**Cause**: Forgot to add to menu structure in sanity.config.ts
+**Solution**: Add listItem to structure function (see Step 3 above)
+
+#### Issue: "project user not found" error
+**Cause**: Invalid or expired API token
+**Solution**: 
+1. Go to https://www.sanity.io/manage/project/9brdfanc/api
+2. Create new token with "Editor" permissions
+3. Update SANITY_API_TOKEN in .env.local
+
+#### Issue: Schema changes not reflecting
+**Solution**: 
+```bash
+cd sanity-studio
+rm -rf dist          # Clear build cache
+npm run build        # Rebuild
+npx sanity deploy    # Deploy
+```
+Then hard refresh browser (Cmd+Shift+R)
+
+#### Issue: Cannot query new schema
+**Cause**: Schema deployed but no documents created
+**Solution**: Create at least one document through Studio UI
+
+#### Issue: Schema shows {"error": {}} in Studio
+**Possible Causes & Solutions**:
+1. **Invalid icon definition in schema**
+   - ❌ Wrong: `icon: () => '📊'` in schema file
+   - ✅ Right: Add icon in menu structure only
+2. **Invalid field conditions**
+   - Check `hidden` conditions don't use `!value` for numbers (0 is falsy)
+   - Use explicit checks: `value === undefined || value === null`
+3. **Preview configuration issues**
+   - Ensure preview doesn't reference undefined fields
+   - Add fallbacks: `title || 'Untitled'`
+4. **Browser cache**
+   - Hard refresh (Cmd+Shift+R)
+   - Clear local storage for Sanity Studio domain
+
+#### Issue: "Failed to execute 'createElement' on 'Document'" error
+**Cause**: Preview configuration trying to use invalid characters as media
+**Common mistake**: Using emoji or special characters in preview media
+```typescript
+// ❌ Wrong - causes createElement error
+prepare({ title, active }) {
+  return {
+    title,
+    media: active ? '✓' : '✗'  // Invalid!
+  }
+}
+
+// ✅ Right - no media or use React component
+prepare({ title, active }) {
+  return {
+    title,
+    subtitle: active ? 'Active' : 'Inactive'
+  }
+}
+```
+**Solution**: Remove media property or use proper React component
+
+#### Issue: "Missing keys - Some items in the list are missing their keys"
+**Cause**: Array items created without required `_key` property
+**Common in**: Migration scripts that create arrays
+```typescript
+// ❌ Wrong - missing _key in array items
+timeline: [
+  {
+    date: 'March 2019',
+    title: 'Event'
+  }
+]
+
+// ✅ Right - include _key in every array item
+timeline: [
+  {
+    _key: 'timeline_0',
+    date: 'March 2019',
+    title: 'Event'
+  }
+]
+```
+**Solution**: 
+1. Fix existing data: Run `npm run fix:sanity-keys`
+2. Prevent in new migrations: Always add `_key` to array items
+3. Use unique keys: `_key: 'prefix_' + index` or `_key: 'prefix_' + Date.now() + '_' + index`
+
+### Sanity Menu Structure Pattern
+
+The Orange Jelly Sanity Studio uses a custom menu structure:
+
+```
+Content
+├── Blog Posts
+├── Services  
+├── Case Studies
+├── ─────────── (divider)
+├── Authors
+├── Categories
+├── FAQs
+├── Claims & Metrics
+├── ─────────── (divider)
+└── Site Settings (singleton)
+```
+
+### Key Files Reference
+- **Main config**: `sanity-studio/sanity.config.ts`
+- **CLI config**: `sanity-studio/sanity.cli.ts`
+- **Schema index**: `sanity-studio/schemas/index.ts`
+- **Individual schemas**: `sanity-studio/schemas/*.ts`
+
+### Schema Best Practices
+1. **Naming**: Use camelCase for schema names
+2. **Icons**: Add icons ONLY in menu structure, not schema definition
+   - ✅ Right: `.icon(() => '📊')` in sanity.config.ts menu
+   - ❌ Wrong: `icon: () => '📊'` in schema defineType
+3. **Validation**: Add required fields validation
+4. **Preview**: Configure preview for list display with fallbacks
+5. **Initial values**: Set sensible defaults
+6. **Hidden conditions**: Use explicit null/undefined checks for numbers
+
+### Singleton Documents
+For settings/config that should have only one instance:
+```typescript
+S.listItem()
+  .title('Site Settings')
+  .child(
+    S.editor()
+      .schemaType('siteSettings')
+      .documentId('siteSettings')  // Fixed ID
+  )
+```
+
+### Remember: THREE Places!
+Every time you add a schema:
+1. ✅ Schema file created
+2. ✅ Added to schemas/index.ts
+3. ✅ Added to menu in sanity.config.ts
+
+Missing any of these = schema won't work properly!
+
 ## 🤝 Getting Help
 
 ### When You're Unsure
@@ -882,6 +1120,19 @@ Remember: You're building something that genuinely helps struggling licensees. E
 **Status**: ACTIVE - Your trusted development guide
 
 ## 📝 CHANGELOG
+
+### Version 5.2 (January 2025)
+- **CRITICAL UPDATE**: Documented that ALL blog content is in Sanity CMS, not markdown files
+- Added warning about obsolete markdown blog files
+- Clarified blog content management through Sanity Studio
+- Updated "Where to Find Things" section with blog location
+
+### Version 5.1 (August 2025)
+- Added comprehensive Sanity CMS Configuration Guide
+- Documented the THREE places requirement for new schemas
+- Added common Sanity issues and solutions
+- Added menu structure documentation
+- Included troubleshooting steps for schema deployment
 
 ### Version 5.0 (January 2025)
 - Added comprehensive 2025 best practices research

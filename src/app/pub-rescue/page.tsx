@@ -1,221 +1,66 @@
+import { Metadata } from 'next';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import CTASection from '@/components/CTASection';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import { MESSAGES, CONTACT } from '@/lib/constants';
-import Link from '@/components/Link';
 import Text from '@/components/Text';
 import Heading from '@/components/Heading';
 import Card from '@/components/Card';
 import Grid from '@/components/Grid';
 import FeatureList from '@/components/FeatureList';
 import AnimatedItem from '@/components/AnimatedItem';
-import Button from '@/components/Button';
 import FAQItem from '@/components/FAQItem';
-import { breadcrumbPaths } from '@/components/Breadcrumb';
-import RelatedLinks, { linkClusters } from '@/components/RelatedLinks';
-import { generateMetadata } from '@/lib/metadata';
+import RelatedLinks from '@/components/RelatedLinks';
+import { generateMetadata as generateMeta } from '@/lib/metadata';
 import { FAQSchema } from '@/components/StructuredData';
+import { getLandingPageContent } from '@/lib/sanity-landing-pages';
+import { notFound } from 'next/navigation';
 
-export const metadata = generateMetadata({
-  title: 'Pub Rescue - Emergency Help for Struggling UK Pubs',
-  description: 'Struggling pub? Get emergency help now. From empty Tuesday nights to staff crises, we provide immediate solutions that work. 30-day money-back guarantee. Help is just one message away.',
-  path: '/pub-rescue',
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getLandingPageContent('pub-rescue');
+  
+  if (!content || !content.seo) {
+    return generateMeta({
+      title: 'Pub Rescue - Emergency Help for Struggling UK Pubs',
+      description: 'Struggling pub? Get emergency help now. From empty Tuesday nights to staff crises, we provide immediate solutions that work. 30-day money-back guarantee.',
+      path: '/pub-rescue',
+    });
+  }
 
-export default function PubRescue() {
-  // FAQ data for pub rescue
-  const pubRescueFAQs = [
-    {
-      question: "How quickly can you help my struggling pub?",
-      answer: "I typically respond within 2 hours during the day. We can have an initial chat about your problems today, and I'll often send you 2-3 quick wins you can implement immediately - no charge. Full support packages can start within days."
-    },
-    {
-      question: "What if I can't afford consultancy fees right now?",
-      answer: "I get it - when the pub's struggling, every penny counts. We charge £62.50 per hour plus VAT, working flexibly with your budget. Most strategies pay for themselves in the first weekend. Plus, I'll often share free tips during our first chat because I hate seeing pubs struggle."
-    },
-    {
-      question: "Do you really understand what I'm going through?",
-      answer: "Absolutely. The Anchor was in terrible physical state when we took over in March 2019 - leaking roof, no insulation, paper rotas. We've dealt with everything: staff walking out mid-shift, supplier nightmares, fierce competition. That's why Orange Jelly exists - to help you avoid our mistakes."
-    },
-    {
-      question: "What's your success rate with pub turnarounds?",
-      answer: "We've helped transform pubs from empty to thriving. Our own pub, The Anchor, went from 45 to 65 Sunday covers and doubled Tuesday night revenue. Every strategy we recommend has been tested in real pub conditions."
-    },
-    {
-      question: "How is Orange Jelly different from other consultants?",
-      answer: "I'm not a consultant - I'm a licensee who runs a pub every day. No suits, no PowerPoints, no corporate jargon. Just practical help from someone who understands because I'm dealing with the same challenges. Plus, we use AI to save time on the boring bits."
-    },
-    {
-      question: "What if your solutions don't work for my pub?",
-      answer: "Every pub is different, which is why we offer a 30-day money-back guarantee. If you don't see improved results within 30 days, you get a full refund. But honestly, the strategies work because they're based on real pub experience, not theory."
-    }
-  ];
+  return generateMeta({
+    title: content.seo.metaTitle || content.title,
+    description: content.seo.metaDescription || content.heroSection?.subtitle || 'Emergency help for struggling pubs: quick wins, guaranteed results, and a clear action plan.',
+    path: '/pub-rescue',
+  });
+}
 
-  const emergencyCategories = [
-    {
-      id: 'empty-nights',
-      emoji: '🏚️',
-      title: 'Empty Pub Emergency',
-      crisis: 'Dead weeknights killing your business',
-      symptoms: [
-        'Tuesday/Wednesday nights are graveyards',
-        'Dining room sits half empty at peak times',
-        'Events not pulling crowds anymore',
-        'Locals stopped coming in'
-      ],
-      solution: 'Fill your quiet periods in 30 days with our proven recovery system',
-      cta: "Help! My pub is empty",
-      urgency: 'Average pub loses £2,000/month from empty nights'
-    },
-    {
-      id: 'no-bookings',
-      emoji: '📵',
-      title: 'No Bookings Crisis',
-      crisis: 'Phone stopped ringing for bookings',
-      symptoms: [
-        'Christmas bookings down on last year',
-        'Sunday roasts not selling out',
-        'Functions going to competitors',
-        'Walk-ins only, no advance bookings'
-      ],
-      solution: 'Get your booking system working and phones ringing again',
-      cta: "I need bookings NOW",
-      urgency: 'Every empty table costs you £45 in lost revenue'
-    },
-    {
-      id: 'food-sales',
-      emoji: '🍽️',
-      title: 'Food Sales Disaster',
-      crisis: 'Kitchen running at a loss',
-      symptoms: [
-        'Food GP below 65%',
-        'Customers only ordering chips',
-        'Specials not selling',
-        'Kitchen costs out of control'
-      ],
-      solution: 'Menu psychology that increases average spend by £7/table',
-      cta: "Fix my food sales",
-      urgency: 'Poor menu design costs £500/week in lost profit'
-    },
-    {
-      id: 'staff-chaos',
-      emoji: '😰',
-      title: 'Staff Nightmare',
-      crisis: 'Can\'t find or keep good staff',
-      symptoms: [
-        'Doing 70+ hour weeks yourself',
-        'Staff leaving after 3 months',
-        'No applicants for job ads',
-        'Training eating all your time'
-      ],
-      solution: 'Automate the admin so you can focus on keeping good people',
-      cta: "I\'m drowning in staff issues",
-      urgency: 'Staff turnover costs £3,000 per person'
-    },
-    {
-      id: 'costs-rising',
-      emoji: '💸',
-      title: 'Cost Crisis',
-      crisis: 'Bills eating all the profit',
-      symptoms: [
-        'Energy bills through the roof',
-        'Supplier prices keep rising',
-        'Wage costs unsustainable',
-        'Breaking even at best'
-      ],
-      solution: 'Find £2,000+/month in hidden savings and revenue',
-      cta: "Help me cut costs",
-      urgency: 'Most pubs overspend by 15-20% without knowing'
-    },
-    {
-      id: 'marketing-overwhelm',
-      emoji: '📱',
-      title: 'Marketing Chaos',
-      crisis: 'No time for social media or marketing',
-      symptoms: [
-        'Haven\'t posted in weeks',
-        'No email list or it\'s dead',
-        'Don\'t know what to post',
-        'Marketing feels pointless'
-      ],
-      solution: 'Done-for-you marketing that runs itself',
-      cta: "Do my marketing for me",
-      urgency: 'Silent pubs stay empty - costs £1,500/month'
-    },
-    {
-      id: 'competition',
-      emoji: '⚔️',
-      title: 'Losing to Competition',
-      crisis: 'Other pubs stealing your customers',
-      symptoms: [
-        'New pub opened and took regulars',
-        'Chain pubs undercutting prices',
-        'Lost quiz team to rival',
-        'Can\'t compete with their offers'
-      ],
-      solution: 'Beat them with personality, not price wars',
-      cta: "Help me fight back",
-      urgency: 'Every lost regular costs £2,400/year'
-    },
-    {
-      id: 'no-events',
-      emoji: '🎭',
-      title: 'Event Flops',
-      crisis: 'Events not bringing in crowds',
-      symptoms: [
-        'Quiz night down to 20 people',
-        'Live music playing to empty room',
-        'Themed nights flopping',
-        'Same faces, no new customers'
-      ],
-      solution: 'Event promotion that actually fills your pub',
-      cta: "Make my events work",
-      urgency: 'Failed events damage reputation and cost money'
-    },
-    {
-      id: 'online-invisible',
-      emoji: '🔍',
-      title: 'Can\'t Be Found Online',
-      crisis: 'Invisible on Google and social media',
-      symptoms: [
-        'Not showing on Google Maps',
-        'Bad reviews killing business',
-        'Website looks amateur (or none)',
-        'Facebook page is dead'
-      ],
-      solution: 'Get found by hungry customers searching now',
-      cta: "Get me on Google",
-      urgency: '89% of diners search online first - you\'re invisible'
-    },
-    {
-      id: 'burnout',
-      emoji: '🔥',
-      title: 'Owner Burnout Crisis',
-      crisis: 'Working yourself into the ground',
-      symptoms: [
-        'Haven\'t had a day off in months',
-        'Family never sees you',
-        'Everything is on your shoulders',
-        'Starting to hate the business'
-      ],
-      solution: 'Automate the boring bits so you can breathe again',
-      cta: "I need my life back",
-      urgency: 'Burnout leads to mistakes that cost thousands'
-    }
-  ];
+export default async function PubRescue() {
+  const content = await getLandingPageContent('pub-rescue');
+
+  if (!content) {
+    notFound();
+  }
+
+  const {
+    heroSection,
+    emergencyCategories = [],
+    successMetrics,
+    faqs = []
+  } = content;
 
   return (
     <>
-      <Hero
-        title="Pub Rescue Emergency Service"
-        subtitle="When your pub is in crisis, you need help NOW. Not next month."
-        showCTA={false}
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Pub Rescue' }
-        ]}
-      />
+      {heroSection && (
+        <Hero
+          title={heroSection.title}
+          subtitle={heroSection.subtitle}
+          showCTA={false}
+          breadcrumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'Pub Rescue' }
+          ]}
+        />
+      )}
 
       {/* Emergency Banner */}
       <Section background="orange-light" padding="small">
@@ -244,117 +89,111 @@ export default function PubRescue() {
       </Section>
 
       {/* Crisis Categories */}
-      <Section background="white">
-        <Heading level={2} align="center" className="mb-4">
-          What's Your Biggest Emergency Right Now?
-        </Heading>
-        <Text size="lg" align="center" className="mb-12 max-w-3xl mx-auto">
-          Click your most urgent problem. We'll share how we fixed the same crisis at The Anchor 
-          and create an action plan to save your pub.
-        </Text>
-
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
-          {emergencyCategories.map((category) => (
-            <div 
-              key={category.id}
-              className="bg-white rounded-lg p-6 border-2 border-orange/20 hover:border-orange transition-all hover:shadow-lg"
-            >
-              <div className="flex items-start mb-4">
-                <Text size="xl" className="mr-4">{category.emoji}</Text>
-                <div className="flex-1">
-                  <Heading level={3} className="mb-2">{category.title}</Heading>
-                  <Text className="text-red-600 font-semibold mb-3">{category.crisis}</Text>
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <Text size="sm" className="font-semibold mb-2 text-charcoal/70">Warning signs:</Text>
-                <ul className="space-y-1">
-                  {category.symptoms.map((symptom, index) => (
-                    <li key={index} className="text-sm text-charcoal/80 flex items-start">
-                      <span className="text-red-500 mr-2">•</span>
-                      {symptom}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-green-50 rounded-lg p-3 mb-4">
-                <Text size="sm" className="font-semibold text-green-800">Quick fix:</Text>
-                <Text size="sm" className="text-green-700">{category.solution}</Text>
-              </div>
-
-              <div className="bg-red-50 rounded-lg p-3 mb-4">
-                <Text size="xs" className="text-red-700 font-semibold">{category.urgency}</Text>
-              </div>
-
-              <WhatsAppButton
-                text={category.cta}
-                fullWidth
-                size="medium"
-                className="!bg-orange hover:!bg-orange-dark"
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* Our Story Box */}
-        <div className="bg-teal text-white rounded-lg p-8 mb-12">
-          <Heading level={3} align="center" className="mb-6">
-            We've Been Where You Are Now
+      {emergencyCategories.length > 0 && (
+        <Section background="white">
+          <Heading level={2} align="center" className="mb-4">
+            What's Your Biggest Emergency Right Now?
           </Heading>
-          <Text size="lg" align="center" className="mb-6 text-cream/90 max-w-3xl mx-auto">
-            When we took over The Anchor, it was failing. TripAdvisor rating of 2.8. 
-            Empty most nights. Losing money every month. Sound familiar?
+          <Text size="lg" align="center" className="mb-12 max-w-3xl mx-auto">
+            Click your most urgent problem. We'll share how we fixed the same crisis at The Anchor 
+            and create an action plan to save your pub.
           </Text>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-teal-dark/30 rounded-lg p-4">
-              <Heading level={4} className="mb-2">Our Tuesday Nights</Heading>
-              <Text size="sm" className="mb-2">Were: 20-25 people, losing money</Text>
-              <Text size="sm" className="font-semibold">Now: 25-35 for quiz night, good atmosphere</Text>
-            </div>
-            <div className="bg-teal-dark/30 rounded-lg p-4">
-              <Heading level={4} className="mb-2">Our Sunday Roasts</Heading>
-              <Text size="sm" className="mb-2">Were: 45 covers out of 80 seats</Text>
-              <Text size="sm" className="font-semibold">Now: Working towards 60 target, zero waste</Text>
-            </div>
-            <div className="bg-teal-dark/30 rounded-lg p-4">
-              <Heading level={4} className="mb-2">Our Time</Heading>
-              <Text size="sm" className="mb-2">Were: 70+ hour weeks, no family time</Text>
-              <Text size="sm" className="font-semibold">Now: Evenings off, AI handles admin</Text>
-            </div>
-          </div>
-        </div>
 
-        {/* Emergency Response Promise */}
-        <div className="bg-gradient-to-r from-orange/10 to-orange/5 rounded-lg p-8 border-2 border-orange/20">
-          <Heading level={3} align="center" className="mb-6">
-            Our Emergency Response Promise
-          </Heading>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-            <div>
-              <div className="text-3xl mb-2">⚡</div>
-              <Heading level={4} className="mb-1">Fast Response</Heading>
-              <Text size="sm">Contact within 2 hours during pub hours</Text>
-            </div>
-            <div>
-              <div className="text-3xl mb-2">🎯</div>
-              <Heading level={4} className="mb-1">Quick Diagnosis</Heading>
-              <Text size="sm">Identify root problems, not just symptoms</Text>
-            </div>
-            <div>
-              <div className="text-3xl mb-2">💰</div>
-              <Heading level={4} className="mb-1">ROI Focused</Heading>
-              <Text size="sm">Solutions that pay for themselves fast</Text>
-            </div>
-            <div>
-              <div className="text-3xl mb-2">🛡️</div>
-              <Heading level={4} className="mb-1">30-Day Guarantee</Heading>
-              <Text size="sm">See results or get your money back</Text>
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            {emergencyCategories.map((category) => (
+              <div 
+                key={category._key}
+                className="bg-white rounded-lg p-6 border-2 border-orange/20 hover:border-orange transition-all hover:shadow-lg"
+              >
+                <div className="flex items-start mb-4">
+                  <Text size="xl" className="mr-4">{category.icon}</Text>
+                  <div className="flex-1">
+                    <Heading level={3} className="mb-2">{category.title}</Heading>
+                  </div>
+                </div>
+
+                {category.items && category.items.length > 0 && (
+                  <div className="mb-4">
+                    <Text size="sm" className="font-semibold mb-2 text-charcoal/70">Warning signs:</Text>
+                    <ul className="space-y-1">
+                      {category.items.map((item, index) => (
+                        <li key={index} className="text-sm text-charcoal/80 flex items-start">
+                          <span className="text-red-500 mr-2">•</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <WhatsAppButton
+                  text={`Help! ${category.title}`}
+                  fullWidth
+                  size="medium"
+                  className="!bg-orange hover:!bg-orange-dark"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Our Story Box */}
+          <div className="bg-teal text-white rounded-lg p-8 mb-12">
+            <Heading level={3} align="center" className="mb-6">
+              We've Been Where You Are Now
+            </Heading>
+            <Text size="lg" align="center" className="mb-6 text-cream/90 max-w-3xl mx-auto">
+              When we took over The Anchor, it was failing. TripAdvisor rating of 2.8. 
+              Empty most nights. Losing money every month. Sound familiar?
+            </Text>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-teal-dark/30 rounded-lg p-4">
+                <Heading level={4} className="mb-2">Our Tuesday Nights</Heading>
+                <Text size="sm" className="mb-2">Were: 20-25 people, losing money</Text>
+                <Text size="sm" className="font-semibold">Now: 25-35 for quiz night, good atmosphere</Text>
+              </div>
+              <div className="bg-teal-dark/30 rounded-lg p-4">
+                <Heading level={4} className="mb-2">Our Sunday Roasts</Heading>
+                <Text size="sm" className="mb-2">Were: 45 covers out of 80 seats</Text>
+                <Text size="sm" className="font-semibold">Now: Working towards 60 target, zero waste</Text>
+              </div>
+              <div className="bg-teal-dark/30 rounded-lg p-4">
+                <Heading level={4} className="mb-2">Our Time</Heading>
+                <Text size="sm" className="mb-2">Were: 70+ hour weeks, no family time</Text>
+                <Text size="sm" className="font-semibold">Now: Evenings off, AI handles admin</Text>
+              </div>
             </div>
           </div>
-        </div>
-      </Section>
+
+          {/* Emergency Response Promise */}
+          <div className="bg-gradient-to-r from-orange/10 to-orange/5 rounded-lg p-8 border-2 border-orange/20">
+            <Heading level={3} align="center" className="mb-6">
+              Our Emergency Response Promise
+            </Heading>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+              <div>
+                <div className="text-3xl mb-2">⚡</div>
+                <Heading level={4} className="mb-1">Fast Response</Heading>
+                <Text size="sm">Contact within 2 hours during pub hours</Text>
+              </div>
+              <div>
+                <div className="text-3xl mb-2">🎯</div>
+                <Heading level={4} className="mb-1">Quick Diagnosis</Heading>
+                <Text size="sm">Identify root problems, not just symptoms</Text>
+              </div>
+              <div>
+                <div className="text-3xl mb-2">💰</div>
+                <Heading level={4} className="mb-1">ROI Focused</Heading>
+                <Text size="sm">Solutions that pay for themselves fast</Text>
+              </div>
+              <div>
+                <div className="text-3xl mb-2">🛡️</div>
+                <Heading level={4} className="mb-1">30-Day Guarantee</Heading>
+                <Text size="sm">See results or get your money back</Text>
+              </div>
+            </div>
+          </div>
+        </Section>
+      )}
 
       {/* Crisis Calculator */}
       <Section background="cream" padding="small">
@@ -484,29 +323,30 @@ export default function PubRescue() {
               </Card>
             </Grid>
 
-            <Card background="orange-light" padding="large" className="mt-8">
-              <Text size="lg" align="center" weight="semibold" className="mb-4">
-                Most Pubs See These Results Within 30 Days:
-              </Text>
-              <Grid columns={{ default: 1, md: 4 }} gap="medium">
-                <div className="text-center">
-                  <Text size="2xl" weight="bold" color="orange">40%</Text>
-                  <Text size="sm">More midweek covers</Text>
-                </div>
-                <div className="text-center">
-                  <Text size="2xl" weight="bold" color="orange">£7</Text>
-                  <Text size="sm">Higher average spend</Text>
-                </div>
-                <div className="text-center">
-                  <Text size="2xl" weight="bold" color="orange">5+ hrs</Text>
-                  <Text size="sm">Saved weekly on admin</Text>
-                </div>
-                <div className="text-center">
-                  <Text size="2xl" weight="bold" color="orange">200%</Text>
-                  <Text size="sm">ROI on investment</Text>
-                </div>
-              </Grid>
-            </Card>
+            {successMetrics && successMetrics.metrics && successMetrics.metrics.length > 0 && (
+              <Card background="orange-light" padding="large" className="mt-8">
+                <Text size="lg" align="center" weight="semibold" className="mb-4">
+                  {successMetrics.title || 'Most Pubs See These Results Within 30 Days:'}
+                </Text>
+                {(() => {
+                  const count = successMetrics.metrics.length;
+                  const mdCols = (count >= 4 ? 4 : count === 3 ? 3 : count === 2 ? 2 : 1) as 1 | 2 | 3 | 4;
+                  return (
+                    <Grid columns={{ default: 1, md: mdCols }} gap="medium">
+                      {successMetrics.metrics.map((metric) => (
+                    <div key={metric._key} className="text-center">
+                      <Text size="2xl" weight="bold" className="text-orange">{metric.value}</Text>
+                      <Text size="sm">{metric.label}</Text>
+                      {metric.description && (
+                        <Text size="xs" className="text-charcoal/60 mt-1">{metric.description}</Text>
+                      )}
+                    </div>
+                      ))}
+                    </Grid>
+                  );
+                })()}
+              </Card>
+            )}
           </div>
         </AnimatedItem>
       </Section>
@@ -531,7 +371,7 @@ export default function PubRescue() {
                       update social media, or analyze what's working. You're too 
                       busy surviving to actually grow.
                     </Text>
-                    <Text weight="semibold" color="green">
+                    <Text weight="semibold" className="text-green-600">
                       We Fix This: AI handles the boring bits. Marketing runs itself. 
                       You get evenings back to think strategically (or just rest).
                     </Text>
@@ -552,7 +392,7 @@ export default function PubRescue() {
                       is a race to the bottom that kills your margins and attracts 
                       the wrong customers.
                     </Text>
-                    <Text weight="semibold" color="green">
+                    <Text weight="semibold" className="text-green-600">
                       We Fix This: Position your pub as THE place for something specific. 
                       Quiz nights, Sunday roasts, craft beer - own your niche and charge accordingly.
                     </Text>
@@ -571,7 +411,7 @@ export default function PubRescue() {
                       "When the economy improves." Hope isn't a strategy, 
                       and waiting costs you money every single day.
                     </Text>
-                    <Text weight="semibold" color="green">
+                    <Text weight="semibold" className="text-green-600">
                       We Fix This: Take action NOW. Our quick wins show results in days, 
                       not months. Every week you wait is money lost forever.
                     </Text>
@@ -675,7 +515,7 @@ export default function PubRescue() {
 
             <div className="text-center">
               <Text size="lg" className="mb-2">Investment is simple and transparent</Text>
-              <Text size="2xl" weight="bold" color="orange" className="mb-4">£62.50/hour + VAT</Text>
+              <Text size="2xl" weight="bold" className="text-orange mb-4">£62.50/hour + VAT</Text>
               <Text size="sm" color="muted" className="mb-8">
                 Most pubs make this back in their first weekend
               </Text>
@@ -685,25 +525,27 @@ export default function PubRescue() {
       </Section>
 
       {/* FAQ Section */}
-      <Section background="white">
-        <AnimatedItem animation="slide-up">
-          <div className="max-w-3xl mx-auto">
-            <Heading level={2} align="center" className="mb-12">
-              Common Questions From Struggling Licensees
-            </Heading>
-            
-            <div className="space-y-6">
-              {pubRescueFAQs.map((faq, index) => (
-                <FAQItem
-                  key={index}
-                  question={faq.question}
-                  answer={faq.answer}
-                />
-              ))}
+      {faqs.length > 0 && (
+        <Section background="white">
+          <AnimatedItem animation="slide-up">
+            <div className="max-w-3xl mx-auto">
+              <Heading level={2} align="center" className="mb-12">
+                Common Questions From Struggling Licensees
+              </Heading>
+              
+              <div className="space-y-6">
+                {faqs.map((faq) => (
+                  <FAQItem
+                    key={faq._key}
+                    question={faq.question}
+                    answer={faq.answer}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        </AnimatedItem>
-      </Section>
+          </AnimatedItem>
+        </Section>
+      )}
 
       {/* Related Links */}
       <Section background="cream">
@@ -747,7 +589,7 @@ export default function PubRescue() {
       />
       
       {/* Add FAQ Schema */}
-      <FAQSchema faqs={pubRescueFAQs} />
+      {faqs.length > 0 && <FAQSchema faqs={faqs} />}
     </>
   );
 }

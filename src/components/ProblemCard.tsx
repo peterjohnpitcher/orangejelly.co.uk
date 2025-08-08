@@ -20,9 +20,9 @@ function ProblemCard({
   linkHref
 }: ProblemCardProps) {
   return (
-    <Card variant="shadowed" className="hover:shadow-xl transition-normal hover:-translate-y-1 group">
+    <Card variant="shadowed" className="hover:shadow-xl transition-normal hover:-translate-y-1 group text-center">
       <div className="text-4xl mb-4 group-hover:scale-110 transition-normal">{emoji}</div>
-      <Heading level={3} className="mb-3 text-xl">
+      <Heading level={3} align="center" className="mb-3 text-xl">
         {problem}
       </Heading>
       <p className="text-charcoal/80 mb-4">

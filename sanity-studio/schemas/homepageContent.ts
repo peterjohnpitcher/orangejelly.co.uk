@@ -64,6 +64,12 @@ export default defineType({
               title: 'Description',
               type: 'string',
               validation: Rule => Rule.required()
+            }),
+            defineField({
+              name: 'linkHref',
+              title: 'Link Href',
+              type: 'string',
+              description: 'e.g., /services#empty-pub-recovery'
             })
           ]
         }

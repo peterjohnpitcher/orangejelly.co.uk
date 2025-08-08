@@ -1,7 +1,8 @@
 'use client';
 
 import OptimizedImage from '@/components/OptimizedImage';
-import Link from 'next/link';
+import NextLink from 'next/link';
+import Link from '@/components/Link';
 import { useState } from 'react';
 import { CONTACT, COMPANY, URLS, formatPhoneDisplay, MESSAGES, SUCCESS_METRICS, PRICING } from '@/lib/constants';
 import Button from '@/components/Button';
@@ -9,7 +10,10 @@ import Card from '@/components/Card';
 import TrustBadges from '@/components/TrustBadges';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
+import Container from '@/components/Container';
+import Box from '@/components/Box';
 import Input from '@/components/forms/Input';
+import { PLACEHOLDERS } from '@/lib/validation-messages';
 
 export default function SuperFooter() {
   const [email, setEmail] = useState('');
@@ -25,9 +29,9 @@ export default function SuperFooter() {
   return (
     <footer className="bg-charcoal text-cream">
       {/* Newsletter Section */}
-      <div className="bg-teal py-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="max-w-2xl mx-auto text-center">
+      <Box className="bg-teal py-12">
+        <Container maxWidth="6xl" className="px-4 sm:px-6">
+          <Container maxWidth="2xl" className="text-center">
             <Heading level={3} color="white" className="mb-4">Get Free Weekly Pub Marketing Tips</Heading>
             <Text className="mb-6 text-cream/90">
               Join 150+ licensees getting practical tips every Tuesday. 
@@ -39,7 +43,7 @@ export default function SuperFooter() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email address"
+                  placeholder={PLACEHOLDERS.email.footer}
                   className="flex-1 text-charcoal min-h-[48px]"
                   required
                 />
@@ -55,9 +59,9 @@ export default function SuperFooter() {
             <Text size="xs" className="mt-4 text-cream/70">
               No spam. Unsubscribe anytime. Usually sent Tuesday mornings.
             </Text>
-          </div>
-        </div>
-      </div>
+          </Container>
+        </Container>
+      </Box>
 
       {/* Success Metrics Bar */}
       <div className="bg-orange py-8">
@@ -80,6 +84,8 @@ export default function SuperFooter() {
             </div>
           </div>
         </div>
+
+        {/* Close Success Metrics Bar wrapper */}
       </div>
 
       {/* Main Footer Content */}
@@ -227,9 +233,9 @@ export default function SuperFooter() {
                   </Link>
                 </li>
                 <li>
-                  <a href="https://the-anchor.pub" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-orange transition-colors">
+                  <Link href="https://the-anchor.pub" external className="text-sm hover:text-orange transition-colors">
                     Visit The Anchor
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link href="/contact" className="text-sm hover:text-orange transition-colors">
@@ -242,15 +248,15 @@ export default function SuperFooter() {
               <div className="mt-6 p-4 bg-cream/10 rounded-lg">
                 <Heading level={5} className="font-semibold text-sm mb-2">Quick Contact</Heading>
                 <div className="space-y-2 text-xs">
-                  <a href={URLS.whatsapp()} className="block hover:text-orange transition-colors">
+                  <Link href={URLS.whatsapp()} className="block hover:text-orange transition-colors">
                     📱 {formatPhoneDisplay()}
-                  </a>
-                  <a href={`tel:${CONTACT.phone}`} className="block hover:text-orange transition-colors">
+                  </Link>
+                  <Link href={`tel:${CONTACT.phone}`} className="block hover:text-orange transition-colors">
                     📞 Call: {CONTACT.phone}
-                  </a>
-                  <a href={URLS.email} className="block hover:text-orange transition-colors">
+                  </Link>
+                  <Link href={URLS.email} className="block hover:text-orange transition-colors">
                     ✉️ {CONTACT.email}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -298,10 +304,9 @@ export default function SuperFooter() {
                 <Text size="xs" className="uppercase tracking-wider opacity-60 mb-2">
                   Proven Daily At
                 </Text>
-                <a 
+                <Link 
                   href="https://the-anchor.pub" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  external
                   className="inline-block hover:opacity-80 transition-quick"
                 >
                   <OptimizedImage
@@ -311,7 +316,7 @@ export default function SuperFooter() {
                     height={60}
                     className="mx-auto"
                   />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -328,46 +333,44 @@ export default function SuperFooter() {
             
             {/* Contact Bar */}
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm mb-6">
-              <a
+              <Link
                 href={URLS.whatsapp()}
                 className="hover:text-orange transition-quick"
-                rel="noopener noreferrer"
                 aria-label={`Contact us on WhatsApp at ${CONTACT.phone}`}
               >
                 {formatPhoneDisplay()}
-              </a>
+              </Link>
               <span className="hidden sm:inline opacity-50">|</span>
-              <a
+              <Link
                 href={URLS.email}
                 className="hover:text-orange transition-quick"
               >
                 Email: {CONTACT.email}
-              </a>
+              </Link>
               <span className="hidden sm:inline opacity-50">|</span>
-              <a
+              <Link
                 href="https://the-anchor.pub"
-                target="_blank"
-                rel="noopener noreferrer"
+                external
                 className="hover:text-orange transition-quick"
               >
                 Visit The Anchor
-              </a>
+              </Link>
             </div>
             
             {/* Personal Message */}
-            <p className="text-xs text-center opacity-50 max-w-2xl mx-auto">
+            <Text className="text-xs text-center opacity-50 max-w-2xl mx-auto">
               Orange Jelly is a small startup. I personally reply to every message. 
               During service? I'll get back to you after. Otherwise, expect a reply within a few hours.
-            </p>
+            </Text>
 
             {/* Get Started CTA */}
             <div className="text-center mt-8">
               <Button href={URLS.whatsapp(MESSAGES.whatsapp.quickWins)} variant="primary" size="large" external>
                 Start Your 30-Day Trial →
               </Button>
-              <p className="text-xs mt-2 opacity-60">
+              <Text className="text-xs mt-2 opacity-60">
                 No contracts. Cancel anytime. Money-back guarantee.
-              </p>
+              </Text>
             </div>
           </div>
         </div>

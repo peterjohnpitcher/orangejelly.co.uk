@@ -9,6 +9,11 @@ interface FAQSchemaProps {
 }
 
 export function FAQSchema({ faqs }: FAQSchemaProps) {
+  // Don't render FAQSchema if there are no FAQs
+  if (!faqs || faqs.length === 0) {
+    return null;
+  }
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",

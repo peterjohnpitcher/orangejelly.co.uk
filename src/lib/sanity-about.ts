@@ -47,6 +47,18 @@ export interface AboutContent {
   };
   teamMembers?: TeamMember[];
   partnerships?: Partnership[];
+  quickFacts?: {
+    title?: string;
+    facts: string[];
+  };
+  visitCTA?: {
+    title?: string;
+    subtitle?: string;
+    locationName?: string;
+    address?: string;
+    mapUrl?: string;
+    ctaText?: string;
+  };
   whyOrangeJelly?: {
     title?: string;
     content: any[]; // Portable Text

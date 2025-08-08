@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Button from '@/components/Button';
 import Heading from '@/components/Heading';
+import Text from '@/components/Text';
 import Card from '@/components/Card';
 import Grid from '@/components/Grid';
 import AnimatedItem from '@/components/AnimatedItem';
@@ -27,6 +28,9 @@ interface CaseStudySelectorProps {
 }
 
 export default function CaseStudySelector({ results, defaultStudy = 'sunday-roast' }: CaseStudySelectorProps) {
+  // Call hooks unconditionally
+  const [activeStudy, setActiveStudy] = useState(defaultStudy);
+  
   // Ensure we have results before trying to use them
   if (!results || results.length === 0) {
     return null;
@@ -37,7 +41,11 @@ export default function CaseStudySelector({ results, defaultStudy = 'sunday-roas
     ? defaultStudy 
     : results[0].id;
   
-  const [activeStudy, setActiveStudy] = useState(validDefaultStudy);
+  // Update active study if needed
+  if (activeStudy !== validDefaultStudy && activeStudy === defaultStudy) {
+    setActiveStudy(validDefaultStudy);
+  }
+  
   const activeStudyData = results.find(study => study.id === activeStudy) || results[0];
 
   return (
@@ -62,7 +70,7 @@ export default function CaseStudySelector({ results, defaultStudy = 'sunday-roas
       <AnimatedItem animation="slide-up" delay={100}>
         <div className="max-w-4xl mx-auto">
           <Heading level={2} className="mb-2">{activeStudyData.title}</Heading>
-          <p className="text-xl text-charcoal/80 mb-8">{activeStudyData.subtitle}</p>
+          <Text className="text-xl text-charcoal/80 mb-8">{activeStudyData.subtitle}</Text>
 
           {/* The Problem */}
           <div className="mb-8">
@@ -100,7 +108,7 @@ export default function CaseStudySelector({ results, defaultStudy = 'sunday-roas
           {/* Quote Example */}
           {activeStudyData.quote && (
             <Card variant="bordered" className="mb-8 border-l-4 border-orange">
-              <p className="text-lg italic">{activeStudyData.quote}</p>
+              <Text className="text-lg italic">{activeStudyData.quote}</Text>
             </Card>
           )}
 
@@ -110,8 +118,8 @@ export default function CaseStudySelector({ results, defaultStudy = 'sunday-roas
             <Grid columns={{ default: 1, md: 2 }} gap="small">
               {activeStudyData.results.map((result, index) => (
                 <Card key={index} variant="bordered" padding="small" className="border-orange/20">
-                  <p className="text-sm text-charcoal/60">{result.metric}</p>
-                  <p className="text-xl font-bold text-charcoal">{result.value}</p>
+                  <Text className="text-sm text-charcoal/60">{result.metric}</Text>
+                  <Text className="text-xl font-bold text-charcoal">{result.value}</Text>
                 </Card>
               ))}
             </Grid>
@@ -129,11 +137,11 @@ export default function CaseStudySelector({ results, defaultStudy = 'sunday-roas
           </div>
 
           {/* Key Learnings */}
-          <Card background="teal-dark" padding="large">
-            <Heading level={3} color="white" className="mb-4">What We Learned</Heading>
+          <Card background="cream" padding="large">
+            <Heading level={3} className="mb-4">What We Learned</Heading>
             <ul className="space-y-2">
               {activeStudyData.learnings.map((item, index) => (
-                <li key={index} className="flex items-start text-white">
+                <li key={index} className="flex items-start text-charcoal">
                   <span className="text-orange mr-2 mt-1">•</span>
                   <span>{item}</span>
                 </li>
