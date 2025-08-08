@@ -23,7 +23,7 @@
     "migrate:related-links": "ts-node scripts/migrate-related-links.ts",
     "fix:sanity-keys": "tsx scripts/fix-missing-keys.ts",
     "migrate:all-content": "ts-node scripts/migrate-all-hardcoded-content.ts",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css}": [
