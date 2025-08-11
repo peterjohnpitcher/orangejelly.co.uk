@@ -2,6 +2,16 @@
   "buildCommand": "npm run build",
   "framework": "nextjs",
   "regions": ["lhr1"],
+  "env": {
+    "NEXT_PUBLIC_SANITY_PROJECT_ID": "9brdfanc",
+    "NEXT_PUBLIC_SANITY_DATASET": "production"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_SANITY_PROJECT_ID": "9brdfanc",
+      "NEXT_PUBLIC_SANITY_DATASET": "production"
+    }
+  },
   "redirects": [
     {
       "source": "/:path*",
