@@ -25,7 +25,22 @@ export const metadata: Metadata = {
     title: "The Licensee's Guide - Expert Pub Management Advice",
     description:
       'Essential guides for pub owners covering marketing, events, food, and business strategy.',
-    images: ['/logo.png'],
+    type: 'website',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: "The Licensee's Guide - Expert Pub Management Advice",
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "The Licensee's Guide - Expert Pub Management Advice",
+    description:
+      'Essential guides for pub owners covering marketing, events, food, and business strategy.',
+    images: ['/opengraph-image'],
   },
 };
 
@@ -193,10 +208,7 @@ export default async function LicenseesGuidePage() {
                     name: post.category,
                     slug: post.category.toLowerCase().replace(/\s+/g, '-'),
                   },
-                  featuredImage: {
-                    src: typeof post.featuredImage === 'string' ? post.featuredImage : '/logo.png',
-                    alt: post.title,
-                  },
+                  featuredImage: post.featuredImage, // Pass the raw featuredImage data
                   author: {
                     name: post.author?.name || 'Peter Pitcher',
                   },
