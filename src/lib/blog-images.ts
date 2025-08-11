@@ -37,7 +37,12 @@ export function getDefaultBlogImage(slug: string): string {
 }
 
 export function getBlogImageSrc(featuredImage: any, slug: string): string {
-  // If featuredImage exists and has an asset URL, use it
+  // If featuredImage is a string URL (from Sanity), use it directly
+  if (typeof featuredImage === 'string' && featuredImage.includes('://')) {
+    return featuredImage;
+  }
+
+  // If featuredImage is an object with asset.url, use that
   if (featuredImage && typeof featuredImage === 'object' && featuredImage.asset?.url) {
     return featuredImage.asset.url;
   }
