@@ -7,8 +7,9 @@ import { getAllPosts, getPostBySlug } from './blog-md';
 import type { BlogPost as MarkdownPost } from './blog-md';
 
 // Check if Sanity is configured
-const SANITY_ENABLED = !!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID && 
-                       process.env.NEXT_PUBLIC_SANITY_PROJECT_ID !== 'demo-project';
+const SANITY_ENABLED =
+  !!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID &&
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID !== 'demo-project';
 
 export interface BlogPost {
   title: string;
@@ -59,9 +60,16 @@ export interface BlogPost {
 function normalizeSanityPost(post: any): BlogPost {
   // Convert featuredImage asset to URL if it exists
   let featuredImageUrl: string | undefined;
-  if (post.featuredImage?.asset) {
+
+  // Check if we have a direct URL from expanded asset
+  if (post.featuredImage?.asset?.url) {
+    // Use the URL directly from the expanded asset
+    featuredImageUrl = post.featuredImage.asset.url;
+  } else if (post.featuredImage?.asset?._ref) {
+    // Use urlFor() when we have a reference (non-expanded)
     featuredImageUrl = urlFor(post.featuredImage).url();
   } else if (post.featuredImage && typeof post.featuredImage === 'string') {
+    // Handle string URLs
     featuredImageUrl = post.featuredImage;
   } else {
     // Fallback to local SVG images based on slug
@@ -75,7 +83,7 @@ function normalizeSanityPost(post: any): BlogPost {
   const defaultAuthor = {
     name: 'Peter Pitcher',
     bio: 'Licensee of The Anchor and founder of Orange Jelly. Helping pubs thrive with proven strategies.',
-    image: '/peter-pitcher.jpg'
+    image: '/peter-pitcher.jpg',
   };
 
   // Process author data if it exists
@@ -84,9 +92,9 @@ function normalizeSanityPost(post: any): BlogPost {
     processedAuthor = {
       name: post.author.name || defaultAuthor.name,
       bio: post.author.bio || defaultAuthor.bio,
-      image: post.author.image?.asset 
-        ? urlFor(post.author.image).url() 
-        : (post.author.image || defaultAuthor.image)
+      image: post.author.image?.asset
+        ? urlFor(post.author.image).url()
+        : post.author.image || defaultAuthor.image,
     };
   }
 
@@ -151,7 +159,7 @@ export async function getContentPosts(): Promise<BlogPost[]> {
       console.error('Error fetching from Sanity, falling back to markdown:', error);
     }
   }
-  
+
   // Fallback to markdown files
   console.log('Using markdown files for blog content');
   const posts = await getAllPosts();
@@ -171,7 +179,7 @@ export async function getContentPostBySlug(slug: string): Promise<BlogPost | nul
       console.error('Error fetching from Sanity, falling back to markdown:', error);
     }
   }
-  
+
   // Fallback to markdown files
   console.log(`Using markdown file for ${slug}`);
   const post = await getPostBySlug(slug);
@@ -181,7 +189,7 @@ export async function getContentPostBySlug(slug: string): Promise<BlogPost | nul
 // Get posts by category
 export async function getContentPostsByCategory(category: string): Promise<BlogPost[]> {
   const allPosts = await getContentPosts();
-  return allPosts.filter(post => post.category === category);
+  return allPosts.filter((post) => post.category === category);
 }
 
 // Check content source
@@ -194,7 +202,7 @@ export async function getPreviewPost(slug: string, token?: string): Promise<Blog
   if (!SANITY_ENABLED || !token) {
     return getContentPostBySlug(slug);
   }
-  
+
   try {
     // Create a preview client with the token
     const previewClient = client.withConfig({
@@ -202,7 +210,7 @@ export async function getPreviewPost(slug: string, token?: string): Promise<Blog
       useCdn: false,
       perspective: 'previewDrafts',
     });
-    
+
     const post = await previewClient.fetch(blogPostBySlugQuery, { slug });
     return post ? normalizeSanityPost(post) : null;
   } catch (error) {
