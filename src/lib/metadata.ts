@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 
 interface GenerateMetadataProps {
   title: string;
@@ -18,21 +18,19 @@ export function generateMetadata({
   description,
   path,
   keywords,
-  ogImage = '/images/og/default.png',
+  ogImage = '/logo.png',
   noIndex = false,
   ogType = 'website',
   publishedTime,
   modifiedTime,
-  author
+  author,
 }: GenerateMetadataProps): Metadata {
   const baseUrl = 'https://www.orangejelly.co.uk';
-  
+
   // Normalize path
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  const cleanPath = normalizedPath === '/' 
-    ? normalizedPath 
-    : normalizedPath.replace(/\/$/, '');
-  
+  const cleanPath = normalizedPath === '/' ? normalizedPath : normalizedPath.replace(/\/$/, '');
+
   const canonicalUrl = `${baseUrl}${cleanPath}`;
   const fullTitle = `${title} | Orange Jelly`;
 
@@ -57,7 +55,7 @@ export function generateMetadata({
       ],
       ...(publishedTime && { publishedTime }),
       ...(modifiedTime && { modifiedTime }),
-      ...(author && { 
+      ...(author && {
         authors: [author],
       }),
     },
@@ -96,27 +94,36 @@ export function generateMetadata({
 export const pageMetadata = {
   home: {
     title: 'How to Fill Empty Pub Tables | Pub Marketing That Works',
-    description: 'Struggling with empty pub tables? We use AI-powered marketing strategies that transformed The Anchor from struggling to thriving. From one licensee to another.',
-    keywords: 'pub marketing UK, fill empty pub tables, pub marketing strategies, increase pub customers, pub social media marketing, pub turnaround',
+    description:
+      'Struggling with empty pub tables? We use AI-powered marketing strategies that transformed The Anchor from struggling to thriving. From one licensee to another.',
+    keywords:
+      'pub marketing UK, fill empty pub tables, pub marketing strategies, increase pub customers, pub social media marketing, pub turnaround',
   },
   services: {
     title: 'Pub Marketing Services | Fill Tables & Boost Revenue',
-    description: 'Proven pub marketing services that fill empty tables. Menu optimization, social media automation, website design. All from real licensees who understand your challenges.',
-    keywords: 'pub marketing services, pub social media management, pub menu design, pub website design, pub marketing packages',
+    description:
+      'Proven pub marketing services that fill empty tables. Menu optimization, social media automation, website design. All from real licensees who understand your challenges.',
+    keywords:
+      'pub marketing services, pub social media management, pub menu design, pub website design, pub marketing packages',
   },
   results: {
     title: 'Pub Marketing Success Stories | Real Results from Real Pubs',
-    description: 'See how we helped UK pubs increase covers by 40%+ with proven marketing strategies. Real results, real testimonials, real revenue growth.',
-    keywords: 'pub marketing results, pub success stories, pub turnaround stories, pub marketing case studies',
+    description:
+      'See how we helped UK pubs increase covers by 40%+ with proven marketing strategies. Real results, real testimonials, real revenue growth.',
+    keywords:
+      'pub marketing results, pub success stories, pub turnaround stories, pub marketing case studies',
   },
   about: {
     title: 'About Orange Jelly | From licensees, For licensees',
-    description: 'Meet Peter Pitcher, owner of The Anchor pub and founder of Orange Jelly. Learn how we use AI-powered marketing to help UK pubs thrive.',
-    keywords: 'Orange Jelly pub marketing, Peter Pitcher, The Anchor Stanwell Moor, pub marketing agency UK',
+    description:
+      'Meet Peter Pitcher, owner of The Anchor pub and founder of Orange Jelly. Learn how we use AI-powered marketing to help UK pubs thrive.',
+    keywords:
+      'Orange Jelly pub marketing, Peter Pitcher, The Anchor Stanwell Moor, pub marketing agency UK',
   },
   contact: {
     title: 'Contact Orange Jelly | Get Help Filling Your Pub',
-    description: 'Ready to fill your empty pub tables? Contact Orange Jelly for a free chat about your challenges. Real advice from real licensees.',
+    description:
+      'Ready to fill your empty pub tables? Contact Orange Jelly for a free chat about your challenges. Real advice from real licensees.',
     keywords: 'contact pub marketing, pub marketing consultation, pub marketing help UK',
   },
 };
