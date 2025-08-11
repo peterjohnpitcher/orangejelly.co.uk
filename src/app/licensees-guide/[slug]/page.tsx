@@ -128,7 +128,7 @@ async function BlogPostPageData({ params }: { params: { slug: string } }) {
           image={
             typeof post.featuredImage === 'string'
               ? post.featuredImage
-              : (post.featuredImage as any)?.src
+              : (post.featuredImage as any)?.src || '/logo.png'
           }
           url={`/licensees-guide/${post.slug}`}
           keywords={post.tags}

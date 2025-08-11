@@ -12,10 +12,10 @@ function QuickAnswer({ answer, className = '' }: QuickAnswerProps) {
   if (!answer) return null;
 
   return (
-    <Card 
-      variant="colored" 
-      background="orange-light" 
-      className={`border-l-4 border-orange ${className}`}
+    <Card
+      variant="colored"
+      background="orange-light"
+      className={`quick-answer border-l-4 border-orange ${className}`}
     >
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 text-2xl">🎯</div>
@@ -23,9 +23,7 @@ function QuickAnswer({ answer, className = '' }: QuickAnswerProps) {
           <Heading level={4} className="mb-2 text-orange-dark">
             Quick Answer
           </Heading>
-          <Text className="font-medium leading-relaxed">
-            {answer}
-          </Text>
+          <Text className="font-medium leading-relaxed">{answer}</Text>
         </div>
       </div>
     </Card>
