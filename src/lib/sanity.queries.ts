@@ -13,7 +13,7 @@ export const siteSettingsQuery = `
   }
 `;
 
-// Navigation query  
+// Navigation query
 export const navigationQuery = `
   *[_id == "navigation"][0] {
     mainMenu[] | order(order asc) {
@@ -117,19 +117,29 @@ export const contentBlocksByPageQuery = `
 `;
 
 export const blogPostsQuery = `
-  *[_type == "blogPost" && status == "published"] | order(publishedDate desc) {
+  *[_type == "blogPost" && (
+    status == "published" || 
+    (status == "scheduled" && dateTime(publishedDate) <= dateTime(now()))
+  )] | order(publishedDate desc) {
     _id,
     title,
     "slug": slug.current,
     excerpt,
     publishedDate,
+    status,
     category->{
       _id,
       name,
       "slug": slug.current
     },
     tags,
-    featuredImage,
+    featuredImage {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
     "author": author->{
       name,
       bio,
@@ -144,7 +154,10 @@ export const blogPostsQuery = `
 `;
 
 export const blogPostBySlugQuery = `
-  *[_type == "blogPost" && slug.current == $slug && status == "published"][0] {
+  *[_type == "blogPost" && slug.current == $slug && (
+    status == "published" || 
+    (status == "scheduled" && dateTime(publishedDate) <= dateTime(now()))
+  )][0] {
     _id,
     title,
     "slug": slug.current,
@@ -158,7 +171,13 @@ export const blogPostBySlugQuery = `
       "slug": slug.current
     },
     tags,
-    featuredImage,
+    featuredImage {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
     seo,
     "author": author->{
       name,
@@ -180,7 +199,10 @@ export const blogPostBySlugQuery = `
 `;
 
 export const blogPostsByCategoryQuery = `
-  *[_type == "blogPost" && category->slug.current == $category && status == "published"] | order(publishedDate desc) {
+  *[_type == "blogPost" && category->slug.current == $category && (
+    status == "published" || 
+    (status == "scheduled" && dateTime(publishedDate) <= dateTime(now()))
+  )] | order(publishedDate desc) {
     _id,
     title,
     "slug": slug.current,
@@ -391,7 +413,13 @@ export const draftBlogPostQuery = `
       "slug": slug.current
     },
     tags,
-    featuredImage,
+    featuredImage {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
     seo,
     status,
     "author": author->{
@@ -410,5 +438,66 @@ export const draftBlogPostQuery = `
     faqs,
     localSEO,
     ctaSettings
+  }
+`;
+
+// Scheduled publishing queries
+export const scheduledPostsQuery = `
+  *[_type == "blogPost" && status == "scheduled" && dateTime(publishedDate) > dateTime(now())] | order(publishedDate asc) {
+    _id,
+    title,
+    "slug": slug.current,
+    publishedDate,
+    status,
+    category->{
+      name,
+      "slug": slug.current
+    },
+    "author": author->{
+      name
+    }
+  }
+`;
+
+export const upcomingPostsQuery = `
+  *[_type == "blogPost" && status == "scheduled"] | order(publishedDate asc) {
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    publishedDate,
+    status,
+    category->{
+      name,
+      "slug": slug.current
+    },
+    tags,
+    featuredImage {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
+    "author": author->{
+      name
+    }
+  }
+`;
+
+export const recentlyPublishedQuery = `
+  *[_type == "blogPost" && (
+    status == "published" || 
+    (status == "scheduled" && dateTime(publishedDate) <= dateTime(now()))
+  ) && dateTime(publishedDate) >= dateTime(now() - 60*60*24*30)] | order(publishedDate desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    publishedDate,
+    status,
+    category->{
+      name,
+      "slug": slug.current
+    }
   }
 `;

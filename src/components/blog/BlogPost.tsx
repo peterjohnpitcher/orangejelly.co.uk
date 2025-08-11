@@ -14,12 +14,13 @@ import StickyCTA from './StickyCTA';
 import QuickAnswer from './QuickAnswer';
 import QuickStats from './QuickStats';
 import { formatDate } from '@/lib/utils';
-import { BlogPost as BlogPostType } from '@/lib/content-source';
+import { type BlogPost as BlogPostType } from '@/lib/content-source';
+import { getBlogImageSrc, getBlogImageAlt } from '@/lib/blog-images';
 import dynamic from 'next/dynamic';
 
 // Lazy load PortableTextContent for Sanity content
 const PortableTextContent = dynamic(() => import('@/components/PortableTextContent'), {
-  ssr: true
+  ssr: true,
 });
 import { MESSAGES, URLS } from '@/lib/constants';
 import { remark } from 'remark';
@@ -33,14 +34,12 @@ interface BlogPostProps {
 export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
   // Use pre-processed HTML if available, otherwise process client-side as fallback
   const [contentHtml, setContentHtml] = React.useState(post.contentHtml || '');
-  
+
   React.useEffect(() => {
     async function processContent() {
       // Only process client-side if not already processed server-side
       if (!post.isPreProcessed && !post.isPortableText && typeof post.content === 'string') {
-        const processedContent = await remark()
-          .use(remarkHtml)
-          .process(post.content);
+        const processedContent = await remark().use(remarkHtml).process(post.content);
         setContentHtml(processedContent.toString());
       }
     }
@@ -56,7 +55,7 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
       const windowHeight = window.innerHeight;
       const position = window.scrollY;
       const progress = Math.min(100, (position / (totalHeight - windowHeight)) * 100);
-      
+
       const progressBar = document.getElementById('reading-progress');
       if (progressBar) {
         progressBar.style.width = `${progress}%`;
@@ -65,7 +64,7 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
 
     window.addEventListener('scroll', updateProgress);
     updateProgress();
-    
+
     return () => window.removeEventListener('scroll', updateProgress);
   }, []);
 
@@ -73,18 +72,11 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
     <>
       {/* Reading progress bar */}
       <div className="fixed top-0 left-0 right-0 h-1 bg-cream z-50">
-        <div 
-          id="reading-progress" 
-          className="h-full bg-orange transition-all duration-100 w-0"
-        />
+        <div id="reading-progress" className="h-full bg-orange transition-all duration-100 w-0" />
       </div>
 
       {/* Share buttons (floating on desktop) */}
-      <ShareButtons 
-        url={`/licensees-guide/${post.slug}`} 
-        title={post.title}
-        variant="floating"
-      />
+      <ShareButtons url={`/licensees-guide/${post.slug}`} title={post.title} variant="floating" />
 
       {/* Sticky CTA */}
       <StickyCTA />
@@ -103,20 +95,20 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
             </Button>
             <span>•</span>
             {post.author && (
-              <AuthorInfo 
+              <AuthorInfo
                 author={{
                   name: post.author.name,
                   role: 'Founder & Licensee',
-                  bio: post.author.bio || 'Founder of Orange Jelly Limited and licensee of The Anchor pub',
-                  image: post.author.image || '/peter-pitcher.jpg'
-                }} 
-                variant="compact" 
+                  bio:
+                    post.author.bio ||
+                    'Founder of Orange Jelly Limited and licensee of The Anchor pub',
+                  image: post.author.image || '/peter-pitcher.jpg',
+                }}
+                variant="compact"
               />
             )}
             <span>•</span>
-            <time dateTime={post.publishedDate}>
-              {formatDate(post.publishedDate)}
-            </time>
+            <time dateTime={post.publishedDate}>{formatDate(post.publishedDate)}</time>
             {post.readingTime && (
               <>
                 <span>•</span>
@@ -127,32 +119,28 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
 
           {/* Share buttons (inline on mobile) */}
           <div className="lg:hidden mb-6">
-            <ShareButtons 
-              url={`/licensees-guide/${post.slug}`} 
+            <ShareButtons
+              url={`/licensees-guide/${post.slug}`}
               title={post.title}
               variant="inline"
             />
           </div>
         </header>
 
-        {/* Featured image */}
-        {post.featuredImage && (
-          <div className="relative aspect-[16/9] mb-8 -mx-4 sm:mx-0 sm:rounded-lg overflow-hidden">
-            <OptimizedImage
-              src={typeof post.featuredImage === 'string' ? post.featuredImage : (post.featuredImage as any).src}
-              alt={typeof post.featuredImage === 'string' ? post.title : (post.featuredImage as any).alt}
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-            />
-          </div>
-        )}
+        {/* Featured image - always show, use default if not set */}
+        <div className="relative aspect-[16/9] mb-8 -mx-4 sm:mx-0 sm:rounded-lg overflow-hidden">
+          <OptimizedImage
+            src={getBlogImageSrc(post.featuredImage, post.slug)}
+            alt={getBlogImageAlt(post.featuredImage, post.title)}
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+          />
+        </div>
 
         {/* Quick Answer for featured snippets */}
-        {post.quickAnswer && (
-          <QuickAnswer answer={post.quickAnswer} className="mb-8" />
-        )}
+        {post.quickAnswer && <QuickAnswer answer={post.quickAnswer} className="mb-8" />}
 
         {/* Quick Stats for AI Overview extraction */}
         {post.quickStats && post.quickStats.length > 0 && (
@@ -166,7 +154,7 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
               <PortableTextContent value={post.content as any[]} />
             </div>
           ) : (
-            <div 
+            <div
               className="prose prose-lg max-w-none"
               dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
@@ -181,14 +169,15 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
             </Heading>
             <div className="space-y-4">
               {post.faqs.map((faq, index) => (
-                <div key={index} className="border-b border-charcoal/10 last:border-0 pb-4 last:pb-0">
+                <div
+                  key={index}
+                  className="border-b border-charcoal/10 last:border-0 pb-4 last:pb-0"
+                >
                   <Heading level={3} className="mb-2 flex items-start gap-2">
                     {faq.isVoiceOptimized && <span className="text-orange">🎙️</span>}
                     {faq.question}
                   </Heading>
-                  <Text className="text-charcoal/80">
-                    {faq.answer}
-                  </Text>
+                  <Text className="text-charcoal/80">{faq.answer}</Text>
                 </div>
               ))}
             </div>
@@ -202,13 +191,12 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
               Need Help Implementing These Ideas?
             </Heading>
             <Text align="center" color="white" className="mb-6 max-w-2xl mx-auto">
-              I've proven these strategies work at The Anchor and will start training other pubs from September 2025. 
-              Let's chat about your specific situation - no sales pitch, just licensee to licensee.
+              I've proven these strategies work at The Anchor and will start training other pubs
+              from September 2025. Let's chat about your specific situation - no sales pitch, just
+              licensee to licensee.
             </Text>
             <Button
-              href={URLS.whatsapp(
-                post.ctaSettings?.whatsappMessage || MESSAGES.whatsapp.blog
-              )}
+              href={URLS.whatsapp(post.ctaSettings?.whatsappMessage || MESSAGES.whatsapp.blog)}
               variant="secondary"
               size="large"
               external
@@ -221,14 +209,15 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
 
         {/* Author bio */}
         {post.author && (
-          <AuthorInfo 
+          <AuthorInfo
             author={{
               name: post.author.name,
               role: 'Founder & Licensee',
-              bio: post.author.bio || 'Founder of Orange Jelly Limited and licensee of The Anchor pub',
-              image: post.author.image || '/peter-pitcher.jpg'
-            }} 
-            variant="full" 
+              bio:
+                post.author.bio || 'Founder of Orange Jelly Limited and licensee of The Anchor pub',
+              image: post.author.image || '/peter-pitcher.jpg',
+            }}
+            variant="full"
           />
         )}
 
@@ -238,10 +227,7 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
             <div className="flex flex-wrap gap-2">
               <span className="text-sm font-medium text-charcoal/60">Tagged:</span>
               {post.tags.map((tag) => (
-                <span 
-                  key={tag}
-                  className="px-3 py-1 bg-cream rounded-full text-sm"
-                >
+                <span key={tag} className="px-3 py-1 bg-cream rounded-full text-sm">
                   {tag}
                 </span>
               ))}
@@ -253,25 +239,28 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
       {/* Related posts */}
       {relatedPosts.length > 0 && (
         <div className="mt-12">
-          <RelatedPosts 
-            posts={relatedPosts.map(post => ({
+          <RelatedPosts
+            posts={relatedPosts.map((post) => ({
               slug: post.slug,
               title: post.title,
               excerpt: post.excerpt,
               publishedDate: post.publishedDate,
               category: {
                 name: post.category,
-                slug: post.category.toLowerCase().replace(/\s+/g, '-')
+                slug: post.category.toLowerCase().replace(/\s+/g, '-'),
               },
               featuredImage: {
-                src: typeof post.featuredImage === 'string' ? post.featuredImage : '/images/blog/default.jpg',
-                alt: post.title
+                src:
+                  typeof post.featuredImage === 'string'
+                    ? post.featuredImage
+                    : '/images/blog/default.jpg',
+                alt: post.title,
               },
               author: {
-                name: post.author?.name || 'Peter Pitcher'
+                name: post.author?.name || 'Peter Pitcher',
               },
-              readingTime: post.readingTime || 5
-            }))} 
+              readingTime: post.readingTime || 5,
+            }))}
           />
         </div>
       )}
