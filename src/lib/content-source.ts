@@ -6,10 +6,9 @@ import { blogPostsQuery, blogPostBySlugQuery } from './sanity.queries';
 import { getAllPosts, getPostBySlug } from './blog-md';
 import type { BlogPost as MarkdownPost } from './blog-md';
 
-// Check if Sanity is configured
-const SANITY_ENABLED =
-  !!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID &&
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID !== 'demo-project';
+// Check if Sanity is configured - default to true since ALL content is in Sanity
+const SANITY_PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '9brdfanc';
+const SANITY_ENABLED = true; // Always use Sanity - there are no markdown files!
 
 export interface BlogPost {
   title: string;
@@ -148,42 +147,35 @@ function normalizeMarkdownPost(post: MarkdownPost): BlogPost {
   };
 }
 
-// Get all blog posts from the configured source
+// Get all blog posts from Sanity (no markdown fallback - all content is in Sanity!)
 export async function getContentPosts(): Promise<BlogPost[]> {
-  if (SANITY_ENABLED) {
-    try {
-      console.log('Fetching posts from Sanity...');
-      const posts = await client.fetch(blogPostsQuery);
-      return posts.map(normalizeSanityPost);
-    } catch (error) {
-      console.error('Error fetching from Sanity, falling back to markdown:', error);
-    }
+  try {
+    console.log('Fetching posts from Sanity (Project ID:', SANITY_PROJECT_ID, ')...');
+    const posts = await client.fetch(blogPostsQuery);
+    console.log(`Found ${posts.length} posts in Sanity`);
+    return posts.map(normalizeSanityPost);
+  } catch (error) {
+    console.error('Error fetching from Sanity:', error);
+    // Return empty array instead of trying markdown files that don't exist
+    return [];
   }
-
-  // Fallback to markdown files
-  console.log('Using markdown files for blog content');
-  const posts = await getAllPosts();
-  return posts.map(normalizeMarkdownPost);
 }
 
-// Get a single blog post by slug
+// Get a single blog post by slug from Sanity (no markdown fallback)
 export async function getContentPostBySlug(slug: string): Promise<BlogPost | null> {
-  if (SANITY_ENABLED) {
-    try {
-      console.log(`Fetching post ${slug} from Sanity...`);
-      const post = await client.fetch(blogPostBySlugQuery, { slug });
-      if (post) {
-        return normalizeSanityPost(post);
-      }
-    } catch (error) {
-      console.error('Error fetching from Sanity, falling back to markdown:', error);
+  try {
+    console.log(`Fetching post ${slug} from Sanity (Project ID: ${SANITY_PROJECT_ID})...`);
+    const post = await client.fetch(blogPostBySlugQuery, { slug });
+    if (post) {
+      console.log(`Found post: ${post.title}`);
+      return normalizeSanityPost(post);
     }
+    console.log(`Post ${slug} not found in Sanity`);
+    return null;
+  } catch (error) {
+    console.error('Error fetching from Sanity:', error);
+    return null;
   }
-
-  // Fallback to markdown files
-  console.log(`Using markdown file for ${slug}`);
-  const post = await getPostBySlug(slug);
-  return post ? normalizeMarkdownPost(post) : null;
 }
 
 // Get posts by category
@@ -192,9 +184,9 @@ export async function getContentPostsByCategory(category: string): Promise<BlogP
   return allPosts.filter((post) => post.category === category);
 }
 
-// Check content source
+// Check content source - always Sanity now
 export function getContentSource(): 'sanity' | 'markdown' {
-  return SANITY_ENABLED ? 'sanity' : 'markdown';
+  return 'sanity'; // Always Sanity - no markdown files exist!
 }
 
 // Preview functionality for Sanity
