@@ -69,13 +69,13 @@ export function isPostVisible(post: { status: string; publishedDate: string }): 
   if (post.status === 'published') {
     return true;
   }
-  
+
   if (post.status === 'scheduled') {
     const publishDate = new Date(post.publishedDate);
     const now = new Date();
     return publishDate <= now;
   }
-  
+
   return false;
 }
 
@@ -86,16 +86,16 @@ export function formatPublishDate(date: string, status?: string): string {
   const publishDate = new Date(date);
   const now = new Date();
   const isScheduled = status === 'scheduled' && publishDate > now;
-  
+
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
-    timeZone: 'Europe/London'
+    timeZone: 'Europe/London',
   };
-  
+
   const formatted = publishDate.toLocaleDateString('en-GB', options);
   return isScheduled ? `Scheduled for ${formatted}` : formatted;
 }
@@ -106,7 +106,7 @@ export function formatPublishDate(date: string, status?: string): string {
 export function getOptimalPublishTime(targetDate: Date): Date {
   const dayOfWeek = targetDate.getDay();
   const newDate = new Date(targetDate);
-  
+
   // Set time based on day of week (UK pub industry best practices)
   switch (dayOfWeek) {
     case 0: // Sunday
@@ -125,7 +125,7 @@ export function getOptimalPublishTime(targetDate: Date): Date {
       newDate.setHours(11, 0, 0, 0); // 11:00 AM
       break;
   }
-  
+
   return newDate;
 }
 
@@ -137,19 +137,19 @@ export async function checkSchedulingConflicts(
   windowHours: number = 24
 ): Promise<{ hasConflict: boolean; conflictingPosts: ScheduledPost[] }> {
   const scheduledPosts = await getScheduledPosts();
-  
+
   const windowMs = windowHours * 60 * 60 * 1000;
   const publishTime = publishDate.getTime();
-  
-  const conflictingPosts = scheduledPosts.filter(post => {
+
+  const conflictingPosts = scheduledPosts.filter((post) => {
     const postTime = new Date(post.publishedDate).getTime();
     const timeDiff = Math.abs(postTime - publishTime);
     return timeDiff < windowMs;
   });
-  
+
   return {
     hasConflict: conflictingPosts.length > 0,
-    conflictingPosts
+    conflictingPosts,
   };
 }
 
@@ -162,7 +162,7 @@ export async function generateContentCalendar(
 ): Promise<{ date: string; posts: ScheduledPost[] }[]> {
   const scheduledPosts = await getScheduledPosts();
   const calendar: { [key: string]: ScheduledPost[] } = {};
-  
+
   // Initialize calendar with empty arrays for each day
   const currentDate = new Date(startDate);
   while (currentDate <= endDate) {
@@ -170,9 +170,9 @@ export async function generateContentCalendar(
     calendar[dateKey] = [];
     currentDate.setDate(currentDate.getDate() + 1);
   }
-  
+
   // Add scheduled posts to their respective dates
-  scheduledPosts.forEach(post => {
+  scheduledPosts.forEach((post) => {
     const postDate = new Date(post.publishedDate);
     if (postDate >= startDate && postDate <= endDate) {
       const dateKey = postDate.toISOString().split('T')[0];
@@ -181,11 +181,11 @@ export async function generateContentCalendar(
       }
     }
   });
-  
+
   // Convert to array format
   return Object.entries(calendar).map(([date, posts]) => ({
     date,
-    posts
+    posts,
   }));
 }
 
@@ -201,38 +201,38 @@ export async function getPublishingStats(): Promise<{
 }> {
   const [scheduled, recentlyPublished] = await Promise.all([
     getScheduledPosts(),
-    getRecentlyPublishedPosts()
+    getRecentlyPublishedPosts(),
   ]);
-  
+
   const now = new Date();
   const thisMonthStart = new Date(now.getFullYear(), now.getMonth(), 1);
   const lastMonthStart = new Date(now.getFullYear(), now.getMonth() - 1, 1);
   const lastMonthEnd = new Date(now.getFullYear(), now.getMonth(), 0);
-  
-  const publishedThisMonth = recentlyPublished.filter(post => {
+
+  const publishedThisMonth = recentlyPublished.filter((post) => {
     const postDate = new Date(post.publishedDate);
     return postDate >= thisMonthStart;
   }).length;
-  
-  const publishedLastMonth = recentlyPublished.filter(post => {
+
+  const publishedLastMonth = recentlyPublished.filter((post) => {
     const postDate = new Date(post.publishedDate);
     return postDate >= lastMonthStart && postDate <= lastMonthEnd;
   }).length;
-  
+
   // Calculate average posts per week (last 30 days)
   const averagePostsPerWeek = Math.round((recentlyPublished.length / 30) * 7 * 10) / 10;
-  
+
   // Get next publish date
-  const nextPost = scheduled
-    .sort((a, b) => new Date(a.publishedDate).getTime() - new Date(b.publishedDate).getTime())
-    [0];
-  
+  const nextPost = scheduled.sort(
+    (a, b) => new Date(a.publishedDate).getTime() - new Date(b.publishedDate).getTime()
+  )[0];
+
   return {
     scheduled: scheduled.length,
     publishedThisMonth,
     publishedLastMonth,
     averagePostsPerWeek,
-    nextPublishDate: nextPost ? nextPost.publishedDate : null
+    nextPublishDate: nextPost ? nextPost.publishedDate : null,
   };
 }
 
@@ -245,70 +245,66 @@ export const scheduledPublishingHelpers = {
    */
   async suggestNextPublishSlot(preferredDaysApart: number = 3): Promise<Date> {
     const scheduled = await getScheduledPosts();
-    
+
     if (scheduled.length === 0) {
       // No posts scheduled, suggest tomorrow at optimal time
       const tomorrow = new Date();
       tomorrow.setDate(tomorrow.getDate() + 1);
       return getOptimalPublishTime(tomorrow);
     }
-    
+
     // Find the last scheduled post
-    const lastScheduled = scheduled
-      .sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime())
-      [0];
-    
+    const lastScheduled = scheduled.sort(
+      (a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+    )[0];
+
     const lastDate = new Date(lastScheduled.publishedDate);
     const suggestedDate = new Date(lastDate);
     suggestedDate.setDate(suggestedDate.getDate() + preferredDaysApart);
-    
+
     return getOptimalPublishTime(suggestedDate);
   },
-  
+
   /**
    * Validate if a publishing date is appropriate
    */
   validatePublishDate(date: Date): { valid: boolean; reason?: string } {
     const now = new Date();
-    
+
     if (date <= now) {
       return { valid: false, reason: 'Date must be in the future' };
     }
-    
+
     const dayOfWeek = date.getDay();
     const hour = date.getHours();
-    
+
     // Warn about non-optimal times
     if (hour < 8 || hour > 18) {
-      return { 
-        valid: true, 
-        reason: 'Consider scheduling between 8 AM and 6 PM for better engagement' 
+      return {
+        valid: true,
+        reason: 'Consider scheduling between 8 AM and 6 PM for better engagement',
       };
     }
-    
+
     return { valid: true };
   },
-  
+
   /**
    * Generate publishing schedule for content series
    */
-  generateSeriesSchedule(
-    startDate: Date,
-    numberOfPosts: number,
-    daysApart: number = 3
-  ): Date[] {
+  generateSeriesSchedule(startDate: Date, numberOfPosts: number, daysApart: number = 3): Date[] {
     const schedule: Date[] = [];
     let currentDate = new Date(startDate);
-    
+
     for (let i = 0; i < numberOfPosts; i++) {
       schedule.push(getOptimalPublishTime(new Date(currentDate)));
       currentDate = new Date(currentDate.getTime() + daysApart * 24 * 60 * 60 * 1000);
     }
-    
+
     return schedule;
   },
-  
+
   getOptimalPublishTime,
   checkSchedulingConflicts,
-  generateContentCalendar
+  generateContentCalendar,
 };

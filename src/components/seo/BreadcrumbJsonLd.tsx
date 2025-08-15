@@ -24,7 +24,3 @@ export function BreadcrumbJsonLd({ items }: { items: BreadcrumbItem[] }) {
     />
   );
 }
-
-
-
-

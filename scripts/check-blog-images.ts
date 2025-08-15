@@ -16,7 +16,7 @@ const client = createClient({
 
 async function checkBlogImages() {
   console.log('🔍 Checking blog post images (bypassing cache)...\n');
-  
+
   try {
     // Fetch a few blog posts to check their featured images
     const posts = await client.fetch(`
@@ -33,13 +33,13 @@ async function checkBlogImages() {
         }
       }
     `);
-    
+
     console.log(`Found ${posts.length} posts to check:\n`);
-    
+
     for (const post of posts) {
       console.log(`📝 ${post.title}`);
       console.log(`   Slug: ${post.slug}`);
-      
+
       if (post.featuredImage?.asset?.url) {
         console.log(`   ✅ Has Sanity image: ${post.featuredImage.asset.url}`);
         console.log(`   Alt text: ${post.featuredImage.alt || 'No alt text'}`);
@@ -50,7 +50,7 @@ async function checkBlogImages() {
       }
       console.log('');
     }
-    
+
     // Also check if we have any string values lingering
     const stringsCheck = await client.fetch(`
       *[_type == "blogPost" && defined(featuredImage)][0...3] {
@@ -59,14 +59,13 @@ async function checkBlogImages() {
         featuredImage
       }
     `);
-    
+
     console.log('🔍 Raw featuredImage data check:');
     for (const post of stringsCheck) {
       console.log(`\n${post.title}:`);
       console.log('Type:', typeof post.featuredImage);
       console.log('Value:', JSON.stringify(post.featuredImage, null, 2));
     }
-    
   } catch (error) {
     console.error('❌ Script failed:', error);
     process.exit(1);

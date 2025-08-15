@@ -7,7 +7,7 @@ function createSVG(title: string): string {
   // Split title into main and subtitle if too long
   let mainTitle = title;
   let subtitle = '';
-  
+
   if (title.length > 40) {
     // Try to split at a colon or dash
     if (title.includes(':')) {
@@ -26,7 +26,7 @@ function createSVG(title: string): string {
       subtitle = words.slice(midPoint).join(' ');
     }
   }
-  
+
   // If mainTitle is still too long, truncate
   if (mainTitle.length > 50) {
     mainTitle = mainTitle.substring(0, 47) + '...';
@@ -34,7 +34,7 @@ function createSVG(title: string): string {
   if (subtitle.length > 60) {
     subtitle = subtitle.substring(0, 57) + '...';
   }
-  
+
   // Create SVG with proper text positioning
   if (subtitle) {
     return `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
@@ -102,19 +102,19 @@ const blogPosts = [
 
 async function createFeaturedImages() {
   console.log('🎨 Creating Featured Images for Blog Posts\n');
-  console.log('=' .repeat(60));
-  
+  console.log('='.repeat(60));
+
   const imagesDir = path.join(process.cwd(), 'public', 'images', 'blog');
-  
+
   // Ensure directory exists
   await fs.mkdir(imagesDir, { recursive: true });
-  
+
   let created = 0;
   let skipped = 0;
-  
+
   for (const post of blogPosts) {
     const filePath = path.join(imagesDir, `${post.slug}.svg`);
-    
+
     try {
       // Check if file already exists
       await fs.access(filePath);
@@ -128,14 +128,14 @@ async function createFeaturedImages() {
       created++;
     }
   }
-  
-  console.log('\n' + '=' .repeat(60));
+
+  console.log('\n' + '='.repeat(60));
   console.log('📊 SUMMARY');
-  console.log('=' .repeat(60));
+  console.log('='.repeat(60));
   console.log(`✅ Created: ${created} images`);
   console.log(`⏭️  Skipped: ${skipped} images (already existed)`);
   console.log(`📁 Location: ${imagesDir}`);
-  
+
   if (created > 0) {
     console.log('\n💡 NEXT STEPS:');
     console.log('1. Review the generated SVG images');

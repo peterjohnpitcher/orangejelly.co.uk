@@ -15,10 +15,10 @@ const client = createClient({
 
 async function debugProduction() {
   console.log('🔍 DEBUGGING PRODUCTION ISSUE\n');
-  console.log('=' .repeat(60));
-  
+  console.log('='.repeat(60));
+
   const slug = 'pub-health-check-essential-fundamentals-licensee-success';
-  
+
   try {
     // 1. Check raw post data
     console.log('\n1️⃣  RAW POST DATA');
@@ -32,7 +32,7 @@ async function debugProduction() {
     }`;
     const rawPost = await client.fetch(rawQuery);
     console.log(JSON.stringify(rawPost, null, 2));
-    
+
     // 2. Check with expanded asset (as used in queries)
     console.log('\n2️⃣  WITH EXPANDED ASSET (as in blogPostBySlugQuery)');
     console.log('-'.repeat(40));
@@ -48,7 +48,7 @@ async function debugProduction() {
     }`;
     const expandedPost = await client.fetch(expandedQuery);
     console.log(JSON.stringify(expandedPost, null, 2));
-    
+
     // 3. Check ALL blog posts to see if ANY have working images
     console.log('\n3️⃣  CHECKING ALL POSTS FOR FEATURED IMAGES');
     console.log('-'.repeat(40));
@@ -65,16 +65,16 @@ async function debugProduction() {
       }
     }`;
     const allPosts = await client.fetch(allPostsQuery);
-    
+
     let withImages = 0;
     let withUrls = 0;
     let withoutImages = 0;
-    
+
     for (const post of allPosts) {
       if (post.hasImage) withImages++;
       if (post.featuredImage?.asset?.url) withUrls++;
       if (!post.hasImage) withoutImages++;
-      
+
       if (post.slug === slug) {
         console.log(`\n🎯 PUB HEALTH CHECK POST:`);
         console.log(`   Has Image Field: ${post.hasImage}`);
@@ -83,13 +83,13 @@ async function debugProduction() {
         console.log(`   URL: ${post.featuredImage?.asset?.url || 'NONE'}`);
       }
     }
-    
+
     console.log(`\nSummary:`);
     console.log(`   Total posts: ${allPosts.length}`);
     console.log(`   With image field: ${withImages}`);
     console.log(`   With actual URLs: ${withUrls}`);
     console.log(`   Without images: ${withoutImages}`);
-    
+
     // 4. Test the exact query used in production
     console.log('\n4️⃣  EXACT PRODUCTION QUERY (blogPostBySlugQuery)');
     console.log('-'.repeat(40));
@@ -137,11 +137,11 @@ async function debugProduction() {
         ctaSettings
       }
     `;
-    
+
     const productionPost = await client.fetch(productionQuery, { slug });
     console.log('Featured Image from production query:');
     console.log(JSON.stringify(productionPost?.featuredImage, null, 2));
-    
+
     // 5. Check if it's a permission issue
     console.log('\n5️⃣  CHECKING ASSET DIRECTLY');
     console.log('-'.repeat(40));
@@ -151,12 +151,12 @@ async function debugProduction() {
       console.log('Direct asset fetch:');
       console.log(JSON.stringify(asset, null, 2));
     }
-    
+
     // 6. Final diagnosis
     console.log('\n' + '='.repeat(60));
     console.log('📊 DIAGNOSIS');
     console.log('='.repeat(60));
-    
+
     if (!expandedPost?.featuredImage?.asset?.url) {
       console.log('\n❌ PROBLEM CONFIRMED:');
       console.log('   The Sanity query is NOT returning a URL for the featured image.');
@@ -174,7 +174,6 @@ async function debugProduction() {
       console.log('   3. Build/deployment not updated');
       console.log('   4. CDN caching old content');
     }
-    
   } catch (error) {
     console.error('❌ Error:', error);
   }

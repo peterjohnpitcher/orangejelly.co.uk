@@ -21,16 +21,8 @@
       ],
       "localSEO": {
         "targetLocation": "Surrey",
-        "nearbyLandmarks": [
-          "Heathrow",
-          "Staines",
-          "M25"
-        ],
-        "localModifiers": [
-          "near me",
-          "local",
-          "in my area"
-        ]
+        "nearbyLandmarks": ["Heathrow", "Staines", "M25"],
+        "localModifiers": ["near me", "local", "in my area"]
       },
       "ctaSettings": {
         "primaryCTA": "Get Help Now",
@@ -203,10 +195,7 @@
                               "flag": "uri",
                               "constraint": {
                                 "options": {
-                                  "scheme": [
-                                    "/^http$/",
-                                    "/^https$/"
-                                  ],
+                                  "scheme": ["/^http$/", "/^https$/"],
                                   "allowRelative": false,
                                   "relativeOnly": false,
                                   "allowCredentials": false
@@ -860,12 +849,7 @@
                               "flag": "uri",
                               "constraint": {
                                 "options": {
-                                  "scheme": [
-                                    "/^http$/",
-                                    "/^https$/",
-                                    "/^tel$/",
-                                    "/^mailto$/"
-                                  ],
+                                  "scheme": ["/^http$/", "/^https$/", "/^tel$/", "/^mailto$/"],
                                   "allowRelative": true,
                                   "relativeOnly": false,
                                   "allowCredentials": false
@@ -1004,12 +988,7 @@
                               "flag": "uri",
                               "constraint": {
                                 "options": {
-                                  "scheme": [
-                                    "/^http$/",
-                                    "/^https$/",
-                                    "/^tel$/",
-                                    "/^mailto$/"
-                                  ],
+                                  "scheme": ["/^http$/", "/^https$/", "/^tel$/", "/^mailto$/"],
                                   "allowRelative": true,
                                   "relativeOnly": false,
                                   "allowCredentials": false
@@ -1484,10 +1463,7 @@
                     "flag": "uri",
                     "constraint": {
                       "options": {
-                        "scheme": [
-                          "/^http$/",
-                          "/^https$/"
-                        ],
+                        "scheme": ["/^http$/", "/^https$/"],
                         "allowRelative": false,
                         "relativeOnly": false,
                         "allowCredentials": false
@@ -1510,10 +1486,7 @@
                     "flag": "uri",
                     "constraint": {
                       "options": {
-                        "scheme": [
-                          "/^http$/",
-                          "/^https$/"
-                        ],
+                        "scheme": ["/^http$/", "/^https$/"],
                         "allowRelative": false,
                         "relativeOnly": false,
                         "allowCredentials": false
@@ -1536,10 +1509,7 @@
                     "flag": "uri",
                     "constraint": {
                       "options": {
-                        "scheme": [
-                          "/^http$/",
-                          "/^https$/"
-                        ],
+                        "scheme": ["/^http$/", "/^https$/"],
                         "allowRelative": false,
                         "relativeOnly": false,
                         "allowCredentials": false
@@ -1611,12 +1581,7 @@
                               "flag": "uri",
                               "constraint": {
                                 "options": {
-                                  "scheme": [
-                                    "/^http$/",
-                                    "/^https$/",
-                                    "/^tel$/",
-                                    "/^mailto$/"
-                                  ],
+                                  "scheme": ["/^http$/", "/^https$/", "/^tel$/", "/^mailto$/"],
                                   "allowRelative": true,
                                   "relativeOnly": false,
                                   "allowCredentials": false
@@ -2036,15 +2001,7 @@
             "rules": [
               {
                 "flag": "valid",
-                "constraint": [
-                  "hero",
-                  "cta",
-                  "features",
-                  "problems",
-                  "metrics",
-                  "steps",
-                  "generic"
-                ]
+                "constraint": ["hero", "cta", "features", "problems", "metrics", "steps", "generic"]
               },
               {
                 "flag": "presence",
@@ -2089,12 +2046,7 @@
                                   "flag": "uri",
                                   "constraint": {
                                     "options": {
-                                      "scheme": [
-                                        "/^http$/",
-                                        "/^https$/",
-                                        "/^tel$/",
-                                        "/^mailto$/"
-                                      ],
+                                      "scheme": ["/^http$/", "/^https$/", "/^tel$/", "/^mailto$/"],
                                       "allowRelative": true,
                                       "relativeOnly": false,
                                       "allowCredentials": false
@@ -2535,12 +2487,7 @@
                               "flag": "uri",
                               "constraint": {
                                 "options": {
-                                  "scheme": [
-                                    "/^http$/",
-                                    "/^https$/",
-                                    "/^tel$/",
-                                    "/^mailto$/"
-                                  ],
+                                  "scheme": ["/^http$/", "/^https$/", "/^tel$/", "/^mailto$/"],
                                   "allowRelative": true,
                                   "relativeOnly": false,
                                   "allowCredentials": false
@@ -2803,12 +2750,7 @@
                                   "flag": "uri",
                                   "constraint": {
                                     "options": {
-                                      "scheme": [
-                                        "/^http$/",
-                                        "/^https$/",
-                                        "/^tel$/",
-                                        "/^mailto$/"
-                                      ],
+                                      "scheme": ["/^http$/", "/^https$/", "/^tel$/", "/^mailto$/"],
                                       "allowRelative": true,
                                       "relativeOnly": false,
                                       "allowCredentials": false
@@ -3019,10 +2961,7 @@
                         "flag": "uri",
                         "constraint": {
                           "options": {
-                            "scheme": [
-                              "/^http$/",
-                              "/^https$/"
-                            ],
+                            "scheme": ["/^http$/", "/^https$/"],
                             "allowRelative": false,
                             "relativeOnly": false,
                             "allowCredentials": false
@@ -3112,10 +3051,7 @@
                     "flag": "uri",
                     "constraint": {
                       "options": {
-                        "scheme": [
-                          "/^http$/",
-                          "/^https$/"
-                        ],
+                        "scheme": ["/^http$/", "/^https$/"],
                         "allowRelative": false,
                         "relativeOnly": false,
                         "allowCredentials": false
@@ -3170,12 +3106,7 @@
                                   "flag": "uri",
                                   "constraint": {
                                     "options": {
-                                      "scheme": [
-                                        "/^http$/",
-                                        "/^https$/",
-                                        "/^tel$/",
-                                        "/^mailto$/"
-                                      ],
+                                      "scheme": ["/^http$/", "/^https$/", "/^tel$/", "/^mailto$/"],
                                       "allowRelative": true,
                                       "relativeOnly": false,
                                       "allowCredentials": false
@@ -3424,10 +3355,7 @@
                     "flag": "uri",
                     "constraint": {
                       "options": {
-                        "scheme": [
-                          "/^http$/",
-                          "/^https$/"
-                        ],
+                        "scheme": ["/^http$/", "/^https$/"],
                         "allowRelative": false,
                         "relativeOnly": false,
                         "allowCredentials": false
@@ -3823,10 +3751,7 @@
                 "flag": "uri",
                 "constraint": {
                   "options": {
-                    "scheme": [
-                      "/^http$/",
-                      "/^https$/"
-                    ],
+                    "scheme": ["/^http$/", "/^https$/"],
                     "allowRelative": false,
                     "relativeOnly": false,
                     "allowCredentials": false
@@ -3933,13 +3858,7 @@
             "rules": [
               {
                 "flag": "valid",
-                "constraint": [
-                  "revenue",
-                  "attendance",
-                  "efficiency",
-                  "growth",
-                  "savings"
-                ]
+                "constraint": ["revenue", "attendance", "efficiency", "growth", "savings"]
               },
               {
                 "flag": "presence",
@@ -4814,10 +4733,7 @@
                     "flag": "uri",
                     "constraint": {
                       "options": {
-                        "scheme": [
-                          "/^http$/",
-                          "/^https$/"
-                        ],
+                        "scheme": ["/^http$/", "/^https$/"],
                         "allowRelative": false,
                         "relativeOnly": false,
                         "allowCredentials": false
@@ -4840,10 +4756,7 @@
                     "flag": "uri",
                     "constraint": {
                       "options": {
-                        "scheme": [
-                          "/^http$/",
-                          "/^https$/"
-                        ],
+                        "scheme": ["/^http$/", "/^https$/"],
                         "allowRelative": false,
                         "relativeOnly": false,
                         "allowCredentials": false
@@ -4866,10 +4779,7 @@
                     "flag": "uri",
                     "constraint": {
                       "options": {
-                        "scheme": [
-                          "/^http$/",
-                          "/^https$/"
-                        ],
+                        "scheme": ["/^http$/", "/^https$/"],
                         "allowRelative": false,
                         "relativeOnly": false,
                         "allowCredentials": false
@@ -5001,13 +4911,7 @@
             "rules": [
               {
                 "flag": "valid",
-                "constraint": [
-                  "whatsapp",
-                  "phone",
-                  "email",
-                  "internal",
-                  "external"
-                ]
+                "constraint": ["whatsapp", "phone", "email", "internal", "external"]
               },
               {
                 "flag": "presence",
@@ -6014,10 +5918,7 @@
             "rules": [
               {
                 "flag": "valid",
-                "constraint": [
-                  "text",
-                  "video"
-                ]
+                "constraint": ["text", "video"]
               },
               {
                 "flag": "presence",
@@ -6055,10 +5956,7 @@
                 "flag": "uri",
                 "constraint": {
                   "options": {
-                    "scheme": [
-                      "/^http$/",
-                      "/^https$/"
-                    ],
+                    "scheme": ["/^http$/", "/^https$/"],
                     "allowRelative": false,
                     "relativeOnly": false,
                     "allowCredentials": false
@@ -6206,11 +6104,7 @@
             "rules": [
               {
                 "flag": "valid",
-                "constraint": [
-                  "404",
-                  "500",
-                  "maintenance"
-                ]
+                "constraint": ["404", "500", "maintenance"]
               },
               {
                 "flag": "presence",
@@ -6458,12 +6352,7 @@
                                   "flag": "uri",
                                   "constraint": {
                                     "options": {
-                                      "scheme": [
-                                        "/^http$/",
-                                        "/^https$/",
-                                        "/^tel$/",
-                                        "/^mailto$/"
-                                      ],
+                                      "scheme": ["/^http$/", "/^https$/", "/^tel$/", "/^mailto$/"],
                                       "allowRelative": true,
                                       "relativeOnly": false,
                                       "allowCredentials": false

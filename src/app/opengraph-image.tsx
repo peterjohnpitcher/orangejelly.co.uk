@@ -1,11 +1,11 @@
-import { ImageResponse } from 'next/og'
+import { ImageResponse } from 'next/og';
 
 export const size = {
   width: 1200,
   height: 630,
-}
+};
 
-export const contentType = 'image/png'
+export const contentType = 'image/png';
 
 export default function OGImage() {
   return new ImageResponse(
@@ -45,9 +45,7 @@ export default function OGImage() {
             OJ
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ fontSize: 56, color: '#2D2D2D', fontWeight: 800 }}>
-              Orange Jelly
-            </div>
+            <div style={{ fontSize: 56, color: '#2D2D2D', fontWeight: 800 }}>Orange Jelly</div>
             <div style={{ fontSize: 36, color: '#2C5F5F', fontWeight: 600 }}>
               Pub marketing that works
             </div>
@@ -61,9 +59,5 @@ export default function OGImage() {
     {
       ...size,
     }
-  )
+  );
 }
-
-
-
-

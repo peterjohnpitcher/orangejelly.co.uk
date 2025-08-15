@@ -48,11 +48,11 @@ async function fixBlogDuplicatesAndDates() {
   titleMap.forEach((duplicates, title) => {
     if (duplicates.length > 1) {
       console.log(`Found ${duplicates.length} duplicates of: ${title}`);
-      
+
       // Keep the one with a category, or the first one if none have categories
       const withCategory = duplicates.filter((p: any) => p.category);
       const toKeep = withCategory.length > 0 ? withCategory[0] : duplicates[0];
-      
+
       duplicates.forEach((post: any) => {
         if (post._id !== toKeep._id) {
           console.log(`  - Will delete duplicate: ${post._id}`);
@@ -93,7 +93,7 @@ async function fixBlogDuplicatesAndDates() {
       const currentDate = new Date(post.publishedDate);
       const expectedDateStr = format(expectedDate, 'yyyy-MM-dd');
       const currentDateStr = format(currentDate, 'yyyy-MM-dd');
-      
+
       if (currentDateStr !== expectedDateStr) {
         console.log(`Post "${post.title}"`);
         console.log(`  Current date: ${currentDateStr}`);
@@ -101,10 +101,10 @@ async function fixBlogDuplicatesAndDates() {
         updates.push({
           id: post._id,
           date: expectedDate.toISOString(),
-          title: post.title
+          title: post.title,
         });
       }
-      
+
       // Move to next Monday
       expectedDate = addDays(expectedDate, 7);
     }
@@ -114,9 +114,7 @@ async function fixBlogDuplicatesAndDates() {
   if (updates.length > 0) {
     console.log(`\nFixing dates for ${updates.length} posts...`);
     for (const update of updates) {
-      await client.patch(update.id)
-        .set({ publishedDate: update.date })
-        .commit();
+      await client.patch(update.id).set({ publishedDate: update.date }).commit();
       console.log(`  - Fixed date for: ${update.title}`);
     }
   } else {

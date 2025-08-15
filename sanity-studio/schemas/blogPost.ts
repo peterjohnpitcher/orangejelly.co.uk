@@ -19,7 +19,8 @@ export default {
       title: 'Title',
       type: 'string',
       group: 'content',
-      description: 'Use question format for voice search. E.g., "Why Is My Pub Empty on Tuesday Nights?"',
+      description:
+        'Use question format for voice search. E.g., "Why Is My Pub Empty on Tuesday Nights?"',
       validation: (Rule: any) => Rule.required(),
     },
     {
@@ -57,7 +58,7 @@ export default {
       description: 'Brief description for listings and meta description',
       validation: (Rule: any) => Rule.required().max(160),
     },
-    
+
     // AI & VOICE SEARCH GROUP
     {
       name: 'quickAnswer',
@@ -65,8 +66,9 @@ export default {
       type: 'text',
       group: 'ai',
       rows: 3,
-      description: 'CRITICAL: 40-60 words answering the title question. This appears right after intro and targets featured snippets.',
-      validation: (Rule: any) => 
+      description:
+        'CRITICAL: 40-60 words answering the title question. This appears right after intro and targets featured snippets.',
+      validation: (Rule: any) =>
         Rule.required()
           .min(30)
           .max(80)
@@ -78,45 +80,48 @@ export default {
       type: 'array',
       group: 'ai',
       of: [{ type: 'string' }],
-      description: 'Natural language questions. E.g., "How do I get more people in my pub on Tuesday?"',
+      description:
+        'Natural language questions. E.g., "How do I get more people in my pub on Tuesday?"',
     },
     {
       name: 'quickStats',
       title: 'Quick Stats Box',
       type: 'array',
       group: 'ai',
-      of: [{
-        type: 'object',
-        fields: [
-          { 
-            name: 'label', 
-            type: 'string', 
-            title: 'Stat Label',
-            description: 'E.g., "Quiz Attendance"'
-          },
-          { 
-            name: 'value', 
-            type: 'string', 
-            title: 'Stat Value',
-            description: 'E.g., "25-35 regulars"'
-          },
-          { 
-            name: 'highlight', 
-            type: 'boolean', 
-            title: 'Highlight this stat', 
-            initialValue: false 
-          }
-        ],
-        preview: {
-          select: {
-            title: 'label',
-            subtitle: 'value',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'label',
+              type: 'string',
+              title: 'Stat Label',
+              description: 'E.g., "Quiz Attendance"',
+            },
+            {
+              name: 'value',
+              type: 'string',
+              title: 'Stat Value',
+              description: 'E.g., "25-35 regulars"',
+            },
+            {
+              name: 'highlight',
+              type: 'boolean',
+              title: 'Highlight this stat',
+              initialValue: false,
+            },
+          ],
+          preview: {
+            select: {
+              title: 'label',
+              subtitle: 'value',
+            },
           },
         },
-      }],
+      ],
       description: 'Key statistics for AI Overview extraction',
     },
-    
+
     // MAIN CONTENT
     {
       name: 'content',
@@ -193,15 +198,17 @@ export default {
               name: 'rows',
               title: 'Table Rows',
               type: 'array',
-              of: [{
-                type: 'object',
-                fields: [
-                  { name: 'option', type: 'string', title: 'Option/Method' },
-                  { name: 'cost', type: 'string', title: 'Cost' },
-                  { name: 'time', type: 'string', title: 'Time' },
-                  { name: 'results', type: 'string', title: 'Results' },
-                ],
-              }],
+              of: [
+                {
+                  type: 'object',
+                  fields: [
+                    { name: 'option', type: 'string', title: 'Option/Method' },
+                    { name: 'cost', type: 'string', title: 'Cost' },
+                    { name: 'time', type: 'string', title: 'Time' },
+                    { name: 'results', type: 'string', title: 'Results' },
+                  ],
+                },
+              ],
             },
           ],
           preview: {
@@ -238,57 +245,59 @@ export default {
         },
       ],
     },
-    
+
     // ENHANCED FAQs
     {
       name: 'faqs',
       title: 'FAQs (Critical for Voice Search)',
       type: 'array',
       group: 'ai',
-      of: [{
-        type: 'object',
-        fields: [
-          {
-            name: 'question',
-            title: 'Question',
-            type: 'string',
-            description: 'Use natural language as people would ask',
-            validation: (Rule: any) => Rule.required(),
-          },
-          {
-            name: 'answer',
-            title: 'Answer',
-            type: 'text',
-            rows: 3,
-            description: 'Direct answer in first sentence. Details follow.',
-            validation: (Rule: any) => Rule.required(),
-          },
-          {
-            name: 'isVoiceOptimized',
-            title: 'Voice Search Optimized',
-            type: 'boolean',
-            description: 'Common voice search query?',
-            initialValue: false,
-          },
-        ],
-        preview: {
-          select: {
-            title: 'question',
-            subtitle: 'answer',
-            media: 'isVoiceOptimized',
-          },
-          prepare(selection: any) {
-            const { title, subtitle, media } = selection;
-            return {
-              title,
-              subtitle: subtitle?.substring(0, 50) + '...',
-            };
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'question',
+              title: 'Question',
+              type: 'string',
+              description: 'Use natural language as people would ask',
+              validation: (Rule: any) => Rule.required(),
+            },
+            {
+              name: 'answer',
+              title: 'Answer',
+              type: 'text',
+              rows: 3,
+              description: 'Direct answer in first sentence. Details follow.',
+              validation: (Rule: any) => Rule.required(),
+            },
+            {
+              name: 'isVoiceOptimized',
+              title: 'Voice Search Optimized',
+              type: 'boolean',
+              description: 'Common voice search query?',
+              initialValue: false,
+            },
+          ],
+          preview: {
+            select: {
+              title: 'question',
+              subtitle: 'answer',
+              media: 'isVoiceOptimized',
+            },
+            prepare(selection: any) {
+              const { title, subtitle, media } = selection;
+              return {
+                title,
+                subtitle: subtitle?.substring(0, 50) + '...',
+              };
+            },
           },
         },
-      }],
+      ],
       validation: (Rule: any) => Rule.min(3).warning('Add at least 3 FAQs for better SEO'),
     },
-    
+
     // LOCAL SEO GROUP
     {
       name: 'localSEO',
@@ -318,7 +327,7 @@ export default {
         },
       ],
     },
-    
+
     // SEO GROUP
     {
       name: 'featuredImage',
@@ -385,7 +394,7 @@ export default {
         },
       ],
     },
-    
+
     // METADATA GROUP
     {
       name: 'author',
@@ -407,7 +416,7 @@ export default {
       type: 'datetime',
       group: 'meta',
     },
-    
+
     // CTA SETTINGS
     {
       name: 'ctaSettings',
@@ -445,7 +454,7 @@ export default {
       ],
     },
   ],
-  
+
   // PREVIEW CONFIGURATION
   preview: {
     select: {
@@ -467,7 +476,7 @@ export default {
       };
     },
   },
-  
+
   // INITIAL VALUE TEMPLATE
   initialValue: {
     status: 'draft',

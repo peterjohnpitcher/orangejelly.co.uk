@@ -7,80 +7,81 @@ const fixes = [
   {
     file: 'src/app/licensees-guide/page.tsx',
     find: "images: ['/images/og/licensees-guide.svg'],",
-    replace: "images: ['/logo.png'],"
+    replace: "images: ['/logo.png'],",
   },
   // Licensees Guide article pages (fallback)
   {
     file: 'src/app/licensees-guide/[slug]/page.tsx',
     find: "images: [post.featuredImage || '/images/og/default.svg'],",
-    replace: "images: [post.featuredImage || '/logo.png'],"
+    replace: "images: [post.featuredImage || '/logo.png'],",
   },
   // Twitter card in article pages
   {
     file: 'src/app/licensees-guide/[slug]/page.tsx',
     find: "images: [post.featuredImage || '/images/og/default.svg'],",
     replace: "images: [post.featuredImage || '/logo.png'],",
-    occurrence: 2
+    occurrence: 2,
   },
   // Meta component default
   {
     file: 'src/components/Meta.tsx',
     find: "ogImage = '/images/og/default.svg',",
-    replace: "ogImage = '/logo.png',"
+    replace: "ogImage = '/logo.png',",
   },
   // Blog post card images in licensees guide
   {
     file: 'src/app/licensees-guide/page.tsx',
     find: "image: typeof post.featuredImage === 'string' ? post.featuredImage : '/images/blog/default.svg'",
-    replace: "image: typeof post.featuredImage === 'string' ? post.featuredImage : '/logo.png'"
+    replace: "image: typeof post.featuredImage === 'string' ? post.featuredImage : '/logo.png'",
   },
   {
     file: 'src/app/licensees-guide/page.tsx',
     find: "src: typeof post.featuredImage === 'string' ? post.featuredImage : '/images/blog/default.svg',",
-    replace: "src: typeof post.featuredImage === 'string' ? post.featuredImage : '/logo.png',"
+    replace: "src: typeof post.featuredImage === 'string' ? post.featuredImage : '/logo.png',",
   },
   // Category pages
   {
     file: 'src/app/licensees-guide/category/[category]/page.tsx',
     find: "image: post.featuredImage || '/images/blog/default.svg'",
-    replace: "image: post.featuredImage || '/logo.png'"
+    replace: "image: post.featuredImage || '/logo.png'",
   },
   {
     file: 'src/app/licensees-guide/category/[category]/page.tsx',
     find: "src: post.featuredImage || '/images/blog/default.svg',",
-    replace: "src: post.featuredImage || '/logo.png',"
-  }
+    replace: "src: post.featuredImage || '/logo.png',",
+  },
 ];
 
 console.log('🔧 Fixing OpenGraph images across the site...\n');
 
-fixes.forEach(fix => {
+fixes.forEach((fix) => {
   const filePath = path.join(process.cwd(), fix.file);
-  
+
   if (!fs.existsSync(filePath)) {
     console.log(`❌ File not found: ${fix.file}`);
     return;
   }
-  
+
   let content = fs.readFileSync(filePath, 'utf-8');
   const originalContent = content;
-  
+
   if (fix.occurrence === 2) {
     // Handle second occurrence
     const firstIndex = content.indexOf(fix.find);
     if (firstIndex !== -1) {
       const secondIndex = content.indexOf(fix.find, firstIndex + fix.find.length);
       if (secondIndex !== -1) {
-        content = content.substring(0, secondIndex) + 
-                  fix.replace + 
-                  content.substring(secondIndex + fix.find.length);
+        content =
+          content.substring(0, secondIndex) +
+          fix.replace +
+          content.substring(secondIndex + fix.find.length);
       }
     }
   } else {
     // Normal replacement
     content = content.replace(fix.find, fix.replace);
   }
-  
+
   if (content !== originalContent) {
     fs.writeFileSync(filePath, content);
     console.log(`✅ Fixed: ${fix.file}`);

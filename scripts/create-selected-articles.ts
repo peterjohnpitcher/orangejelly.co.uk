@@ -22,7 +22,7 @@ async function getAuthorRef() {
 // Get or create category
 async function getCategoryRef(slug: string, name: string, description: string) {
   let category = await client.fetch(`*[_type == "category" && slug.current == $slug][0]`, { slug });
-  
+
   if (!category) {
     category = await client.create({
       _type: 'category',
@@ -32,7 +32,7 @@ async function getCategoryRef(slug: string, name: string, description: string) {
     });
     console.log(`Created new category: ${name}`);
   }
-  
+
   return category._id;
 }
 
@@ -47,14 +47,46 @@ async function createArticles() {
 
   // Get category references
   const categories = {
-    customerAcquisition: await getCategoryRef('customer-acquisition', 'Customer Acquisition', 'Attracting and retaining new customer segments'),
-    digitalReputation: await getCategoryRef('digital-reputation', 'Digital & Reputation', 'Managing online presence and reviews'),
-    locationChallenges: await getCategoryRef('location-challenges', 'Location Challenges', 'Overcoming geographical and demographic obstacles'),
-    operations: await getCategoryRef('operations', 'Operations', 'Day-to-day pub management and systems'),
-    supplierRelations: await getCategoryRef('supplier-relations', 'Supplier Relations', 'Managing brewery ties and supplier relationships'),
-    financialManagement: await getCategoryRef('financial-management', 'Financial Management', 'Cash flow, budgeting, and financial planning'),
-    compliance: await getCategoryRef('compliance', 'Compliance & Legal', 'Regulations, licensing, and legal requirements'),
-    crisisManagement: await getCategoryRef('crisis-management', 'Crisis Management', 'Handling emergencies and unexpected situations'),
+    customerAcquisition: await getCategoryRef(
+      'customer-acquisition',
+      'Customer Acquisition',
+      'Attracting and retaining new customer segments'
+    ),
+    digitalReputation: await getCategoryRef(
+      'digital-reputation',
+      'Digital & Reputation',
+      'Managing online presence and reviews'
+    ),
+    locationChallenges: await getCategoryRef(
+      'location-challenges',
+      'Location Challenges',
+      'Overcoming geographical and demographic obstacles'
+    ),
+    operations: await getCategoryRef(
+      'operations',
+      'Operations',
+      'Day-to-day pub management and systems'
+    ),
+    supplierRelations: await getCategoryRef(
+      'supplier-relations',
+      'Supplier Relations',
+      'Managing brewery ties and supplier relationships'
+    ),
+    financialManagement: await getCategoryRef(
+      'financial-management',
+      'Financial Management',
+      'Cash flow, budgeting, and financial planning'
+    ),
+    compliance: await getCategoryRef(
+      'compliance',
+      'Compliance & Legal',
+      'Regulations, licensing, and legal requirements'
+    ),
+    crisisManagement: await getCategoryRef(
+      'crisis-management',
+      'Crisis Management',
+      'Handling emergencies and unexpected situations'
+    ),
   };
 
   const articles = [
@@ -64,8 +96,10 @@ async function createArticles() {
       slug: 'young-people-wont-come-to-your-pub',
       category: categories.customerAcquisition,
       publishedDate: '2025-08-11T10:00:00Z',
-      excerpt: "Transform your pub into a magnet for 18-30s with proven strategies that actually work. No gimmicks, just real techniques from a licensee who cracked the code.",
-      quickAnswer: "Attract younger customers by creating Instagram-worthy moments, hosting events they actually want, offering amazing non-alcoholic options, and building a vibe that competes with their sofa. Focus on experiences over drinks, community over consumption, and authenticity over trying too hard.",
+      excerpt:
+        'Transform your pub into a magnet for 18-30s with proven strategies that actually work. No gimmicks, just real techniques from a licensee who cracked the code.',
+      quickAnswer:
+        'Attract younger customers by creating Instagram-worthy moments, hosting events they actually want, offering amazing non-alcoholic options, and building a vibe that competes with their sofa. Focus on experiences over drinks, community over consumption, and authenticity over trying too hard.',
       content: `Remember when pubs were the default social hub for young people? Those days might seem long gone, but here's the truth: young people still want what pubs offer - community, experiences, and somewhere that isn't their flat. They just need a reason to choose you over Netflix.
 
 ## The Real Problem (It's Not What You Think)
@@ -225,39 +259,52 @@ Start with one change. Make it brilliant. Build from there.`,
       faqs: [
         {
           question: "Won't I alienate my older regulars?",
-          answer: "Not if you do it right. Keep traditional pub elements during peak times for regulars. Use quieter periods for younger-focused events. Our 60+ regulars actually love the Tuesday board game crowd - they've adopted them!",
+          answer:
+            "Not if you do it right. Keep traditional pub elements during peak times for regulars. Use quieter periods for younger-focused events. Our 60+ regulars actually love the Tuesday board game crowd - they've adopted them!",
           isVoiceOptimized: true,
         },
         {
-          question: "How do I stop it becoming a rowdy student bar?",
-          answer: "Focus on experiences and quality, not cheap drinks. Attract the coffee-and-cocktails crowd, not the shots-and-fights crowd. Price point and atmosphere are your filters - aim for young professionals and creatives, not just anyone under 30.",
+          question: 'How do I stop it becoming a rowdy student bar?',
+          answer:
+            'Focus on experiences and quality, not cheap drinks. Attract the coffee-and-cocktails crowd, not the shots-and-fights crowd. Price point and atmosphere are your filters - aim for young professionals and creatives, not just anyone under 30.',
           isVoiceOptimized: true,
         },
         {
           question: "What if I can't afford renovations?",
-          answer: "You don't need them. Clean thoroughly, add £30 of fairy lights, rearrange furniture to create zones, and focus on service. Young people value authenticity over aesthetics. A genuinely welcoming traditional pub beats a try-hard trendy bar every time.",
+          answer:
+            "You don't need them. Clean thoroughly, add £30 of fairy lights, rearrange furniture to create zones, and focus on service. Young people value authenticity over aesthetics. A genuinely welcoming traditional pub beats a try-hard trendy bar every time.",
           isVoiceOptimized: false,
         },
         {
-          question: "Should I get on TikTok?",
-          answer: "Only if you can do it authentically. Instagram and WhatsApp groups are more important for pubs. If you do TikTok, let young staff run it, post behind-the-scenes content, and don't try to go viral - build community instead.",
+          question: 'Should I get on TikTok?',
+          answer:
+            "Only if you can do it authentically. Instagram and WhatsApp groups are more important for pubs. If you do TikTok, let young staff run it, post behind-the-scenes content, and don't try to go viral - build community instead.",
           isVoiceOptimized: false,
         },
       ],
       tags: ['young customers', 'millennials', 'gen z', 'instagram', 'social media', 'events'],
       seo: {
-        metaDescription: "Proven strategies to attract 18-30s to your pub. Create Instagram moments, host wanted events, and build the vibe that beats their sofa.",
-        keywords: ['young people pub', 'attract millennials', 'gen z marketing', 'pub instagram', 'youth marketing'],
+        metaDescription:
+          'Proven strategies to attract 18-30s to your pub. Create Instagram moments, host wanted events, and build the vibe that beats their sofa.',
+        keywords: [
+          'young people pub',
+          'attract millennials',
+          'gen z marketing',
+          'pub instagram',
+          'youth marketing',
+        ],
       },
     },
     {
       // Article 4: Online Reviews
-      title: "Terrible Online Reviews Ruining Your Reputation? The Damage Control Guide",
+      title: 'Terrible Online Reviews Ruining Your Reputation? The Damage Control Guide',
       slug: 'terrible-online-reviews-damage-control',
       category: categories.digitalReputation,
       publishedDate: '2025-08-18T10:00:00Z',
-      excerpt: "Turn your worst reviews into your best marketing tool. Learn the response framework that converted our angriest critics into regulars.",
-      quickAnswer: "Handle bad reviews by responding within 24 hours, acknowledging specific concerns, offering to discuss offline, and showing future readers you care. Never argue, always apologize for their experience (not admit fault), and implement visible changes. Most importantly, flood bad reviews with good ones by asking happy customers.",
+      excerpt:
+        'Turn your worst reviews into your best marketing tool. Learn the response framework that converted our angriest critics into regulars.',
+      quickAnswer:
+        'Handle bad reviews by responding within 24 hours, acknowledging specific concerns, offering to discuss offline, and showing future readers you care. Never argue, always apologize for their experience (not admit fault), and implement visible changes. Most importantly, flood bad reviews with good ones by asking happy customers.',
       content: `I still remember the review that nearly broke me: "Worst pub in Surrey. Rude staff, terrible food, wouldn't feed it to my dog." One star. Top of our Google listing. 47 people had "found it helpful."
 
 Three months later, that same reviewer became a regular. Here's exactly how we turned our online reputation around - and how you can too.
@@ -471,40 +518,59 @@ The truth? Your worst reviews are your biggest opportunity. Every response shows
       ],
       faqs: [
         {
-          question: "What if the review is completely false?",
-          answer: "Respond publicly but carefully: 'We've checked our records and can't find your booking. Please contact us directly at [email] so we can investigate.' This shows future readers you're professional while casting doubt on the review. Then flag it with the platform.",
+          question: 'What if the review is completely false?',
+          answer:
+            "Respond publicly but carefully: 'We've checked our records and can't find your booking. Please contact us directly at [email] so we can investigate.' This shows future readers you're professional while casting doubt on the review. Then flag it with the platform.",
           isVoiceOptimized: true,
         },
         {
-          question: "Should I offer compensation in my response?",
-          answer: "Never publicly. Your response is marketing to future customers, not negotiation with the reviewer. Invite them to contact you privately, then handle compensation discretely. Public offers attract scammers.",
+          question: 'Should I offer compensation in my response?',
+          answer:
+            'Never publicly. Your response is marketing to future customers, not negotiation with the reviewer. Invite them to contact you privately, then handle compensation discretely. Public offers attract scammers.',
           isVoiceOptimized: true,
         },
         {
-          question: "How do I get staff to care about reviews?",
-          answer: "Share every positive review in staff WhatsApp. Print great ones for the break room. Celebrate monthly rating improvements. When staff see their names in 5-star reviews, they become review champions. Make it about pride, not pressure.",
+          question: 'How do I get staff to care about reviews?',
+          answer:
+            'Share every positive review in staff WhatsApp. Print great ones for the break room. Celebrate monthly rating improvements. When staff see their names in 5-star reviews, they become review champions. Make it about pride, not pressure.',
           isVoiceOptimized: false,
         },
         {
-          question: "Can I remove bad reviews?",
-          answer: "Only if they violate platform policies (hate speech, competitors, fake). Success rate is low. Better to bury them with fresh positive reviews. One bad review among 50 good ones is actually more trustworthy than perfect scores.",
+          question: 'Can I remove bad reviews?',
+          answer:
+            'Only if they violate platform policies (hate speech, competitors, fake). Success rate is low. Better to bury them with fresh positive reviews. One bad review among 50 good ones is actually more trustworthy than perfect scores.',
           isVoiceOptimized: true,
         },
       ],
-      tags: ['online reviews', 'reputation management', 'Google reviews', 'TripAdvisor', 'crisis management'],
+      tags: [
+        'online reviews',
+        'reputation management',
+        'Google reviews',
+        'TripAdvisor',
+        'crisis management',
+      ],
       seo: {
-        metaDescription: "Turn terrible reviews into marketing gold. Learn the exact response framework and prevention system that transformed our reputation.",
-        keywords: ['bad reviews response', 'online reputation management', 'Google reviews strategy', 'TripAdvisor responses', 'review management'],
+        metaDescription:
+          'Turn terrible reviews into marketing gold. Learn the exact response framework and prevention system that transformed our reputation.',
+        keywords: [
+          'bad reviews response',
+          'online reputation management',
+          'Google reviews strategy',
+          'TripAdvisor responses',
+          'review management',
+        ],
       },
     },
     {
       // Article 5: Village Pub
-      title: "Village Pub in a Dying Village? Survival Strategies That Actually Work",
+      title: 'Village Pub in a Dying Village? Survival Strategies That Actually Work',
       slug: 'village-pub-dying-village-survival',
       category: categories.locationChallenges,
       publishedDate: '2025-08-25T10:00:00Z',
-      excerpt: "When your village is shrinking but your bills aren't, here's how to transform from local boozer to destination venue without losing your soul.",
-      quickAnswer: "Save your village pub by becoming a destination worth traveling for. Create signature experiences, build food reputation, become the village hub for services, partner with local tourism, and use social media to reach beyond walking distance. Focus on giving people reasons to drive 20 minutes rather than hoping foot traffic returns.",
+      excerpt:
+        "When your village is shrinking but your bills aren't, here's how to transform from local boozer to destination venue without losing your soul.",
+      quickAnswer:
+        'Save your village pub by becoming a destination worth traveling for. Create signature experiences, build food reputation, become the village hub for services, partner with local tourism, and use social media to reach beyond walking distance. Focus on giving people reasons to drive 20 minutes rather than hoping foot traffic returns.',
       content: `"The village is dying, Peter. Twenty houses for sale, Post Office gone, bus service cut. We're next."
 
 That was my neighbor, pint in hand, delivering what felt like a death sentence. Our village had shrunk from 1,200 to 800 people in five years. The arithmetic was brutal: fewer locals, less money, slow death.
@@ -750,39 +816,58 @@ Start small. Be consistent. Give people reasons to drive past three other pubs t
       faqs: [
         {
           question: "Won't becoming a destination alienate locals?",
-          answer: "Only if done wrong. Keep your core local offers (pensioner lunches, regular's prices) while adding destination elements at different times. Locals actually love seeing their pub busy - it means it'll survive. Just ensure they always have their space and never feel priced out.",
+          answer:
+            "Only if done wrong. Keep your core local offers (pensioner lunches, regular's prices) while adding destination elements at different times. Locals actually love seeing their pub busy - it means it'll survive. Just ensure they always have their space and never feel priced out.",
           isVoiceOptimized: true,
         },
         {
-          question: "How do I compete with town pubs that have more footfall?",
-          answer: "You don't compete - you offer what they can't. Parking, gardens, peace, authenticity, personal service, local produce, community feel. Town pubs fight for random footfall. You build loyal customers who choose to visit.",
+          question: 'How do I compete with town pubs that have more footfall?',
+          answer:
+            "You don't compete - you offer what they can't. Parking, gardens, peace, authenticity, personal service, local produce, community feel. Town pubs fight for random footfall. You build loyal customers who choose to visit.",
           isVoiceOptimized: true,
         },
         {
           question: "What if I can't afford big changes?",
-          answer: "Start with what's free: clean thoroughly, rearrange furniture, improve service, use social media, partner with locals. One signature dish and monthly event can transform your reputation. Build gradually - reinvest profits into next improvement.",
+          answer:
+            "Start with what's free: clean thoroughly, rearrange furniture, improve service, use social media, partner with locals. One signature dish and monthly event can transform your reputation. Build gradually - reinvest profits into next improvement.",
           isVoiceOptimized: false,
         },
         {
-          question: "Should I focus on food or stay wet-led?",
-          answer: "Unless you have unique circumstances, food is essential for village pub survival. But start small - three dishes done brilliantly beats twenty done average. Build reputation gradually. Even simple soup and sandwiches beat nothing.",
+          question: 'Should I focus on food or stay wet-led?',
+          answer:
+            'Unless you have unique circumstances, food is essential for village pub survival. But start small - three dishes done brilliantly beats twenty done average. Build reputation gradually. Even simple soup and sandwiches beat nothing.',
           isVoiceOptimized: true,
         },
       ],
-      tags: ['village pub', 'rural pub', 'destination dining', 'community hub', 'pub diversification'],
+      tags: [
+        'village pub',
+        'rural pub',
+        'destination dining',
+        'community hub',
+        'pub diversification',
+      ],
       seo: {
-        metaDescription: "Transform your struggling village pub into a thriving destination. Proven strategies for rural pubs facing population decline.",
-        keywords: ['village pub survival', 'rural pub strategies', 'destination pub', 'community hub', 'village pub ideas'],
+        metaDescription:
+          'Transform your struggling village pub into a thriving destination. Proven strategies for rural pubs facing population decline.',
+        keywords: [
+          'village pub survival',
+          'rural pub strategies',
+          'destination pub',
+          'community hub',
+          'village pub ideas',
+        ],
       },
     },
     {
       // Article 7: Table Bookings
-      title: "Nobody Books Tables Anymore? Master the Art of Walk-ins vs Reservations",
+      title: 'Nobody Books Tables Anymore? Master the Art of Walk-ins vs Reservations',
       slug: 'nobody-books-tables-anymore',
       category: categories.operations,
       publishedDate: '2025-09-01T10:00:00Z',
-      excerpt: "Find the perfect balance between guaranteed bookings and spontaneous trade. Learn the system that increased our covers by 40% without turning anyone away.",
-      quickAnswer: "Balance bookings and walk-ins by keeping 30-40% tables for walk-ins, using time slots for bookings, implementing deposits for large groups, and having clear policies. Use technology wisely but keep human touch. The key is flexibility - adjust your mix based on day, season, and events.",
+      excerpt:
+        'Find the perfect balance between guaranteed bookings and spontaneous trade. Learn the system that increased our covers by 40% without turning anyone away.',
+      quickAnswer:
+        'Balance bookings and walk-ins by keeping 30-40% tables for walk-ins, using time slots for bookings, implementing deposits for large groups, and having clear policies. Use technology wisely but keep human touch. The key is flexibility - adjust your mix based on day, season, and events.',
       content: `"We're fully booked," I said to the couple at the door. The pub was half empty. They looked confused, frustrated, and left. Twenty minutes later, three bookings no-showed. We served twelve covers in a sixty-seat pub on a Saturday night.
 
 Sound familiar? Here's how we fixed our booking chaos and increased covers by 40% without any expensive booking systems.
@@ -1068,40 +1153,53 @@ Remember: Every empty chair is money lost, but every overcrowded service is repu
       ],
       faqs: [
         {
-          question: "Should I use an online booking system?",
-          answer: "Start simple with Google Forms or even just email. Expensive booking platforms eat into margins and lose personal touch. Only upgrade when you're consistently full and need automation. Most pubs never need expensive systems.",
+          question: 'Should I use an online booking system?',
+          answer:
+            "Start simple with Google Forms or even just email. Expensive booking platforms eat into margins and lose personal touch. Only upgrade when you're consistently full and need automation. Most pubs never need expensive systems.",
           isVoiceOptimized: true,
         },
         {
-          question: "How do I handle regular customers who just show up?",
-          answer: "Always keep some tables for walk-ins, even on busy nights. Regulars are your bread and butter. If truly full, personally manage their wait, buy them a drink, and ensure they get the next table. They'll understand if handled well.",
+          question: 'How do I handle regular customers who just show up?',
+          answer:
+            "Always keep some tables for walk-ins, even on busy nights. Regulars are your bread and butter. If truly full, personally manage their wait, buy them a drink, and ensure they get the next table. They'll understand if handled well.",
           isVoiceOptimized: true,
         },
         {
-          question: "What about people who book multiple restaurants?",
-          answer: "This is why confirmations matter. Text confirmation catches double-bookers. For repeat offenders, require deposits. Most importantly, build relationships so people choose you over their backup options.",
+          question: 'What about people who book multiple restaurants?',
+          answer:
+            'This is why confirmations matter. Text confirmation catches double-bookers. For repeat offenders, require deposits. Most importantly, build relationships so people choose you over their backup options.',
           isVoiceOptimized: false,
         },
         {
-          question: "Should I charge for no-shows?",
-          answer: "Only for groups of 8+ or special events. Small table no-show charges create more problems than they solve. Better to track repeat offenders and require deposits from them specifically. Focus on prevention, not punishment.",
+          question: 'Should I charge for no-shows?',
+          answer:
+            'Only for groups of 8+ or special events. Small table no-show charges create more problems than they solve. Better to track repeat offenders and require deposits from them specifically. Focus on prevention, not punishment.',
           isVoiceOptimized: true,
         },
       ],
       tags: ['table management', 'bookings', 'reservations', 'restaurant management', 'operations'],
       seo: {
-        metaDescription: "Master the perfect balance of bookings and walk-ins. Increase covers by 40% with this proven table management system.",
-        keywords: ['pub bookings', 'table management', 'restaurant reservations', 'no-show prevention', 'walk-in management'],
+        metaDescription:
+          'Master the perfect balance of bookings and walk-ins. Increase covers by 40% with this proven table management system.',
+        keywords: [
+          'pub bookings',
+          'table management',
+          'restaurant reservations',
+          'no-show prevention',
+          'walk-in management',
+        ],
       },
     },
     {
       // Article 8: Brewery Tie
-      title: "Brewery Tie Strangling Your Profits? Legal Ways to Improve Your Deal",
+      title: 'Brewery Tie Strangling Your Profits? Legal Ways to Improve Your Deal',
       slug: 'brewery-tie-improve-your-deal',
       category: categories.supplierRelations,
       publishedDate: '2025-09-08T10:00:00Z',
-      excerpt: "Work within your tie to boost profits without breaking contracts. Real strategies from a tied tenant who increased GP by 15% without going free of tie.",
-      quickAnswer: "Improve your tied deal by understanding your legal rights under the Pubs Code, negotiating properly with BDMs, maximizing machine income and untied products, claiming all discounts and support available, and building a relationship rather than adversarial position. Document everything, know your numbers, and consider MRO only as last resort.",
+      excerpt:
+        'Work within your tie to boost profits without breaking contracts. Real strategies from a tied tenant who increased GP by 15% without going free of tie.',
+      quickAnswer:
+        'Improve your tied deal by understanding your legal rights under the Pubs Code, negotiating properly with BDMs, maximizing machine income and untied products, claiming all discounts and support available, and building a relationship rather than adversarial position. Document everything, know your numbers, and consider MRO only as last resort.',
       content: `"The tie is killing us," said every tied tenant ever. And yes, paying £120 for a keg that free houses get for £70 hurts. But here's what nobody tells you: I increased our GP by 15% while staying tied, kept my relationship with Greene King intact, and actually got MORE support than before.
 
 No legal battles. No going free of tie. Just smart negotiation and knowing the system.
@@ -1392,40 +1490,53 @@ Your pubco needs successful tenants. Show them how helping you helps them. Then 
       ],
       faqs: [
         {
-          question: "Should I threaten to go MRO to get better terms?",
-          answer: "Only if you're genuinely prepared to follow through. Empty threats destroy relationships. Better to present a business case showing how helping you succeed helps them. Most pubcos will negotiate rather than lose a good tenant to MRO.",
+          question: 'Should I threaten to go MRO to get better terms?',
+          answer:
+            "Only if you're genuinely prepared to follow through. Empty threats destroy relationships. Better to present a business case showing how helping you succeed helps them. Most pubcos will negotiate rather than lose a good tenant to MRO.",
           isVoiceOptimized: true,
         },
         {
           question: "What if my BDM won't help?",
-          answer: "Document everything, then escalate professionally. Email their manager with specific requests and evidence. But first, ensure you're approaching correctly - many BDMs want to help but need business justification to get approval.",
+          answer:
+            "Document everything, then escalate professionally. Email their manager with specific requests and evidence. But first, ensure you're approaching correctly - many BDMs want to help but need business justification to get approval.",
           isVoiceOptimized: true,
         },
         {
-          question: "Is going free of tie always better?",
-          answer: "No. Calculate total cost including rent, lost support, capital requirements, and relationship value. Many successful pubs thrive within ties. Free of tie means free of support too. Do the maths honestly before deciding.",
+          question: 'Is going free of tie always better?',
+          answer:
+            'No. Calculate total cost including rent, lost support, capital requirements, and relationship value. Many successful pubs thrive within ties. Free of tie means free of support too. Do the maths honestly before deciding.',
           isVoiceOptimized: true,
         },
         {
-          question: "Can I buy some products outside the tie?",
-          answer: "Check your specific agreement. Guest ales, wines, spirits, soft drinks may have flexibility. Never breach your tie - it's grounds for forfeiture. But maximize every legal opportunity for untied products.",
+          question: 'Can I buy some products outside the tie?',
+          answer:
+            "Check your specific agreement. Guest ales, wines, spirits, soft drinks may have flexibility. Never breach your tie - it's grounds for forfeiture. But maximize every legal opportunity for untied products.",
           isVoiceOptimized: false,
         },
       ],
       tags: ['brewery tie', 'pubco', 'tied house', 'MRO', 'pub tenancy', 'supplier negotiation'],
       seo: {
-        metaDescription: "Improve your tied pub deal without breaking contracts. Legal strategies to increase GP by 15% while maintaining pubco relationships.",
-        keywords: ['brewery tie', 'tied pub advice', 'pubco negotiation', 'MRO option', 'pub tenant rights'],
+        metaDescription:
+          'Improve your tied pub deal without breaking contracts. Legal strategies to increase GP by 15% while maintaining pubco relationships.',
+        keywords: [
+          'brewery tie',
+          'tied pub advice',
+          'pubco negotiation',
+          'MRO option',
+          'pub tenant rights',
+        ],
       },
     },
     {
       // Article 10: Cash Flow
-      title: "Cash Flow Crisis Every Month? Breaking the Feast-or-Famine Cycle",
+      title: 'Cash Flow Crisis Every Month? Breaking the Feast-or-Famine Cycle',
       slug: 'cash-flow-crisis-breaking-cycle',
       category: categories.financialManagement,
       publishedDate: '2025-09-15T10:00:00Z',
-      excerpt: "Stop the monthly panic of making rent. Build predictable income, manage seasonal swings, and create the cash buffer that lets you sleep at night.",
-      quickAnswer: "Fix cash flow by creating predictable weekly income streams, negotiating payment terms with suppliers, building a 6-week cash buffer, implementing daily cash position tracking, and developing recession-proof revenue streams. Focus on subscription models, events calendars, and managing seasonal variations proactively rather than reactively.",
+      excerpt:
+        'Stop the monthly panic of making rent. Build predictable income, manage seasonal swings, and create the cash buffer that lets you sleep at night.',
+      quickAnswer:
+        'Fix cash flow by creating predictable weekly income streams, negotiating payment terms with suppliers, building a 6-week cash buffer, implementing daily cash position tracking, and developing recession-proof revenue streams. Focus on subscription models, events calendars, and managing seasonal variations proactively rather than reactively.',
       content: `Tuesday, 3am. Can't sleep. Rent due Friday. Takings down 30%. Staff wages Thursday. VAT return next week. Brain doing arithmetic gymnastics trying to make £8,000 from £5,000.
 
 Sound familiar? I lived this nightmare monthly for two years. Here's how we broke free from the feast-or-famine cycle and built genuine financial stability.
@@ -1700,39 +1811,58 @@ The secret? It's not about having more money - it's about managing what you have
       faqs: [
         {
           question: "What if suppliers won't give me better payment terms?",
-          answer: "Start with your best relationship and smallest supplier. Prove reliability, then leverage that success with others. If genuinely refused, focus on accelerating customer payments instead. Even 7 days improvement helps significantly.",
+          answer:
+            'Start with your best relationship and smallest supplier. Prove reliability, then leverage that success with others. If genuinely refused, focus on accelerating customer payments instead. Even 7 days improvement helps significantly.',
           isVoiceOptimized: true,
         },
         {
           question: "How do I build a buffer when I'm already behind?",
-          answer: "Start tiny - even £20 weekly. Cut one small cost, add one small revenue stream. Use windfalls (good weekend, event success) to accelerate. The habit matters more than the amount initially. £20 weekly becomes £1,000 annually.",
+          answer:
+            'Start tiny - even £20 weekly. Cut one small cost, add one small revenue stream. Use windfalls (good weekend, event success) to accelerate. The habit matters more than the amount initially. £20 weekly becomes £1,000 annually.',
           isVoiceOptimized: true,
         },
         {
-          question: "Should I use my overdraft for cash flow?",
-          answer: "Overdrafts are emergency tools, not operational funding. The interest kills profitability. Better to negotiate supplier terms, accelerate income, or even consider short-term loan with clear repayment plan. Overdraft dependency is a downward spiral.",
+          question: 'Should I use my overdraft for cash flow?',
+          answer:
+            'Overdrafts are emergency tools, not operational funding. The interest kills profitability. Better to negotiate supplier terms, accelerate income, or even consider short-term loan with clear repayment plan. Overdraft dependency is a downward spiral.',
           isVoiceOptimized: false,
         },
         {
           question: "What's the first thing to fix?",
-          answer: "Daily cash position tracking. You can't fix what you don't measure. Takes 5 minutes each morning, transforms decision-making. Second priority: one predictable weekly income stream. Build from there.",
+          answer:
+            "Daily cash position tracking. You can't fix what you don't measure. Takes 5 minutes each morning, transforms decision-making. Second priority: one predictable weekly income stream. Build from there.",
           isVoiceOptimized: true,
         },
       ],
-      tags: ['cash flow management', 'pub finances', 'payment terms', 'financial planning', 'buffer building'],
+      tags: [
+        'cash flow management',
+        'pub finances',
+        'payment terms',
+        'financial planning',
+        'buffer building',
+      ],
       seo: {
-        metaDescription: "Break free from monthly cash flow panic. Build predictable income, manage seasonal swings, and create financial stability.",
-        keywords: ['pub cash flow', 'cash flow management', 'payment terms', 'financial buffer', 'pub finances'],
+        metaDescription:
+          'Break free from monthly cash flow panic. Build predictable income, manage seasonal swings, and create financial stability.',
+        keywords: [
+          'pub cash flow',
+          'cash flow management',
+          'payment terms',
+          'financial buffer',
+          'pub finances',
+        ],
       },
     },
     {
       // Article 12: Compliance
-      title: "Food Allergies and GDPR: The Compliance Nightmares That Could Close You Down",
+      title: 'Food Allergies and GDPR: The Compliance Nightmares That Could Close You Down',
       slug: 'food-allergies-gdpr-compliance',
       category: categories.compliance,
       publishedDate: '2025-09-22T10:00:00Z',
-      excerpt: "Navigate the compliance minefield without hiring expensive consultants. Simple systems that keep you legal and let you focus on running your pub.",
-      quickAnswer: "Stay compliant by creating simple, repeatable systems: allergen matrix for all dishes, ingredient folders for staff, GDPR consent forms for marketing, secure customer data storage, and regular staff training. Document everything, update quarterly, and make compliance part of daily operations rather than scary separate tasks.",
+      excerpt:
+        'Navigate the compliance minefield without hiring expensive consultants. Simple systems that keep you legal and let you focus on running your pub.',
+      quickAnswer:
+        'Stay compliant by creating simple, repeatable systems: allergen matrix for all dishes, ingredient folders for staff, GDPR consent forms for marketing, secure customer data storage, and regular staff training. Document everything, update quarterly, and make compliance part of daily operations rather than scary separate tasks.',
       content: `£5,000 fine. That's what killed The Bull down the road. Not bad food, not poor service - a customer had an allergic reaction and they couldn't prove they'd given correct information. Six months later: closed.
 
 Then there's The Crown - £8,000 GDPR fine for a marketing email list hack. Still trading, but barely.
@@ -2038,39 +2168,58 @@ You can too. Start today. Start small. But start.`,
       faqs: [
         {
           question: "What's the minimum I need to do for allergens?",
-          answer: "Create an allergen matrix for all dishes, train all staff on the 14 allergens, keep ingredient information available, and document everything. This is the legal minimum - there's no shortcuts. One reaction could close you down.",
+          answer:
+            "Create an allergen matrix for all dishes, train all staff on the 14 allergens, keep ingredient information available, and document everything. This is the legal minimum - there's no shortcuts. One reaction could close you down.",
           isVoiceOptimized: true,
         },
         {
-          question: "Do I really need GDPR consent for my email list?",
-          answer: "Yes, absolutely. Even a simple weekly newsletter needs clear consent. Sending without consent risks fines up to €10 million. Takes 2 minutes to add consent checkbox to your signup. Not worth the risk of not doing it.",
+          question: 'Do I really need GDPR consent for my email list?',
+          answer:
+            'Yes, absolutely. Even a simple weekly newsletter needs clear consent. Sending without consent risks fines up to €10 million. Takes 2 minutes to add consent checkbox to your signup. Not worth the risk of not doing it.',
           isVoiceOptimized: true,
         },
         {
           question: "What if I can't afford compliance software?",
-          answer: "You don't need expensive software. Paper systems work perfectly if maintained properly. Spreadsheets for allergens, filing cabinet for records, diary for checks. The system matters more than the technology. Start simple, upgrade later.",
+          answer:
+            "You don't need expensive software. Paper systems work perfectly if maintained properly. Spreadsheets for allergens, filing cabinet for records, diary for checks. The system matters more than the technology. Start simple, upgrade later.",
           isVoiceOptimized: false,
         },
         {
-          question: "How do I handle allergen questions when busy?",
-          answer: "Never guess or rush. Have laminated allergen matrix at every station. Train staff to say 'Let me check that for you' rather than guess. Better to make customer wait 30 seconds than risk their life. Speed never trumps safety.",
+          question: 'How do I handle allergen questions when busy?',
+          answer:
+            "Never guess or rush. Have laminated allergen matrix at every station. Train staff to say 'Let me check that for you' rather than guess. Better to make customer wait 30 seconds than risk their life. Speed never trumps safety.",
           isVoiceOptimized: true,
         },
       ],
-      tags: ['allergen management', 'GDPR compliance', 'food safety', 'pub regulations', 'compliance systems'],
+      tags: [
+        'allergen management',
+        'GDPR compliance',
+        'food safety',
+        'pub regulations',
+        'compliance systems',
+      ],
       seo: {
-        metaDescription: "Simple compliance systems that prevent devastating fines. Manage allergens and GDPR without expensive consultants.",
-        keywords: ['pub allergen management', 'GDPR for pubs', 'Natasha\'s Law', 'pub compliance', 'food allergy regulations'],
+        metaDescription:
+          'Simple compliance systems that prevent devastating fines. Manage allergens and GDPR without expensive consultants.',
+        keywords: [
+          'pub allergen management',
+          'GDPR for pubs',
+          "Natasha's Law",
+          'pub compliance',
+          'food allergy regulations',
+        ],
       },
     },
     {
       // Article 14: Kitchen Crisis
-      title: "Kitchen Nightmares: When Your Chef Quits on a Saturday Night",
+      title: 'Kitchen Nightmares: When Your Chef Quits on a Saturday Night',
       slug: 'kitchen-nightmares-chef-quits',
       category: categories.crisisManagement,
       publishedDate: '2025-09-29T10:00:00Z',
-      excerpt: "Your chef just walked out during service. Here's the emergency protocol that saved our Saturday and the prevention system that means it never happened again.",
-      quickAnswer: "Handle chef walkouts with an immediate action plan: simplified emergency menu, cross-trained staff stepping up, local chef network for backup, clear communication with customers, and turning crisis into marketing opportunity. Prevent future crises by building redundancy, documenting all recipes, maintaining chef relationships, and having multiple backup plans ready.",
+      excerpt:
+        "Your chef just walked out during service. Here's the emergency protocol that saved our Saturday and the prevention system that means it never happened again.",
+      quickAnswer:
+        'Handle chef walkouts with an immediate action plan: simplified emergency menu, cross-trained staff stepping up, local chef network for backup, clear communication with customers, and turning crisis into marketing opportunity. Prevent future crises by building redundancy, documenting all recipes, maintaining chef relationships, and having multiple backup plans ready.',
       content: `7:43pm, Saturday. Kitchen full of orders. Chef throws his apron on the pass, says "I'm done," and walks out. Forty covers booked. Twenty meals on order. No sous chef. 
 
 Panic? Nearly. Closure? Almost. What actually happened? Our best Saturday in six months.
@@ -2347,30 +2496,47 @@ Preparation today prevents panic tomorrow.`,
       ],
       faqs: [
         {
-          question: "Should I close if my chef walks out?",
-          answer: "Not immediately. Assess what you can deliver safely and legally. A limited menu is better than closing. Customers appreciate honesty and effort. Many successful pubs have survived and thrived after chef crises. Try everything before closing.",
+          question: 'Should I close if my chef walks out?',
+          answer:
+            'Not immediately. Assess what you can deliver safely and legally. A limited menu is better than closing. Customers appreciate honesty and effort. Many successful pubs have survived and thrived after chef crises. Try everything before closing.',
           isVoiceOptimized: true,
         },
         {
-          question: "How do I stop my chef from leaving?",
-          answer: "Pay fairly, respect publicly, develop constantly, and maintain work-life balance. Most chefs don't quit for money alone - they quit from burnout, disrespect, or boredom. Regular check-ins, clear progression, and genuine appreciation prevent most walkouts.",
+          question: 'How do I stop my chef from leaving?',
+          answer:
+            "Pay fairly, respect publicly, develop constantly, and maintain work-life balance. Most chefs don't quit for money alone - they quit from burnout, disrespect, or boredom. Regular check-ins, clear progression, and genuine appreciation prevent most walkouts.",
           isVoiceOptimized: true,
         },
         {
           question: "What's the minimum kitchen skill I need as an owner?",
-          answer: "You should be able to cook five dishes from your menu competently. Know basic food safety, understand your equipment, and read recipes accurately. You don't need to be a chef, but complete kitchen ignorance is dangerous.",
+          answer:
+            "You should be able to cook five dishes from your menu competently. Know basic food safety, understand your equipment, and read recipes accurately. You don't need to be a chef, but complete kitchen ignorance is dangerous.",
           isVoiceOptimized: false,
         },
         {
-          question: "Should I hire agency chefs as backup?",
-          answer: "Agency chefs are expensive but valuable for true emergencies. Better to build a network of local freelance chefs first. Agencies should be your third option after internal coverage and freelance network. Keep agency details ready but use sparingly.",
+          question: 'Should I hire agency chefs as backup?',
+          answer:
+            'Agency chefs are expensive but valuable for true emergencies. Better to build a network of local freelance chefs first. Agencies should be your third option after internal coverage and freelance network. Keep agency details ready but use sparingly.',
           isVoiceOptimized: true,
         },
       ],
-      tags: ['chef crisis', 'kitchen management', 'crisis management', 'staff emergency', 'business continuity'],
+      tags: [
+        'chef crisis',
+        'kitchen management',
+        'crisis management',
+        'staff emergency',
+        'business continuity',
+      ],
       seo: {
-        metaDescription: "Emergency protocol for chef walkouts and kitchen crises. Turn Saturday night disaster into triumph with proven systems.",
-        keywords: ['chef quit', 'kitchen crisis management', 'emergency chef', 'pub crisis plan', 'chef walkout'],
+        metaDescription:
+          'Emergency protocol for chef walkouts and kitchen crises. Turn Saturday night disaster into triumph with proven systems.',
+        keywords: [
+          'chef quit',
+          'kitchen crisis management',
+          'emergency chef',
+          'pub crisis plan',
+          'chef walkout',
+        ],
       },
     },
   ];
@@ -2378,7 +2544,7 @@ Preparation today prevents panic tomorrow.`,
   // Create all articles
   for (const article of articles) {
     console.log(`\nCreating article: ${article.title}`);
-    
+
     try {
       const doc = await client.create({
         _type: 'blogPost',
@@ -2396,62 +2562,75 @@ Preparation today prevents panic tomorrow.`,
           _type: 'reference',
           _ref: authorRef,
         },
-        content: article.content.split('\n\n').map(paragraph => {
-          // Handle headers
-          if (paragraph.startsWith('## ')) {
+        content: article.content
+          .split('\n\n')
+          .map((paragraph) => {
+            // Handle headers
+            if (paragraph.startsWith('## ')) {
+              return {
+                _type: 'block',
+                style: 'h2',
+                children: [
+                  {
+                    _type: 'span',
+                    text: paragraph.replace('## ', ''),
+                  },
+                ],
+              };
+            }
+            if (paragraph.startsWith('### ')) {
+              return {
+                _type: 'block',
+                style: 'h3',
+                children: [
+                  {
+                    _type: 'span',
+                    text: paragraph.replace('### ', ''),
+                  },
+                ],
+              };
+            }
+            // Handle lists
+            if (paragraph.includes('\n- ') || paragraph.startsWith('- ')) {
+              const items = paragraph.split('\n').filter((line) => line.trim().startsWith('-'));
+              return items.map((item) => ({
+                _type: 'block',
+                listItem: 'bullet',
+                children: [
+                  {
+                    _type: 'span',
+                    text: item.replace(/^- /, '').trim(),
+                  },
+                ],
+              }));
+            }
+            // Handle numbered lists
+            if (paragraph.match(/^\d+\./)) {
+              const items = paragraph.split('\n').filter((line) => line.trim().match(/^\d+\./));
+              return items.map((item) => ({
+                _type: 'block',
+                listItem: 'number',
+                children: [
+                  {
+                    _type: 'span',
+                    text: item.replace(/^\d+\.\s*/, '').trim(),
+                  },
+                ],
+              }));
+            }
+            // Regular paragraphs
             return {
               _type: 'block',
-              style: 'h2',
-              children: [{
-                _type: 'span',
-                text: paragraph.replace('## ', ''),
-              }],
+              style: 'normal',
+              children: [
+                {
+                  _type: 'span',
+                  text: paragraph,
+                },
+              ],
             };
-          }
-          if (paragraph.startsWith('### ')) {
-            return {
-              _type: 'block',
-              style: 'h3',
-              children: [{
-                _type: 'span',
-                text: paragraph.replace('### ', ''),
-              }],
-            };
-          }
-          // Handle lists
-          if (paragraph.includes('\n- ') || paragraph.startsWith('- ')) {
-            const items = paragraph.split('\n').filter(line => line.trim().startsWith('-'));
-            return items.map(item => ({
-              _type: 'block',
-              listItem: 'bullet',
-              children: [{
-                _type: 'span',
-                text: item.replace(/^- /, '').trim(),
-              }],
-            }));
-          }
-          // Handle numbered lists
-          if (paragraph.match(/^\d+\./)) {
-            const items = paragraph.split('\n').filter(line => line.trim().match(/^\d+\./));
-            return items.map(item => ({
-              _type: 'block',
-              listItem: 'number',
-              children: [{
-                _type: 'span',
-                text: item.replace(/^\d+\.\s*/, '').trim(),
-              }],
-            }));
-          }
-          // Regular paragraphs
-          return {
-            _type: 'block',
-            style: 'normal',
-            children: [{
-              _type: 'span',
-              text: paragraph,
-            }],
-          };
-        }).flat(),
+          })
+          .flat(),
         quickStats: article.quickStats.map((stat, index) => ({
           _key: `stat_${index}`,
           ...stat,
@@ -2487,7 +2666,7 @@ Preparation today prevents panic tomorrow.`,
         //   alt: article.title,
         // },
       });
-      
+
       console.log(`✅ Created successfully with ID: ${doc._id}`);
     } catch (error) {
       console.error(`❌ Failed to create article: ${error}`);

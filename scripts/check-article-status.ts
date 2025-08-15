@@ -14,7 +14,7 @@ const client = createClient({
 
 async function checkArticle() {
   console.log('Checking article status in Sanity...\n');
-  
+
   // Check the specific article
   const article = await client.fetch(`
     *[_type == 'blogPost' && slug.current == 'young-people-wont-come-to-your-pub'][0] {
@@ -38,7 +38,7 @@ async function checkArticle() {
       content[0..2]
     }
   `);
-  
+
   console.log('=== ARTICLE DETAILS ===');
   if (article) {
     console.log(`Title: ${article.title}`);
@@ -54,7 +54,7 @@ async function checkArticle() {
   } else {
     console.log('ARTICLE NOT FOUND IN SANITY!');
   }
-  
+
   // Check what the blog listing query would return
   console.log('\n=== CHECKING BLOG LISTING QUERY ===');
   const publishedArticles = await client.fetch(`
@@ -68,16 +68,16 @@ async function checkArticle() {
       publishedDate
     }
   `);
-  
+
   console.log(`Total articles matching publish criteria: ${publishedArticles.length}`);
-  
+
   const found = publishedArticles.find((a: any) => a.slug === 'young-people-wont-come-to-your-pub');
   if (found) {
     console.log('✅ Article APPEARS in published list');
   } else {
     console.log('❌ Article DOES NOT appear in published list');
   }
-  
+
   // Check the exact query used by the blog post page
   console.log('\n=== CHECKING SINGLE POST QUERY ===');
   const singlePost = await client.fetch(`
@@ -89,7 +89,7 @@ async function checkArticle() {
       title
     }
   `);
-  
+
   if (singlePost) {
     console.log('✅ Article FOUND by single post query');
   } else {
@@ -97,9 +97,9 @@ async function checkArticle() {
     console.log('This means either:');
     console.log('1. Status is not "published"');
     console.log('2. Published date is in the future');
-    console.log('3. Slug doesn\'t match');
+    console.log("3. Slug doesn't match");
   }
-  
+
   // Check current time comparison
   console.log('\n=== TIME COMPARISON ===');
   console.log(`Current time (Sanity): ${new Date().toISOString()}`);
@@ -110,7 +110,7 @@ async function checkArticle() {
     if (pubDate <= now) {
       console.log('✅ Published date is in the past (should be visible)');
     } else {
-      console.log('❌ Published date is in the future (won\'t be visible)');
+      console.log("❌ Published date is in the future (won't be visible)");
     }
   }
 }

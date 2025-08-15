@@ -5,44 +5,44 @@ import * as path from 'path';
 const articles = [
   {
     slug: 'young-people-wont-come-to-your-pub',
-    title: 'Young People Won\'t Come?',
-    subtitle: 'Transform Your Pub\'s Appeal'
+    title: "Young People Won't Come?",
+    subtitle: "Transform Your Pub's Appeal",
   },
   {
     slug: 'terrible-online-reviews-damage-control',
     title: 'Bad Reviews?',
-    subtitle: 'Turn Critics Into Advocates'
+    subtitle: 'Turn Critics Into Advocates',
   },
   {
     slug: 'village-pub-dying-village-survival',
     title: 'Dying Village?',
-    subtitle: 'Become a Destination'
+    subtitle: 'Become a Destination',
   },
   {
     slug: 'nobody-books-tables-anymore',
     title: 'No Bookings?',
-    subtitle: 'Master Walk-ins & Reservations'
+    subtitle: 'Master Walk-ins & Reservations',
   },
   {
     slug: 'brewery-tie-improve-your-deal',
     title: 'Brewery Tie Issues?',
-    subtitle: 'Improve Your Deal Legally'
+    subtitle: 'Improve Your Deal Legally',
   },
   {
     slug: 'cash-flow-crisis-breaking-cycle',
     title: 'Cash Flow Crisis?',
-    subtitle: 'Break the Cycle'
+    subtitle: 'Break the Cycle',
   },
   {
     slug: 'food-allergies-gdpr-compliance',
     title: 'Compliance Nightmares?',
-    subtitle: 'Simple Systems That Work'
+    subtitle: 'Simple Systems That Work',
   },
   {
     slug: 'kitchen-nightmares-chef-quits',
     title: 'Chef Walked Out?',
-    subtitle: 'Crisis Management Guide'
-  }
+    subtitle: 'Crisis Management Guide',
+  },
 ];
 
 function createSVG(title: string, subtitle: string): string {
@@ -90,10 +90,10 @@ function createSVG(title: string, subtitle: string): string {
 // Create the SVGs
 const outputDir = path.join(process.cwd(), 'public', 'images', 'blog');
 
-articles.forEach(article => {
+articles.forEach((article) => {
   const svg = createSVG(article.title, article.subtitle);
   const filePath = path.join(outputDir, `${article.slug}.svg`);
-  
+
   fs.writeFileSync(filePath, svg);
   console.log(`Created: ${article.slug}.svg`);
 });

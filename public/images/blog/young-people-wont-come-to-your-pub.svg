@@ -1,38 +1,9 @@
 <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background gradient -->
-  <defs>
-    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#F7931E;stop-opacity:1" />
-    </linearGradient>
-    <pattern id="pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-      <circle cx="30" cy="30" r="2" fill="white" opacity="0.1"/>
-    </pattern>
-  </defs>
-  
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
-  <rect width="1200" height="630" fill="url(#pattern)"/>
-  
-  <!-- Dark overlay for text contrast -->
-  <rect width="1200" height="630" fill="black" opacity="0.3"/>
-  
-  <!-- Icon/Symbol -->
-  <circle cx="600" cy="200" r="60" fill="none" stroke="white" stroke-width="4" opacity="0.3"/>
-  <text x="600" y="220" font-family="Arial, sans-serif" font-size="64" text-anchor="middle" fill="white" opacity="0.3">?</text>
-  
-  <!-- Main Title -->
-  <text x="600" y="340" font-family="Arial, sans-serif" font-size="56" font-weight="bold" text-anchor="middle" fill="white">
+  <rect width="1200" height="630" fill="#006064"/>
+  <text x="600" y="315" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="white">
     Young People Won't Come?
   </text>
-  
-  <!-- Subtitle -->
-  <text x="600" y="400" font-family="Arial, sans-serif" font-size="32" text-anchor="middle" fill="white" opacity="0.9">
-    Transform Your Pub's Appeal
-  </text>
-  
-  <!-- Bottom branding -->
-  <text x="600" y="550" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="white" opacity="0.7">
-    The Licensee's Guide | Orange Jelly
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="white" opacity="0.8">
+    Orange Jelly Limited
   </text>
 </svg>

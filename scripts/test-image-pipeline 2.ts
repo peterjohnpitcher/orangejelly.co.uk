@@ -24,10 +24,10 @@ function urlFor(source: any) {
 
 async function testImagePipeline() {
   console.log('🔍 Testing Image Pipeline for Pub Health Check Post\n');
-  console.log('=' .repeat(60));
-  
+  console.log('='.repeat(60));
+
   const slug = 'pub-health-check-essential-fundamentals-licensee-success';
-  
+
   try {
     // Step 1: Fetch raw data from Sanity
     console.log('\n1️⃣  FETCHING RAW DATA FROM SANITY');
@@ -39,7 +39,7 @@ async function testImagePipeline() {
       }
     `);
     console.log('Raw featuredImage:', JSON.stringify(rawPost.featuredImage, null, 2));
-    
+
     // Step 2: Fetch with asset expansion
     console.log('\n2️⃣  FETCHING WITH ASSET EXPANSION');
     console.log('-'.repeat(40));
@@ -56,7 +56,7 @@ async function testImagePipeline() {
       }
     `);
     console.log('Expanded featuredImage:', JSON.stringify(expandedPost.featuredImage, null, 2));
-    
+
     // Step 3: Test urlFor() with raw data
     console.log('\n3️⃣  TESTING urlFor() WITH RAW DATA');
     console.log('-'.repeat(40));
@@ -72,7 +72,7 @@ async function testImagePipeline() {
     } else {
       console.log('⚠️  No featuredImage in raw data');
     }
-    
+
     // Step 4: Test urlFor() with expanded data
     console.log('\n4️⃣  TESTING urlFor() WITH EXPANDED DATA');
     console.log('-'.repeat(40));
@@ -88,7 +88,7 @@ async function testImagePipeline() {
     } else {
       console.log('⚠️  No featuredImage in expanded data');
     }
-    
+
     // Step 5: Check direct URL access
     console.log('\n5️⃣  CHECKING DIRECT URL ACCESS');
     console.log('-'.repeat(40));
@@ -98,13 +98,13 @@ async function testImagePipeline() {
     } else {
       console.log('❌ No direct URL in expanded data');
     }
-    
+
     // Step 6: Simulate normalizeSanityPost logic
     console.log('\n6️⃣  SIMULATING normalizeSanityPost LOGIC');
     console.log('-'.repeat(40));
-    
+
     let featuredImageUrl: string | undefined;
-    
+
     // Current logic from content-source.ts:62-72
     if (expandedPost.featuredImage?.asset) {
       console.log('   Condition: post.featuredImage?.asset exists');
@@ -122,15 +122,15 @@ async function testImagePipeline() {
       const svgPath = `/images/blog/${slug}.svg`;
       featuredImageUrl = svgPath;
     }
-    
+
     console.log('   Final featuredImageUrl:', featuredImageUrl);
-    
+
     // Step 7: Proposed fix
     console.log('\n7️⃣  TESTING PROPOSED FIX');
     console.log('-'.repeat(40));
-    
+
     let fixedImageUrl: string | undefined;
-    
+
     // Proposed fix: Use direct URL when available
     if (expandedPost.featuredImage?.asset?.url) {
       fixedImageUrl = expandedPost.featuredImage.asset.url;
@@ -147,7 +147,7 @@ async function testImagePipeline() {
       fixedImageUrl = `/images/blog/${slug}.svg`;
       console.log('   ⚠️  No image data, using fallback:', fixedImageUrl);
     }
-    
+
     // Summary
     console.log('\n' + '='.repeat(60));
     console.log('📊 SUMMARY');
@@ -155,11 +155,11 @@ async function testImagePipeline() {
     console.log('\n🔍 Current Behavior:');
     console.log('   Result:', featuredImageUrl);
     console.log('   Is Fallback?:', featuredImageUrl?.includes('/images/blog/'));
-    
+
     console.log('\n✅ Proposed Fix:');
     console.log('   Result:', fixedImageUrl);
     console.log('   Is Fallback?:', fixedImageUrl?.includes('/images/blog/'));
-    
+
     if (featuredImageUrl !== fixedImageUrl) {
       console.log('\n⚠️  DIFFERENCE DETECTED!');
       console.log('   The proposed fix would change the output.');
@@ -167,7 +167,6 @@ async function testImagePipeline() {
     } else {
       console.log('\n✅ No difference - the issue might be elsewhere.');
     }
-    
   } catch (error) {
     console.error('❌ Script failed:', error);
     process.exit(1);

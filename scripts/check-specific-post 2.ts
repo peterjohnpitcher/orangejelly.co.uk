@@ -16,7 +16,7 @@ const client = createClient({
 
 async function checkSpecificPost() {
   console.log('🔍 Checking Pub Health Check post specifically...\n');
-  
+
   try {
     // Try different ways to fetch the post
     console.log('1. Fetching with basic query:');
@@ -27,7 +27,7 @@ async function checkSpecificPost() {
       }
     `);
     console.log('Result:', JSON.stringify(basic, null, 2));
-    
+
     console.log('\n2. Fetching with asset expansion:');
     const expanded = await client.fetch(`
       *[_type == "blogPost" && slug.current == "pub-health-check-essential-fundamentals-licensee-success"][0] {
@@ -42,7 +42,7 @@ async function checkSpecificPost() {
       }
     `);
     console.log('Result:', JSON.stringify(expanded, null, 2));
-    
+
     console.log('\n3. Checking if asset exists:');
     if (basic?.featuredImage?.asset?._ref) {
       const asset = await client.fetch(`
@@ -55,7 +55,6 @@ async function checkSpecificPost() {
       `);
       console.log('Asset details:', JSON.stringify(asset, null, 2));
     }
-    
   } catch (error) {
     console.error('❌ Script failed:', error);
     process.exit(1);

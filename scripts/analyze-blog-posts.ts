@@ -46,7 +46,7 @@ async function analyzeBlogPosts() {
   // Analyze publishing pattern
   console.log('Published Posts (chronological order):');
   console.log('=====================================');
-  
+
   const sortedPosts = [...posts].sort((a: any, b: any) => {
     const dateA = new Date(a.publishedDate || '1900-01-01').getTime();
     const dateB = new Date(b.publishedDate || '1900-01-01').getTime();
@@ -58,14 +58,16 @@ async function analyzeBlogPosts() {
       const date = new Date(post.publishedDate);
       const formattedDate = format(date, 'yyyy-MM-dd (EEEE)');
       const status = post.status || 'draft';
-      
+
       console.log(`${index + 1}. ${formattedDate} - ${post.title}`);
       console.log(`   Status: ${status}, Category: ${post.category?.name || 'None'}`);
-      
+
       // Calculate days between posts
       if (index > 0 && sortedPosts[index - 1].publishedDate) {
         const prevDate = new Date(sortedPosts[index - 1].publishedDate);
-        const daysBetween = Math.round((date.getTime() - prevDate.getTime()) / (1000 * 60 * 60 * 24));
+        const daysBetween = Math.round(
+          (date.getTime() - prevDate.getTime()) / (1000 * 60 * 60 * 24)
+        );
         console.log(`   Days since previous: ${daysBetween}`);
       }
       console.log('');
@@ -75,11 +77,11 @@ async function analyzeBlogPosts() {
   // Analyze weekly pattern
   console.log('\nAnalyzing Weekly Pattern:');
   console.log('========================');
-  
+
   const today = new Date();
   const oneWeekAgo = new Date(today);
   oneWeekAgo.setDate(today.getDate() - 7);
-  
+
   // Find posts that should follow weekly pattern
   const recentPosts = sortedPosts.filter((p: any) => {
     if (!p.publishedDate) return false;
@@ -89,7 +91,7 @@ async function analyzeBlogPosts() {
 
   if (recentPosts.length === 0) {
     console.log('No posts published in the last week');
-    
+
     // Find the most recent post
     const mostRecent = sortedPosts.filter((p: any) => p.publishedDate).pop();
     if (mostRecent) {
@@ -103,10 +105,12 @@ async function analyzeBlogPosts() {
   // Calculate ideal next publishing dates (weekly)
   console.log('\nSuggested Publishing Schedule:');
   console.log('==============================');
-  
-  const lastPublishedPost = sortedPosts.filter((p: any) => p.publishedDate && p.status === 'published').pop();
+
+  const lastPublishedPost = sortedPosts
+    .filter((p: any) => p.publishedDate && p.status === 'published')
+    .pop();
   let nextDate: Date;
-  
+
   if (lastPublishedPost) {
     nextDate = new Date(lastPublishedPost.publishedDate);
     nextDate.setDate(nextDate.getDate() + 7);

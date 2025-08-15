@@ -34,15 +34,15 @@ function createOGImage() {
   ctx.beginPath();
   ctx.arc(100, 100, 80, 0, Math.PI * 2);
   ctx.fill();
-  
+
   ctx.beginPath();
   ctx.arc(1100, 530, 100, 0, Math.PI * 2);
   ctx.fill();
-  
+
   ctx.beginPath();
   ctx.arc(200, 500, 60, 0, Math.PI * 2);
   ctx.fill();
-  
+
   ctx.globalAlpha = 1;
 
   // Main content area
@@ -66,11 +66,11 @@ function createOGImage() {
   const points = [
     '✓ 25-35 quiz attendees weekly',
     '✓ 71% food GP achieved',
-    '✓ £75k+ added to business value'
+    '✓ £75k+ added to business value',
   ];
-  
+
   points.forEach((point, i) => {
-    ctx.fillText(point, contentX, contentY + 180 + (i * 35));
+    ctx.fillText(point, contentX, contentY + 180 + i * 35);
   });
 
   // Website URL

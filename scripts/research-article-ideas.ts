@@ -47,13 +47,28 @@ async function researchArticleIdeas() {
     if (title.includes('empty') || title.includes('fill') || category === 'empty-pub-solutions') {
       coveredTopics.emptyPubs.push(post.title);
     }
-    if (category === 'social-media' || title.includes('social') || title.includes('facebook') || title.includes('instagram')) {
+    if (
+      category === 'social-media' ||
+      title.includes('social') ||
+      title.includes('facebook') ||
+      title.includes('instagram')
+    ) {
       coveredTopics.socialMedia.push(post.title);
     }
-    if (category === 'competition' || title.includes('compete') || title.includes('chain') || title.includes('wetherspoons')) {
+    if (
+      category === 'competition' ||
+      title.includes('compete') ||
+      title.includes('chain') ||
+      title.includes('wetherspoons')
+    ) {
       coveredTopics.competition.push(post.title);
     }
-    if (category === 'events-promotions' || title.includes('event') || title.includes('quiz') || title.includes('music')) {
+    if (
+      category === 'events-promotions' ||
+      title.includes('event') ||
+      title.includes('quiz') ||
+      title.includes('music')
+    ) {
       coveredTopics.events.push(post.title);
     }
     if (title.includes('food') || title.includes('menu')) {
@@ -90,7 +105,7 @@ async function researchArticleIdeas() {
         'Managing staff during quiet periods',
         'Dealing with no-shows and last-minute absences',
         'Motivating staff when business is slow',
-      ]
+      ],
     },
     // Supplier & Cost Issues
     {
@@ -101,7 +116,7 @@ async function researchArticleIdeas() {
         'Managing stock levels and reducing waste',
         'Dealing with brewery tie restrictions',
         'Cash flow management during quiet periods',
-      ]
+      ],
     },
     // Customer Behavior Changes
     {
@@ -112,7 +127,7 @@ async function researchArticleIdeas() {
         'Competing with home entertainment (Netflix, gaming)',
         'Managing rowdy behavior without losing customers',
         'Building loyalty when customers pub-hop',
-      ]
+      ],
     },
     // Technology & Modern Challenges
     {
@@ -123,7 +138,7 @@ async function researchArticleIdeas() {
         'Handling online bookings efficiently',
         'Using data to make better business decisions',
         'Keeping up with payment technology (contactless, apps)',
-      ]
+      ],
     },
     // Regulatory & Compliance
     {
@@ -134,7 +149,7 @@ async function researchArticleIdeas() {
         'Dealing with noise complaints from neighbors',
         'Implementing allergen requirements',
         'GDPR and customer data management',
-      ]
+      ],
     },
     // Family & Work-Life Balance
     {
@@ -145,7 +160,7 @@ async function researchArticleIdeas() {
         'Dealing with licensee burnout',
         'Planning for retirement or exit strategy',
         'Managing stress and mental health',
-      ]
+      ],
     },
     // Specific Pub Types
     {
@@ -156,14 +171,14 @@ async function researchArticleIdeas() {
         'Sports pub when there are no matches',
         'Food-led pub with kitchen problems',
         'Wet-led pub in a food-focused market',
-      ]
+      ],
     },
   ];
 
   console.log('Key Problem Areas Identified:\n');
-  uncoveredProblems.forEach(category => {
+  uncoveredProblems.forEach((category) => {
     console.log(`\n${category.category}:`);
-    category.problems.forEach(problem => {
+    category.problems.forEach((problem) => {
       console.log(`  • ${problem}`);
     });
   });
@@ -173,109 +188,125 @@ async function researchArticleIdeas() {
 
   const articleIdeas = [
     {
-      title: "Staff Turnover Is Killing Your Pub: How to Build a Team That Stays",
-      category: "Staff Management",
-      description: "Practical strategies for reducing the £3,000+ cost of replacing staff, creating a positive work culture, implementing efficient training systems, and building a reliable team that actually shows up for shifts.",
-      keywords: ["staff retention", "recruitment", "training", "team management"],
-      publishDate: "2025-08-11"
+      title: 'Staff Turnover Is Killing Your Pub: How to Build a Team That Stays',
+      category: 'Staff Management',
+      description:
+        'Practical strategies for reducing the £3,000+ cost of replacing staff, creating a positive work culture, implementing efficient training systems, and building a reliable team that actually shows up for shifts.',
+      keywords: ['staff retention', 'recruitment', 'training', 'team management'],
+      publishDate: '2025-08-11',
     },
     {
-      title: "Energy Bills Destroying Your Margins? 20 Ways to Cut Costs Without Freezing Customers",
-      category: "Cost Management",
-      description: "Comprehensive guide to reducing energy costs by 20-30% through smart heating schedules, efficient equipment, negotiation tactics with suppliers, and government grants you're probably missing.",
-      keywords: ["energy costs", "utility bills", "cost reduction", "profit margins"],
-      publishDate: "2025-08-18"
+      title:
+        'Energy Bills Destroying Your Margins? 20 Ways to Cut Costs Without Freezing Customers',
+      category: 'Cost Management',
+      description:
+        "Comprehensive guide to reducing energy costs by 20-30% through smart heating schedules, efficient equipment, negotiation tactics with suppliers, and government grants you're probably missing.",
+      keywords: ['energy costs', 'utility bills', 'cost reduction', 'profit margins'],
+      publishDate: '2025-08-18',
     },
     {
       title: "Young People Won't Come to Your Pub? Here's How to Change That",
-      category: "Customer Acquisition",
-      description: "Understanding why 18-30s prefer home drinking, creating Instagram-worthy experiences, hosting events that actually appeal to younger crowds, and building a vibe that competes with their sofa.",
-      keywords: ["millennials", "gen z", "young customers", "modern pub"],
-      publishDate: "2025-08-25"
+      category: 'Customer Acquisition',
+      description:
+        'Understanding why 18-30s prefer home drinking, creating Instagram-worthy experiences, hosting events that actually appeal to younger crowds, and building a vibe that competes with their sofa.',
+      keywords: ['millennials', 'gen z', 'young customers', 'modern pub'],
+      publishDate: '2025-08-25',
     },
     {
-      title: "Terrible Online Reviews Ruining Your Reputation? The Damage Control Guide",
-      category: "Digital Reputation",
-      description: "Step-by-step system for responding to negative reviews, encouraging positive feedback, preventing review bombs, and turning angry customers into advocates - with real examples and templates.",
-      keywords: ["online reviews", "TripAdvisor", "Google reviews", "reputation management"],
-      publishDate: "2025-09-01"
+      title: 'Terrible Online Reviews Ruining Your Reputation? The Damage Control Guide',
+      category: 'Digital Reputation',
+      description:
+        'Step-by-step system for responding to negative reviews, encouraging positive feedback, preventing review bombs, and turning angry customers into advocates - with real examples and templates.',
+      keywords: ['online reviews', 'TripAdvisor', 'Google reviews', 'reputation management'],
+      publishDate: '2025-09-01',
     },
     {
-      title: "Village Pub in a Dying Village? Survival Strategies That Actually Work",
-      category: "Location Challenges",
-      description: "How to thrive when your local population is declining - becoming a destination pub, creating reasons for travel, building community partnerships, and diversifying income streams.",
-      keywords: ["village pub", "rural pub", "declining population", "destination pub"],
-      publishDate: "2025-09-08"
+      title: 'Village Pub in a Dying Village? Survival Strategies That Actually Work',
+      category: 'Location Challenges',
+      description:
+        'How to thrive when your local population is declining - becoming a destination pub, creating reasons for travel, building community partnerships, and diversifying income streams.',
+      keywords: ['village pub', 'rural pub', 'declining population', 'destination pub'],
+      publishDate: '2025-09-08',
     },
     {
-      title: "Licensee Burnout Is Real: How to Avoid Losing Your Pub (and Your Sanity)",
-      category: "Personal Wellbeing",
-      description: "Recognizing burnout symptoms, creating sustainable working patterns, delegating effectively, finding time for yourself, and building a business that doesn't destroy your health or relationships.",
-      keywords: ["burnout", "stress management", "work-life balance", "mental health"],
-      publishDate: "2025-09-15"
+      title: 'Licensee Burnout Is Real: How to Avoid Losing Your Pub (and Your Sanity)',
+      category: 'Personal Wellbeing',
+      description:
+        "Recognizing burnout symptoms, creating sustainable working patterns, delegating effectively, finding time for yourself, and building a business that doesn't destroy your health or relationships.",
+      keywords: ['burnout', 'stress management', 'work-life balance', 'mental health'],
+      publishDate: '2025-09-15',
     },
     {
-      title: "Nobody Books Tables Anymore? Master the Art of Walk-ins vs Reservations",
-      category: "Operations",
-      description: "Balancing spontaneous trade with guaranteed bookings, managing table turnover, using booking systems effectively, and creating the right mix for your pub's style and location.",
-      keywords: ["table management", "bookings", "reservations", "walk-ins"],
-      publishDate: "2025-09-22"
+      title: 'Nobody Books Tables Anymore? Master the Art of Walk-ins vs Reservations',
+      category: 'Operations',
+      description:
+        "Balancing spontaneous trade with guaranteed bookings, managing table turnover, using booking systems effectively, and creating the right mix for your pub's style and location.",
+      keywords: ['table management', 'bookings', 'reservations', 'walk-ins'],
+      publishDate: '2025-09-22',
     },
     {
-      title: "Brewery Tie Strangling Your Profits? Legal Ways to Improve Your Deal",
-      category: "Supplier Relations",
-      description: "Understanding your rights, negotiation strategies that work, alternative income streams within tie restrictions, and when (and how) to consider going free of tie.",
-      keywords: ["brewery tie", "pubco", "beer prices", "supplier negotiations"],
-      publishDate: "2025-09-29"
+      title: 'Brewery Tie Strangling Your Profits? Legal Ways to Improve Your Deal',
+      category: 'Supplier Relations',
+      description:
+        'Understanding your rights, negotiation strategies that work, alternative income streams within tie restrictions, and when (and how) to consider going free of tie.',
+      keywords: ['brewery tie', 'pubco', 'beer prices', 'supplier negotiations'],
+      publishDate: '2025-09-29',
     },
     {
-      title: "The Sober-Curious Movement: Turning Non-Drinkers into Profitable Customers",
-      category: "Market Trends",
-      description: "Creating an amazing non-alcoholic offering, pricing strategies for alcohol-free drinks, marketing to the sober-curious, and why ignoring this trend will cost you thousands.",
-      keywords: ["non-alcoholic", "sober curious", "mocktails", "alcohol-free"],
-      publishDate: "2025-10-06"
+      title: 'The Sober-Curious Movement: Turning Non-Drinkers into Profitable Customers',
+      category: 'Market Trends',
+      description:
+        'Creating an amazing non-alcoholic offering, pricing strategies for alcohol-free drinks, marketing to the sober-curious, and why ignoring this trend will cost you thousands.',
+      keywords: ['non-alcoholic', 'sober curious', 'mocktails', 'alcohol-free'],
+      publishDate: '2025-10-06',
     },
     {
-      title: "Cash Flow Crisis Every Month? Breaking the Feast-or-Famine Cycle",
-      category: "Financial Management",
-      description: "Managing cash flow across quiet and busy periods, creating predictable income streams, negotiating payment terms, and building a financial buffer without borrowing.",
-      keywords: ["cash flow", "financial planning", "working capital", "business finance"],
-      publishDate: "2025-10-13"
+      title: 'Cash Flow Crisis Every Month? Breaking the Feast-or-Famine Cycle',
+      category: 'Financial Management',
+      description:
+        'Managing cash flow across quiet and busy periods, creating predictable income streams, negotiating payment terms, and building a financial buffer without borrowing.',
+      keywords: ['cash flow', 'financial planning', 'working capital', 'business finance'],
+      publishDate: '2025-10-13',
     },
     {
-      title: "Noise Complaints Threatening Your License? The Neighbor Relations Playbook",
-      category: "Community Relations",
-      description: "Preventing complaints before they start, managing difficult neighbors, working with environmental health, soundproofing on a budget, and keeping your license safe.",
-      keywords: ["noise complaints", "licensing", "neighbor relations", "environmental health"],
-      publishDate: "2025-10-20"
+      title: 'Noise Complaints Threatening Your License? The Neighbor Relations Playbook',
+      category: 'Community Relations',
+      description:
+        'Preventing complaints before they start, managing difficult neighbors, working with environmental health, soundproofing on a budget, and keeping your license safe.',
+      keywords: ['noise complaints', 'licensing', 'neighbor relations', 'environmental health'],
+      publishDate: '2025-10-20',
     },
     {
-      title: "Food Allergies and GDPR: The Compliance Nightmares That Could Close You Down",
-      category: "Compliance",
-      description: "Simple systems for allergen management, GDPR compliance without the headache, avoiding the fines that destroyed other pubs, and staying legal without hiring a compliance officer.",
-      keywords: ["allergens", "GDPR", "compliance", "food safety", "regulations"],
-      publishDate: "2025-10-27"
+      title: 'Food Allergies and GDPR: The Compliance Nightmares That Could Close You Down',
+      category: 'Compliance',
+      description:
+        'Simple systems for allergen management, GDPR compliance without the headache, avoiding the fines that destroyed other pubs, and staying legal without hiring a compliance officer.',
+      keywords: ['allergens', 'GDPR', 'compliance', 'food safety', 'regulations'],
+      publishDate: '2025-10-27',
     },
     {
       title: "Your Pub's Worth Nothing? Building Value for Your Exit Strategy",
-      category: "Business Planning",
-      description: "Increasing your pub's sale value, preparing for retirement or sale, documenting systems buyers want to see, and avoiding the mistakes that leave licensees with nothing.",
-      keywords: ["exit strategy", "business value", "retirement planning", "pub sale"],
-      publishDate: "2025-11-03"
+      category: 'Business Planning',
+      description:
+        "Increasing your pub's sale value, preparing for retirement or sale, documenting systems buyers want to see, and avoiding the mistakes that leave licensees with nothing.",
+      keywords: ['exit strategy', 'business value', 'retirement planning', 'pub sale'],
+      publishDate: '2025-11-03',
     },
     {
-      title: "Kitchen Nightmares: When Your Chef Quits on a Saturday Night",
-      category: "Crisis Management",
-      description: "Emergency protocols for staff disasters, building a backup network, simplified menu strategies, and how to prevent the crisis that kills most food-led pubs.",
-      keywords: ["staff crisis", "chef shortage", "kitchen management", "contingency planning"],
-      publishDate: "2025-11-10"
+      title: 'Kitchen Nightmares: When Your Chef Quits on a Saturday Night',
+      category: 'Crisis Management',
+      description:
+        'Emergency protocols for staff disasters, building a backup network, simplified menu strategies, and how to prevent the crisis that kills most food-led pubs.',
+      keywords: ['staff crisis', 'chef shortage', 'kitchen management', 'contingency planning'],
+      publishDate: '2025-11-10',
     },
     {
-      title: "Dead Wednesday Nights? Turn Your Quietest Day into a Profit Center",
-      category: "Revenue Optimization",
-      description: "Creating must-attend Wednesday events, pricing strategies for quiet nights, partnering with local groups, and why Wednesday might be your biggest opportunity.",
-      keywords: ["midweek trade", "Wednesday promotions", "quiet nights", "revenue optimization"],
-      publishDate: "2025-11-17"
+      title: 'Dead Wednesday Nights? Turn Your Quietest Day into a Profit Center',
+      category: 'Revenue Optimization',
+      description:
+        'Creating must-attend Wednesday events, pricing strategies for quiet nights, partnering with local groups, and why Wednesday might be your biggest opportunity.',
+      keywords: ['midweek trade', 'Wednesday promotions', 'quiet nights', 'revenue optimization'],
+      publishDate: '2025-11-17',
     },
   ];
 
@@ -294,7 +325,7 @@ async function researchArticleIdeas() {
 
   console.log('\n📅 PUBLISHING SCHEDULE (Weekly - Mondays)');
   console.log('==========================================\n');
-  
+
   for (let i = 0; i < 5; i++) {
     const article = articleIdeas[i];
     console.log(`${format(nextDate, 'MMM dd, yyyy')} - ${article.title}`);
@@ -302,7 +333,7 @@ async function researchArticleIdeas() {
   }
 
   console.log('\nAll articles will be created in DRAFT status as requested.');
-  console.log('You can schedule them for automatic publication using Sanity\'s scheduling feature.');
+  console.log("You can schedule them for automatic publication using Sanity's scheduling feature.");
 
   return articleIdeas;
 }

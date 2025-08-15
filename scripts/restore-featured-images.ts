@@ -46,7 +46,7 @@ const imageMap: Record<string, string> = {
 
 async function restoreFeaturedImages() {
   console.log('🔧 Restoring featured image paths in Sanity...\n');
-  
+
   try {
     // Fetch all blog posts
     const posts = await client.fetch(`
@@ -58,22 +58,26 @@ async function restoreFeaturedImages() {
         featuredImage
       }
     `);
-    
+
     console.log(`Found ${posts.length} blog posts\n`);
-    
+
     let successCount = 0;
     let skippedCount = 0;
     let errorCount = 0;
-    
+
     for (const post of posts) {
       // Skip if already has a proper Sanity image (with asset)
-      if (post.featuredImage && typeof post.featuredImage === 'object' && post.featuredImage.asset) {
+      if (
+        post.featuredImage &&
+        typeof post.featuredImage === 'object' &&
+        post.featuredImage.asset
+      ) {
         console.log(`⏭️  Skipping: ${post.title}`);
         console.log(`   Already has Sanity image asset`);
         skippedCount++;
         continue;
       }
-      
+
       // Skip if already has a string path
       if (post.featuredImage && typeof post.featuredImage === 'string') {
         console.log(`⏭️  Skipping: ${post.title}`);
@@ -81,21 +85,18 @@ async function restoreFeaturedImages() {
         skippedCount++;
         continue;
       }
-      
+
       // Find the corresponding image path
       const imagePath = imageMap[post.slug];
-      
+
       if (!imagePath) {
         console.log(`⚠️  Warning: ${post.title}`);
         console.log(`   No image mapping found for slug: ${post.slug}`);
         console.log(`   Using default image`);
-        
+
         try {
-          await client
-            .patch(post._id)
-            .set({ featuredImage: '/images/blog/default.svg' })
-            .commit();
-          
+          await client.patch(post._id).set({ featuredImage: '/images/blog/default.svg' }).commit();
+
           console.log(`   ✅ Set default image`);
           successCount++;
         } catch (error) {
@@ -104,16 +105,13 @@ async function restoreFeaturedImages() {
         }
         continue;
       }
-      
+
       console.log(`📝 Processing: ${post.title}`);
       console.log(`   Setting image: ${imagePath}`);
-      
+
       try {
-        await client
-          .patch(post._id)
-          .set({ featuredImage: imagePath })
-          .commit();
-        
+        await client.patch(post._id).set({ featuredImage: imagePath }).commit();
+
         console.log(`   ✅ Restored featured image path`);
         successCount++;
       } catch (error) {
@@ -121,19 +119,18 @@ async function restoreFeaturedImages() {
         errorCount++;
       }
     }
-    
+
     console.log('\n' + '='.repeat(60));
     console.log('📊 RESTORE COMPLETE');
     console.log('='.repeat(60));
     console.log(`✅ Successfully restored: ${successCount} posts`);
     console.log(`⏭️  Skipped (already have images): ${skippedCount} posts`);
     console.log(`❌ Failed: ${errorCount} posts`);
-    
+
     console.log('\n💡 NEXT STEPS:');
     console.log('1. The SVG images should now display on the website');
     console.log('2. You can optionally convert SVGs to PNGs and upload to Sanity');
     console.log('3. This provides a consistent experience while allowing gradual migration');
-    
   } catch (error) {
     console.error('❌ Script failed:', error);
     process.exit(1);

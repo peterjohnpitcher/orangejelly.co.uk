@@ -108,9 +108,7 @@ async function fixMissingKeys() {
     // Apply updates if needed
     if (needsUpdate) {
       try {
-        await client.patch(post._id)
-          .set(updates)
-          .commit();
+        await client.patch(post._id).set(updates).commit();
         console.log(`  ✅ Fixed keys for: ${post.title}`);
       } catch (error) {
         console.error(`  ❌ Failed to fix keys for ${post.title}:`, error);

@@ -62,8 +62,8 @@ export default function ImageAdapter({
   // For fill images, wrap in a container
   if (fill) {
     return (
-      <div className={className} style={style}>
-        <ShadcnImage {...imageProps} className="" />
+      <div style={style}>
+        <ShadcnImage {...imageProps} className={className} />
       </div>
     );
   }
