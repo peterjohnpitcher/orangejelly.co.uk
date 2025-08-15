@@ -42,6 +42,7 @@ export default {
         list: [
           { title: 'Draft', value: 'draft' },
           { title: 'Published', value: 'published' },
+          { title: 'Scheduled', value: 'scheduled' },
         ],
         layout: 'radio',
       },

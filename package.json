@@ -23,6 +23,7 @@
     "migrate:related-links": "ts-node scripts/migrate-related-links.ts",
     "fix:sanity-keys": "tsx scripts/fix-missing-keys.ts",
     "migrate:all-content": "ts-node scripts/migrate-all-hardcoded-content.ts",
+    "analyze:blog-schemas": "tsx scripts/analyze-blog-schemas.ts",
     "prepare": "husky || true"
   },
   "lint-staged": {
@@ -93,6 +94,7 @@
     "sharp": "^0.34.3",
     "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
     "typescript": "^5",
     "uuid": "^11.1.0",
     "vitest": "^3.2.4"
