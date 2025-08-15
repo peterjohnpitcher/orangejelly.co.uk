@@ -48,7 +48,11 @@ interface PortableTextComparisonTable {
   }>;
 }
 
-type PortableTextValue = PortableTextBlock | PortableTextImage | PortableTextCodeBlock | PortableTextComparisonTable;
+type PortableTextValue =
+  | PortableTextBlock
+  | PortableTextImage
+  | PortableTextCodeBlock
+  | PortableTextComparisonTable;
 
 interface PortableTextContentProps {
   value: PortableTextValue[];
@@ -56,35 +60,27 @@ interface PortableTextContentProps {
 
 const components = {
   block: {
-    h1: ({ children }: { children?: React.ReactNode }) => <Heading level={1} className="mt-8 mb-4">{children}</Heading>,
-    h2: ({ children }: { children?: React.ReactNode }) => <Heading level={2} className="mt-8 mb-4">{children}</Heading>,
-    h3: ({ children }: { children?: React.ReactNode }) => <Heading level={3} className="mt-6 mb-3">{children}</Heading>,
-    h4: ({ children }: { children?: React.ReactNode }) => <Heading level={4} className="mt-4 mb-2">{children}</Heading>,
+    h1: ({ children }: { children?: React.ReactNode }) => (
+      <Heading level={1} className="mt-8 mb-4">
+        {children}
+      </Heading>
+    ),
+    h2: ({ children }: { children?: React.ReactNode }) => (
+      <Heading level={2} className="mt-8 mb-4">
+        {children}
+      </Heading>
+    ),
+    h3: ({ children }: { children?: React.ReactNode }) => (
+      <Heading level={3} className="mt-6 mb-3">
+        {children}
+      </Heading>
+    ),
+    h4: ({ children }: { children?: React.ReactNode }) => (
+      <Heading level={4} className="mt-4 mb-2">
+        {children}
+      </Heading>
+    ),
     normal: ({ children }: { children?: React.ReactNode }) => {
-      // Check if the text starts with # (markdown header)
-      // Handle both string children and array of children with spans
-      let textContent = '';
-      
-      if (typeof children === 'string') {
-        textContent = children;
-      } else if (Array.isArray(children)) {
-        // Extract text from span elements
-        textContent = children.map(child => {
-          if (typeof child === 'string') return child;
-          if (child?.props?.text) return child.props.text;
-          if (child?.props?.children) return child.props.children;
-          return '';
-        }).join('');
-      }
-      
-      // Check for markdown headers
-      if (textContent.startsWith('#')) {
-        const level = textContent.match(/^#+/)?.[0].length || 1;
-        const text = textContent.replace(/^#+\s*/, '');
-        const HeadingLevel = level as 1 | 2 | 3 | 4 | 5 | 6;
-        return <Heading level={HeadingLevel} className="mt-8 mb-4">{text}</Heading>;
-      }
-      
       return <Text className="mb-4">{children}</Text>;
     },
     blockquote: ({ children }: { children?: React.ReactNode }) => (
@@ -103,40 +99,16 @@ const components = {
   },
   listItem: {
     bullet: ({ children }: { children?: React.ReactNode }) => {
-      // Parse markdown bold syntax in list items
-      const processedChildren = React.Children.map(children, child => {
-        if (typeof child === 'string') {
-          const parts = child.split(/(\*\*[^*]+\*\*)/g);
-          return parts.map((part, index) => {
-            if (part.startsWith('**') && part.endsWith('**')) {
-              return <strong key={index} className="font-bold">{part.slice(2, -2)}</strong>;
-            }
-            return part;
-          });
-        }
-        return child;
-      });
-      return <li className="ml-4 text-charcoal">{processedChildren}</li>;
+      return <li className="ml-4 text-charcoal">{children}</li>;
     },
     number: ({ children }: { children?: React.ReactNode }) => {
-      // Parse markdown bold syntax in list items
-      const processedChildren = React.Children.map(children, child => {
-        if (typeof child === 'string') {
-          const parts = child.split(/(\*\*[^*]+\*\*)/g);
-          return parts.map((part, index) => {
-            if (part.startsWith('**') && part.endsWith('**')) {
-              return <strong key={index} className="font-bold">{part.slice(2, -2)}</strong>;
-            }
-            return part;
-          });
-        }
-        return child;
-      });
-      return <li className="ml-4 text-charcoal">{processedChildren}</li>;
+      return <li className="ml-4 text-charcoal">{children}</li>;
     },
   },
   marks: {
-    strong: ({ children }: { children?: React.ReactNode }) => <strong className="font-bold">{children}</strong>,
+    strong: ({ children }: { children?: React.ReactNode }) => (
+      <strong className="font-bold">{children}</strong>
+    ),
     em: ({ children }: { children?: React.ReactNode }) => <em className="italic">{children}</em>,
     code: ({ children }: { children?: React.ReactNode }) => (
       <code className="bg-gray-100 rounded px-1 py-0.5 text-sm">{children}</code>
@@ -159,10 +131,10 @@ const components = {
   types: {
     image: ({ value }: { value: PortableTextImage }) => {
       if (!value?.asset) return null;
-      
+
       // Get image dimensions from Sanity
       const imageUrl = urlFor(value).url();
-      
+
       return (
         <figure className="my-8">
           <div className="relative w-full aspect-[4/3]">
@@ -176,7 +148,9 @@ const components = {
           </div>
           {value.caption && (
             <figcaption className="text-center mt-2">
-              <Text size="sm" color="muted">{value.caption}</Text>
+              <Text size="sm" color="muted">
+                {value.caption}
+              </Text>
             </figcaption>
           )}
         </figure>
@@ -191,11 +165,13 @@ const components = {
     ),
     comparisonTable: ({ value }: { value: PortableTextComparisonTable }) => {
       if (!value?.rows || value.rows.length === 0) return null;
-      
+
       return (
         <div className="my-8 overflow-x-auto">
           {value.title && (
-            <Heading level={3} className="mb-4">{value.title}</Heading>
+            <Heading level={3} className="mb-4">
+              {value.title}
+            </Heading>
           )}
           <table className="w-full border-collapse">
             <thead>
@@ -217,18 +193,10 @@ const components = {
             <tbody>
               {value.rows.map((row, index) => (
                 <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-cream'}>
-                  <td className="border border-charcoal/20 px-4 py-2 font-medium">
-                    {row.option}
-                  </td>
-                  <td className="border border-charcoal/20 px-4 py-2">
-                    {row.cost}
-                  </td>
-                  <td className="border border-charcoal/20 px-4 py-2">
-                    {row.time}
-                  </td>
-                  <td className="border border-charcoal/20 px-4 py-2">
-                    {row.results}
-                  </td>
+                  <td className="border border-charcoal/20 px-4 py-2 font-medium">{row.option}</td>
+                  <td className="border border-charcoal/20 px-4 py-2">{row.cost}</td>
+                  <td className="border border-charcoal/20 px-4 py-2">{row.time}</td>
+                  <td className="border border-charcoal/20 px-4 py-2">{row.results}</td>
                 </tr>
               ))}
             </tbody>
@@ -243,6 +211,6 @@ export default function PortableTextContent({ value }: PortableTextContentProps)
   if (!value || !Array.isArray(value)) {
     return null;
   }
-  
+
   return <PortableText value={value} components={components} />;
 }

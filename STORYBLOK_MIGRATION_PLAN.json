@@ -1,0 +1,191 @@
+{
+  "rationale": "Migrate from Sanity to Storyblok due to schema fragility issues",
+  "advantages": [
+    "Visual editor for non-technical users",
+    "More stable schema system",
+    "Built-in scheduled publishing",
+    "Better error messages",
+    "Simpler rich text handling"
+  ],
+  "timeline": "1 week",
+  "effort": "Medium",
+  "risk": "Low",
+  "schemas": {
+    "blog_post": {
+      "name": "blog_post",
+      "display_name": "Blog Post",
+      "schema": {
+        "title": {
+          "type": "text",
+          "required": true,
+          "pos": 0
+        },
+        "slug": {
+          "type": "text",
+          "required": true,
+          "pos": 1
+        },
+        "excerpt": {
+          "type": "textarea",
+          "max_length": 160,
+          "pos": 2
+        },
+        "content": {
+          "type": "richtext",
+          "required": true,
+          "pos": 3
+        },
+        "featured_image": {
+          "type": "asset",
+          "filetypes": ["images"],
+          "pos": 4
+        },
+        "author": {
+          "type": "option",
+          "source": "internal_stories",
+          "folder_slug": "authors/",
+          "pos": 5
+        },
+        "category": {
+          "type": "option",
+          "options": [
+            {
+              "name": "Marketing",
+              "value": "marketing"
+            },
+            {
+              "name": "Operations",
+              "value": "operations"
+            },
+            {
+              "name": "Finance",
+              "value": "finance"
+            },
+            {
+              "name": "Customer Service",
+              "value": "customer-service"
+            }
+          ],
+          "pos": 6
+        },
+        "published_date": {
+          "type": "datetime",
+          "pos": 7
+        },
+        "seo": {
+          "type": "section",
+          "keys": ["meta_title", "meta_description", "keywords"],
+          "pos": 8
+        }
+      }
+    },
+    "service": {
+      "name": "service",
+      "display_name": "Service",
+      "schema": {
+        "name": {
+          "type": "text",
+          "required": true
+        },
+        "description": {
+          "type": "richtext"
+        },
+        "price": {
+          "type": "text"
+        },
+        "features": {
+          "type": "bloks",
+          "restrict_components": true,
+          "component_whitelist": ["feature"]
+        }
+      }
+    },
+    "case_study": {
+      "name": "case_study",
+      "display_name": "Case Study",
+      "schema": {
+        "title": {
+          "type": "text",
+          "required": true
+        },
+        "client": {
+          "type": "text"
+        },
+        "challenge": {
+          "type": "richtext"
+        },
+        "solution": {
+          "type": "richtext"
+        },
+        "results": {
+          "type": "richtext"
+        },
+        "metrics": {
+          "type": "bloks",
+          "restrict_components": true,
+          "component_whitelist": ["metric"]
+        }
+      }
+    }
+  },
+  "example_content": {
+    "name": "Young People Won't Come to Your Pub?",
+    "slug": "young-people-wont-come-to-your-pub",
+    "content": {
+      "component": "blog_post",
+      "title": "Young People Won't Come to Your Pub? Here's How to Change That",
+      "excerpt": "Young people still want what pubs offer - community, experiences, and somewhere that isn't their flat. They just need a reason to choose you over Netflix.",
+      "content": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "The Real Problem"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Young people aren't avoiding pubs - they're avoiding "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "boring pubs"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      },
+      "featured_image": {
+        "filename": "young-people-pub.jpg",
+        "alt": "Young people enjoying a pub"
+      },
+      "author": "peter-pitcher",
+      "category": "marketing",
+      "published_date": "2025-08-11T10:00:00Z",
+      "seo": {
+        "meta_title": "How to Attract Young People to Your Pub | Orange Jelly",
+        "meta_description": "Proven strategies to bring young customers back to your pub.",
+        "keywords": ["young people", "pub marketing", "millennials", "gen z"]
+      }
+    }
+  }
+}
