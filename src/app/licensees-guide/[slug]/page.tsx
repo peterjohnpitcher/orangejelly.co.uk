@@ -19,6 +19,9 @@ interface BlogPostPageProps {
   };
 }
 
+// Enable ISR (Incremental Static Regeneration) - pages revalidate every 60 seconds
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const posts = await getContentPosts();
   return posts.map((post) => ({

@@ -10,6 +10,9 @@ import { getContentPosts, getContentSource } from '@/lib/content-source';
 import { getCategories } from '@/lib/blog-md';
 import { CollectionPageSchema } from '@/components/CollectionPageSchema';
 
+// Enable ISR (Incremental Static Regeneration) - pages revalidate every 60 seconds
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "The Licensee's Guide - Expert Pub Management Advice | Orange Jelly",
   description:

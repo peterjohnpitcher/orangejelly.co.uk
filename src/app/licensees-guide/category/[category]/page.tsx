@@ -31,6 +31,9 @@ const categoryDescriptions: Record<string, string> = {
   'events-promotions': 'Events and promotions that actually bring customers in',
 };
 
+// Enable ISR (Incremental Static Regeneration) - pages revalidate every 60 seconds
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const categories = getCategories();
   return categories.map((category) => ({
