@@ -55,12 +55,14 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
     const [isLoading, setIsLoading] = React.useState(true);
     const [hasError, setHasError] = React.useState(false);
 
-    // Check if the image is an SVG from an external source
+    // Check if the image is an SVG
     const isSvg = typeof props.src === 'string' && props.src.endsWith('.svg');
     const isExternal =
       typeof props.src === 'string' &&
       (props.src.startsWith('http://') || props.src.startsWith('https://'));
-    const isExternalSvg = isSvg && isExternal;
+
+    // For local SVGs, we'll use img tag to avoid Next.js Image optimization issues
+    const useImgTag = isSvg;
 
     // Default sizes for responsive images
     const defaultSizes = sizes || '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw';
@@ -111,8 +113,8 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
 
     const Comp = asChild ? Slot : NextImage;
 
-    // For external SVGs, use a regular img tag instead of Next.js Image
-    const imageElement = isExternalSvg ? (
+    // For SVGs (local or external), use a regular img tag instead of Next.js Image
+    const imageElement = useImgTag ? (
       <img
         ref={ref as any}
         src={props.src as string}
@@ -175,7 +177,7 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
           {schemaMarkup && (
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaMarkup }} />
           )}
-          {isLoading && !priority && (
+          {isLoading && !priority && !useImgTag && (
             <div
               className={cn('absolute inset-0 animate-pulse bg-muted', className)}
               aria-hidden="true"
@@ -194,7 +196,7 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
         {schemaMarkup && (
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaMarkup }} />
         )}
-        {isLoading && !priority && (
+        {isLoading && !priority && !useImgTag && (
           <div
             className={cn('absolute inset-0 animate-pulse bg-muted', className)}
             aria-hidden="true"

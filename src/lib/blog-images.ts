@@ -30,6 +30,16 @@ export function getDefaultBlogImage(slug: string): string {
     'summer-pub-event-ideas': '/images/blog/summer-pub-event-ideas.svg',
     'why-is-my-pub-empty': '/images/blog/why-is-my-pub-empty.svg',
     'pub-health-check-essential-fundamentals-licensee-success': '/images/blog/pub-health-check.svg',
+    // New articles (August 2025)
+    'young-people-wont-come-to-your-pub': '/images/blog/young-people-wont-come-to-your-pub.svg',
+    'terrible-online-reviews-damage-control':
+      '/images/blog/terrible-online-reviews-damage-control.svg',
+    'village-pub-dying-village-survival': '/images/blog/village-pub-dying-village-survival.svg',
+    'nobody-books-tables-anymore': '/images/blog/nobody-books-tables-anymore.svg',
+    'brewery-tie-improve-your-deal': '/images/blog/brewery-tie-improve-your-deal.svg',
+    'cash-flow-crisis-breaking-cycle': '/images/blog/cash-flow-crisis-breaking-cycle.svg',
+    'food-allergies-gdpr-compliance': '/images/blog/food-allergies-gdpr-compliance.svg',
+    'kitchen-nightmares-chef-quits': '/images/blog/kitchen-nightmares-chef-quits.svg',
   };
 
   // Return the mapped image or a default

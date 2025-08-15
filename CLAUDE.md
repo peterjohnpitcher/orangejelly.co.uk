@@ -46,6 +46,14 @@ npm run test:coverage # Check test coverage
 - To update blog content, use Sanity write client or Sanity Studio
 - Blog schema: `sanity-studio/schemas/blogPost.ts`
 
+### 📅 Scheduled Publishing (NEW!)
+**Blog posts can now be scheduled for automatic publication:**
+- Set status to "Scheduled" and future publishedDate in Sanity Studio
+- Posts automatically publish at the specified time (requires Sanity Growth plan)
+- Utility functions: `src/lib/scheduled-publishing.ts`
+- Monitoring API: `/api/publish-scheduled`
+- Optimal publish times configured for UK pub industry
+
 ## 🎯 Guiding Principles
 
 ### Our Development Philosophy
@@ -1119,7 +1127,228 @@ Remember: You're building something that genuinely helps struggling licensees. E
 **Version**: 5.0  
 **Status**: ACTIVE - Your trusted development guide
 
+## 📝 Creating Blog Articles - Complete Guide
+
+### Creating a New Blog Article in Sanity
+
+When creating new blog articles for the Licensees Guide, follow this comprehensive process to ensure proper formatting, SEO optimization, and visual consistency.
+
+#### 1. Article Schema Requirements
+
+Every blog article MUST have these fields properly filled:
+
+**Essential Fields:**
+- `title`: Compelling, problem-focused title (use questions when appropriate)
+- `slug`: URL-friendly version of title (auto-generated from title)
+- `status`: Set to "draft" initially, "scheduled" for future publication, or "published" when ready
+- `publishedDate`: Set to Monday 10:00 AM for consistency (weekly publishing pattern)
+- `excerpt`: 150-160 characters summarizing the article's value proposition
+- `category`: Select appropriate category or create new one if needed
+- `author`: Reference to Peter Pitcher (should already exist)
+
+**SEO & Voice Search Fields:**
+- `quickAnswer`: **CRITICAL** - 40-60 word direct answer to the title question
+- `voiceSearchQueries`: Array of natural language questions users might ask
+- `quickStats`: 3-4 key statistics with labels and values
+- `faqs`: Minimum 3 FAQs with question, answer, and isVoiceOptimized flag
+- `seo.metaDescription`: If different from excerpt
+- `seo.keywords`: Focus keywords for the article
+
+**Content Structure:**
+- Use Portable Text blocks for content
+- Structure with clear H2 and H3 headings
+- Include bullet points and numbered lists for scannability
+- Add comparison tables where relevant
+- Keep paragraphs short (2-3 sentences max)
+
+#### 2. Creating the Featured Image
+
+**ALWAYS create a custom SVG image for each article:**
+
+```typescript
+// Template for creating article SVG
+const articleSVG = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F7931E;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="2" fill="white" opacity="0.1"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  <rect width="1200" height="630" fill="url(#pattern)"/>
+  
+  <!-- Dark overlay for text contrast -->
+  <rect width="1200" height="630" fill="black" opacity="0.3"/>
+  
+  <!-- Main Title -->
+  <text x="600" y="340" font-family="Arial, sans-serif" font-size="56" font-weight="bold" text-anchor="middle" fill="white">
+    ${title}
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="400" font-family="Arial, sans-serif" font-size="32" text-anchor="middle" fill="white" opacity="0.9">
+    ${subtitle}
+  </text>
+  
+  <!-- Bottom branding -->
+  <text x="600" y="550" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="white" opacity="0.7">
+    The Licensee's Guide | Orange Jelly
+  </text>
+</svg>`;
+```
+
+**Steps to create the image:**
+1. Save SVG to `/public/images/blog/{article-slug}.svg`
+2. Add mapping to `/src/lib/blog-images.ts` in the imageMap object
+3. Never use the generic default.svg for new articles
+
+#### 3. Content Writing Guidelines
+
+**Tone & Style:**
+- **Encouraging and solution-focused** - Never doom and gloom
+- **Personal and authentic** - Write as Peter, share real experiences
+- **Practical and actionable** - Every section should have clear takeaways
+- **Empathetic** - Acknowledge the struggle, provide the solution
+
+**Content Structure Template:**
+
+```markdown
+## Opening Hook (2-3 paragraphs)
+- Start with relatable scenario or shocking statistic
+- Acknowledge the problem
+- Promise the solution
+
+## The Real Problem (It's Not What You Think)
+- Reframe the issue
+- Share personal experience
+- Build hope
+
+## Main Solutions (3-5 sections)
+### Solution 1 Name
+- Clear explanation
+- Step-by-step process
+- Real example with numbers
+- Quick win they can implement today
+
+### Solution 2 Name
+[Continue pattern]
+
+## Your Action Plan
+### Today:
+- 3 immediate actions
+
+### This Week:
+- 3 short-term goals
+
+### This Month:
+- 3 medium-term objectives
+
+## The Results You Can Expect
+- Realistic timeline
+- Specific metrics
+- Success indicators
+
+## Bottom Line
+- Encouraging summary
+- Call to action
+- Reminder of support available
+```
+
+#### 4. Publishing Checklist
+
+Before publishing any article:
+
+- [ ] Custom SVG created and added to `/public/images/blog/`
+- [ ] Image mapping added to `/src/lib/blog-images.ts`
+- [ ] All required schema fields completed
+- [ ] Quick Answer is exactly 40-60 words
+- [ ] Minimum 3 FAQs added
+- [ ] Content is 1,500-3,000 words
+- [ ] All statistics are verified and accurate
+- [ ] Tone is encouraging and solution-focused
+- [ ] Published date set to Monday 10:00 AM
+- [ ] Category correctly assigned
+- [ ] Author set to Peter Pitcher
+
+#### 5. Technical Implementation
+
+When creating articles programmatically:
+
+```typescript
+const articleDoc = {
+  _type: 'blogPost',
+  title: 'Article Title',
+  slug: { current: 'article-slug' },
+  status: 'draft', // Start as draft
+  publishedDate: '2025-08-18T10:00:00Z', // Monday 10am
+  excerpt: 'Brief description under 160 chars',
+  quickAnswer: 'Direct 40-60 word answer to the title question',
+  
+  // Content as Portable Text blocks
+  content: [
+    {
+      _type: 'block',
+      _key: `block_${Date.now()}_0`,
+      style: 'normal',
+      children: [{
+        _type: 'span',
+        _key: `span_${Date.now()}_0`,
+        text: 'Paragraph text'
+      }]
+    }
+  ],
+  
+  // Arrays need _key for each item
+  quickStats: [
+    {
+      _key: `stat_${Date.now()}_0`,
+      label: 'Metric Name',
+      value: 'Value',
+      highlight: false
+    }
+  ],
+  
+  faqs: [
+    {
+      _key: `faq_${Date.now()}_0`,
+      question: 'Natural question?',
+      answer: 'Direct answer first sentence. Details follow.',
+      isVoiceOptimized: true
+    }
+  ],
+  
+  // References
+  category: { _type: 'reference', _ref: 'category-id' },
+  author: { _type: 'reference', _ref: 'author-id' },
+  
+  // SEO
+  seo: {
+    metaDescription: 'Optional if different from excerpt',
+    keywords: ['keyword1', 'keyword2']
+  }
+};
+```
+
+**Important Notes:**
+- All array items MUST have unique `_key` properties
+- Use timestamps in keys to ensure uniqueness
+- Content blocks need proper structure with children
+- References use `_type: 'reference'` and `_ref` to ID
+
 ## 📝 CHANGELOG
+
+### Version 5.3 (January 2025)
+- **SCHEDULED PUBLISHING**: Implemented native Sanity scheduled publishing for blog posts
+- Added scheduled publishing utilities in `/src/lib/scheduled-publishing.ts`
+- Created API endpoint `/api/publish-scheduled` for monitoring scheduled posts
+- Updated GROQ queries to handle scheduled posts properly
+- Documented scheduled publishing workflow and best practices
 
 ### Version 5.2 (January 2025)
 - **CRITICAL UPDATE**: Documented that ALL blog content is in Sanity CMS, not markdown files
