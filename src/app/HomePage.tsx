@@ -12,7 +12,7 @@ import Card from '@/components/Card';
 import Button from '@/components/Button';
 import Grid from '@/components/Grid';
 import AnimatedItem from '@/components/AnimatedItem';
-import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity';
+// import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity'; // Removed Sanity dependency
 import Link from '@/components/Link';
 import { URLS, MESSAGES, CONTACT } from '@/lib/constants';
 import Text from '@/components/Text';
@@ -21,10 +21,22 @@ import Box from '@/components/Box';
 import { FAQSchema } from '@/components/StructuredData';
 import { SpeakableContent } from '@/components/SpeakableContent';
 import Partnerships from '@/components/Partnerships';
-import type { FAQ } from '@/lib/sanity.types';
-import { portableTextToPlainText } from '@/lib/portable-text-utils';
-import type { TrustBadge } from '@/lib/sanity-social-proof';
-import type { SiteSettings } from '@/lib/sanity.types';
+// Removed Sanity type imports
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface TrustBadge {
+  name: string;
+  description: string;
+  icon?: string;
+}
+
+interface SiteSettings {
+  title: string;
+  description: string;
+}
 
 
 interface Problem {
@@ -88,7 +100,6 @@ interface HomePageProps {
   siteSettings?: SiteSettings | null;
   partnerships?: any[];
   hero?: {
-    // Add hero prop
     title: string;
     subtitle: string;
     ctaText: string;
@@ -111,10 +122,7 @@ export default function HomePage({
   trustBarItems,
 }: HomePageProps) {
   // Process FAQs if available
-  const displayFAQs = faqs?.map((faq) => ({
-    ...faq,
-    answer: portableTextToPlainText(faq.answer), // Convert Portable Text to plain string
-  })) || [];
+  const displayFAQs = faqs || [];
 
   const displayProblems = problems || [];
   const displayFeatures = features || [];
@@ -268,13 +276,28 @@ export default function HomePage({
               </Text>
               <ROICalculator />
 
-              <RelatedLinksFromSanity
-                clusterId="budget"
-                title="Ready to Increase Your Revenue?"
-                subtitle="Choose the solution that fits your budget and timeline"
-                variant="card"
-                columns={{ default: 1, md: 3 }}
-              />
+              {/* Related links removed - was using Sanity */}
+              <div className="text-center mt-8">
+                <Text size="lg" className="mb-4">Ready to Increase Your Revenue?</Text>
+                <Text color="muted" className="mb-6">Choose the solution that fits your budget and timeline</Text>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <Card variant="bordered" padding="large">
+                    <Heading level={4} className="mb-3">Quick Win</Heading>
+                    <Text className="mb-4">Single consultation to tackle your biggest problem</Text>
+                    <Button href="/services" variant="ghost">Start Here →</Button>
+                  </Card>
+                  <Card variant="bordered" padding="large">
+                    <Heading level={4} className="mb-3">Full Recovery</Heading>
+                    <Text className="mb-4">Complete marketing makeover with ongoing support</Text>
+                    <Button href="/services" variant="primary">Learn More</Button>
+                  </Card>
+                  <Card variant="bordered" padding="large">
+                    <Heading level={4} className="mb-3">DIY Training</Heading>
+                    <Text className="mb-4">AI tools and training to do it yourself</Text>
+                    <Button href="/services" variant="ghost">Get Training →</Button>
+                  </Card>
+                </div>
+              </div>
             </Container>
           </AnimatedItem>
         </Section>
@@ -380,9 +403,7 @@ export default function HomePage({
               <FAQItem
                 key={index}
                 question={faq.question}
-                answer={
-                  typeof faq.answer === 'string' ? faq.answer : portableTextToPlainText(faq.answer)
-                }
+                answer={faq.answer}
               />
             ))}
           </div>

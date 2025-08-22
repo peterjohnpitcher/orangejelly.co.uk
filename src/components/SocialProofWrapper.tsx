@@ -1,29 +1,23 @@
-import { Suspense } from 'react';
-import { getSocialProof } from '@/lib/sanity-social-proof';
 import SocialProof from './SocialProof';
-import { AsyncErrorBoundary } from './ErrorBoundary';
-import { CardLoading } from './Loading';
 
-// Async component that fetches social proof data
-async function SocialProofData() {
-  try {
-    const socialProofItems = await getSocialProof();
-    return <SocialProof socialProofItems={socialProofItems} />;
-  } catch (error) {
-    console.error('Error fetching social proof:', error);
-    // Return component with empty array - gracefully hide if no data
-    return <SocialProof socialProofItems={[]} />;
-  }
+// Import social proof data
+const socialProofData = require('../../content/data/social-proof.json');
+
+// Define local social proof type interface
+interface LocalSocialProofItem {
+  title: string;
+  displayText: string;
+  value: string;
+  category: string;
+  timeframe: string;
+  location: string;
+  order: number;
+  isActive: boolean;
 }
 
 export default function SocialProofWrapper() {
-  return (
-    <AsyncErrorBoundary
-      fallback={<SocialProof socialProofItems={[]} />} // Show empty state if error
-    >
-      <Suspense fallback={<CardLoading />}>
-        <SocialProofData />
-      </Suspense>
-    </AsyncErrorBoundary>
-  );
+  // Cast the imported data to the correct type
+  const socialProofItems = socialProofData as LocalSocialProofItem[];
+  
+  return <SocialProof socialProofItems={socialProofItems} />;
 }

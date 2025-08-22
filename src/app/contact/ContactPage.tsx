@@ -11,7 +11,10 @@ import AnimatedItem from '@/components/AnimatedItem';
 import FeatureList from '@/components/FeatureList';
 import AvailabilityStatus from '@/components/AvailabilityStatus';
 import { breadcrumbPaths } from '@/components/Breadcrumb';
-import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity';
+import RelatedLinks from '@/components/RelatedLinks';
+
+// Import related links data
+const relatedLinksData = require('../../../content/data/related-links.json');
 import Text from '@/components/Text';
 import { CONTACT, URLS, MESSAGES } from '@/lib/constants';
 import { FAQSchema } from '@/components/StructuredData';
@@ -496,9 +499,10 @@ export default function ContactPage({ faqs }: ContactPageProps) {
 
       {/* Related links */}
       <Section background="cream" padding="medium">
-        <RelatedLinksFromSanity
-          clusterId="contact"
+        <RelatedLinks
           title="Next Steps"
+          links={(relatedLinksData as any).contact.links}
+          variant="card"
         />
       </Section>
     </>

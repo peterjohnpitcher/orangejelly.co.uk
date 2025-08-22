@@ -5,7 +5,26 @@ import Button from '@/components/Button';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
 import OptimizedImage from '@/components/OptimizedImage';
-import { type FooterContent } from '@/lib/sanity-footer';
+// Local type definition to replace Sanity dependency
+type FooterContent = {
+  services?: Array<{
+    title: string;
+    href: string;
+  }>;
+  quickLinks?: Array<{
+    title: string;
+    href: string;
+    external?: boolean;
+  }>;
+  contactInfo?: {
+    phone?: string;
+    email?: string;
+  };
+  bottomBar?: {
+    copyrightText?: string;
+    additionalText?: string;
+  };
+};
 
 interface FooterSimpleProps {
   footerContent?: FooterContent | null;

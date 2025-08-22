@@ -10,14 +10,6 @@ const nextConfig = {
   trailingSlash: false,
   images: {
     formats: ['image/avif', 'image/webp'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-        port: '',
-        pathname: '/**',
-      },
-    ],
   },
   // Security headers are set centrally in src/middleware.ts
 }

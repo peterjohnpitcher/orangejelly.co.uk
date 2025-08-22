@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <channel>
+    <title><![CDATA[Orange Jelly - Pub Marketing & Business Growth]]></title>
+    <link>https://orangejelly.co.uk</link>
+    <description><![CDATA[Expert pub marketing strategies, business growth tips, and practical advice for UK publicans. From empty pub solutions to premium positioning.]]></description>
+    <lastBuildDate>Mon, 29 Sep 2025 10:00:00 GMT</lastBuildDate>
+    <language>en-GB</language>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <generator>Orange Jelly RSS Generator</generator>
+    <managingEditor>peter@orangejelly.co.uk (Peter Pitcher)</managingEditor>
+    <webMaster>peter@orangejelly.co.uk (Peter Pitcher)</webMaster>
+    <atom:link href="https://orangejelly.co.uk/rss.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://orangejelly.co.uk/logo.png</url>
+      <title><![CDATA[Orange Jelly - Pub Marketing & Business Growth]]></title>
+      <link>https://orangejelly.co.uk</link>
+      <width>144</width>
+      <height>144</height>
+    </image>
+    <item>
+      <title><![CDATA[Kitchen Nightmares: When Your Chef Quits on a Saturday Night]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/kitchen-nightmares-chef-quits</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/kitchen-nightmares-chef-quits</guid>
+      <description><![CDATA[Your chef just walked out during service. Here's the emergency protocol that saved our Saturday and the prevention system that means it never happened again.]]></description>
+      <pubDate>Mon, 29 Sep 2025 10:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[chef crisis]]></category><category><![CDATA[kitchen management]]></category><category><![CDATA[crisis management]]></category><category><![CDATA[staff emergency]]></category><category><![CDATA[business continuity]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Food Allergies and GDPR: The Compliance Nightmares That Could Close You Down]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/food-allergies-gdpr-compliance</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/food-allergies-gdpr-compliance</guid>
+      <description><![CDATA[Navigate the compliance minefield without hiring expensive consultants. Simple systems that keep you legal and let you focus on running your pub.]]></description>
+      <pubDate>Mon, 22 Sep 2025 10:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[food-drink]]></category>
+      <category><![CDATA[allergen management]]></category><category><![CDATA[GDPR compliance]]></category><category><![CDATA[food safety]]></category><category><![CDATA[pub regulations]]></category><category><![CDATA[compliance systems]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Cash Flow Crisis Every Month? Breaking the Feast-or-Famine Cycle]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/cash-flow-crisis-breaking-cycle</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/cash-flow-crisis-breaking-cycle</guid>
+      <description><![CDATA[Stop the monthly panic of making rent. Build predictable income, manage seasonal swings, and create the cash buffer that lets you sleep at night.]]></description>
+      <pubDate>Mon, 15 Sep 2025 10:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[cash flow management]]></category><category><![CDATA[pub finances]]></category><category><![CDATA[payment terms]]></category><category><![CDATA[financial planning]]></category><category><![CDATA[buffer building]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Brewery Tie Strangling Your Profits? Legal Ways to Improve Your Deal]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/brewery-tie-improve-your-deal</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/brewery-tie-improve-your-deal</guid>
+      <description><![CDATA[Work within your tie to boost profits without breaking contracts. Real strategies from a tied tenant who increased GP by 15% without going free of tie.]]></description>
+      <pubDate>Mon, 08 Sep 2025 10:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[brewery tie]]></category><category><![CDATA[pubco]]></category><category><![CDATA[tied house]]></category><category><![CDATA[MRO]]></category><category><![CDATA[pub tenancy]]></category><category><![CDATA[supplier negotiation]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Nobody Books Tables Anymore? Master the Art of Walk-ins vs Reservations]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/nobody-books-tables-anymore</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/nobody-books-tables-anymore</guid>
+      <description><![CDATA[Find the perfect balance between guaranteed bookings and spontaneous trade. Learn the system that increased our covers by 40% without turning anyone away.]]></description>
+      <pubDate>Mon, 01 Sep 2025 10:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[table management]]></category><category><![CDATA[bookings]]></category><category><![CDATA[reservations]]></category><category><![CDATA[restaurant management]]></category><category><![CDATA[operations]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Village Pub in a Dying Village? Survival Strategies That Actually Work]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/village-pub-dying-village-survival</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/village-pub-dying-village-survival</guid>
+      <description><![CDATA[When your village is shrinking but your bills aren't, here's how to transform from local boozer to destination venue without losing your soul.]]></description>
+      <pubDate>Mon, 25 Aug 2025 10:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[village pub]]></category><category><![CDATA[rural pub]]></category><category><![CDATA[destination dining]]></category><category><![CDATA[community hub]]></category><category><![CDATA[pub diversification]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Terrible Online Reviews Ruining Your Reputation? The Damage Control Guide]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/terrible-online-reviews-damage-control</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/terrible-online-reviews-damage-control</guid>
+      <description><![CDATA[Turn your worst reviews into your best marketing tool. Learn the response framework that converted our angriest critics into regulars.]]></description>
+      <pubDate>Mon, 18 Aug 2025 10:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[social-media]]></category>
+      <category><![CDATA[online reviews]]></category><category><![CDATA[reputation management]]></category><category><![CDATA[Google reviews]]></category><category><![CDATA[TripAdvisor]]></category><category><![CDATA[crisis management]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Young People Won't Come to Your Pub? Here's How to Change That]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/young-people-wont-come-to-your-pub</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/young-people-wont-come-to-your-pub</guid>
+      <description><![CDATA[Transform your pub into a magnet for 18-30s with proven strategies that actually work. No gimmicks, just real techniques from a licensee who cracked the code.]]></description>
+      <pubDate>Mon, 11 Aug 2025 10:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[young customers]]></category><category><![CDATA[millennials]]></category><category><![CDATA[gen z]]></category><category><![CDATA[instagram]]></category><category><![CDATA[social media]]></category><category><![CDATA[events]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[The Pub Health Check: Essential Fundamentals for Licensee Success]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/pub-health-check-essential-fundamentals-licensee-success</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/pub-health-check-essential-fundamentals-licensee-success</guid>
+      <description><![CDATA[Essential pub health check guide: 7 P's of marketing, financial metrics, cellar management, and community strategies every licensee needs.]]></description>
+      <pubDate>Sun, 03 Aug 2025 23:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[business health]]></category><category><![CDATA[financial management]]></category><category><![CDATA[cellar management]]></category><category><![CDATA[marketing]]></category><category><![CDATA[operations]]></category><category><![CDATA[community engagement]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/573831201c6dbda6b8abca0b64370a4935199989-1200x630.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Recession-Proof Pub Strategies: How to Thrive When Customers Tighten Their Belts]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/recession-proof-pub-strategies</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/recession-proof-pub-strategies</guid>
+      <description><![CDATA[Proven strategies to maintain and grow your pub business during economic downturns. Learn cost-cutting measures, revenue optimization tactics, and]]></description>
+      <pubDate>Mon, 28 Jul 2025 00:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[business strategy]]></category><category><![CDATA[budget]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Summer Pub Event Ideas: 35 Profitable Outdoor Promotions That Pack Your Garden]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/summer-pub-event-ideas</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/summer-pub-event-ideas</guid>
+      <description><![CDATA[Make the most of summer with these proven pub garden events and outdoor promotions. From festivals to family days, discover profitable ideas with costs,]]></description>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[seasonal]]></category><category><![CDATA[events]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Pub Refurbishment on a Budget: Transform Your Space for Under £5,000]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/pub-refurbishment-on-budget</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/pub-refurbishment-on-budget</guid>
+      <description><![CDATA[Complete guide to budget pub refurbishment with real costs and DIY solutions. Learn how to transform your pub's appearance, improve atmosphere, and boost]]></description>
+      <pubDate>Mon, 14 Jul 2025 00:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[refurbishment]]></category><category><![CDATA[budget]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[25 Low Budget Pub Marketing Ideas That Actually Work]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/low-budget-pub-marketing-ideas</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/low-budget-pub-marketing-ideas</guid>
+      <description><![CDATA[Discover proven low-cost marketing strategies for pubs. From free social media tactics to DIY promotions, learn how to market your pub on a shoestring]]></description>
+      <pubDate>Mon, 07 Jul 2025 00:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[marketing]]></category><category><![CDATA[budget]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Start Planning Christmas Now: 30 Festive Ideas to Secure December Bookings Early]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/christmas-pub-promotion-ideas</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/christmas-pub-promotion-ideas</guid>
+      <description><![CDATA[Smart licensees start Christmas planning in summer. Lock in corporate bookings, plan your festive menu, and get ahead of the competition with these 30]]></description>
+      <pubDate>Mon, 30 Jun 2025 00:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[seasonal]]></category><category><![CDATA[promotions]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Seasonal Pub Events Calendar: Year-Round Ideas That Drive Revenue]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/seasonal-pub-events-calendar</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/seasonal-pub-events-calendar</guid>
+      <description><![CDATA[Never face a quiet period again. Discover month-by-month seasonal event ideas that tap into holidays, trends, and local culture to keep your pub buzzing]]></description>
+      <pubDate>Mon, 23 Jun 2025 00:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[events-promotions]]></category>
+      <category><![CDATA[seasonal events]]></category><category><![CDATA[pub calendar]]></category><category><![CDATA[holiday events]]></category><category><![CDATA[event planning]]></category><category><![CDATA[year-round marketing]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Quiz Night Ideas: 25 Formats That Pack Your Pub Every Week]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/quiz-night-ideas</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/quiz-night-ideas</guid>
+      <description><![CDATA[Transform your quiz night from predictable to unmissable. Discover creative formats, round ideas, and hosting tips that create loyal quiz teams and boost]]></description>
+      <pubDate>Mon, 16 Jun 2025 00:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[events-promotions]]></category>
+      <category><![CDATA[quiz night]]></category><category><![CDATA[pub quiz ideas]]></category><category><![CDATA[quiz formats]]></category><category><![CDATA[entertainment]]></category><category><![CDATA[midweek events]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Live Music Events for Pubs: The Complete Guide to Booking, Hosting & Profiting]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/live-music-events-for-pubs</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/live-music-events-for-pubs</guid>
+      <description><![CDATA[Turn your pub into a thriving music venue. From open mics to ticketed shows, learn how to book acts, manage sound, and create profitable live music events.]]></description>
+      <pubDate>Mon, 09 Jun 2025 00:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[events-promotions]]></category>
+      <category><![CDATA[live music]]></category><category><![CDATA[pub entertainment]]></category><category><![CDATA[booking bands]]></category><category><![CDATA[music events]]></category><category><![CDATA[acoustic nights]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[How to Run Successful Pub Events: A Complete Guide to Profitable Functions]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/how-to-run-successful-pub-events</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/how-to-run-successful-pub-events</guid>
+      <description><![CDATA[Transform your quiet nights into packed events. From planning to promotion, learn the proven formula for running profitable pub events that create loyal]]></description>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[events-promotions]]></category>
+      <category><![CDATA[pub events]]></category><category><![CDATA[event planning]]></category><category><![CDATA[pub entertainment]]></category><category><![CDATA[event ideas]]></category><category><![CDATA[customer engagement]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Profitable Pub Food Menu Ideas: High-Margin Dishes That Actually Sell]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/profitable-pub-food-menu-ideas</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/profitable-pub-food-menu-ideas</guid>
+      <description><![CDATA[Discover proven pub food menu ideas that balance customer appeal with profitability. From gastropub classics to street food trends, learn what works and]]></description>
+      <pubDate>Mon, 26 May 2025 00:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[empty-pub-solutions]]></category>
+      <category><![CDATA[pub food]]></category><category><![CDATA[menu ideas]]></category><category><![CDATA[profitable dishes]]></category><category><![CDATA[food costs]]></category><category><![CDATA[menu development]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+<item>
+      <title><![CDATA[Content Marketing for Pubs: Stories That Fill Seats and Build Loyalty]]></title>
+      <link>https://orangejelly.co.uk/licensees-guide/content-marketing-ideas-pubs</link>
+      <guid isPermaLink="true">https://orangejelly.co.uk/licensees-guide/content-marketing-ideas-pubs</guid>
+      <description><![CDATA[Transform your pub into a content powerhouse. Learn how to create stories, videos, and experiences that attract customers, build community, and drive]]></description>
+      <pubDate>Mon, 19 May 2025 00:00:00 GMT</pubDate>
+      <author>peter@orangejelly.co.uk (Peter Pitcher)</author>
+      <category><![CDATA[social-media]]></category>
+      <category><![CDATA[pub marketing ideas]]></category><category><![CDATA[content marketing]]></category><category><![CDATA[pub promotion ideas]]></category><category><![CDATA[digital marketing]]></category><category><![CDATA[pub storytelling]]></category>
+      <enclosure url="https://orangejelly.co.uk/images/blog/default.svg" type="image/svg+xml" />
+    </item>
+  </channel>
+</rss>

@@ -18,13 +18,11 @@ import { type BlogPost as BlogPostType } from '@/lib/content-source';
 import { getBlogImageSrc, getBlogImageAlt } from '@/lib/blog-images';
 import dynamic from 'next/dynamic';
 
-// Lazy load PortableTextContent for Sanity content
-const PortableTextContent = dynamic(() => import('@/components/PortableTextContent'), {
+// Lazy load MarkdownContent for markdown content
+const MarkdownContent = dynamic(() => import('@/components/MarkdownContent'), {
   ssr: true,
 });
 import { MESSAGES, URLS } from '@/lib/constants';
-import { remark } from 'remark';
-import remarkHtml from 'remark-html';
 
 interface BlogPostProps {
   post: BlogPostType & { contentHtml?: string; isPreProcessed?: boolean };
@@ -32,19 +30,6 @@ interface BlogPostProps {
 }
 
 export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
-  // Use pre-processed HTML if available, otherwise process client-side as fallback
-  const [contentHtml, setContentHtml] = React.useState(post.contentHtml || '');
-
-  React.useEffect(() => {
-    async function processContent() {
-      // Only process client-side if not already processed server-side
-      if (!post.isPreProcessed && !post.isPortableText && typeof post.content === 'string') {
-        const processedContent = await remark().use(remarkHtml).process(post.content);
-        setContentHtml(processedContent.toString());
-      }
-    }
-    processContent();
-  }, [post.content, post.isPortableText, post.isPreProcessed]);
   // Track reading progress
   useEffect(() => {
     const updateProgress = () => {
@@ -151,12 +136,12 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
         <div className="mb-12">
           {post.isPortableText ? (
             <div className="prose prose-lg max-w-none">
-              <PortableTextContent value={post.content as any[]} />
+              <MarkdownContent content={Array.isArray(post.content) ? JSON.stringify(post.content) : post.content as string} />
             </div>
           ) : (
-            <div
-              className="prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: contentHtml }}
+            <MarkdownContent 
+              content={post.content as string} 
+              className="prose prose-lg max-w-none" 
             />
           )}
         </div>

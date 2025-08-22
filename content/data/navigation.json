@@ -1,0 +1,73 @@
+{
+  "mainMenu": [
+    {
+      "label": "Home",
+      "href": "/",
+      "order": 1
+    },
+    {
+      "label": "Services",
+      "href": "/services",
+      "order": 2
+    },
+    {
+      "label": "Licensee's Guide",
+      "href": "/licensees-guide",
+      "order": 3
+    },
+    {
+      "label": "Success Stories",
+      "href": "/results",
+      "order": 4
+    },
+    {
+      "label": "About",
+      "href": "/about",
+      "order": 5
+    },
+    {
+      "label": "Contact",
+      "href": "/contact",
+      "order": 6
+    }
+  ],
+  "mobileMenu": [
+    {
+      "label": "Home",
+      "href": "/",
+      "order": 1
+    },
+    {
+      "label": "Services",
+      "href": "/services",
+      "order": 2
+    },
+    {
+      "label": "Licensee's Guide",
+      "href": "/licensees-guide",
+      "order": 3
+    },
+    {
+      "label": "Success Stories",
+      "href": "/results",
+      "order": 4
+    },
+    {
+      "label": "About",
+      "href": "/about",
+      "order": 5
+    },
+    {
+      "label": "Contact",
+      "href": "/contact",
+      "order": 6
+    }
+  ],
+  "whatsappCta": {
+    "enabled": true,
+    "text": "Hi Peter, I'd like to chat about Orange Jelly",
+    "phoneNumber": "+447462732765",
+    "showInDesktop": true,
+    "showInMobile": true
+  }
+}

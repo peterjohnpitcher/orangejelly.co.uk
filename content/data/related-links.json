@@ -1,0 +1,133 @@
+{
+  "quickStart": {
+    "title": "Popular Pages",
+    "links": [
+      {
+        "title": "Services Overview",
+        "description": "Discover how we can help your pub thrive",
+        "href": "/services",
+        "emoji": "🚀"
+      },
+      {
+        "title": "Success Stories",
+        "description": "See real results from The Anchor",
+        "href": "/results",
+        "emoji": "📈"
+      },
+      {
+        "title": "Licensee's Guide",
+        "description": "Free articles and strategies",
+        "href": "/licensees-guide",
+        "emoji": "📖"
+      },
+      {
+        "title": "Get in Touch",
+        "description": "Let's chat about your pub",
+        "href": "/contact",
+        "emoji": "💬"
+      }
+    ]
+  },
+  "quickWins": {
+    "title": "Ready to Get Similar Results?",
+    "links": [
+      {
+        "title": "Start with a Free Chat",
+        "description": "No obligation - just a friendly conversation",
+        "href": "/contact",
+        "emoji": "☕",
+        "highlight": true
+      },
+      {
+        "title": "View Our Services",
+        "description": "See exactly what we can do for you",
+        "href": "/services",
+        "emoji": "🎯"
+      },
+      {
+        "title": "Read More Success Stories",
+        "description": "See other transformations we've achieved",
+        "href": "/results",
+        "emoji": "📊"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Next Steps",
+    "links": [
+      {
+        "title": "Book a Free Consultation",
+        "description": "30-minute chat about your pub's potential",
+        "href": "/contact",
+        "emoji": "📅",
+        "highlight": true
+      },
+      {
+        "title": "Browse Our Services",
+        "description": "See what's included in our £62.50/hour service",
+        "href": "/services",
+        "emoji": "📋"
+      },
+      {
+        "title": "Read Success Stories",
+        "description": "Real results from pubs just like yours",
+        "href": "/results",
+        "emoji": "⭐"
+      }
+    ]
+  },
+  "services": {
+    "title": "See How We Can Help",
+    "links": [
+      {
+        "title": "View Our Results",
+        "description": "Real data from The Anchor's transformation",
+        "href": "/results",
+        "emoji": "📈"
+      },
+      {
+        "title": "Free Licensee's Guide",
+        "description": "Proven strategies you can implement today",
+        "href": "/licensees-guide",
+        "emoji": "📖"
+      },
+      {
+        "title": "Get Your Free Consultation",
+        "description": "Let's discuss your pub's unique situation",
+        "href": "/contact",
+        "emoji": "🎯",
+        "highlight": true
+      }
+    ]
+  },
+  "about": {
+    "title": "See How We Can Help",
+    "links": [
+      {
+        "title": "Our Services",
+        "description": "Marketing, menus, and more at £62.50/hour",
+        "href": "/services",
+        "emoji": "🚀"
+      },
+      {
+        "title": "Proven Results",
+        "description": "Real numbers from The Anchor",
+        "href": "/results",
+        "emoji": "📊"
+      },
+      {
+        "title": "Free Resources",
+        "description": "The Licensee's Guide blog",
+        "href": "/licensees-guide",
+        "emoji": "📚"
+      },
+      {
+        "title": "Start a Conversation",
+        "description": "No pressure - just a friendly chat",
+        "href": "/contact",
+        "emoji": "💬",
+        "highlight": true
+      }
+    ]
+  }
+}

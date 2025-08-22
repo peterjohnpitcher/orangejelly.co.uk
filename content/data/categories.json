@@ -1,0 +1,142 @@
+[
+  {
+    "_id": "Csdd80pLvugiOUK0y2JOjZ",
+    "_type": "category",
+    "title": "Customer Acquisition",
+    "slug": {
+      "current": "customer-acquisition"
+    },
+    "description": "Attracting and retaining new customer segments"
+  },
+  {
+    "_id": "Csdd80pLvugiOUK0y2JOlJ",
+    "_type": "category",
+    "title": "Digital Reputation",
+    "slug": {
+      "current": "digital-reputation"
+    },
+    "description": "Managing online presence and reviews"
+  },
+  {
+    "_id": "Csdd80pLvugiOUK0y2JOn3",
+    "_type": "category",
+    "title": "Location Challenges",
+    "slug": {
+      "current": "location-challenges"
+    },
+    "description": "Overcoming geographical and demographic obstacles"
+  },
+  {
+    "_id": "Csdd80pLvugiOUK0y2JOon",
+    "_type": "category",
+    "title": "Compliance",
+    "slug": {
+      "current": "compliance"
+    },
+    "description": "Regulations, licensing, and legal requirements"
+  },
+  {
+    "_id": "Csdd80pLvugiOUK0y2JOqX",
+    "_type": "category",
+    "title": "Crisis Management",
+    "slug": {
+      "current": "crisis-management"
+    },
+    "description": "Handling emergencies and unexpected situations"
+  },
+  {
+    "_id": "category-competition",
+    "_type": "category",
+    "title": "Competition",
+    "slug": {
+      "_type": "slug",
+      "current": "competition"
+    },
+    "description": "Strategies for competing with other pubs and chains"
+  },
+  {
+    "_id": "category-empty-pub-solutions",
+    "_type": "category",
+    "title": "Empty Pub Solutions",
+    "slug": {
+      "_type": "slug",
+      "current": "empty-pub-solutions"
+    },
+    "description": "Solutions for filling quiet pubs and increasing footfall"
+  },
+  {
+    "_id": "category-events",
+    "_type": "category",
+    "title": "Events",
+    "slug": {
+      "current": "events"
+    },
+    "description": "Articles about events & entertainment"
+  },
+  {
+    "_id": "category-events-promotions",
+    "_type": "category",
+    "title": "Events & Promotions",
+    "slug": {
+      "_type": "slug",
+      "current": "events-promotions"
+    },
+    "description": "Planning and running successful pub events and promotions"
+  },
+  {
+    "_id": "category-food-drink",
+    "_type": "category",
+    "title": "Food & Drink",
+    "slug": {
+      "_type": "slug",
+      "current": "food-drink"
+    },
+    "description": "Food and beverage management, menus, and offerings"
+  },
+  {
+    "_id": "category-menu-pricing",
+    "_type": "category",
+    "title": "Menu & Pricing",
+    "slug": {
+      "current": "menu-pricing"
+    },
+    "description": "Articles about menu & pricing"
+  },
+  {
+    "_id": "category-social-media",
+    "_type": "category",
+    "title": "Social Media",
+    "slug": {
+      "_type": "slug",
+      "current": "social-media"
+    },
+    "description": "Social media marketing and online presence"
+  },
+  {
+    "_id": "jKwgQNCsrs019jNuQ4SDge",
+    "_type": "category",
+    "title": "Supplier Relations",
+    "slug": {
+      "current": "supplier-relations"
+    },
+    "description": "Managing brewery ties and supplier relationships"
+  },
+  {
+    "_id": "jKwgQNCsrs019jNuQ4SDrs",
+    "_type": "category",
+    "title": "Financial Management",
+    "slug": {
+      "current": "financial-management"
+    },
+    "description": "Cash flow, budgeting, and financial planning"
+  },
+  {
+    "_id": "rtuM5GmqOByzZCRYAH5b9C",
+    "_type": "category",
+    "title": "Operations",
+    "slug": {
+      "current": "operations"
+    },
+    "description": "Day-to-day pub management and systems"
+  }
+]

@@ -1,29 +1,36 @@
-import { Suspense } from 'react';
-import { getFooterContent } from '@/lib/sanity-footer';
 import FooterSimple from './FooterSimple';
-import { AsyncErrorBoundary } from './ErrorBoundary';
-import { CardLoading } from './Loading';
 
-// Async component that fetches footer data
-async function FooterData() {
-  try {
-    const footerContent = await getFooterContent();
-    return <FooterSimple footerContent={footerContent} />;
-  } catch (error) {
-    console.error('Error fetching footer content:', error);
-    // Return basic footer fallback
-    return <FooterSimple footerContent={null} />;
-  }
-}
+// Import footer data
+const footerData = require('../../content/data/footer.json');
 
 export default function FooterWrapper() {
-  return (
-    <AsyncErrorBoundary
-      fallback={<FooterSimple footerContent={null} />} // Always show footer, even if data fails
-    >
-      <Suspense fallback={<CardLoading />}>
-        <FooterData />
-      </Suspense>
-    </AsyncErrorBoundary>
-  );
+  // Transform the local footer data to the expected format
+  const footerContent = {
+    services: footerData.links.services.map(service => ({
+      title: service.label,
+      href: service.href
+    })),
+    quickLinks: [
+      ...footerData.links.resources.map(link => ({
+        title: link.label,
+        href: link.href,
+        external: false
+      })),
+      ...footerData.links.legal.map(link => ({
+        title: link.label,
+        href: link.href,
+        external: false
+      }))
+    ],
+    contactInfo: {
+      phone: footerData.contact.phone,
+      email: footerData.contact.email
+    },
+    bottomBar: {
+      copyrightText: footerData.copyright,
+      additionalText: "Run by licensees, for licensees"
+    }
+  };
+
+  return <FooterSimple footerContent={footerContent} />;
 }

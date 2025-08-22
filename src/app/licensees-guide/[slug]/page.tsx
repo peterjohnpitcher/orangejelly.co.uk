@@ -1,10 +1,11 @@
 import { Suspense } from 'react';
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import path from 'path';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import BlogPostClient from './BlogPostClient';
-import { getContentPostBySlug, getContentPosts } from '@/lib/content-source';
+import { getAllBlogPosts, getMarkdownBySlug, parseMarkdownFile, markdownToHtml } from '@/lib/markdown/index';
 import { BlogPostingSchema } from '@/components/BlogPostingSchema';
 import { FAQSchema } from '@/components/StructuredData';
 import EnhancedBlogSchema from '@/components/blog/EnhancedBlogSchema';
@@ -23,14 +24,60 @@ interface BlogPostPageProps {
 export const revalidate = 60;
 
 export async function generateStaticParams() {
-  const posts = await getContentPosts();
+  const contentDir = path.join(process.cwd(), 'content/blog');
+  const posts = getAllBlogPosts(contentDir);
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
+// Helper function to get blog post by slug from markdown
+async function getMarkdownPost(slug: string) {
+  const contentDir = path.join(process.cwd(), 'content/blog');
+  const filePath = getMarkdownBySlug(contentDir, slug);
+  
+  if (!filePath) {
+    return null;
+  }
+
+  const parsedPost = parseMarkdownFile(filePath);
+  const htmlContent = await markdownToHtml(parsedPost.content, false);
+  
+  // Convert to format expected by the existing components
+  return {
+    title: parsedPost.frontMatter.title,
+    slug: parsedPost.frontMatter.slug,
+    excerpt: parsedPost.excerpt || parsedPost.frontMatter.description || '',
+    content: htmlContent,
+    publishedDate: parsedPost.frontMatter.publishedAt || parsedPost.frontMatter.publishedDate,
+    updatedDate: parsedPost.frontMatter.updatedAt || parsedPost.frontMatter.updatedDate,
+    category: parsedPost.frontMatter.category || parsedPost.frontMatter.categories?.[0] || '',
+    tags: parsedPost.frontMatter.tags || [],
+    featuredImage: parsedPost.frontMatter.featuredImage || `/images/blog/${slug}.svg`,
+    metaTitle: parsedPost.frontMatter.seoTitle || parsedPost.frontMatter.metaTitle || parsedPost.frontMatter.title,
+    metaDescription: parsedPost.frontMatter.seoDescription || parsedPost.frontMatter.metaDescription || parsedPost.excerpt,
+    keywords: parsedPost.frontMatter.keywords || parsedPost.frontMatter.tags || [],
+    author: {
+      name: parsedPost.frontMatter.author || 'Peter Pitcher',
+      bio: 'Licensee of The Anchor and founder of Orange Jelly. Helping pubs thrive with proven strategies.',
+      image: '/peter-pitcher.jpg',
+    },
+    readingTime: parsedPost.readingTime?.minutes,
+    isPortableText: false,
+    // Enhanced SEO fields from markdown frontmatter
+    quickAnswer: parsedPost.frontMatter.quickAnswer,
+    voiceSearchQueries: parsedPost.frontMatter.voiceSearchQueries,
+    quickStats: parsedPost.frontMatter.quickStats,
+    faqs: parsedPost.frontMatter.faqs,
+    localSEO: parsedPost.frontMatter.localSEO,
+    ctaSettings: parsedPost.frontMatter.ctaSettings,
+    // Keep original content for FAQ extraction
+    rawContent: parsedPost.content,
+  };
+}
+
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const post = await getContentPostBySlug(params.slug);
+  const post = await getMarkdownPost(params.slug);
 
   if (!post) {
     return {
@@ -62,27 +109,55 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 // Async component that fetches data
 async function BlogPostPageData({ params }: { params: { slug: string } }) {
   try {
-    const post = await getContentPostBySlug(params.slug);
+    const post = await getMarkdownPost(params.slug);
 
     if (!post) {
       notFound();
     }
 
     // Get related posts (same category, different post)
-    const allPosts = await getContentPosts();
-    const relatedPosts = allPosts
-      .filter((p) => p.category === post.category && p.slug !== post.slug)
+    const contentDir = path.join(process.cwd(), 'content/blog');
+    const allPosts = getAllBlogPosts(contentDir);
+    const relatedPostsData = allPosts
+      .filter((p) => p.categories?.includes(post.category) && p.slug !== post.slug)
       .slice(0, 3);
+      
+    const relatedPosts = await Promise.all(
+      relatedPostsData.map(async (p) => {
+        const htmlContent = await markdownToHtml(p.content, false);
+        return {
+          title: p.title,
+          slug: p.slug,
+          excerpt: p.excerpt || '',
+          content: htmlContent,
+          publishedDate: p.publishedAt || p.frontMatter.publishedDate || '',
+          updatedDate: p.updatedAt || p.frontMatter.updatedDate,
+          category: p.categories?.[0] || '',
+          tags: p.tags || [],
+          featuredImage: p.frontMatter.featuredImage || `/images/blog/${p.slug}.svg`,
+          metaTitle: p.seo?.title || p.title,
+          metaDescription: p.seo?.description || p.excerpt,
+          keywords: p.tags || [],
+          author: {
+            name: 'Peter Pitcher',
+            bio: 'Licensee of The Anchor and founder of Orange Jelly. Helping pubs thrive with proven strategies.',
+            image: '/peter-pitcher.jpg',
+          },
+          readingTime: p.readingTime?.minutes,
+          isPortableText: false,
+        };
+      })
+    );
 
-    // Extract FAQs from content if they exist (only for markdown content)
+    // Extract FAQs from content if they exist
     let faqs: Array<{ question: string; answer: string }> = [];
 
-    // Use FAQs from Sanity if available, otherwise extract from markdown
-    if ((post as any).faqs && (post as any).faqs.length > 0) {
-      faqs = (post as any).faqs;
-    } else if (!post.isPortableText && typeof post.content === 'string') {
+    // Use FAQs from frontmatter if available, otherwise extract from markdown
+    if (post.faqs && post.faqs.length > 0) {
+      faqs = post.faqs;
+    } else if (post.rawContent) {
       const faqPattern = /##\s*FAQs?\s*\n([\s\S]*?)(?=\n##|$)/i;
-      const faqMatch = post.content.match(faqPattern);
+      const faqMatch = post.rawContent.match(faqPattern);
 
       if (faqMatch) {
         const faqContent = faqMatch[1];
@@ -105,9 +180,9 @@ async function BlogPostPageData({ params }: { params: { slug: string } }) {
           post={{
             ...post,
             faqs,
-            quickAnswer: (post as any).quickAnswer,
-            voiceSearchQueries: (post as any).voiceSearchQueries,
-            localSEO: (post as any).localSEO,
+            quickAnswer: post.quickAnswer,
+            voiceSearchQueries: post.voiceSearchQueries,
+            localSEO: post.localSEO,
           }}
           baseUrl={baseUrl}
         />
@@ -121,18 +196,14 @@ async function BlogPostPageData({ params }: { params: { slug: string } }) {
         <BlogPostingSchema
           title={post.title}
           description={post.excerpt}
-          content={typeof post.content === 'string' ? post.content : ''}
+          content={post.content}
           author={{
             name: post.author?.name || 'Peter Pitcher',
             url: '/about',
           }}
           datePublished={post.publishedDate}
           dateModified={post.updatedDate}
-          image={
-            typeof post.featuredImage === 'string'
-              ? post.featuredImage
-              : (post.featuredImage as any)?.src || '/logo.png'
-          }
+          image={post.featuredImage || '/logo.png'}
           url={`/licensees-guide/${post.slug}`}
           keywords={post.tags}
           speakableSections={[

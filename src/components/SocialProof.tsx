@@ -5,54 +5,64 @@ import OptimizedImage from '@/components/OptimizedImage';
 import Card from './Card';
 import Button from './Button';
 import Text from './Text';
-import { type SocialProofItem } from '@/lib/sanity-social-proof';
+
+// Define local social proof type interface
+interface LocalSocialProofItem {
+  title: string;
+  displayText: string;
+  value: string;
+  category: string;
+  timeframe: string;
+  location: string;
+  order: number;
+  isActive: boolean;
+}
 
 interface SocialProofProps {
-  socialProofItems?: SocialProofItem[];
+  socialProofItems?: LocalSocialProofItem[];
 }
 
 export default function SocialProof({ socialProofItems }: SocialProofProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Transform Sanity data to notification format
-  const notifications = socialProofItems?.map(item => ({
-    pub: item.location || "The Anchor",
-    location: "Stanwell Moor",
-    message: item.displayText,
-    time: item.timeframe || "Ongoing"
-  })) || [
-    {
-      pub: "The Anchor",
-      location: "Stanwell Moor",
-      message: "Sunday roast sales up £400+ per week",
-      time: "Ongoing"
-    },
-    {
-      pub: "The Anchor",
-      location: "Stanwell Moor", 
-      message: "Billy home 2 hours earlier each night",
-      time: "Every day"
-    },
-    {
-      pub: "The Anchor",
-      location: "Stanwell Moor",
-      message: "Wednesday nights from 20 to 60+ covers",
-      time: "Since implementing AI"
-    },
-    {
-      pub: "The Anchor",
-      location: "Stanwell Moor",
-      message: "Quiz night attendance up 80%",
-      time: "Monthly"
-    },
-    {
-      pub: "The Anchor",
-      location: "Stanwell Moor",
-      message: "22% overall revenue growth",
-      time: "Year to date"
-    }
-  ];
+  // Transform local data to notification format
+  const notifications = socialProofItems
+    ? socialProofItems
+        .filter(item => item.isActive)
+        .sort((a, b) => a.order - b.order)
+        .map(item => ({
+          pub: item.location || "The Anchor",
+          location: "Stanwell Moor",
+          message: item.displayText,
+          time: item.timeframe || "Ongoing"
+        }))
+    : [
+        {
+          pub: "The Anchor",
+          location: "Stanwell Moor",
+          message: "Sunday roast sales up £400+ per week",
+          time: "Ongoing"
+        },
+        {
+          pub: "The Anchor",
+          location: "Stanwell Moor",
+          message: "Wednesday nights from 20 to 60+ covers",
+          time: "Since implementing AI"
+        },
+        {
+          pub: "The Anchor",
+          location: "Stanwell Moor",
+          message: "Quiz night attendance up 80%",
+          time: "Monthly"
+        },
+        {
+          pub: "The Anchor",
+          location: "Stanwell Moor",
+          message: "22% overall revenue growth",
+          time: "Year to date"
+        }
+      ];
 
   useEffect(() => {
     // Start showing notifications after 10 seconds

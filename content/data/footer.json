@@ -1,0 +1,67 @@
+{
+  "businessName": "Orange Jelly",
+  "contact": {
+    "address": "The Anchor, Horton Road, Stanwell Moor Village, Surrey, TW19 6AQ",
+    "email": "peter@orangejelly.co.uk",
+    "phone": "07990 587315",
+    "whatsapp": "07990 587315",
+    "whatsappNumber": "447990587315"
+  },
+  "company": {
+    "owner": "Peter Pitcher",
+    "coOwner": "Billy Summers",
+    "vatRegistered": false
+  },
+  "links": {
+    "services": [
+      {
+        "label": "Menu Optimization",
+        "href": "/services#menu-optimization"
+      },
+      {
+        "label": "Social Media Marketing",
+        "href": "/services#social-media"
+      },
+      {
+        "label": "Business Analysis",
+        "href": "/services#business-analysis"
+      },
+      {
+        "label": "Staff Training",
+        "href": "/services#training"
+      }
+    ],
+    "resources": [
+      {
+        "label": "Licensee's Guide",
+        "href": "/licensees-guide"
+      },
+      {
+        "label": "Success Stories",
+        "href": "/results"
+      },
+      {
+        "label": "About Peter",
+        "href": "/about"
+      }
+    ],
+    "legal": [
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy"
+      },
+      {
+        "label": "Terms of Service",
+        "href": "/terms"
+      }
+    ]
+  },
+  "social": {
+    "whatsapp": {
+      "enabled": true,
+      "number": "447990587315",
+      "text": "Hi Peter, I'd like to chat about Orange Jelly"
+    }
+  },
+  "copyright": "© 2025 Orange Jelly Limited. All rights reserved."
+}

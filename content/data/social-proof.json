@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Sunday Roast Sales",
+    "displayText": "Sunday roast sales up £400+ per week",
+    "value": "£400+",
+    "category": "revenue",
+    "timeframe": "per week",
+    "location": "The Anchor",
+    "order": 1,
+    "isActive": true
+  },
+  {
+    "title": "Wednesday Night Covers",
+    "displayText": "Wednesday nights from 20 to 60+ covers",
+    "value": "60+",
+    "category": "attendance",
+    "timeframe": "from 20",
+    "location": "The Anchor",
+    "order": 2,
+    "isActive": true
+  },
+  {
+    "title": "Quiz Night Attendance",
+    "displayText": "Quiz night attendance up 80%",
+    "value": "80%",
+    "category": "growth",
+    "timeframe": "increase",
+    "location": "The Anchor",
+    "order": 3,
+    "isActive": true
+  },
+  {
+    "title": "Overall Revenue",
+    "displayText": "22% overall revenue growth",
+    "value": "22%",
+    "category": "growth",
+    "timeframe": "growth",
+    "location": "The Anchor",
+    "order": 4,
+    "isActive": true
+  },
+  {
+    "title": "Food GP",
+    "displayText": "71% food GP achieved",
+    "value": "71%",
+    "category": "efficiency",
+    "timeframe": "current",
+    "location": "The Anchor",
+    "order": 5,
+    "isActive": true
+  },
+  {
+    "title": "Sunday Lunch Waste",
+    "displayText": "£250 weekly savings on Sunday lunch waste",
+    "value": "£250",
+    "category": "savings",
+    "timeframe": "weekly savings",
+    "location": "The Anchor",
+    "order": 6,
+    "isActive": true
+  },
+  {
+    "title": "Quiz Regulars",
+    "displayText": "25-35 quiz regulars every week",
+    "value": "25-35",
+    "category": "attendance",
+    "timeframe": "weekly",
+    "location": "The Anchor",
+    "order": 7,
+    "isActive": true
+  },
+  {
+    "title": "Time Saved",
+    "displayText": "Save 25 hours weekly using AI",
+    "value": "25 hours",
+    "category": "efficiency",
+    "timeframe": "weekly",
+    "location": "The Anchor",
+    "order": 8,
+    "isActive": true
+  }
+]

@@ -1,10 +1,12 @@
 import Section from '@/components/Section';
 import Partnerships from '@/components/Partnerships';
 import RelatedLinks from '@/components/RelatedLinks';
-import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity';
 import CTASection from '@/components/CTASection';
 import TrustBadges from '@/components/TrustBadges';
 import type { RelatedLink } from '@/components/RelatedLinks';
+
+// Import related links data
+const relatedLinksData = require('../../../content/data/related-links.json');
 
 interface SectionWrapperProps {
   background?: 'white' | 'cream' | 'teal' | 'orange-light' | 'charcoal';
@@ -85,15 +87,20 @@ export function HelpSection({
     );
   }
   
-  // Otherwise, fetch from Sanity using cluster ID
+  // Otherwise, use local data by cluster ID
   const clusterId = linkCluster || 'quickStart';
+  const clusterData = (relatedLinksData as any)[clusterId];
+  
+  if (!clusterData) {
+    return null; // Don't render anything if cluster not found
+  }
   
   return (
     <SectionWrapper background={background}>
-      <RelatedLinksFromSanity
-        clusterId={clusterId}
+      <RelatedLinks
         title={title}
         subtitle={subtitle}
+        links={clusterData.links}
         variant="card"
         columns={columns}
       />

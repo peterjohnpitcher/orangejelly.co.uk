@@ -2,12 +2,21 @@ import Card from './Card';
 import Heading from './Heading';
 import Text from './Text';
 import OptimizedImage from './OptimizedImage';
-import { type TrustBadge } from '@/lib/sanity-social-proof';
+
+// Define local trust badge type interface
+interface LocalTrustBadge {
+  title: string;
+  subtitle: string;
+  icon: string;
+  color: string;
+  order: number;
+  isActive: boolean;
+}
 
 interface TrustBadgesProps {
   variant?: 'horizontal' | 'vertical' | 'compact';
   showAll?: boolean;
-  trustBadges?: TrustBadge[];
+  trustBadges?: LocalTrustBadge[];
   isLoading?: boolean;
 }
 
@@ -51,12 +60,15 @@ export default function TrustBadges({
     );
   }
   
-  // Transform Sanity data
-  const badges = trustBadges.map(badge => ({
-    icon: iconMap[badge.icon] || '📌',
-    title: badge.title,
-    subtitle: badge.subtitle
-  }));
+  // Transform local data
+  const badges = trustBadges
+    .filter(badge => badge.isActive)
+    .sort((a, b) => a.order - b.order)
+    .map(badge => ({
+      icon: iconMap[badge.icon] || '📌',
+      title: badge.title,
+      subtitle: badge.subtitle
+    }));
 
   const displayBadges = showAll ? badges : badges.slice(0, 3);
 

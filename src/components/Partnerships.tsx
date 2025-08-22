@@ -4,13 +4,14 @@ import Heading from '@/components/Heading';
 import Text from '@/components/Text';
 import Link from '@/components/Link';
 import AnimatedItem from '@/components/AnimatedItem';
-import { urlFor } from '@/lib/sanity.client';
+
+// Import partnerships data
+const partnersData = require('../../content/data/partnerships.json');
 
 interface Partner {
   name: string;
   description?: string;
-  logo?: any;
-  logoUrl?: string;
+  logoUrl: string;
   url?: string;
 }
 
@@ -22,8 +23,6 @@ interface PartnershipsProps {
   partners?: Partner[];
 }
 
-// Component now requires partners to be passed in from Sanity
-
 export default function Partnerships({ 
   variant = 'full',
   background = 'white',
@@ -31,11 +30,13 @@ export default function Partnerships({
   className = '',
   partners: partnersProp
 }: PartnershipsProps) {
-  // Don't render if no partners provided
-  if (!partnersProp || partnersProp.length === 0) {
+  // Use local data if no partners provided
+  const partners = partnersProp || (partnersData as Partner[]);
+  
+  // Don't render if no partners available
+  if (!partners || partners.length === 0) {
     return null;
   }
-  const partners = partnersProp;
 
   if (variant === 'minimal') {
     return (
@@ -53,14 +54,6 @@ export default function Partnerships({
                   <img
                     src={partner.logoUrl}
                     alt={partner.name}
-                    className="w-full h-full object-contain"
-                  />
-                ) : partner.logo ? (
-                  <Image
-                    src={urlFor(partner.logo).width(64).height(64).url()}
-                    alt={partner.name}
-                    width={64}
-                    height={64}
                     className="w-full h-full object-contain"
                   />
                 ) : (
@@ -93,18 +86,9 @@ export default function Partnerships({
               >
                 <div className="w-32 h-32 mx-auto mb-4 bg-white rounded-xl p-4 border-2 border-gray-200 group-hover:border-orange group-hover:shadow-md transition-all">
                   {partner.logoUrl ? (
-                    // Use regular img tag for SVG files to ensure they render properly
                     <img
                       src={partner.logoUrl}
                       alt={partner.name}
-                      className="w-full h-full object-contain"
-                    />
-                  ) : partner.logo ? (
-                    <Image
-                      src={urlFor(partner.logo).width(128).height(128).url()}
-                      alt={partner.name}
-                      width={128}
-                      height={128}
                       className="w-full h-full object-contain"
                     />
                   ) : (
@@ -148,18 +132,9 @@ export default function Partnerships({
               >
                 <div className="w-40 h-40 mx-auto mb-5 bg-white rounded-xl p-5 border-2 border-gray-200 group-hover:border-orange group-hover:shadow-lg transition-all">
                   {partner.logoUrl ? (
-                    // Use regular img tag for SVG files
                     <img
                       src={partner.logoUrl}
                       alt={partner.name}
-                      className="w-full h-full object-contain"
-                    />
-                  ) : partner.logo ? (
-                    <Image
-                      src={urlFor(partner.logo).width(160).height(160).url()}
-                      alt={partner.name}
-                      width={160}
-                      height={160}
                       className="w-full h-full object-contain"
                     />
                   ) : (

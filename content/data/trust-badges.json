@@ -1,0 +1,50 @@
+[
+  {
+    "title": "No Agency Fees",
+    "subtitle": "Just honest pricing",
+    "icon": "money",
+    "color": "orange",
+    "order": 1,
+    "isActive": true
+  },
+  {
+    "title": "Results in 14 Days",
+    "subtitle": "Or your money back",
+    "icon": "clock",
+    "color": "teal",
+    "order": 2,
+    "isActive": true
+  },
+  {
+    "title": "Cost Effective",
+    "subtitle": "Less than part-time staff",
+    "icon": "shield",
+    "color": "orange",
+    "order": 3,
+    "isActive": true
+  },
+  {
+    "title": "Real Licensee",
+    "subtitle": "Not just another agency",
+    "icon": "heart",
+    "color": "teal",
+    "order": 4,
+    "isActive": true
+  },
+  {
+    "title": "30-Day Guarantee",
+    "subtitle": "Risk-free trial",
+    "icon": "check",
+    "color": "orange",
+    "order": 5,
+    "isActive": true
+  },
+  {
+    "title": "Save 5+ Hours",
+    "subtitle": "Every single week",
+    "icon": "star",
+    "color": "teal",
+    "order": 6,
+    "isActive": true
+  }
+]

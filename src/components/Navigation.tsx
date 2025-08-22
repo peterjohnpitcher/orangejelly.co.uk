@@ -22,11 +22,31 @@ import {
 } from "@/components/ui/navigation-menu";
 import OptimizedImage from "./OptimizedImage";
 import WhatsAppButton from "./WhatsAppButton";
-import type { Navigation as NavigationType } from "@/lib/sanity.types";
 import { cn } from "@/lib/utils";
 
+// Define local navigation type interface
+interface NavigationLink {
+  label: string;
+  href: string;
+  order?: number;
+}
+
+interface WhatsAppCta {
+  enabled: boolean;
+  text: string;
+  phoneNumber: string;
+  showInDesktop: boolean;
+  showInMobile: boolean;
+}
+
+interface LocalNavigationType {
+  mainMenu: NavigationLink[];
+  mobileMenu?: NavigationLink[];
+  whatsappCta: WhatsAppCta;
+}
+
 interface NavigationProps {
-  navigation?: NavigationType;
+  navigation?: LocalNavigationType;
 }
 
 export default function Navigation({ navigation }: NavigationProps) {
@@ -45,10 +65,11 @@ export default function Navigation({ navigation }: NavigationProps) {
     return null;
   }
 
-  // WhatsApp CTA configuration (sanity type may not include whatsappCta in this build)
-  const whatsappCta = (navigation as any)?.whatsappCta || {
+  // WhatsApp CTA configuration from local data
+  const whatsappCta = navigation?.whatsappCta || {
     enabled: true,
     text: "Hi Peter, I'd like to chat about Orange Jelly",
+    phoneNumber: "+447990587315",
     showInDesktop: true,
     showInMobile: true,
   };

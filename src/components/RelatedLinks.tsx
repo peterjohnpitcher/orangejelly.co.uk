@@ -126,5 +126,4 @@ export default function RelatedLinks({
   );
 }
 
-// Note: linkClusters have been moved to Sanity CMS
-// Use the async RelatedLinksFromSanity component to fetch from Sanity
+// Note: Related links are now managed through local JSON data in /content/data/related-links.json

@@ -7,7 +7,10 @@ import Grid from '@/components/Grid';
 import AnimatedItem from '@/components/AnimatedItem';
 import CaseStudySelector from '@/components/CaseStudySelector';
 import { breadcrumbPaths } from '@/components/Breadcrumb';
-import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity';
+import RelatedLinks from '@/components/RelatedLinks';
+
+// Import related links data
+const relatedLinksData = require('../../../content/data/related-links.json');
 import Text from '@/components/Text';
 import Button from '@/components/Button';
 import { portableTextToPlainText } from '@/lib/portable-text-utils';
@@ -110,10 +113,10 @@ export default function ResultsPage({ caseStudies }: ResultsPageProps) {
 
       {/* Related Links */}
       <Section background="cream" padding="medium">
-        <RelatedLinksFromSanity
-          clusterId="quickWins"
+        <RelatedLinks
           title="Ready to Get Similar Results?"
           subtitle="Choose where to start based on your biggest challenge"
+          links={(relatedLinksData as any).quickWins.links}
           variant="card"
           columns={{ default: 1, md: 2, lg: 3 }}
         />

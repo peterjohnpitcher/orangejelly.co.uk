@@ -10,7 +10,10 @@ import AnimatedItem from '@/components/AnimatedItem';
 import FeatureList from '@/components/FeatureList';
 import FAQItem from '@/components/FAQItem';
 import { breadcrumbPaths } from '@/components/Breadcrumb';
-import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity';
+import RelatedLinks from '@/components/RelatedLinks';
+
+// Import related links data
+const relatedLinksData = require('../../../content/data/related-links.json');
 import Text from '@/components/Text';
 import Container from '@/components/Container';
 import Box from '@/components/Box';
@@ -290,10 +293,10 @@ export default function AboutPage({ aboutContent, faqs, siteSettings, author }: 
 
       {/* Related Links */}
       <Section background="cream" padding="medium">
-        <RelatedLinksFromSanity
-          clusterId="about"
+        <RelatedLinks
           title="See How We Can Help"
           subtitle="Choose where to start based on your biggest challenge"
+          links={(relatedLinksData as any).about.links}
           variant="card"
           columns={{ default: 1, md: 3 }}
         />

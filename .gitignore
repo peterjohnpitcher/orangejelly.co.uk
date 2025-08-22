@@ -34,3 +34,15 @@ next-env.d.ts
 
 # documentation - not for public repo
 /documentation
+# Archive and temporary folders
+_archive/
+docs/archive/
+*.backup
+*.old
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+

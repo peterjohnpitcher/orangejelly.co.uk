@@ -5,7 +5,10 @@ import CTASection from '@/components/CTASection';
 import FAQItem from '@/components/FAQItem';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { breadcrumbPaths } from '@/components/Breadcrumb';
-import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity';
+import RelatedLinks from '@/components/RelatedLinks';
+
+// Import related links data
+const relatedLinksData = require('../../../content/data/related-links.json');
 import { CONTACT } from '@/lib/constants';
 import Text from '@/components/Text';
 import Heading from '@/components/Heading';
@@ -172,9 +175,10 @@ export default function ServicesPage({
 
       {/* Related Links */}
       <Section background="cream" padding="medium">
-        <RelatedLinksFromSanity
+        <RelatedLinks
           title={servicesPageContent.relatedLinksSection?.title || "See How We Can Help"}
-          clusterId={servicesPageContent.relatedLinksSection?.clusterId || "services"}
+          links={(relatedLinksData as any).services.links}
+          variant="card"
         />
       </Section>
     </>

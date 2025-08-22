@@ -59,7 +59,15 @@ const categoryMapping: Record<string, string> = {
   'budget': 'empty-pub-solutions',
   'undefined': 'empty-pub-solutions',
   'getting-started': 'empty-pub-solutions',
-  'competition': 'competition'
+  'competition': 'competition',
+  'supplier-relations': 'empty-pub-solutions',
+  'financial-management': 'empty-pub-solutions',
+  'compliance': 'food-drink',
+  'crisis-management': 'empty-pub-solutions',
+  'operations': 'empty-pub-solutions',
+  'digital-reputation': 'social-media',
+  'location-challenges': 'empty-pub-solutions',
+  'customer-acquisition': 'empty-pub-solutions'
 };
 
 // Get post by slug
@@ -76,9 +84,15 @@ export function getPostBySlug(slug: string): BlogPost | null {
     const category = getCategoryBySlug(mappedCategory);
     
     if (!category) {
-      console.error(`Invalid category: ${meta.category} for post: ${slug}`);
-      return null;
+      console.error(`Invalid category: ${meta.category} -> ${mappedCategory} for post: ${slug}`);
+      // Use default category instead of returning null
+      const defaultCategory = getCategoryBySlug('empty-pub-solutions');
+      if (!defaultCategory) {
+        return null;
+      }
     }
+    
+    const finalCategory = category || getCategoryBySlug('empty-pub-solutions')!;
     
     const post: BlogPost = {
       slug,
@@ -87,7 +101,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
       content,
       publishedDate: meta.publishedDate,
       updatedDate: meta.updatedDate,
-      category: category.slug,
+      category: finalCategory.slug,
       tags: meta.tags,
       featuredImage: meta.featuredImage || '/images/blog/default.svg',
       metaTitle: meta.seo?.title,
