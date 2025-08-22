@@ -4,7 +4,15 @@ import OptimizedImage from '@/components/OptimizedImage';
 import NextLink from 'next/link';
 import Link from '@/components/Link';
 import { useState } from 'react';
-import { CONTACT, COMPANY, URLS, formatPhoneDisplay, MESSAGES, SUCCESS_METRICS, PRICING } from '@/lib/constants';
+import {
+  CONTACT,
+  COMPANY,
+  URLS,
+  formatPhoneDisplay,
+  MESSAGES,
+  SUCCESS_METRICS,
+  PRICING,
+} from '@/lib/constants';
 import Button from '@/components/Button';
 import Card from '@/components/Card';
 import TrustBadges from '@/components/TrustBadges';
@@ -32,13 +40,18 @@ export default function SuperFooter() {
       <Box className="bg-teal py-12">
         <Container maxWidth="6xl" className="px-4 sm:px-6">
           <Container maxWidth="2xl" className="text-center">
-            <Heading level={3} color="white" className="mb-4">Get Free Weekly Pub Marketing Tips</Heading>
+            <Heading level={3} color="white" className="mb-4">
+              Get Free Weekly Pub Marketing Tips
+            </Heading>
             <Text className="mb-6 text-cream/90">
-              Join 150+ licensees getting practical tips every Tuesday. 
-              Real examples from real pubs that actually work.
+              Join 150+ licensees getting practical tips every Tuesday. Real examples from real pubs
+              that actually work.
             </Text>
             {!isSubscribed ? (
-              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <form
+                onSubmit={handleNewsletterSubmit}
+                className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+              >
                 <Input
                   type="email"
                   value={email}
@@ -101,8 +114,12 @@ export default function SuperFooter() {
                 height={80}
                 className="mx-auto mb-4 rounded-lg shadow-lg"
               />
-              <Heading level={3} color="orange" align="center" className="mb-2">Orange Jelly</Heading>
-              <Text size="lg" className="text-cream/80">Save At Least 5 Hours a Week</Text>
+              <Heading level={3} color="orange" align="center" className="mb-2">
+                Orange Jelly
+              </Heading>
+              <Text size="lg" className="text-cream/80">
+                Save At Least 5 Hours a Week
+              </Text>
             </div>
           </div>
 
@@ -116,7 +133,9 @@ export default function SuperFooter() {
               <ul className="space-y-3">
                 <li>
                   <Link href="/services#empty-pub-recovery" className="group">
-                    <span className="text-sm hover:text-orange transition-colors">Empty Tuesday Nights</span>
+                    <span className="text-sm hover:text-orange transition-colors">
+                      Empty Tuesday Nights
+                    </span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
                       Fill quiet weeknights with proven strategies
                     </span>
@@ -124,7 +143,9 @@ export default function SuperFooter() {
                 </li>
                 <li>
                   <Link href="/services#boost-food-sales" className="group">
-                    <span className="text-sm hover:text-orange transition-colors">Low Food Sales</span>
+                    <span className="text-sm hover:text-orange transition-colors">
+                      Low Food Sales
+                    </span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
                       Increase covers & spend per head
                     </span>
@@ -132,7 +153,9 @@ export default function SuperFooter() {
                 </li>
                 <li>
                   <Link href="/services#done-for-you-marketing" className="group">
-                    <span className="text-sm hover:text-orange transition-colors">No Time for Marketing</span>
+                    <span className="text-sm hover:text-orange transition-colors">
+                      No Time for Marketing
+                    </span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
                       We handle it all for you
                     </span>
@@ -140,7 +163,9 @@ export default function SuperFooter() {
                 </li>
                 <li>
                   <Link href="/services#website" className="group">
-                    <span className="text-sm hover:text-orange transition-colors">Can't Be Found Online</span>
+                    <span className="text-sm hover:text-orange transition-colors">
+                      Can't Be Found Online
+                    </span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
                       Get found on Google & social media
                     </span>
@@ -148,7 +173,9 @@ export default function SuperFooter() {
                 </li>
                 <li>
                   <Link href="/services#training" className="group">
-                    <span className="text-sm holicensee-orange transition-colors">Don't Understand AI</span>
+                    <span className="text-sm holicensee-orange transition-colors">
+                      Don't Understand AI
+                    </span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
                       Simple training for busy licensees
                     </span>
@@ -165,7 +192,9 @@ export default function SuperFooter() {
               <ul className="space-y-3">
                 <li>
                   <Link href="/services#quick-wins" className="group">
-                    <span className="text-sm hover:text-orange transition-colors">30-Day Quick Wins</span>
+                    <span className="text-sm hover:text-orange transition-colors">
+                      30-Day Quick Wins
+                    </span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
                       £62.50/hour - Results guaranteed
                     </span>
@@ -173,7 +202,9 @@ export default function SuperFooter() {
                 </li>
                 <li>
                   <Link href="/services#menu-makeover" className="group">
-                    <span className="text-sm hover:text-orange transition-colors">Menu Makeover</span>
+                    <span className="text-sm hover:text-orange transition-colors">
+                      Menu Makeover
+                    </span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
                       £62.50/hour - Increase average spend
                     </span>
@@ -181,7 +212,9 @@ export default function SuperFooter() {
                 </li>
                 <li>
                   <Link href="/services#google-my-business" className="group">
-                    <span className="text-sm hover:text-orange transition-colors">Google My Business</span>
+                    <span className="text-sm hover:text-orange transition-colors">
+                      Google My Business
+                    </span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
                       £399 - Get found locally
                     </span>
@@ -189,7 +222,9 @@ export default function SuperFooter() {
                 </li>
                 <li>
                   <Link href="/services#website" className="group">
-                    <span className="text-sm hover:text-orange transition-colors">Website Creation</span>
+                    <span className="text-sm hover:text-orange transition-colors">
+                      Website Creation
+                    </span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
                       From £1499 - Mobile-first design
                     </span>
@@ -223,7 +258,10 @@ export default function SuperFooter() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#roi-calculator" className="text-sm hover:text-orange transition-colors">
+                  <Link
+                    href="/#roi-calculator"
+                    className="text-sm hover:text-orange transition-colors"
+                  >
                     ROI Calculator
                   </Link>
                 </li>
@@ -233,7 +271,11 @@ export default function SuperFooter() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://the-anchor.pub" external className="text-sm hover:text-orange transition-colors">
+                  <Link
+                    href="https://the-anchor.pub"
+                    external
+                    className="text-sm hover:text-orange transition-colors"
+                  >
                     Visit The Anchor
                   </Link>
                 </li>
@@ -246,12 +288,20 @@ export default function SuperFooter() {
 
               {/* Quick Contact Info */}
               <div className="mt-6 p-4 bg-cream/10 rounded-lg">
-                <Heading level={5} className="font-semibold text-sm mb-2">Quick Contact</Heading>
+                <Heading level={5} className="font-semibold text-sm mb-2">
+                  Quick Contact
+                </Heading>
                 <div className="space-y-2 text-xs">
-                  <Link href={URLS.whatsapp()} className="block hover:text-orange transition-colors">
+                  <Link
+                    href={URLS.whatsapp()}
+                    className="block hover:text-orange transition-colors"
+                  >
                     📱 {formatPhoneDisplay()}
                   </Link>
-                  <Link href={`tel:${CONTACT.phone}`} className="block hover:text-orange transition-colors">
+                  <Link
+                    href={`tel:${CONTACT.phone}`}
+                    className="block hover:text-orange transition-colors"
+                  >
                     📞 Call: {CONTACT.phone}
                   </Link>
                   <Link href={URLS.email} className="block hover:text-orange transition-colors">
@@ -266,7 +316,7 @@ export default function SuperFooter() {
               <Heading level={4} color="orange" className="mb-4">
                 Why Choose Us
               </Heading>
-              
+
               {/* Trust Badges */}
               <div className="space-y-3 mb-6">
                 <div className="flex items-start gap-3">
@@ -304,8 +354,8 @@ export default function SuperFooter() {
                 <Text size="xs" className="uppercase tracking-wider opacity-60 mb-2">
                   Proven Daily At
                 </Text>
-                <Link 
-                  href="https://the-anchor.pub" 
+                <Link
+                  href="https://the-anchor.pub"
                   external
                   className="inline-block hover:opacity-80 transition-quick"
                 >
@@ -325,12 +375,14 @@ export default function SuperFooter() {
           <div className="pt-8 border-t border-cream/20">
             {/* Company Info */}
             <div className="text-center mb-6">
-              <Text size="lg" className="mb-2">© 2025 Orange Jelly Limited</Text>
+              <Text size="lg" className="mb-2">
+                © 2025 Orange Jelly Limited
+              </Text>
               <Text size="sm" className="opacity-75 mb-4">
                 Run by licensees, for licensees
               </Text>
             </div>
-            
+
             {/* Contact Bar */}
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm mb-6">
               <Link
@@ -341,10 +393,7 @@ export default function SuperFooter() {
                 {formatPhoneDisplay()}
               </Link>
               <span className="hidden sm:inline opacity-50">|</span>
-              <Link
-                href={URLS.email}
-                className="hover:text-orange transition-quick"
-              >
+              <Link href={URLS.email} className="hover:text-orange transition-quick">
                 Email: {CONTACT.email}
               </Link>
               <span className="hidden sm:inline opacity-50">|</span>
@@ -356,20 +405,25 @@ export default function SuperFooter() {
                 Visit The Anchor
               </Link>
             </div>
-            
+
             {/* Personal Message */}
             <Text className="text-xs text-center opacity-50 max-w-2xl mx-auto">
-              Orange Jelly is a small startup. I personally reply to every message. 
-              During service? I'll get back to you after. Otherwise, expect a reply within a few hours.
+              Orange Jelly is a small startup. I personally reply to every message. During service?
+              I'll get back to you after. Otherwise, expect a reply within a few hours.
             </Text>
 
             {/* Get Started CTA */}
             <div className="text-center mt-8">
-              <Button href={URLS.whatsapp(MESSAGES.whatsapp.quickWins)} variant="primary" size="large" external>
-                Start Your 30-Day Trial →
+              <Button
+                href={URLS.whatsapp(MESSAGES.whatsapp.recovery)}
+                variant="primary"
+                size="large"
+                external
+              >
+                Get Help With Your Pub →
               </Button>
               <Text className="text-xs mt-2 opacity-60">
-                No contracts. Cancel anytime. Money-back guarantee.
+                £62.50/hour plus VAT. No contracts. Money-back guarantee.
               </Text>
             </div>
           </div>

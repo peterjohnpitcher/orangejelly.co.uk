@@ -1,0 +1,259 @@
+{
+  "hero": {
+    "title": "Pub Marketing Services That Fill Empty Tables",
+    "subtitle": "Transform your struggling pub into a thriving community hub with AI-powered marketing strategies. No corporate nonsense - just proven tactics from one licensee to another.",
+    "ctaText": "Get Your Free Pub Health Check",
+    "bottomText": "30-day money back guarantee • No contracts • Real results"
+  },
+  "introSection": {
+    "heading": "Choose Your Solution",
+    "description": "Every pub is unique, but the challenges are similar. Pick the service that matches your biggest pain point right now."
+  },
+  "processSection": {
+    "heading": "How We Work Together",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Free Consultation",
+        "description": "We'll chat about your challenges and see if we're a good fit. No sales pitch, just honest advice from one licensee to another."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Strategy & Planning",
+        "description": "I'll create a custom plan based on your specific situation, budget, and goals. Everything tested at The Anchor first."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Implementation",
+        "description": "We'll work together to implement the changes, with me doing the heavy lifting while you focus on running your pub."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Results & Refinement",
+        "description": "We'll track the results and adjust as needed. You'll see improvements within the first month or your money back."
+      }
+    ],
+    "ctaText": "Talk to me about getting started"
+  },
+  "guaranteeSection": {
+    "heading": "30-Day Money Back Guarantee",
+    "description": "I'm so confident in these strategies (because they work for us) that if you don't see improvement in 30 days, you get your money back. No questions asked.",
+    "checkmarkText": "Risk-free investment",
+    "checkmarkSubtext": "Your success is guaranteed"
+  },
+  "faqSection": {
+    "heading": "Common Questions About Our Services"
+  },
+  "ctaSection": {
+    "title": "Ready to Transform Your Pub?",
+    "subtitle": "Let's chat about your challenges. No sales pitch, just one licensee to another.",
+    "buttonText": "Get Free Consultation",
+    "whatsappMessage": "Hi Peter, I'd like to chat about my pub's challenges and see how you can help.",
+    "bottomText": "Free consultation • No obligation • 30-day guarantee"
+  },
+  "relatedLinksSection": {
+    "title": "See How We Can Help"
+  },
+  "servicePackages": [
+    {
+      "id": "empty-pub-recovery",
+      "emoji": "🚀",
+      "title": "Empty Pub Recovery Package",
+      "problem": "Empty seats and struggling to fill your pub?",
+      "deliverable": "Complete pub recovery system that fills tables consistently",
+      "description": "Our comprehensive recovery system transforms empty pubs into thriving community hubs using proven strategies from The Anchor's £75k turnaround.",
+      "features": [
+        "Complete business analysis and recovery plan",
+        "Menu optimization for maximum profit",
+        "Social media automation and content creation",
+        "Event planning and promotion systems",
+        "Customer retention and database building",
+        "Staff training and upselling strategies",
+        "Weekly progress reviews and adjustments"
+      ],
+      "example": {
+        "result": "Like our transformation at The Anchor - added £75k value with 71% food GP and 35 quiz regulars"
+      },
+      "timeEstimate": "15-20 hours over 8 weeks",
+      "priceBreakdown": "Estimated 15-20 hours @ £62.50 = £937.50 - £1,250 plus VAT",
+      "ctaText": "Get My Recovery Plan",
+      "highlight": true
+    },
+    {
+      "id": "menu-makeover",
+      "emoji": "📋",
+      "title": "Menu Makeover & Profit Maximization",
+      "problem": "Food GP stuck below 65% despite your best efforts?",
+      "deliverable": "Redesigned menu that sells itself and boosts GP",
+      "description": "Transform your menu into a profit-driving machine using psychology, AI analysis, and proven restaurant strategies that boosted our GP from 58% to 71%.",
+      "features": [
+        "Complete menu analysis and redesign",
+        "Psychology-based item positioning",
+        "Profit margin optimization",
+        "Seasonal menu planning system",
+        "Staff training materials for upselling",
+        "Digital menu board setup if needed"
+      ],
+      "example": {
+        "result": "Boosted The Anchor's food GP from 58% to 71% in 6 months"
+      },
+      "timeEstimate": "4-6 hours over 2 weeks",
+      "priceBreakdown": "Estimated 4-6 hours @ £62.50 = £250 - £375 plus VAT",
+      "ctaText": "Boost My Food GP",
+      "highlight": false
+    },
+    {
+      "id": "social-media-marketing",
+      "emoji": "📱",
+      "title": "Social Media Marketing",
+      "problem": "Spending hours every week creating social media posts?",
+      "deliverable": "AI-powered social media system that runs itself",
+      "description": "Get 30 days of social media content created in 2 hours, automatically posted, and optimized for maximum engagement like our posts that bring in 35 quiz regulars.",
+      "features": [
+        "30 days of content created in 2 hours using AI",
+        "Automatic posting across Facebook, Instagram, Twitter",
+        "Local SEO optimization for pub searches",
+        "Performance tracking and optimization",
+        "Custom templates for your brand voice",
+        "Monthly content calendar planning"
+      ],
+      "example": {
+        "result": "Like our quiz night posts that get 50+ likes and bring in 35 regulars"
+      },
+      "timeEstimate": "3-4 hours setup, then 1 hour monthly maintenance",
+      "priceBreakdown": "Initial setup: 3-4 hours @ £62.50 = £187.50 - £250 plus VAT",
+      "ctaText": "Automate My Social Media",
+      "highlight": false
+    },
+    {
+      "id": "quiz-night-success",
+      "emoji": "🧠",
+      "title": "Quiz Night Success System",
+      "problem": "Quiz nights poorly attended or not profitable?",
+      "deliverable": "Complete quiz night system that fills seats weekly",
+      "description": "Build a thriving quiz night that becomes your most profitable weeknight using our proven system that grew from 20 to 35 regulars with 85% retention.",
+      "features": [
+        "Quiz format optimization for maximum engagement",
+        "Question writing system and templates",
+        "Promotion strategy across all channels",
+        "Booking and team management system",
+        "Food and drink pairing recommendations",
+        "Retention strategies for regular teams"
+      ],
+      "example": {
+        "result": "Our quiz nights went from 20 to 35 regulars with 85% retention rate"
+      },
+      "timeEstimate": "5-6 hours over 3 weeks",
+      "priceBreakdown": "Estimated 5-6 hours @ £62.50 = £312.50 - £375 plus VAT",
+      "ctaText": "Build My Quiz Night",
+      "highlight": false
+    },
+    {
+      "id": "ai-business-analysis",
+      "emoji": "🤖",
+      "title": "AI Business Analysis & Insights",
+      "problem": "Not sure where your biggest opportunities for improvement are?",
+      "deliverable": "Comprehensive AI-powered analysis with actionable insights",
+      "description": "Get deep insights into your pub's performance using AI tools that save 25+ hours per week and identify opportunities you might have missed.",
+      "features": [
+        "Complete business performance analysis",
+        "Customer behavior pattern identification",
+        "Revenue optimization opportunities",
+        "Cost-saving recommendations",
+        "Competitor analysis and positioning",
+        "Monthly performance dashboards"
+      ],
+      "example": {
+        "result": "AI analysis saves us 25+ hours per week and identified £250/week waste savings"
+      },
+      "timeEstimate": "6-8 hours over 2 weeks",
+      "priceBreakdown": "Estimated 6-8 hours @ £62.50 = £375 - £500 plus VAT",
+      "ctaText": "Get My Analysis",
+      "highlight": false
+    },
+    {
+      "id": "event-planning",
+      "emoji": "🎉",
+      "title": "Event Planning",
+      "problem": "Struggling to plan and promote events that actually make money?",
+      "deliverable": "Complete event system that fills seats and drives revenue",
+      "description": "From tasting events to live music nights, we'll create a system that plans, promotes, and runs profitable events that become regular income streams.",
+      "features": [
+        "12-month event calendar planning",
+        "Automated promotion across all channels",
+        "Booking and payment processing setup",
+        "Event templates and checklists",
+        "Performance tracking and optimization",
+        "Supplier and entertainment coordination"
+      ],
+      "example": {
+        "result": "Our tasting nights achieve 85% retention and add £400+ weekly revenue"
+      },
+      "timeEstimate": "5-7 hours setup per event type",
+      "priceBreakdown": "Estimated 5-7 hours @ £62.50 = £312.50 - £437.50 plus VAT per event type",
+      "ctaText": "Plan My Events",
+      "highlight": false
+    },
+    {
+      "id": "website-online-presence",
+      "emoji": "🌐",
+      "title": "Website & Online Presence",
+      "problem": "Website not bringing in customers or completely outdated?",
+      "deliverable": "Professional website and optimized online presence",
+      "description": "Build a modern, mobile-friendly website with booking systems, online ordering, and SEO optimization that actually brings customers through your door.",
+      "features": [
+        "Modern, mobile-responsive website design",
+        "Online booking and table reservation system",
+        "Google My Business optimization",
+        "Local SEO setup and optimization",
+        "Social media integration",
+        "Performance monitoring and analytics"
+      ],
+      "example": {
+        "result": "Professional online presence that matches your pub's personality and drives bookings"
+      },
+      "timeEstimate": "12-15 hours over 4 weeks",
+      "priceBreakdown": "Estimated 12-15 hours @ £62.50 = £750 - £937.50 plus VAT",
+      "ctaText": "Build My Website",
+      "highlight": false
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do you guarantee results?",
+      "answer": "Every strategy we recommend has been tested at The Anchor first. We've increased our food GP from 58% to 71%, grown quiz nights from 20 to 35 regulars, and saved £250/week on Sunday lunch waste. If you don't see similar improvements within 30 days, you get your money back."
+    },
+    {
+      "question": "Do you work with pubs outside of Surrey?",
+      "answer": "Yes, we work with pubs across the UK. Everything is done remotely, and we use video calls for consultations. The strategies work regardless of location because they're based on human psychology and proven marketing principles."
+    },
+    {
+      "question": "How much time will this take from my day?",
+      "answer": "That's the whole point - to give you time back! Initial setup requires some collaboration (usually 2-3 calls), but once systems are in place, they run themselves. Our automation saves me 25+ hours per week at The Anchor."
+    },
+    {
+      "question": "What if I'm not tech-savvy?",
+      "answer": "Perfect! Neither was I when I started. I'll handle all the technical setup and provide simple, step-by-step instructions for anything you need to do. Most clients need less than 30 minutes of training."
+    },
+    {
+      "question": "Can you help with specific challenges like empty Mondays or poor food sales?",
+      "answer": "Absolutely. We create custom solutions for your specific challenges. Empty Mondays? We'll design events that work. Poor food sales? We'll optimize your menu and training. Every solution is tailored to your pub."
+    },
+    {
+      "question": "How quickly will I see results?",
+      "answer": "Most clients see improvements within 2-4 weeks. Social media automation shows results immediately, menu changes take 2-3 weeks to show in GP, and events usually fill up faster within the first month."
+    }
+  ],
+  "partnerships": [
+    {
+      "name": "Greene King",
+      "relationship": "Tenant",
+      "logo": "/images/partnerships/greene-king.svg"
+    },
+    {
+      "name": "BII Member",
+      "relationship": "Member",
+      "logo": "/images/partnerships/bii.svg"
+    }
+  ]
+}

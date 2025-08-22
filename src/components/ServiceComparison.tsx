@@ -13,54 +13,55 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table';
 
 export default function ServiceComparison() {
-  const [selectedService, setSelectedService] = useState('quickwins');
+  const [selectedService, setSelectedService] = useState('recovery');
 
   const services = {
-    quickwins: {
-      name: '30-Day Quick Wins',
-      price: '£62.50/hour',
-      timeline: 'One-time',
-      perfect: 'Pub owners who want to test AI risk-free',
+    recovery: {
+      name: 'Empty Pub Recovery',
+      price: PRICING.hourlyRate.display,
+      timeline: '15-20 hours estimated',
+      perfect: 'Struggling pubs needing complete transformation',
       includes: [
-        'Menu review & rewrite',
-        '3 months social media content',
-        'Basic email templates',
-        'WhatsApp support',
-        '30-day money-back guarantee'
+        'Complete business analysis',
+        'Menu optimization for profit',
+        'Social media automation',
+        'Event planning systems',
+        'Customer retention strategy',
+        'Weekly progress reviews',
       ],
-      highlight: true
+      highlight: true,
     },
-    marketing: {
-      name: 'Marketing Package',
-      price: PRICING.services.quickWins.firstMonthsSetup,
-      timeline: PRICING.services.quickWins.ongoingDisplay,
-      perfect: 'Busy licensees who hate social media',
+    menu: {
+      name: 'Menu Makeover',
+      price: PRICING.hourlyRate.display,
+      timeline: '4-6 hours estimated',
+      perfect: 'Pubs with food GP below 65%',
       includes: [
-        'Everything in Quick Wins',
-        'Monthly content creation',
-        'Event promotion templates',
-        'Review response help',
-        'Ongoing optimization'
+        'Complete menu analysis',
+        'Psychology-based positioning',
+        'Profit margin optimization',
+        'Staff training materials',
+        'Seasonal planning system',
       ],
-      highlight: false
+      highlight: false,
     },
     custom: {
-      name: 'Custom Support',
+      name: 'Custom Projects',
       price: PRICING.hourlyRate.display,
       timeline: 'As needed',
       perfect: 'Specific projects or ongoing help',
       includes: [
-        'Website updates',
-        'Menu seasonal changes',
-        'Special event campaigns',
-        'Staff training',
-        'Whatever you need!'
+        'Social media automation',
+        'Website optimization',
+        'Event planning',
+        'AI training sessions',
+        'Whatever you need!',
       ],
-      highlight: false
-    }
+      highlight: false,
+    },
   };
 
   return (
@@ -74,7 +75,9 @@ export default function ServiceComparison() {
           className="w-full p-3 border rounded-lg"
         >
           {Object.entries(services).map(([key, service]) => (
-            <option key={key} value={key}>{service.name}</option>
+            <option key={key} value={key}>
+              {service.name}
+            </option>
           ))}
         </select>
       </div>
@@ -93,9 +96,15 @@ export default function ServiceComparison() {
                         MOST POPULAR
                       </div>
                     )}
-                    <Heading level={3} className="mb-2">{service.name}</Heading>
-                    <Text size="2xl" weight="bold" className="text-orange">{service.price}</Text>
-                    <Text size="sm" className="text-charcoal/60">{service.timeline}</Text>
+                    <Heading level={3} className="mb-2">
+                      {service.name}
+                    </Heading>
+                    <Text size="2xl" weight="bold" className="text-orange">
+                      {service.price}
+                    </Text>
+                    <Text size="sm" className="text-charcoal/60">
+                      {service.timeline}
+                    </Text>
                   </div>
                 </TableHead>
               ))}
@@ -155,18 +164,28 @@ export default function ServiceComparison() {
                 MOST POPULAR
               </div>
             )}
-            
-            <Heading level={3} className="mb-2">{service.name}</Heading>
-            <Text size="2xl" weight="bold" className="text-orange mb-1">{service.price}</Text>
-            <Text size="sm" className="text-charcoal/60 mb-4">{service.timeline}</Text>
-            
+
+            <Heading level={3} className="mb-2">
+              {service.name}
+            </Heading>
+            <Text size="2xl" weight="bold" className="text-orange mb-1">
+              {service.price}
+            </Text>
+            <Text size="sm" className="text-charcoal/60 mb-4">
+              {service.timeline}
+            </Text>
+
             <div className="mb-6">
-              <Text weight="semibold" className="mb-2">Perfect for:</Text>
+              <Text weight="semibold" className="mb-2">
+                Perfect for:
+              </Text>
               <Text className="text-charcoal/80">{service.perfect}</Text>
             </div>
-            
+
             <div className="mb-6">
-              <Text weight="semibold" className="mb-2">What's included:</Text>
+              <Text weight="semibold" className="mb-2">
+                What's included:
+              </Text>
               <ul className="space-y-2">
                 {service.includes.map((item, index) => (
                   <li key={index} className="flex items-start">
@@ -176,11 +195,8 @@ export default function ServiceComparison() {
                 ))}
               </ul>
             </div>
-            
-            <WhatsAppButton
-              text={`I want the ${service.name}`}
-              fullWidth
-            />
+
+            <WhatsAppButton text={`I want the ${service.name}`} fullWidth />
           </div>
         ))}
       </div>
@@ -188,8 +204,9 @@ export default function ServiceComparison() {
       {/* Bottom comparison note */}
       <Card background="cream" padding="small" className="mt-8 text-center">
         <Text size="sm" className="text-charcoal/80 mb-2">
-          <strong>Not sure which to choose?</strong> Most pubs start with the 30-Day Quick Wins 
-          to see results fast, then upgrade to monthly support.
+          <strong>Not sure which to choose?</strong> Struggling pubs start with Empty Pub Recovery
+          for complete transformation, others choose specific services based on their biggest
+          challenges.
         </Text>
         <Text size="xs" className="text-charcoal/60">
           {COMPANY.vatStatus}
