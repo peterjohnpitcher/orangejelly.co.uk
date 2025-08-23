@@ -1,7 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Category, calculateReadingTime, defaultAuthor, getCategoryBySlug, blogCategories } from './blog';
+import {
+  type Category,
+  calculateReadingTime,
+  defaultAuthor,
+  getCategoryBySlug,
+  blogCategories,
+} from './blog';
 
 export interface BlogPost {
   slug: string;
@@ -41,33 +47,33 @@ export function getAllPostSlugs() {
   if (!fs.existsSync(postsDirectory)) {
     return [];
   }
-  
+
   const fileNames = fs.readdirSync(postsDirectory);
   return fileNames
-    .filter(fileName => fileName.endsWith('.md'))
-    .map(fileName => fileName.replace(/\.md$/, ''));
+    .filter((fileName) => fileName.endsWith('.md'))
+    .map((fileName) => fileName.replace(/\.md$/, ''));
 }
 
 // Category mapping for legacy posts
 const categoryMapping: Record<string, string> = {
-  'marketing': 'social-media',
+  marketing: 'social-media',
   'pub-management': 'empty-pub-solutions',
   'pub-promotions': 'events-promotions',
-  'events': 'events-promotions',
-  'food': 'food-drink',
-  'seasonal': 'events-promotions',
-  'budget': 'empty-pub-solutions',
-  'undefined': 'empty-pub-solutions',
+  events: 'events-promotions',
+  food: 'food-drink',
+  seasonal: 'events-promotions',
+  budget: 'empty-pub-solutions',
+  undefined: 'empty-pub-solutions',
   'getting-started': 'empty-pub-solutions',
-  'competition': 'competition',
+  competition: 'competition',
   'supplier-relations': 'empty-pub-solutions',
   'financial-management': 'empty-pub-solutions',
-  'compliance': 'food-drink',
+  compliance: 'food-drink',
   'crisis-management': 'empty-pub-solutions',
-  'operations': 'empty-pub-solutions',
+  operations: 'empty-pub-solutions',
   'digital-reputation': 'social-media',
   'location-challenges': 'empty-pub-solutions',
-  'customer-acquisition': 'empty-pub-solutions'
+  'customer-acquisition': 'empty-pub-solutions',
 };
 
 // Get post by slug
@@ -76,13 +82,13 @@ export function getPostBySlug(slug: string): BlogPost | null {
     const fullPath = path.join(postsDirectory, `${slug}.md`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
-    
+
     const meta = data as BlogPostMeta;
-    
+
     // Map category if needed
     const mappedCategory = categoryMapping[meta.category] || meta.category;
     const category = getCategoryBySlug(mappedCategory);
-    
+
     if (!category) {
       console.error(`Invalid category: ${meta.category} -> ${mappedCategory} for post: ${slug}`);
       // Use default category instead of returning null
@@ -91,9 +97,9 @@ export function getPostBySlug(slug: string): BlogPost | null {
         return null;
       }
     }
-    
+
     const finalCategory = category || getCategoryBySlug('empty-pub-solutions')!;
-    
+
     const post: BlogPost = {
       slug,
       title: meta.title,
@@ -107,9 +113,9 @@ export function getPostBySlug(slug: string): BlogPost | null {
       metaTitle: meta.seo?.title,
       metaDescription: meta.seo?.description || meta.excerpt,
       keywords: meta.seo?.keywords || meta.tags,
-      readingTime: calculateReadingTime(content)
+      readingTime: calculateReadingTime(content),
     };
-    
+
     return post;
   } catch (error) {
     console.error(`Error reading post ${slug}:`, error);
@@ -121,19 +127,19 @@ export function getPostBySlug(slug: string): BlogPost | null {
 export function getAllPosts(): BlogPost[] {
   const slugs = getAllPostSlugs();
   const posts = slugs
-    .map(slug => getPostBySlug(slug))
+    .map((slug) => getPostBySlug(slug))
     .filter((post): post is BlogPost => post !== null)
     .sort((a, b) => {
       return new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime();
     });
-    
+
   return posts;
 }
 
 // Get posts by category
 export function getPostsByCategory(categorySlug: string): BlogPost[] {
   const allPosts = getAllPosts();
-  return allPosts.filter(post => post.category === categorySlug);
+  return allPosts.filter((post) => post.category === categorySlug);
 }
 
 // Get recent posts
@@ -147,7 +153,7 @@ export function getFeaturedPosts(): BlogPost[] {
   const allPosts = getAllPosts();
   const featured: BlogPost[] = [];
   const categories = new Set<string>();
-  
+
   for (const post of allPosts) {
     if (!categories.has(post.category)) {
       featured.push(post);
@@ -155,7 +161,7 @@ export function getFeaturedPosts(): BlogPost[] {
     }
     if (featured.length >= 5) break;
   }
-  
+
   return featured;
 }
 
@@ -163,15 +169,15 @@ export function getFeaturedPosts(): BlogPost[] {
 export function searchPosts(query: string): BlogPost[] {
   const allPosts = getAllPosts();
   const searchTerm = query.toLowerCase();
-  
-  return allPosts.filter(post => {
+
+  return allPosts.filter((post) => {
     const searchableContent = `
       ${post.title} 
       ${post.excerpt} 
       ${post.content} 
       ${post.tags.join(' ')}
     `.toLowerCase();
-    
+
     return searchableContent.includes(searchTerm);
   });
 }
@@ -180,15 +186,15 @@ export function searchPosts(query: string): BlogPost[] {
 export function getCategories(): Category[] {
   const allPosts = getAllPosts();
   const categoryMap = new Map<string, number>();
-  
+
   // Count posts per category
-  allPosts.forEach(post => {
+  allPosts.forEach((post) => {
     const count = categoryMap.get(post.category) || 0;
     categoryMap.set(post.category, count + 1);
   });
-  
+
   // Return categories that have posts
-  return blogCategories.filter(category => 
-    categoryMap.has(category.slug) && categoryMap.get(category.slug)! > 0
+  return blogCategories.filter(
+    (category) => categoryMap.has(category.slug) && categoryMap.get(category.slug)! > 0
   );
 }

@@ -3,22 +3,22 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const response = NextResponse.next();
-  
+
   // Security headers
   response.headers.set('X-Frame-Options', 'SAMEORIGIN');
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
   // Note: FLoC is obsolete; use browsing-topics to opt-out of Topics API (Issue #21)
-  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), browsing-topics=()');
-  
+  response.headers.set(
+    'Permissions-Policy',
+    'camera=(), microphone=(), geolocation=(), browsing-topics=()'
+  );
+
   // Strict Transport Security (HSTS) - only on production
   if (process.env.NODE_ENV === 'production') {
-    response.headers.set(
-      'Strict-Transport-Security',
-      'max-age=31536000; includeSubDomains'
-    );
+    response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
   }
-  
+
   // Basic Content Security Policy
   response.headers.set(
     'Content-Security-Policy',
@@ -29,17 +29,17 @@ export function middleware(request: NextRequest) {
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: blob: https:",
-      "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://vitals.vercel-insights.com https://www.clarity.ms https://h.clarity.ms https://j.clarity.ms https://9brdfanc.api.sanity.io https://cdn.sanity.io",
+      "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://vitals.vercel-insights.com https://www.clarity.ms https://h.clarity.ms https://j.clarity.ms",
       "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
       "media-src 'self' https:",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self' https://wa.me",
       "frame-ancestors 'self'",
-      'upgrade-insecure-requests'
+      'upgrade-insecure-requests',
     ].join('; ')
   );
-  
+
   return response;
 }
 

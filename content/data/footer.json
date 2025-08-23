@@ -15,44 +15,53 @@
   "links": {
     "services": [
       {
-        "label": "Menu Optimization",
-        "href": "/services#menu-optimization"
+        "label": "Empty Pub Recovery",
+        "href": "/services#empty-pub-recovery"
       },
       {
-        "label": "Social Media Marketing",
-        "href": "/services#social-media"
+        "label": "Menu Makeover",
+        "href": "/services#menu-makeover"
       },
       {
-        "label": "Business Analysis",
-        "href": "/services#business-analysis"
+        "label": "Marketing Package",
+        "href": "/services#marketing-package"
       },
       {
-        "label": "Staff Training",
-        "href": "/services#training"
+        "label": "View All",
+        "href": "/services"
       }
     ],
     "resources": [
       {
-        "label": "Licensee's Guide",
-        "href": "/licensees-guide"
+        "label": "Empty Pub Guide",
+        "href": "/empty-pub-solutions"
+      },
+      {
+        "label": "Pub Rescue",
+        "href": "/pub-rescue"
+      },
+      {
+        "label": "ROI Calculator",
+        "href": "/#roi-calculator"
+      }
+    ],
+    "company": [
+      {
+        "label": "About Us",
+        "href": "/about"
       },
       {
         "label": "Success Stories",
         "href": "/results"
       },
       {
-        "label": "About Peter",
-        "href": "/about"
-      }
-    ],
-    "legal": [
-      {
-        "label": "Privacy Policy",
-        "href": "/privacy"
+        "label": "Contact",
+        "href": "/contact"
       },
       {
-        "label": "Terms of Service",
-        "href": "/terms"
+        "label": "The Anchor",
+        "href": "https://the-anchor.pub",
+        "external": true
       }
     ]
   },

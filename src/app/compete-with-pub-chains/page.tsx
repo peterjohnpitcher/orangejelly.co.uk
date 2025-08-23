@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import Heading from '@/components/Heading';
@@ -11,42 +11,29 @@ import Text from '@/components/Text';
 import FeatureList from '@/components/FeatureList';
 import { generateMetadata as generateMeta } from '@/lib/metadata';
 import { FAQSchema } from '@/components/StructuredData';
-import { getLandingPageContent } from '@/lib/sanity-landing-pages';
-import { notFound } from 'next/navigation';
+// Removed Sanity dependencies
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Button from '@/components/Button';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const content = await getLandingPageContent('compete-with-pub-chains');
-  
-  if (!content || !content.seo) {
-    return generateMeta({
-      title: 'Beat Wetherspoons & Pub Chains - David vs Goliath Strategy',
-      description: 'Stop losing customers to chain pubs. Proven strategies to compete and win against Wetherspoons, Greene King, and Marstons. Turn their weaknesses into your strengths.',
-      path: '/compete-with-pub-chains',
-    });
-  }
-
   return generateMeta({
-    title: content.seo.metaTitle || content.title,
-    description: content.seo.metaDescription || content.heroSection?.subtitle || 'Proven strategies to compete and win against chain pubs. Turn their weaknesses into your strengths.',
+    title: 'Beat Wetherspoons & Pub Chains - David vs Goliath Strategy',
+    description:
+      'Stop losing customers to chain pubs. Proven strategies to compete and win against Wetherspoons, Greene King, and Marstons. Turn their weaknesses into your strengths.',
     path: '/compete-with-pub-chains',
   });
 }
 
-export default async function CompeteWithPubChains() {
-  const content = await getLandingPageContent('compete-with-pub-chains');
-
-  if (!content) {
-    notFound();
-  }
-
-  const {
-    heroSection,
-    strategies = [],
-    successMetrics,
-    faqs = []
-  } = content;
+export default function CompeteWithPubChains() {
+  // Static fallback content
+  const heroSection = {
+    title: 'Beat Wetherspoons & Pub Chains - David vs Goliath Strategy',
+    subtitle:
+      'Stop losing customers to chain pubs. Proven strategies to compete and win against Wetherspoons, Greene King, and Marstons. Turn their weaknesses into your strengths.',
+  };
+  const strategies: any[] = [];
+  const successMetrics = null;
+  const faqs: any[] = [];
 
   return (
     <>
@@ -54,10 +41,7 @@ export default async function CompeteWithPubChains() {
         <Hero
           title={heroSection.title}
           subtitle={heroSection.subtitle}
-          breadcrumbs={[
-            { label: 'Home', href: '/' },
-            { label: 'Compete With Chains' }
-          ]}
+          breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Compete With Chains' }]}
         />
       )}
 
@@ -68,27 +52,36 @@ export default async function CompeteWithPubChains() {
             <Heading level={2} className="mb-8">
               Losing Customers to the Big Chains?
             </Heading>
-            
+
             <Grid columns={{ default: 1, md: 3 }} gap="medium" className="mb-8">
               <Card background="white" padding="medium">
                 <div className="text-3xl mb-3">🍺</div>
-                <Heading level={4} className="mb-2">They Beat You on Price</Heading>
+                <Heading level={4} className="mb-2">
+                  They Beat You on Price
+                </Heading>
                 <Text size="sm">
-                  £2.49 pints. £6.99 meals. You can't match their buying power or economies of scale.
+                  £2.49 pints. £6.99 meals. You can't match their buying power or economies of
+                  scale.
                 </Text>
               </Card>
               <Card background="white" padding="medium">
                 <div className="text-3xl mb-3">📱</div>
-                <Heading level={4} className="mb-2">They Have the App</Heading>
+                <Heading level={4} className="mb-2">
+                  They Have the App
+                </Heading>
                 <Text size="sm">
-                  Order from table. Loyalty points. Push notifications. Million-pound tech you can't afford.
+                  Order from table. Loyalty points. Push notifications. Million-pound tech you can't
+                  afford.
                 </Text>
               </Card>
               <Card background="white" padding="medium">
                 <div className="text-3xl mb-3">💰</div>
-                <Heading level={4} className="mb-2">They Have Deep Pockets</Heading>
+                <Heading level={4} className="mb-2">
+                  They Have Deep Pockets
+                </Heading>
                 <Text size="sm">
-                  TV ads, billboards, sponsorships. Marketing budgets bigger than your annual turnover.
+                  TV ads, billboards, sponsorships. Marketing budgets bigger than your annual
+                  turnover.
                 </Text>
               </Card>
             </Grid>
@@ -98,13 +91,10 @@ export default async function CompeteWithPubChains() {
                 Here's the truth: You'll NEVER beat them at their own game
               </Text>
               <Text className="mb-6">
-                But you don't need to. The Anchor sits 200 yards from a Wetherspoons and we're thriving. 
-                Not by competing on price, but by being everything they can't be.
+                But you don't need to. The Anchor sits 200 yards from a Wetherspoons and we're
+                thriving. Not by competing on price, but by being everything they can't be.
               </Text>
-              <WhatsAppButton
-                text="Show me how to beat the chains"
-                size="large"
-              />
+              <WhatsAppButton text="Show me how to beat the chains" size="large" />
             </Card>
           </div>
         </AnimatedItem>
@@ -139,9 +129,7 @@ export default async function CompeteWithPubChains() {
                           <Heading level={3}>{strategy.title}</Heading>
                         </div>
                         {strategy.description && (
-                          <Text className="mb-4">
-                            {strategy.description}
-                          </Text>
+                          <Text className="mb-4">{strategy.description}</Text>
                         )}
                         {strategy.points && strategy.points.length > 0 && (
                           <FeatureList
@@ -180,7 +168,9 @@ export default async function CompeteWithPubChains() {
 
             <Grid columns={{ default: 1, md: 2 }} gap="large" className="mb-8">
               <Card background="white" padding="large">
-                <Heading level={3} className="mb-4 text-teal">They Have</Heading>
+                <Heading level={3} className="mb-4 text-teal">
+                  They Have
+                </Heading>
                 <div className="space-y-3">
                   <div className="flex items-start">
                     <Text className="text-red-500 mr-2">✗</Text>
@@ -206,7 +196,9 @@ export default async function CompeteWithPubChains() {
               </Card>
 
               <Card background="white" padding="large">
-                <Heading level={3} className="mb-4 text-orange">We Have</Heading>
+                <Heading level={3} className="mb-4 text-orange">
+                  We Have
+                </Heading>
                 <div className="space-y-3">
                   <div className="flex items-start">
                     <Text className="text-green-500 mr-2">✓</Text>
@@ -233,18 +225,18 @@ export default async function CompeteWithPubChains() {
             </Grid>
 
             <Card background="orange-light" padding="large">
-              <Heading level={3} className="mb-4">The Result?</Heading>
+              <Heading level={3} className="mb-4">
+                The Result?
+              </Heading>
               <Text size="lg" className="mb-4">
                 They get the bargain hunters. We get the community.
               </Text>
               <Text className="mb-6">
-                Our average spend is £18 vs their £8. Our customers come 3x per week vs their 1x. 
-                Our Trip Advisor is 4.8 vs their 3.2. We're not competing - we're in different leagues.
+                Our average spend is £18 vs their £8. Our customers come 3x per week vs their 1x.
+                Our Trip Advisor is 4.8 vs their 3.2. We're not competing - we're in different
+                leagues.
               </Text>
-              <WhatsAppButton
-                text="Help me create my unique position"
-                size="large"
-              />
+              <WhatsAppButton text="Help me create my unique position" size="large" />
             </Card>
           </div>
         </AnimatedItem>
@@ -261,7 +253,11 @@ export default async function CompeteWithPubChains() {
 
               {(() => {
                 const count = successMetrics.metrics.length;
-                const mdCols = (count >= 4 ? 4 : count === 3 ? 3 : count === 2 ? 2 : 1) as 1 | 2 | 3 | 4;
+                const mdCols = (count >= 4 ? 4 : count === 3 ? 3 : count === 2 ? 2 : 1) as
+                  | 1
+                  | 2
+                  | 3
+                  | 4;
                 return (
                   <Grid columns={{ default: 1, md: mdCols }} gap="large" className="mb-12">
                     {successMetrics.metrics.map((metric) => (
@@ -284,9 +280,9 @@ export default async function CompeteWithPubChains() {
               })()}
 
               <Text size="lg" className="max-w-3xl mx-auto">
-                When you stop trying to be a cheaper Wetherspoons and start being the best 
-                version of YOUR pub, everything changes. Margins improve. Stress reduces. 
-                Customers become advocates.
+                When you stop trying to be a cheaper Wetherspoons and start being the best version
+                of YOUR pub, everything changes. Margins improve. Stress reduces. Customers become
+                advocates.
               </Text>
             </div>
           </AnimatedItem>
@@ -304,10 +300,12 @@ export default async function CompeteWithPubChains() {
             <Grid columns={{ default: 1, md: 3 }} gap="medium">
               <Card variant="bordered" padding="large">
                 <div className="text-3xl mb-4">🚀</div>
-                <Heading level={3} className="mb-3">Speed</Heading>
+                <Heading level={3} className="mb-3">
+                  Speed
+                </Heading>
                 <Text size="sm" className="mb-4">
-                  New event idea? Launch it tomorrow. Menu change? Done today. 
-                  Chains need 6 months and board approval.
+                  New event idea? Launch it tomorrow. Menu change? Done today. Chains need 6 months
+                  and board approval.
                 </Text>
                 <Text size="xs" className="text-green-600 font-semibold">
                   Your superpower: Agility
@@ -316,10 +314,12 @@ export default async function CompeteWithPubChains() {
 
               <Card variant="bordered" padding="large">
                 <div className="text-3xl mb-4">❤️</div>
-                <Heading level={3} className="mb-3">Personality</Heading>
+                <Heading level={3} className="mb-3">
+                  Personality
+                </Heading>
                 <Text size="sm" className="mb-4">
-                  You're not employee #47823. You're Sarah, Mike, or Dave. 
-                  People come to see YOU, not just for a pint.
+                  You're not employee #47823. You're Sarah, Mike, or Dave. People come to see YOU,
+                  not just for a pint.
                 </Text>
                 <Text size="xs" className="text-green-600 font-semibold">
                   Your superpower: Being human
@@ -328,10 +328,12 @@ export default async function CompeteWithPubChains() {
 
               <Card variant="bordered" padding="large">
                 <div className="text-3xl mb-4">🎯</div>
-                <Heading level={3} className="mb-3">Focus</Heading>
+                <Heading level={3} className="mb-3">
+                  Focus
+                </Heading>
                 <Text size="sm" className="mb-4">
-                  Chains try to please everyone. You can be THE place for 
-                  craft beer, dogs, or Sunday roasts.
+                  Chains try to please everyone. You can be THE place for craft beer, dogs, or
+                  Sunday roasts.
                 </Text>
                 <Text size="xs" className="text-green-600 font-semibold">
                   Your superpower: Specialization
@@ -340,10 +342,12 @@ export default async function CompeteWithPubChains() {
 
               <Card variant="bordered" padding="large">
                 <div className="text-3xl mb-4">🏘️</div>
-                <Heading level={3} className="mb-3">Local Knowledge</Heading>
+                <Heading level={3} className="mb-3">
+                  Local Knowledge
+                </Heading>
                 <Text size="sm" className="mb-4">
-                  You know Mrs. Johnson likes her wine cold. That Jim's birthday 
-                  is Tuesday. That the football team meets Thursdays.
+                  You know Mrs. Johnson likes her wine cold. That Jim's birthday is Tuesday. That
+                  the football team meets Thursdays.
                 </Text>
                 <Text size="xs" className="text-green-600 font-semibold">
                   Your superpower: Community insider
@@ -352,10 +356,12 @@ export default async function CompeteWithPubChains() {
 
               <Card variant="bordered" padding="large">
                 <div className="text-3xl mb-4">🎨</div>
-                <Heading level={3} className="mb-3">Creativity</Heading>
+                <Heading level={3} className="mb-3">
+                  Creativity
+                </Heading>
                 <Text size="sm" className="mb-4">
-                  Weird Wednesday? Do it. Dog birthday parties? Why not. 
-                  Chains can't risk their brand with fun.
+                  Weird Wednesday? Do it. Dog birthday parties? Why not. Chains can't risk their
+                  brand with fun.
                 </Text>
                 <Text size="xs" className="text-green-600 font-semibold">
                   Your superpower: Freedom to experiment
@@ -364,10 +370,12 @@ export default async function CompeteWithPubChains() {
 
               <Card variant="bordered" padding="large">
                 <div className="text-3xl mb-4">💪</div>
-                <Heading level={3} className="mb-3">Flexibility</Heading>
+                <Heading level={3} className="mb-3">
+                  Flexibility
+                </Heading>
                 <Text size="sm" className="mb-4">
-                  Customer wants off-menu item? Sure. Need to stay late for a wake? 
-                  Of course. Chains say computer says no.
+                  Customer wants off-menu item? Sure. Need to stay late for a wake? Of course.
+                  Chains say computer says no.
                 </Text>
                 <Text size="xs" className="text-green-600 font-semibold">
                   Your superpower: Saying yes
@@ -380,13 +388,10 @@ export default async function CompeteWithPubChains() {
                 Stop Playing Their Game. Start Playing Yours.
               </Heading>
               <Text className="mb-6 max-w-2xl mx-auto">
-                We'll help you identify your unique strengths, build an unbeatable position, 
-                and create customers so loyal they'd never dream of going to Spoons.
+                We'll help you identify your unique strengths, build an unbeatable position, and
+                create customers so loyal they'd never dream of going to Spoons.
               </Text>
-              <WhatsAppButton
-                text="Create my chain-beating strategy"
-                size="large"
-              />
+              <WhatsAppButton text="Create my chain-beating strategy" size="large" />
             </Card>
           </div>
         </AnimatedItem>
@@ -404,16 +409,18 @@ export default async function CompeteWithPubChains() {
               <Card padding="large" variant="bordered">
                 <Grid columns={{ default: 1, md: 3 }} gap="large" className="items-center">
                   <div>
-                    <Text size="lg" weight="bold" className="text-orange mb-2">Days 1-10</Text>
+                    <Text size="lg" weight="bold" className="text-orange mb-2">
+                      Days 1-10
+                    </Text>
                     <Heading level={4}>Stop the Bleeding</Heading>
                   </div>
                   <div className="md:col-span-2">
                     <FeatureList
                       items={[
                         'Identify exactly who your ideal customer is (hint: not everyone)',
-                        'List 10 things you can do that chains can\'t',
+                        "List 10 things you can do that chains can't",
                         'Create your "Never Compete on Price" promise',
-                        'Start a WhatsApp community group'
+                        'Start a WhatsApp community group',
                       ]}
                       icon="arrow"
                       iconColor="orange"
@@ -426,16 +433,18 @@ export default async function CompeteWithPubChains() {
               <Card padding="large" variant="bordered">
                 <Grid columns={{ default: 1, md: 3 }} gap="large" className="items-center">
                   <div>
-                    <Text size="lg" weight="bold" className="text-orange mb-2">Days 11-20</Text>
+                    <Text size="lg" weight="bold" className="text-orange mb-2">
+                      Days 11-20
+                    </Text>
                     <Heading level={4}>Build Your Fortress</Heading>
                   </div>
                   <div className="md:col-span-2">
                     <FeatureList
                       items={[
-                        'Launch one signature thing chains can\'t copy',
+                        "Launch one signature thing chains can't copy",
                         'Create a loyalty program based on recognition, not points',
                         'Partner with 3 local businesses for cross-promotion',
-                        'Start birthday/anniversary program for regulars'
+                        'Start birthday/anniversary program for regulars',
                       ]}
                       icon="arrow"
                       iconColor="orange"
@@ -448,7 +457,9 @@ export default async function CompeteWithPubChains() {
               <Card padding="large" variant="bordered">
                 <Grid columns={{ default: 1, md: 3 }} gap="large" className="items-center">
                   <div>
-                    <Text size="lg" weight="bold" className="text-orange mb-2">Days 21-30</Text>
+                    <Text size="lg" weight="bold" className="text-orange mb-2">
+                      Days 21-30
+                    </Text>
                     <Heading level={4}>Go on Offense</Heading>
                   </div>
                   <div className="md:col-span-2">
@@ -457,7 +468,7 @@ export default async function CompeteWithPubChains() {
                         'Launch "Refugees from Chains" welcome campaign',
                         'Create experiences worth more than cheap pints',
                         'Build reputation as THE place for something specific',
-                        'Turn your best customers into evangelical advocates'
+                        'Turn your best customers into evangelical advocates',
                       ]}
                       icon="arrow"
                       iconColor="orange"
@@ -485,14 +496,10 @@ export default async function CompeteWithPubChains() {
               <Heading level={2} align="center" className="mb-12">
                 Common Questions About Competing With Chain Pubs
               </Heading>
-              
+
               <div className="space-y-6">
                 {faqs.map((faq) => (
-                  <FAQItem
-                    key={faq._key}
-                    question={faq.question}
-                    answer={faq.answer}
-                  />
+                  <FAQItem key={faq._key} question={faq.question} answer={faq.answer} />
                 ))}
               </div>
             </div>
@@ -516,24 +523,24 @@ export default async function CompeteWithPubChains() {
               <Grid columns={{ default: 1, md: 3 }} gap="medium" className="mb-8">
                 <div>
                   <div className="text-3xl mb-3">🎯</div>
-                  <Text weight="semibold" className="mb-2">Positioning Workshop</Text>
-                  <Text size="sm">
-                    Find your unique angle that chains can't touch
+                  <Text weight="semibold" className="mb-2">
+                    Positioning Workshop
                   </Text>
+                  <Text size="sm">Find your unique angle that chains can't touch</Text>
                 </div>
                 <div>
                   <div className="text-3xl mb-3">📱</div>
-                  <Text weight="semibold" className="mb-2">Community Building</Text>
-                  <Text size="sm">
-                    Create loyalty that transcends price
+                  <Text weight="semibold" className="mb-2">
+                    Community Building
                   </Text>
+                  <Text size="sm">Create loyalty that transcends price</Text>
                 </div>
                 <div>
                   <div className="text-3xl mb-3">🚀</div>
-                  <Text weight="semibold" className="mb-2">30-Day Action Plan</Text>
-                  <Text size="sm">
-                    Daily steps to beat the chains at their own game
+                  <Text weight="semibold" className="mb-2">
+                    30-Day Action Plan
                   </Text>
+                  <Text size="sm">Daily steps to beat the chains at their own game</Text>
                 </div>
               </Grid>
 
@@ -549,10 +556,7 @@ export default async function CompeteWithPubChains() {
                 </Text>
               </div>
 
-              <WhatsAppButton
-                text="I'm ready to beat the chains"
-                size="large"
-              />
+              <WhatsAppButton text="I'm ready to beat the chains" size="large" />
 
               <Text size="sm" className="mt-4 text-charcoal/60">
                 Limited availability - I only work with 5 pubs at a time to ensure results

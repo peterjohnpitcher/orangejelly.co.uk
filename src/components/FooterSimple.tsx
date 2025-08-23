@@ -11,6 +11,16 @@ type FooterContent = {
     title: string;
     href: string;
   }>;
+  company?: Array<{
+    title: string;
+    href: string;
+    external?: boolean;
+  }>;
+  resources?: Array<{
+    title: string;
+    href: string;
+    external?: boolean;
+  }>;
   quickLinks?: Array<{
     title: string;
     href: string;
@@ -32,12 +42,11 @@ interface FooterSimpleProps {
 
 export default function FooterSimple({ footerContent }: FooterSimpleProps) {
   const currentYear = new Date().getFullYear();
-  
-  // Use Sanity data - no fallbacks
-  const services = footerContent?.services?.slice(0, 4) || [];
-  const quickLinks = footerContent?.quickLinks?.filter(link => 
-    ['/about', '/results', '/contact'].includes(link.href) || link.external
-  ) || [];
+
+  // Use footer data with proper structure
+  const services = footerContent?.services || [];
+  const company = footerContent?.company || [];
+  const resources = footerContent?.resources || [];
 
   return (
     <footer className="bg-charcoal text-cream">
@@ -53,37 +62,42 @@ export default function FooterSimple({ footerContent }: FooterSimpleProps) {
               height={60}
               className="mx-auto mb-3 rounded-lg"
             />
-            <Heading level={3} color="orange" align="center" className="mb-2">Orange Jelly</Heading>
-            <Text align="center" className="text-cream/80">AI Solutions That Save 5+ Hours Weekly</Text>
+            <Heading level={3} color="orange" align="center" className="mb-2">
+              Orange Jelly
+            </Heading>
+            <Text align="center" className="text-cream/80">
+              AI Solutions That Save 5+ Hours Weekly
+            </Text>
           </div>
 
           {/* Quick Links Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             <div>
-              <Heading level={5} color="orange" className="mb-3">Services</Heading>
+              <Heading level={5} color="orange" className="mb-3">
+                Services
+              </Heading>
               <ul className="space-y-2 text-sm">
                 {services.map((service, index) => (
                   <li key={index}>
-                    <Link 
-                      href={service.href} 
-                      className={service.href === '/services' ? "text-orange hover:underline" : "hover:text-orange transition-colors"}
-                    >
+                    <Link href={service.href} className="hover:text-orange transition-colors">
                       {service.title}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
-            
+
             <div>
-              <Heading level={5} color="orange" className="mb-3">Company</Heading>
+              <Heading level={5} color="orange" className="mb-3">
+                Company
+              </Heading>
               <ul className="space-y-2 text-sm">
-                {quickLinks.map((link, index) => (
+                {company.map((link, index) => (
                   <li key={index}>
-                    <Link 
-                      href={link.href} 
+                    <Link
+                      href={link.href}
                       className="hover:text-orange transition-colors"
-                      {...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
+                      external={link.external}
                     >
                       {link.title}
                     </Link>
@@ -91,26 +105,44 @@ export default function FooterSimple({ footerContent }: FooterSimpleProps) {
                 ))}
               </ul>
             </div>
-            
+
             <div>
-              <Heading level={5} color="orange" className="mb-3">Resources</Heading>
+              <Heading level={5} color="orange" className="mb-3">
+                Resources
+              </Heading>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/empty-pub-solutions" className="hover:text-orange transition-colors">Empty Pub Guide</Link></li>
-                <li><Link href="/pub-rescue" className="hover:text-orange transition-colors">Pub Rescue</Link></li>
-                <li><Link href="/#roi-calculator" className="hover:text-orange transition-colors">ROI Calculator</Link></li>
+                {resources.map((resource, index) => (
+                  <li key={index}>
+                    <Link href={resource.href} className="hover:text-orange transition-colors">
+                      {resource.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
-            
+
             <div>
-              <Heading level={5} color="orange" className="mb-3">Get in Touch</Heading>
+              <Heading level={5} color="orange" className="mb-3">
+                Get in Touch
+              </Heading>
               <div className="space-y-2 text-sm">
-                <Link href={URLS.whatsapp()} className="block hover:text-orange transition-colors" target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={URLS.whatsapp()}
+                  className="block hover:text-orange transition-colors"
+                  external
+                >
                   📱 WhatsApp
                 </Link>
-                <Link href={`tel:${footerContent?.contactInfo?.phone || CONTACT.phone}`} className="block hover:text-orange transition-colors">
+                <Link
+                  href={`tel:${footerContent?.contactInfo?.phone || CONTACT.phone}`}
+                  className="block hover:text-orange transition-colors"
+                >
                   📞 {footerContent?.contactInfo?.phone || CONTACT.phone}
                 </Link>
-                <Link href={`mailto:${footerContent?.contactInfo?.email || CONTACT.email}`} className="block hover:text-orange transition-colors">
+                <Link
+                  href={`mailto:${footerContent?.contactInfo?.email || CONTACT.email}`}
+                  className="block hover:text-orange transition-colors"
+                >
                   ✉️ Email Us
                 </Link>
               </div>
@@ -122,23 +154,28 @@ export default function FooterSimple({ footerContent }: FooterSimpleProps) {
             {/* Bottom Info */}
             <div className="text-center">
               <Text size="sm" align="center" className="mb-4">
-                {footerContent?.bottomBar?.copyrightText?.replace('{year}', currentYear.toString()) || 
-                 `© ${currentYear} Orange Jelly Limited`} | 
-                {footerContent?.bottomBar?.additionalText?.replace(' | Made with ❤️ in Stanwell Moor', '') || 
-                 'Run by licensees, for licensees'}
+                {footerContent?.bottomBar?.copyrightText?.replace(
+                  '{year}',
+                  currentYear.toString()
+                ) || `© ${currentYear} Orange Jelly Limited`}{' '}
+                |
+                {footerContent?.bottomBar?.additionalText?.replace(
+                  ' | Made with ❤️ in Stanwell Moor',
+                  ''
+                ) || 'Run by licensees, for licensees'}
               </Text>
-              
+
               {/* CTA Button */}
-              <Button 
-                href={URLS.whatsapp()} 
-                variant="primary" 
-                size="medium" 
+              <Button
+                href={URLS.whatsapp()}
+                variant="primary"
+                size="medium"
                 external
                 className="mb-4"
               >
                 Get Marketing Help
               </Button>
-              
+
               <Text size="xs" align="center" className="opacity-60">
                 I personally reply to every message. During service? I'll get back to you after.
               </Text>

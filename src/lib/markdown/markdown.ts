@@ -10,16 +10,16 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import readingTime from 'reading-time';
 import {
-  BlogPost,
-  CaseStudy,
-  Service,
-  FAQ,
+  type BlogPost,
+  type CaseStudy,
+  type Service,
+  type FAQ,
   MarkdownFile,
-  ParsedMarkdown,
-  FrontMatter,
-  MarkdownParseOptions,
-  MarkdownFileFilter,
-  MarkdownFileSortOptions,
+  type ParsedMarkdown,
+  type FrontMatter,
+  type MarkdownParseOptions,
+  type MarkdownFileFilter,
+  type MarkdownFileSortOptions,
   MarkdownError,
   FrontMatterError,
   FileNotFoundError,
@@ -41,10 +41,7 @@ const DEFAULT_PARSE_OPTIONS: MarkdownParseOptions = {
  * @param recursive - Whether to search recursively in subdirectories
  * @returns Array of file paths
  */
-export function getAllMarkdownFiles(
-  directory: string,
-  recursive: boolean = false
-): string[] {
+export function getAllMarkdownFiles(directory: string, recursive: boolean = false): string[] {
   try {
     if (!fs.existsSync(directory)) {
       throw new MarkdownError(`Directory not found: ${directory}`);
@@ -90,13 +87,13 @@ export function getMarkdownBySlug(
 ): string | null {
   try {
     const files = getAllMarkdownFiles(directory, recursive);
-    
+
     for (const filePath of files) {
       const filename = path.basename(filePath, '.md');
       if (filename === slug) {
         return filePath;
       }
-      
+
       // Also check frontmatter for slug field
       try {
         const { data } = matter(fs.readFileSync(filePath, 'utf8'));
@@ -108,7 +105,7 @@ export function getMarkdownBySlug(
         continue;
       }
     }
-    
+
     return null;
   } catch (error) {
     if (error instanceof MarkdownError) {
@@ -144,10 +141,7 @@ export function parseMarkdownFile(
 
     // Validate frontmatter
     if (!data.title) {
-      throw new FrontMatterError(
-        'Missing required frontmatter field: title',
-        filePath
-      );
+      throw new FrontMatterError('Missing required frontmatter field: title', filePath);
     }
 
     // Generate slug from filename if not provided
@@ -185,11 +179,7 @@ export function parseMarkdownFile(
     if (error instanceof MarkdownError) {
       throw error;
     }
-    throw new MarkdownError(
-      `Failed to parse markdown file: ${filePath}`,
-      filePath,
-      error as Error
-    );
+    throw new MarkdownError(`Failed to parse markdown file: ${filePath}`, filePath, error as Error);
   }
 }
 
@@ -199,22 +189,13 @@ export function parseMarkdownFile(
  * @param sanitize - Whether to sanitize HTML (default: true)
  * @returns HTML string
  */
-export async function markdownToHtml(
-  markdown: string,
-  sanitize: boolean = true
-): Promise<string> {
+export async function markdownToHtml(markdown: string, sanitize: boolean = true): Promise<string> {
   try {
-    const result = await remark()
-      .use(html, { sanitize })
-      .process(markdown);
-    
+    const result = await remark().use(html, { sanitize }).process(markdown);
+
     return result.toString();
   } catch (error) {
-    throw new MarkdownError(
-      'Failed to convert markdown to HTML',
-      undefined,
-      error as Error
-    );
+    throw new MarkdownError('Failed to convert markdown to HTML', undefined, error as Error);
   }
 }
 
@@ -264,11 +245,7 @@ export function extractExcerpt(
 
     return text;
   } catch (error) {
-    throw new MarkdownError(
-      'Failed to extract excerpt from content',
-      undefined,
-      error as Error
-    );
+    throw new MarkdownError('Failed to extract excerpt from content', undefined, error as Error);
   }
 }
 
@@ -286,11 +263,7 @@ export function calculateReadingTime(content: string): {
   try {
     return readingTime(content);
   } catch (error) {
-    throw new MarkdownError(
-      'Failed to calculate reading time',
-      undefined,
-      error as Error
-    );
+    throw new MarkdownError('Failed to calculate reading time', undefined, error as Error);
   }
 }
 
@@ -313,7 +286,7 @@ export function getAllBlogPosts(
     for (const filePath of files) {
       try {
         const parsed = parseMarkdownFile(filePath);
-        
+
         // Apply filters
         if (filter && !matchesFilter(parsed.frontMatter, filter)) {
           continue;
@@ -346,7 +319,7 @@ export function getAllBlogPosts(
       posts.sort((a, b) => {
         const aValue = a[sort.field] || '';
         const bValue = b[sort.field] || '';
-        
+
         if (sort.direction === 'desc') {
           return aValue < bValue ? 1 : -1;
         }
@@ -383,7 +356,7 @@ export function getAllCaseStudies(
     for (const filePath of files) {
       try {
         const parsed = parseMarkdownFile(filePath);
-        
+
         // Apply filters
         if (filter && !matchesFilter(parsed.frontMatter, filter)) {
           continue;
@@ -423,7 +396,7 @@ export function getAllCaseStudies(
       caseStudies.sort((a, b) => {
         const aValue = a[sort.field] || '';
         const bValue = b[sort.field] || '';
-        
+
         if (sort.direction === 'desc') {
           return aValue < bValue ? 1 : -1;
         }
@@ -460,7 +433,7 @@ export function getAllServices(
     for (const filePath of files) {
       try {
         const parsed = parseMarkdownFile(filePath);
-        
+
         // Apply filters
         if (filter && !matchesFilter(parsed.frontMatter, filter)) {
           continue;
@@ -493,7 +466,7 @@ export function getAllServices(
       services.sort((a, b) => {
         const aValue = a[sort.field] || '';
         const bValue = b[sort.field] || '';
-        
+
         if (sort.direction === 'desc') {
           return aValue < bValue ? 1 : -1;
         }
@@ -524,7 +497,7 @@ export function getAllFAQs(directory: string): FAQ[] {
     for (const filePath of files) {
       try {
         const parsed = parseMarkdownFile(filePath);
-        
+
         // Validate required fields for FAQs
         if (!parsed.frontMatter.question) {
           console.warn(`FAQ missing question field: ${filePath}`);
@@ -588,7 +561,11 @@ function matchesFilter(frontMatter: FrontMatter, filter: MarkdownFileFilter): bo
     return false;
   }
 
-  if (filter.category && frontMatter.categories && !frontMatter.categories.includes(filter.category)) {
+  if (
+    filter.category &&
+    frontMatter.categories &&
+    !frontMatter.categories.includes(filter.category)
+  ) {
     return false;
   }
 

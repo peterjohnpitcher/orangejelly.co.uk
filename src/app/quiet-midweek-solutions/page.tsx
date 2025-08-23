@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import Heading from '@/components/Heading';
@@ -13,42 +13,30 @@ import Text from '@/components/Text';
 import FeatureList from '@/components/FeatureList';
 import { generateMetadata as generateMeta } from '@/lib/metadata';
 import { FAQSchema } from '@/components/StructuredData';
-import { getLandingPageContent } from '@/lib/sanity-landing-pages';
-import { notFound } from 'next/navigation';
+// Removed Sanity dependencies - using static content
 import WhatsAppButton from '@/components/WhatsAppButton';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const content = await getLandingPageContent('quiet-midweek-solutions');
-  
-  if (!content || !content.seo) {
-    return generateMeta({
-      title: 'Fix Dead Tuesday & Wednesday Nights - Proven Midweek Solutions',
-      description: 'Transform your dead midweek nights into profit. From 5 tables to fully booked - proven strategies that work for UK pubs. Get the exact system we use at The Anchor.',
-      path: '/quiet-midweek-solutions',
-    });
-  }
-
   return generateMeta({
-    title: content.seo.metaTitle || content.title,
-    description: content.seo.metaDescription || content.heroSection?.subtitle || 'Proven system to fill dead Tuesday and Wednesday nights with paying customers in 30 days.',
+    title: 'Fix Dead Tuesday & Wednesday Nights - Proven Midweek Solutions',
+    description:
+      'Transform your dead midweek nights into profit. From 5 tables to fully booked - proven strategies that work for UK pubs. Get the exact system we use at The Anchor.',
     path: '/quiet-midweek-solutions',
   });
 }
 
-export default async function QuietMidweekSolutions() {
-  const content = await getLandingPageContent('quiet-midweek-solutions');
+export default function QuietMidweekSolutions() {
+  // Static content - no Sanity dependency
+  const heroSection = {
+    title: 'Fix Dead Tuesday & Wednesday Nights',
+    subtitle:
+      'Transform your dead midweek nights into profit. From 5 tables to fully booked - proven strategies that work for UK pubs.',
+  };
 
-  if (!content) {
-    notFound();
-  }
-
-  const {
-    heroSection,
-    strategies = [],
-    timeline = [],
-    successMetrics,
-    faqs = []
-  } = content;
+  const strategies: any[] = [];
+  const timeline: any[] = [];
+  const successMetrics = null;
+  const faqs: any[] = [];
 
   return (
     <>
@@ -56,10 +44,7 @@ export default async function QuietMidweekSolutions() {
         <Hero
           title={heroSection.title}
           subtitle={heroSection.subtitle}
-          breadcrumbs={[
-            { label: 'Home', href: '/' },
-            { label: 'Quiet Midweek Solutions' }
-          ]}
+          breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Quiet Midweek Solutions' }]}
         />
       )}
 
@@ -70,7 +55,7 @@ export default async function QuietMidweekSolutions() {
             <Heading level={2} className="mb-8">
               Tuesday & Wednesday Nights Killing Your Profits?
             </Heading>
-            
+
             <Grid columns={{ default: 1, md: 3 }} gap="medium" className="mb-8">
               <ProblemCard
                 emoji="💀"
@@ -100,8 +85,8 @@ export default async function QuietMidweekSolutions() {
                 The Brutal Math: Every Dead Midweek Night Costs You £400-600
               </Text>
               <Text className="mb-6">
-                That's £3,200-4,800 per month bleeding from your business. Meanwhile, your competition 
-                is packed because they cracked the midweek code. Time to steal it back.
+                That's £3,200-4,800 per month bleeding from your business. Meanwhile, your
+                competition is packed because they cracked the midweek code. Time to steal it back.
               </Text>
               <WhatsAppButton
                 text="Fix my midweek crisis NOW"
@@ -120,39 +105,59 @@ export default async function QuietMidweekSolutions() {
             <Heading level={2} color="white" className="mb-8">
               How We Fixed Our Own Dead Midweek Nights
             </Heading>
-            
+
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <Card background="white" padding="large">
-                <Heading level={3} className="mb-4 text-teal">Tuesday Quiz Night</Heading>
+                <Heading level={3} className="mb-4 text-teal">
+                  Tuesday Quiz Night
+                </Heading>
                 <div className="space-y-4">
                   <div>
-                    <Text size="sm" className="text-charcoal/60">Before:</Text>
+                    <Text size="sm" className="text-charcoal/60">
+                      Before:
+                    </Text>
                     <Text weight="semibold">20-25 people, losing money</Text>
                   </div>
                   <div>
-                    <Text size="sm" className="text-charcoal/60">After 30 days:</Text>
-                    <Text weight="semibold" className="text-green-600">25-35 regulars, £800+ takings</Text>
+                    <Text size="sm" className="text-charcoal/60">
+                      After 30 days:
+                    </Text>
+                    <Text weight="semibold" className="text-green-600">
+                      25-35 regulars, £800+ takings
+                    </Text>
                   </div>
                   <div>
-                    <Text size="sm" className="text-charcoal/60">Secret:</Text>
+                    <Text size="sm" className="text-charcoal/60">
+                      Secret:
+                    </Text>
                     <Text>WhatsApp quiz group + weekly reminders</Text>
                   </div>
                 </div>
               </Card>
 
               <Card background="white" padding="large">
-                <Heading level={3} className="mb-4 text-teal">Wednesday Steak Night</Heading>
+                <Heading level={3} className="mb-4 text-teal">
+                  Wednesday Steak Night
+                </Heading>
                 <div className="space-y-4">
                   <div>
-                    <Text size="sm" className="text-charcoal/60">Before:</Text>
+                    <Text size="sm" className="text-charcoal/60">
+                      Before:
+                    </Text>
                     <Text weight="semibold">Random walk-ins only</Text>
                   </div>
                   <div>
-                    <Text size="sm" className="text-charcoal/60">After 30 days:</Text>
-                    <Text weight="semibold" className="text-green-600">30-40 covers, fully booked by Monday</Text>
+                    <Text size="sm" className="text-charcoal/60">
+                      After 30 days:
+                    </Text>
+                    <Text weight="semibold" className="text-green-600">
+                      30-40 covers, fully booked by Monday
+                    </Text>
                   </div>
                   <div>
-                    <Text size="sm" className="text-charcoal/60">Secret:</Text>
+                    <Text size="sm" className="text-charcoal/60">
+                      Secret:
+                    </Text>
                     <Text>£19.95 deal + social media countdown</Text>
                   </div>
                 </div>
@@ -160,15 +165,15 @@ export default async function QuietMidweekSolutions() {
             </div>
 
             <Text size="lg" color="white" className="mb-6">
-              We went from losing £2,400/month on quiet nights to making £3,200+ profit. 
-              Here's the exact system we used...
+              We went from losing £2,400/month on quiet nights to making £3,200+ profit. Here's the
+              exact system we used...
             </Text>
           </div>
         </AnimatedItem>
       </Section>
 
       {/* The System */}
-      {strategies.length > 0 && (
+      {false && (
         <Section>
           <AnimatedItem animation="fade-in">
             <div className="max-w-4xl mx-auto">
@@ -176,7 +181,8 @@ export default async function QuietMidweekSolutions() {
                 The Midweek Momentum System™
               </Heading>
               <Text size="lg" align="center" className="mb-12 text-charcoal/70">
-                5 proven strategies that transform dead nights into your busiest (and most profitable) evenings
+                5 proven strategies that transform dead nights into your busiest (and most
+                profitable) evenings
               </Text>
 
               <div className="space-y-8">
@@ -196,11 +202,7 @@ export default async function QuietMidweekSolutions() {
                       <Heading level={3} className="mb-4">
                         {strategy.title}
                       </Heading>
-                      {strategy.description && (
-                        <Text className="mb-4">
-                          {strategy.description}
-                        </Text>
-                      )}
+                      {strategy.description && <Text className="mb-4">{strategy.description}</Text>}
                       {strategy.points && strategy.points.length > 0 && (
                         <div className="bg-cream rounded-lg p-4">
                           <FeatureList
@@ -221,7 +223,7 @@ export default async function QuietMidweekSolutions() {
       )}
 
       {/* Implementation Timeline */}
-      {timeline.length > 0 && (
+      {false && (
         <Section background="orange-light">
           <AnimatedItem animation="slide-up">
             <div className="max-w-4xl mx-auto">
@@ -244,9 +246,7 @@ export default async function QuietMidweekSolutions() {
                           {week.week}: {week.title}
                         </Heading>
                         {week.description && (
-                          <Text className="mb-4 text-charcoal/80">
-                            {week.description}
-                          </Text>
+                          <Text className="mb-4 text-charcoal/80">{week.description}</Text>
                         )}
                         {week.actions && week.actions.length > 0 && (
                           <FeatureList
@@ -267,8 +267,8 @@ export default async function QuietMidweekSolutions() {
                   By Week 4: Your Midweek Nights Are Transformed
                 </Heading>
                 <Text color="white" className="mb-6">
-                  Tuesday quiz packed. Wednesday offers selling out. Thursday becoming the new Friday. 
-                  You're making £2,000+ more per week and working less.
+                  Tuesday quiz packed. Wednesday offers selling out. Thursday becoming the new
+                  Friday. You're making £2,000+ more per week and working less.
                 </Text>
                 <WhatsAppButton
                   text="Start my midweek transformation"
@@ -282,7 +282,7 @@ export default async function QuietMidweekSolutions() {
       )}
 
       {/* Success Metrics */}
-      {successMetrics && successMetrics.metrics && (
+      {false && (
         <Section background="white">
           <AnimatedItem animation="fade-in">
             <div className="max-w-4xl mx-auto text-center">
@@ -309,8 +309,8 @@ export default async function QuietMidweekSolutions() {
               </div>
 
               <Text size="lg" className="mb-8">
-                These aren't cherry-picked success stories. This is the average improvement 
-                pubs see when they implement our Midweek Momentum System.
+                These aren't cherry-picked success stories. This is the average improvement pubs see
+                when they implement our Midweek Momentum System.
               </Text>
             </div>
           </AnimatedItem>
@@ -409,14 +409,11 @@ export default async function QuietMidweekSolutions() {
                   🚀 The Secret Sauce
                 </Heading>
                 <Text className="mb-4">
-                  It's not about the event - it's about the promotion. We'll show you exactly 
-                  how to fill ANY midweek event using our proven social media templates, 
-                  WhatsApp broadcasts, and community engagement tactics.
+                  It's not about the event - it's about the promotion. We'll show you exactly how to
+                  fill ANY midweek event using our proven social media templates, WhatsApp
+                  broadcasts, and community engagement tactics.
                 </Text>
-                <WhatsAppButton
-                  text="Get the promotion templates"
-                  fullWidth
-                />
+                <WhatsAppButton text="Get the promotion templates" fullWidth />
               </Card>
             </Grid>
           </div>
@@ -424,21 +421,17 @@ export default async function QuietMidweekSolutions() {
       </Section>
 
       {/* FAQ Section */}
-      {faqs.length > 0 && (
+      {false && (
         <Section>
           <AnimatedItem animation="fade-in">
             <div className="max-w-3xl mx-auto">
               <Heading level={2} align="center" className="mb-12">
                 Common Questions About Fixing Quiet Midweek Nights
               </Heading>
-              
+
               <div className="space-y-6">
                 {faqs.map((faq) => (
-                  <FAQItem
-                    key={faq._key}
-                    question={faq.question}
-                    answer={faq.answer}
-                  />
+                  <FAQItem key={faq._key} question={faq.question} answer={faq.answer} />
                 ))}
               </div>
             </div>
@@ -458,21 +451,27 @@ export default async function QuietMidweekSolutions() {
               <Grid columns={{ default: 1, md: 3 }} gap="medium" className="mb-8">
                 <div>
                   <div className="text-4xl mb-2">📅</div>
-                  <Heading level={4} className="mb-2">Week 1-2</Heading>
+                  <Heading level={4} className="mb-2">
+                    Week 1-2
+                  </Heading>
                   <Text size="sm">
                     Launch first events, see immediate increase in Tuesday/Wednesday covers
                   </Text>
                 </div>
                 <div>
                   <div className="text-4xl mb-2">📈</div>
-                  <Heading level={4} className="mb-2">Week 3-4</Heading>
+                  <Heading level={4} className="mb-2">
+                    Week 3-4
+                  </Heading>
                   <Text size="sm">
                     Events gaining momentum, regulars forming, bookings coming in advance
                   </Text>
                 </div>
                 <div>
                   <div className="text-4xl mb-2">💰</div>
-                  <Heading level={4} className="mb-2">Month 2+</Heading>
+                  <Heading level={4} className="mb-2">
+                    Month 2+
+                  </Heading>
                   <Text size="sm">
                     Midweek as busy as weekends, £8,000+ extra monthly revenue locked in
                   </Text>
@@ -492,10 +491,7 @@ export default async function QuietMidweekSolutions() {
                 30-Day Money-Back Guarantee: If your midweek nights aren't busier, you pay nothing
               </Text>
 
-              <WhatsAppButton
-                text="Fix my quiet midweek nights"
-                size="large"
-              />
+              <WhatsAppButton text="Fix my quiet midweek nights" size="large" />
             </Card>
           </div>
         </AnimatedItem>
@@ -508,16 +504,17 @@ export default async function QuietMidweekSolutions() {
             ⚠️ Every Dead Tuesday Costs You £400. Every Dead Wednesday Another £400.
           </Heading>
           <Text size="lg" className="mb-8">
-            That's £6,400 per month vanishing while your competition gets busier. 
-            In 3 months, you've lost £19,200. In 6 months... you might not have a pub.
+            That's £6,400 per month vanishing while your competition gets busier. In 3 months,
+            you've lost £19,200. In 6 months... you might not have a pub.
           </Text>
           <Card background="white" padding="large">
             <Heading level={3} className="mb-4">
               Stop The Bleeding Today
             </Heading>
             <Text className="mb-6">
-              Next Tuesday could have 40 people instead of 5. Next Wednesday could be fully booked. 
-              But only if you act now. Limited spots available - I can only properly support 5 pubs at once.
+              Next Tuesday could have 40 people instead of 5. Next Wednesday could be fully booked.
+              But only if you act now. Limited spots available - I can only properly support 5 pubs
+              at once.
             </Text>
             <WhatsAppButton
               text="URGENT: Save my midweek nights"

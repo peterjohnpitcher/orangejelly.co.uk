@@ -1,0 +1,120 @@
+{
+  "heroSection": {
+    "title": "From One Licensee to Another",
+    "subtitle": "Helping pub owners transform their business with practical AI solutions."
+  },
+  "story": [
+    "In March 2019, Billy and I took over The Anchor pub in Stanwell Moor. Like many licensees, we had no idea what we were walking into. Empty Monday nights, rising costs, endless admin, and the constant pressure to compete with chains.",
+    "But here's what changed everything: I discovered how AI could handle the grunt work that was drowning us. Not sci-fi stuff - practical tools that gave us our time back and boosted our profits.",
+    "Since then, we've transformed The Anchor from a struggling pub into a thriving community hub. Food GP jumped from 58% to 71%, quiz nights went from 20 to 25-35 regulars, and we saved £250 per week on Sunday lunch waste alone.",
+    "Orange Jelly exists to share these proven strategies with fellow licensees. No corporate nonsense, no jargon - just one licensee helping another with tools that actually work."
+  ],
+  "quickFacts": {
+    "title": "Quick Facts",
+    "facts": [
+      "March 2019: Took over The Anchor pub with Billy",
+      "Full-time AI Marketing Lead at global food manufacturer",
+      "Early AI adopter since 2021",
+      "Proven results: 71% food GP, 25-35 quiz regulars, £250/week savings",
+      "30-day money-back guarantee on all services"
+    ]
+  },
+  "timeline": [
+    {
+      "date": "2016",
+      "title": "Orange Jelly Founded",
+      "description": "Started as a digital agency with Laura Willis",
+      "highlight": false
+    },
+    {
+      "date": "Mar 2019",
+      "title": "The Anchor Takeover",
+      "description": "Billy and I became tenants of The Anchor pub",
+      "highlight": true
+    },
+    {
+      "date": "2019",
+      "title": "Business Pivot",
+      "description": "Focused entirely on pub consultancy and AI solutions",
+      "highlight": false
+    },
+    {
+      "date": "2021",
+      "title": "AI Discovery",
+      "description": "Started experimenting with ChatGPT and AI tools",
+      "highlight": false
+    },
+    {
+      "date": "2024",
+      "title": "Proven Results",
+      "description": "Documented significant improvements across all metrics",
+      "highlight": true
+    },
+    {
+      "date": "2025",
+      "title": "Helping Others",
+      "description": "First pub chain training scheduled for September",
+      "highlight": true
+    }
+  ],
+  "founderSection": {
+    "name": "Meet Peter Pitcher",
+    "role": "Founder & Pub Owner",
+    "bio": [
+      "I'm Peter Pitcher, and I've run The Anchor pub in Stanwell Moor with my husband Billy since March 2019. I also work full-time as an AI Marketing Capabilities Lead for a global food manufacturer.",
+      "I've been an early AI adopter since 2021 and discovered how AI can add 25 hours of value per week. Orange Jelly exists to share these proven strategies with fellow licensees.",
+      "We're not consultants who've never pulled a pint. We run an actual pub and test every strategy in our own business first. No corporate nonsense, no jargon - just one licensee helping another with tools that actually work."
+    ],
+    "quote": "Every strategy we recommend has been tested in our own pub first. If it doesn't work for us, we won't recommend it to you.",
+    "image": "/images/peter-pitcher.svg"
+  },
+  "values": [
+    {
+      "icon": "🎯",
+      "title": "Real Experience",
+      "description": "Every strategy tested in our own pub first"
+    },
+    {
+      "icon": "💪",
+      "title": "Proven Results",
+      "description": "71% food GP, 35 quiz regulars, £250/week savings"
+    },
+    {
+      "icon": "🤝",
+      "title": "Fellow Licensee",
+      "description": "One pub owner helping another, no corporate BS"
+    },
+    {
+      "icon": "⚡",
+      "title": "AI-Powered",
+      "description": "Save 25 hours per week with smart automation"
+    }
+  ],
+  "whyOrangeJelly": {
+    "title": "Why Orange Jelly?",
+    "content": [
+      "Just a fun play on words in a world that's ever-changing! We wanted a name that's friendly, memorable, and doesn't take itself too seriously - just like us.",
+      "It reflects our approach: making complicated things simple and approachable. Whether it's AI automation or menu optimization, we turn complex problems into clear solutions."
+    ]
+  },
+  "partnerships": [
+    {
+      "name": "Greene King",
+      "relationship": "Tenant",
+      "logo": "/images/partnerships/greene-king.svg"
+    },
+    {
+      "name": "BII Member",
+      "relationship": "Member",
+      "logo": "/images/partnerships/bii.svg"
+    }
+  ],
+  "visitCTA": {
+    "title": "Come See The Results Yourself",
+    "subtitle": "Visit us and see our AI strategies in action.",
+    "locationName": "The Anchor",
+    "address": "Horton Road\nStanwell Moor\nStaines TW19 6AQ",
+    "mapUrl": "https://maps.google.com/?q=The+Anchor+Stanwell+Moor",
+    "ctaText": "Get Directions →"
+  }
+}

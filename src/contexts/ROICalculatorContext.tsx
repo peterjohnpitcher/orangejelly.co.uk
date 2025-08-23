@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 
 /**
  * State shape for the ROI Calculator
@@ -45,12 +45,12 @@ const STORAGE_KEY = 'roi-calculator-state';
 /**
  * Provider component for ROI Calculator state management
  * Persists state to localStorage for cross-session persistence
- * 
+ *
  * @component
  * @param {Object} props - Component props
  * @param {ReactNode} props.children - Child components
  * @returns {JSX.Element} Provider wrapper
- * 
+ *
  * @example
  * ```tsx
  * <ROICalculatorProvider>
@@ -88,7 +88,7 @@ export function ROICalculatorProvider({ children }: { children: ReactNode }) {
   }, [state, isHydrated]);
 
   const updateState = (updates: Partial<ROICalculatorState>) => {
-    setState(prev => ({ ...prev, ...updates }));
+    setState((prev) => ({ ...prev, ...updates }));
   };
 
   const resetState = () => {
@@ -110,15 +110,15 @@ export function ROICalculatorProvider({ children }: { children: ReactNode }) {
 /**
  * Hook to access ROI Calculator context
  * Must be used within a ROICalculatorProvider
- * 
+ *
  * @returns {ROICalculatorContextType} Calculator state and methods
  * @throws {Error} If used outside of ROICalculatorProvider
- * 
+ *
  * @example
  * ```tsx
  * function MyComponent() {
  *   const { state, updateState, resetState } = useROICalculator();
- *   
+ *
  *   return (
  *     <div>
  *       <p>Admin hours: {state.adminHours}</p>

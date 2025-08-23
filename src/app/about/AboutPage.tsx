@@ -13,43 +13,53 @@ import { breadcrumbPaths } from '@/components/Breadcrumb';
 import RelatedLinks from '@/components/RelatedLinks';
 
 // Import related links data
-const relatedLinksData = require('../../../content/data/related-links.json');
+import relatedLinksData from '../../../content/data/related-links.json';
 import Text from '@/components/Text';
 import Container from '@/components/Container';
 import Box from '@/components/Box';
 import { FAQSchema } from '@/components/StructuredData';
 import Partnerships from '@/components/Partnerships';
-import { StruggleIcon, DiscoveryIcon, TransformationIcon, GrowthIcon } from '@/components/icons/JourneyIcons';
+// Icons not needed for basic about page
 import Link from 'next/link';
-import { PortableText } from '@portabletext/react';
-import type { AboutContent } from '@/lib/sanity-about';
-import type { FAQ, SiteSettings } from '@/lib/sanity.types';
-import { portableTextToPlainText } from '@/lib/portable-text-utils';
-import { urlFor } from '@/lib/sanity.client';
+// Local data imports
+import aboutData from '../../../content/data/about.json';
 
-
-interface AboutPageProps {
-  aboutContent?: AboutContent | null;
-  faqs?: FAQ[];
-  siteSettings?: SiteSettings | null;
-  author?: any; // Author data from Sanity
+interface FAQ {
+  question: string;
+  answer: string;
 }
 
-export default function AboutPage({ aboutContent, faqs, siteSettings, author }: AboutPageProps) {
+interface AboutPageProps {
+  faqs?: FAQ[];
+}
 
-  // Use Sanity FAQs
-  const aboutFAQs = faqs && faqs.length > 0 ? faqs.map(faq => ({
-    ...faq,
-    answer: portableTextToPlainText(faq.answer) // Convert Portable Text to plain string
-  })) : [];
+export default function AboutPage({ faqs }: AboutPageProps) {
+  // Load local FAQs from markdown
+  const aboutFAQs = faqs || [
+    {
+      question: 'Who is Peter Pitcher and why should I trust Orange Jelly?',
+      answer:
+        "I'm Peter Pitcher, and I've run The Anchor pub in Stanwell Moor with my husband Billy since March 2019. I also work full-time as an AI Marketing Capabilities Lead for a global food manufacturer. I've been an early AI adopter since 2021 and discovered how AI can add 25 hours of value per week. Orange Jelly exists to share these proven strategies with fellow licensees.",
+    },
+    {
+      question: 'What makes Orange Jelly different from other consultants?',
+      answer:
+        "We're not consultants who've never pulled a pint. We run an actual pub and test every strategy in our own business first. No corporate nonsense, no jargon - just one licensee helping another with tools that actually work. Plus, we guarantee results or your money back.",
+    },
+    {
+      question: 'Is Orange Jelly a big company?',
+      answer:
+        "No, Orange Jelly started in 2016 with Laura Willis as a digital agency, then pivoted in 2019. Now it's just me (Peter) working around my full-time job, running The Anchor, and family life. No big office, no sales team. This means you get personal service, honest advice, and someone who genuinely understands your challenges because I face them too.",
+    },
+  ];
 
   return (
     <>
       <FAQSchema faqs={aboutFAQs} />
-      
+
       <Hero
-        title={aboutContent?.heroSection?.title || "About Orange Jelly"}
-        subtitle={aboutContent?.heroSection?.subtitle || "Helping pub owners transform their business with practical AI solutions."}
+        title={aboutData.heroSection.title}
+        subtitle={aboutData.heroSection.subtitle}
         breadcrumbs={breadcrumbPaths.about}
       />
 
@@ -60,21 +70,17 @@ export default function AboutPage({ aboutContent, faqs, siteSettings, author }: 
             <Heading level={2} className="mb-6">
               The Real Story Behind Orange Jelly
             </Heading>
-              {aboutContent?.story ? (
-                <Box className="prose prose-lg">
-                  <PortableText value={aboutContent.story} />
-                </Box>
-              ) : (
-                <Text size="lg" color="muted">Content loading...</Text>
-              )}
-              
-              <Button
-                href="/results"
-                variant="ghost"
-                className="text-lg"
-              >
-                See Our Proven Results →
-              </Button>
+            <Box className="prose prose-lg">
+              {aboutData.story.map((paragraph, index) => (
+                <Text key={index} size="lg" className="mb-6">
+                  {paragraph}
+                </Text>
+              ))}
+            </Box>
+
+            <Button href="/results" variant="ghost" className="text-lg">
+              See Our Proven Results →
+            </Button>
           </Container>
         </AnimatedItem>
       </Section>
@@ -84,15 +90,10 @@ export default function AboutPage({ aboutContent, faqs, siteSettings, author }: 
         <AnimatedItem animation="fade-in">
           <div className="max-w-4xl mx-auto">
             <Card variant="colored" background="orange-light" padding="large">
-              <Heading level={3} className="mb-4">{aboutContent?.quickFacts?.title || 'Quick Facts'}</Heading>
-              {aboutContent?.quickFacts?.facts ? (
-                <FeatureList
-                  items={aboutContent.quickFacts.facts}
-                  columns={1}
-                />
-              ) : (
-                <Text color="muted">Facts loading...</Text>
-              )}
+              <Heading level={3} className="mb-4">
+                {aboutData.quickFacts.title}
+              </Heading>
+              <FeatureList items={aboutData.quickFacts.facts} columns={1} />
             </Card>
           </div>
         </AnimatedItem>
@@ -104,26 +105,31 @@ export default function AboutPage({ aboutContent, faqs, siteSettings, author }: 
           <Heading level={2} align="center" className="mb-12">
             Our Journey from Struggle to Success
           </Heading>
-          
+
           <div className="max-w-4xl mx-auto">
-            {aboutContent?.timeline ? (
-              <div className="space-y-8">
-                {aboutContent.timeline.map((event, index) => (
-                  <div key={index} className={`flex items-start gap-4 ${event.highlight ? 'scale-105' : ''}`}>
-                    <div className={`w-24 flex-shrink-0 text-right ${event.highlight ? 'font-bold text-orange' : 'text-charcoal/60'}`}>
-                      {event.date}
-                    </div>
-                    <div className={`w-4 h-4 rounded-full flex-shrink-0 mt-1 ${event.highlight ? 'bg-orange' : 'bg-charcoal/30'}`} />
-                    <div className="flex-grow">
-                      <Heading level={4} className={event.highlight ? 'text-orange' : ''}>{event.title}</Heading>
-                      {event.description && <Text color="muted">{event.description}</Text>}
-                    </div>
+            <div className="space-y-8">
+              {aboutData.timeline.map((event, index) => (
+                <div
+                  key={index}
+                  className={`flex items-start gap-4 ${event.highlight ? 'scale-105' : ''}`}
+                >
+                  <div
+                    className={`w-24 flex-shrink-0 text-right ${event.highlight ? 'font-bold text-orange' : 'text-charcoal/60'}`}
+                  >
+                    {event.date}
                   </div>
-                ))}
-              </div>
-            ) : (
-              <Text color="muted" className="text-center">Timeline loading...</Text>
-            )}
+                  <div
+                    className={`w-4 h-4 rounded-full flex-shrink-0 mt-1 ${event.highlight ? 'bg-orange' : 'bg-charcoal/30'}`}
+                  />
+                  <div className="flex-grow">
+                    <Heading level={4} className={event.highlight ? 'text-orange' : ''}>
+                      {event.title}
+                    </Heading>
+                    {event.description && <Text color="muted">{event.description}</Text>}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </AnimatedItem>
       </Section>
@@ -134,50 +140,37 @@ export default function AboutPage({ aboutContent, faqs, siteSettings, author }: 
           <Grid columns={{ default: 1, md: 2 }} gap="large" className="items-center">
             <div className="order-2 md:order-1">
               <div className="relative aspect-square max-w-[400px] mx-auto md:mx-0">
-                {author?.image?.asset || aboutContent?.founderSection?.image?.asset ? (
-                  <OptimizedImage
-                    src={author?.image?.asset ? urlFor(author.image).url() : (aboutContent?.founderSection?.image ? urlFor(aboutContent.founderSection.image).url() : '/peter-pitcher.jpg')}
-                    alt={author?.name || aboutContent?.founderSection?.name || "Peter Pitcher"}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="rounded-lg shadow-xl object-cover"
-                    priority
-                  />
-                ) : (
-                  <OptimizedImage
-                    src="/images/peter-pitcher.svg"
-                    alt="Peter Pitcher, founder of Orange Jelly"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="rounded-lg shadow-xl object-cover"
-                    priority
-                  />
-                )}
+                <OptimizedImage
+                  src={aboutData.founderSection.image}
+                  alt="Peter Pitcher, founder of Orange Jelly"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="rounded-lg shadow-xl object-cover"
+                  priority
+                />
               </div>
             </div>
             <div className="order-1 md:order-2">
               <Heading level={2} className="mb-6">
-                {aboutContent?.founderSection?.name || "Meet Peter Pitcher"}
+                {aboutData.founderSection.name}
               </Heading>
               <Text size="sm" color="muted" className="mb-4 uppercase tracking-wide">
-                {aboutContent?.founderSection?.role || "Founder & Pub Owner"}
+                {aboutData.founderSection.role}
               </Text>
-              
-              {aboutContent?.founderSection?.bio ? (
-                <div className="prose prose-lg mb-6">
-                  <PortableText value={aboutContent.founderSection.bio} />
-                </div>
-              ) : (
-                <Text color="muted">Biography loading...</Text>
-              )}
-              
-              {aboutContent?.founderSection?.quote && (
-                <Card variant="colored" background="cream" padding="medium">
-                  <Text size="lg" className="italic text-charcoal">
-                    "{aboutContent.founderSection.quote}"
+
+              <div className="prose prose-lg mb-6">
+                {aboutData.founderSection.bio.map((paragraph, index) => (
+                  <Text key={index} size="lg" className="mb-4">
+                    {paragraph}
                   </Text>
-                </Card>
-              )}
+                ))}
+              </div>
+
+              <Card variant="colored" background="cream" padding="medium">
+                <Text size="lg" className="italic text-charcoal">
+                  "{aboutData.founderSection.quote}"
+                </Text>
+              </Card>
             </div>
           </Grid>
         </AnimatedItem>
@@ -189,38 +182,46 @@ export default function AboutPage({ aboutContent, faqs, siteSettings, author }: 
           <Heading level={2} align="center" className="mb-12">
             What We Stand For
           </Heading>
-          
-          {aboutContent?.values ? (
-            <Grid columns={{ default: 1, md: 2, lg: 4 }} gap="medium">
-              {aboutContent.values.map((value, index) => (
-                <Card key={index} variant="shadowed" background="white" padding="medium" className="text-center">
-                  <div className="text-4xl mb-4">{value.icon}</div>
-                  <Heading level={4} className="mb-2">{value.title}</Heading>
-                  <Text size="sm" color="muted">{value.description}</Text>
-                </Card>
-              ))}
-            </Grid>
-          ) : (
-            <Text color="muted" className="text-center">Values loading...</Text>
-          )}
+
+          <Grid columns={{ default: 1, md: 2, lg: 4 }} gap="medium">
+            {aboutData.values.map((value, index) => (
+              <Card
+                key={index}
+                variant="shadowed"
+                background="white"
+                padding="medium"
+                className="text-center"
+              >
+                <div className="text-4xl mb-4">{value.icon}</div>
+                <Heading level={4} className="mb-2">
+                  {value.title}
+                </Heading>
+                <Text size="sm" color="muted">
+                  {value.description}
+                </Text>
+              </Card>
+            ))}
+          </Grid>
         </AnimatedItem>
       </Section>
 
       {/* Why Orange Jelly */}
-      {aboutContent?.whyOrangeJelly && (
-        <Section>
-          <AnimatedItem animation="fade-in" delay={300}>
-            <div className="max-w-3xl mx-auto text-center">
-              <Heading level={2} align="center" className="mb-6">
-                {aboutContent.whyOrangeJelly.title || "Why Orange Jelly?"}
-              </Heading>
-              <div className="prose prose-lg mx-auto">
-                <PortableText value={aboutContent.whyOrangeJelly.content} />
-              </div>
+      <Section>
+        <AnimatedItem animation="fade-in" delay={300}>
+          <div className="max-w-3xl mx-auto text-center">
+            <Heading level={2} align="center" className="mb-6">
+              {aboutData.whyOrangeJelly.title}
+            </Heading>
+            <div className="prose prose-lg mx-auto">
+              {aboutData.whyOrangeJelly.content.map((paragraph, index) => (
+                <Text key={index} size="lg" className="mb-4">
+                  {paragraph}
+                </Text>
+              ))}
             </div>
-          </AnimatedItem>
-        </Section>
-      )}
+          </div>
+        </AnimatedItem>
+      </Section>
 
       {/* FAQs */}
       <Section background="cream">
@@ -228,15 +229,11 @@ export default function AboutPage({ aboutContent, faqs, siteSettings, author }: 
           <Heading level={2} align="center" className="mb-12">
             Your Questions Answered
           </Heading>
-          
+
           {aboutFAQs.length > 0 && (
             <div className="max-w-3xl mx-auto space-y-6">
               {aboutFAQs.map((faq, index) => (
-                <FAQItem
-                  key={index}
-                  question={faq.question}
-                  answer={faq.answer}
-                />
+                <FAQItem key={index} question={faq.question} answer={faq.answer} />
               ))}
             </div>
           )}
@@ -245,10 +242,7 @@ export default function AboutPage({ aboutContent, faqs, siteSettings, author }: 
 
       {/* Partners */}
       <Section>
-        <Partnerships 
-          variant="full"
-          partners={aboutContent?.partnerships}
-        />
+        <Partnerships variant="full" partners={aboutData.partnerships} />
       </Section>
 
       {/* Visit CTA */}
@@ -256,35 +250,31 @@ export default function AboutPage({ aboutContent, faqs, siteSettings, author }: 
         <AnimatedItem animation="scale" delay={500}>
           <div className="max-w-3xl mx-auto text-center">
             <Heading level={2} color="white" className="mb-6">
-              {aboutContent?.visitCTA?.title || "Come See The Results Yourself"}
+              {aboutData.visitCTA.title}
             </Heading>
             <Text size="lg" color="white" className="mb-8">
-              {aboutContent?.visitCTA?.subtitle || "Visit us and see our AI strategies in action."}
+              {aboutData.visitCTA.subtitle}
             </Text>
-            <Card variant="shadowed" className="inline-block max-w-md bg-black/20 backdrop-blur" padding="large">
-              <Heading level={4} color="white" className="mb-2">{aboutContent?.visitCTA?.locationName || "The Anchor"}</Heading>
-              {aboutContent?.visitCTA?.address ? (
-                aboutContent.visitCTA.address.split('\n').map((line, i, arr) => (
-                  <Text key={i} color="white" className={i === arr.length - 1 ? 'mb-4' : ''}>
-                    {line}
-                  </Text>
-                ))
-              ) : siteSettings?.contact?.address ? (
-                siteSettings.contact.address.split('\n').map((line, i) => (
-                  <Text key={i} color="white" className={i === siteSettings.contact.address.split('\n').length - 1 ? "mb-4" : ""}>
-                    {line}
-                  </Text>
-                ))
-              ) : (
-                <Text color="white" className="mb-4">Address loading...</Text>
-              )}
+            <Card
+              variant="shadowed"
+              className="inline-block max-w-md bg-black/20 backdrop-blur"
+              padding="large"
+            >
+              <Heading level={4} color="white" className="mb-2">
+                {aboutData.visitCTA.locationName}
+              </Heading>
+              {aboutData.visitCTA.address.split('\n').map((line, i, arr) => (
+                <Text key={i} color="white" className={i === arr.length - 1 ? 'mb-4' : ''}>
+                  {line}
+                </Text>
+              ))}
               <Link
-                href={aboutContent?.visitCTA?.mapUrl || "#"}
+                href={aboutData.visitCTA.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-gray-200 transition-colors underline font-medium"
               >
-                {aboutContent?.visitCTA?.ctaText || "Get Directions →"}
+                {aboutData.visitCTA.ctaText}
               </Link>
             </Card>
           </div>

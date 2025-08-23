@@ -90,6 +90,19 @@ export function generateMetadata({
   };
 }
 
+// Static metadata generator with sensible defaults
+export function generateStaticMetadata(overrides: Partial<GenerateMetadataProps> = {}): Metadata {
+  const defaults: GenerateMetadataProps = {
+    title: 'Orange Jelly',
+    description:
+      'AI-powered marketing solutions for UK pubs from real licensees who understand your challenges.',
+    path: '/',
+    ogType: 'website',
+  };
+
+  return generateMetadata({ ...defaults, ...overrides });
+}
+
 // Helper for page-specific metadata
 export const pageMetadata = {
   home: {

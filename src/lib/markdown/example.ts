@@ -14,8 +14,8 @@ import {
   getAllCaseStudies,
   getAllServices,
   getAllFAQs,
-  MarkdownFileFilter,
-  MarkdownFileSortOptions,
+  type MarkdownFileFilter,
+  type MarkdownFileSortOptions,
 } from './';
 
 /**
@@ -155,7 +155,7 @@ export function exampleGetBlogPosts() {
     const posts = getAllBlogPosts('/path/to/blog', filter, sort);
     console.log('Filtered and sorted blog posts:', posts.length);
 
-    posts.forEach(post => {
+    posts.forEach((post) => {
       console.log(`- ${post.title} (${post.publishedAt})`);
       console.log(`  Reading time: ${post.readingTime?.text}`);
       console.log(`  Excerpt: ${post.excerpt}`);
@@ -173,7 +173,7 @@ export function exampleGetCaseStudies() {
     const caseStudies = getAllCaseStudies('/path/to/case-studies');
     console.log('Case studies:', caseStudies.length);
 
-    caseStudies.forEach(caseStudy => {
+    caseStudies.forEach((caseStudy) => {
       console.log(`- ${caseStudy.title} (Client: ${caseStudy.client})`);
       console.log(`  Industry: ${caseStudy.industry}`);
       console.log(`  Results: ${caseStudy.results?.join(', ')}`);
@@ -191,7 +191,7 @@ export function exampleGetServices() {
     const services = getAllServices('/path/to/services');
     console.log('Services:', services.length);
 
-    services.forEach(service => {
+    services.forEach((service) => {
       console.log(`- ${service.title}`);
       console.log(`  Features: ${service.features?.length || 0}`);
       console.log(`  Pricing: ${service.pricing?.type}`);
@@ -209,7 +209,7 @@ export function exampleGetFAQs() {
     const faqs = getAllFAQs('/path/to/faqs');
     console.log('FAQs:', faqs.length);
 
-    faqs.forEach(faq => {
+    faqs.forEach((faq) => {
       console.log(`Q: ${faq.question}`);
       console.log(`A: ${faq.answer.substring(0, 100)}...`);
       console.log(`Category: ${faq.category || 'Uncategorized'}`);

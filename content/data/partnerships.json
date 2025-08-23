@@ -1,20 +1,14 @@
 [
   {
     "name": "Greene King",
-    "description": "Working with one of the UK's largest pub companies as tenants at The Anchor",
-    "logoUrl": "/logo-greene-king.svg",
+    "description": "We operate The Anchor as a Greene King tenant, sharing our AI innovations with one of the UK's leading pub companies.",
+    "logoUrl": "/partners/greene-king-logo.svg",
     "url": "https://www.greeneking.co.uk/"
   },
   {
     "name": "BII (British Institute of Innkeeping)",
-    "description": "Members and featured contributors to industry publications",
-    "logoUrl": "/logo-bii.svg",
+    "description": "Proud BII members, featured in their Autumn 2025 magazine for our AI innovation in hospitality.",
+    "logoUrl": "/partners/bii-logo.svg",
     "url": "https://www.bii.org/"
-  },
-  {
-    "name": "FSB (Federation of Small Businesses)",
-    "description": "Supporting small business growth and development",
-    "logoUrl": "/partners/fsb-logo.svg",
-    "url": "https://www.fsb.org.uk/"
   }
 ]

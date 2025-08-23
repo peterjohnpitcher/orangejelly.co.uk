@@ -1,6 +1,6 @@
 'use client';
 
-import { Component, ReactNode } from 'react';
+import { Component, type ReactNode } from 'react';
 import Button from './Button';
 import Heading from './Heading';
 import Text from './Text';
@@ -29,7 +29,7 @@ const reportError = (error: Error, errorInfo: React.ErrorInfo, errorId: string) 
     console.error('Stack:', error.stack);
     console.groupEnd();
   }
-  
+
   // In production, you could send this to an error reporting service
   // Example: Sentry, LogRocket, etc.
   if (process.env.NODE_ENV === 'production') {
@@ -46,19 +46,19 @@ export default class ErrorBoundary extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = { 
-      hasError: false, 
-      retryCount: 0 
+    this.state = {
+      hasError: false,
+      retryCount: 0,
     };
   }
 
   static getDerivedStateFromError(error: Error): State {
     const errorId = `err_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    return { 
-      hasError: true, 
-      error, 
+    return {
+      hasError: true,
+      error,
       errorId,
-      retryCount: 0 
+      retryCount: 0,
     };
   }
 
@@ -69,17 +69,17 @@ export default class ErrorBoundary extends Component<Props, State> {
 
   componentWillUnmount() {
     // Clean up any pending timeouts
-    this.retryTimeouts.forEach(timeout => clearTimeout(timeout));
+    this.retryTimeouts.forEach((timeout) => clearTimeout(timeout));
     this.retryTimeouts.clear();
   }
 
   handleRetry = () => {
-    this.setState(prevState => ({ 
-      hasError: false, 
+    this.setState((prevState) => ({
+      hasError: false,
       error: undefined,
-      retryCount: prevState.retryCount + 1 
+      retryCount: prevState.retryCount + 1,
     }));
-    
+
     // If there's a custom retry function, call it
     if (this.props.onRetry) {
       this.props.onRetry();
@@ -97,18 +97,17 @@ export default class ErrorBoundary extends Component<Props, State> {
       }
 
       const { error, retryCount } = this.state;
-      const isAsyncError = error?.message?.includes('async') || 
-                          error?.message?.includes('fetch') ||
-                          error?.message?.includes('network') ||
-                          error?.name === 'TypeError';
-      
-      const errorTitle = isAsyncError ? 
-        'Connection Trouble' : 
-        'Oops! Something went wrong';
-      
-      const errorMessage = isAsyncError ? 
-        'Having trouble loading content. This could be a temporary network issue.' :
-        "Don't worry, it happens to the best of us. Just like when the beer lines decide to foam up during Friday rush!";
+      const isAsyncError =
+        error?.message?.includes('async') ||
+        error?.message?.includes('fetch') ||
+        error?.message?.includes('network') ||
+        error?.name === 'TypeError';
+
+      const errorTitle = isAsyncError ? 'Connection Trouble' : 'Oops! Something went wrong';
+
+      const errorMessage = isAsyncError
+        ? 'Having trouble loading content. This could be a temporary network issue.'
+        : "Don't worry, it happens to the best of us. Just like when the beer lines decide to foam up during Friday rush!";
 
       return (
         <div className="min-h-[400px] flex items-center justify-center p-4">
@@ -134,20 +133,12 @@ export default class ErrorBoundary extends Component<Props, State> {
               >
                 {retryCount >= 3 ? 'Max Retries' : 'Try Again'}
               </Button>
-              {(this.props.showReload !== false && (isAsyncError || retryCount >= 2)) && (
-                <Button
-                  onClick={this.handleReload}
-                  variant="primary"
-                  size="small"
-                >
+              {this.props.showReload !== false && (isAsyncError || retryCount >= 2) && (
+                <Button onClick={this.handleReload} variant="primary" size="small">
                   Reload Page
                 </Button>
               )}
-              <Button
-                href="/"
-                variant="ghost"
-                size="small"
-              >
+              <Button href="/" variant="ghost" size="small">
                 Go Home
               </Button>
             </div>
@@ -194,7 +185,7 @@ export function withErrorBoundary<P extends object>(
 ) {
   return function WithErrorBoundaryComponent(props: P) {
     return (
-      <ErrorBoundary 
+      <ErrorBoundary
         fallback={options?.fallback}
         onRetry={options?.onRetry}
         showReload={options?.showReload}
@@ -206,15 +197,15 @@ export function withErrorBoundary<P extends object>(
 }
 
 // Async Error Boundary specifically for server components and data fetching
-export function AsyncErrorBoundary({ 
-  children, 
-  fallback 
-}: { 
-  children: ReactNode; 
-  fallback?: ReactNode; 
+export function AsyncErrorBoundary({
+  children,
+  fallback,
+}: {
+  children: ReactNode;
+  fallback?: ReactNode;
 }) {
   return (
-    <ErrorBoundary 
+    <ErrorBoundary
       fallback={fallback}
       showReload={true}
       onRetry={() => {

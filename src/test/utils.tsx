@@ -1,6 +1,6 @@
 import { render as rtlRender } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 import { vi } from 'vitest';
 
 // Setup Next.js mocks
@@ -12,8 +12,20 @@ vi.mock('next/image', () => ({
 }));
 
 vi.mock('next/link', () => ({
-  default: ({ children, href, ...props }: { children: React.ReactNode; href: string; [key: string]: any }) => {
-    return <a href={href} {...props}>{children}</a>;
+  default: ({
+    children,
+    href,
+    ...props
+  }: {
+    children: React.ReactNode;
+    href: string;
+    [key: string]: any;
+  }) => {
+    return (
+      <a href={href} {...props}>
+        {children}
+      </a>
+    );
   },
 }));
 

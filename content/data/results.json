@@ -1,0 +1,199 @@
+{
+  "hero": {
+    "title": "Pubs That Were Empty. Now They're Not.",
+    "subtitle": "Real results from The Anchor. No fluff, just numbers and strategies that actually work."
+  },
+  "caseStudies": [
+    {
+      "id": "food-gp-improvement",
+      "title": "Food GP Improvement",
+      "subtitle": "From 58% to 71% food GP in 6 months",
+      "problem": [
+        "Previous tenants buying food from supermarkets for incredibly low GP",
+        "Outdated menu with boring descriptions",
+        "Pricing made no sense",
+        "Food was more of a loss-leader than profit center"
+      ],
+      "failed": [
+        "Tried raising prices without improving quality - customers noticed",
+        "Reduced portion sizes - complaints increased",
+        "Attempted to cut costs with cheaper ingredients - quality suffered"
+      ],
+      "solution": [
+        "Partnered with commercial suppliers (Barrel And Stone, Brakes, Bidfood)",
+        "Used AI to analyze menu psychology and rewrite descriptions using sensory language",
+        "Implemented strategic pricing and menu positioning",
+        "Introduced stone-baked pizzas as high-margin hero product",
+        "Regular AI-powered menu updates based on seasonal ingredients and costs"
+      ],
+      "results": [
+        { "metric": "Food GP", "value": "71% (up from 58%)" },
+        { "metric": "Average Spend", "value": "Increased £4.50 (+31%)" },
+        { "metric": "Pizza Sales", "value": "Top seller (highest margin item)" },
+        { "metric": "Customer Satisfaction", "value": "Higher (better quality, consistency)" }
+      ],
+      "timeInvestment": ["8 hours initial setup + 2 hours monthly updates"],
+      "learnings": [
+        "Quality improvements justify price increases",
+        "Sensory menu language increases orders by 27%",
+        "High-margin hero products can transform food sales",
+        "Consistent supplier relationships improve both cost and quality"
+      ],
+      "quote": "We went from treating food as a necessary evil to making it our biggest profit driver. The AI-rewritten menu descriptions alone increased average order value by £4.50."
+    },
+    {
+      "id": "quiz-night-transformation",
+      "title": "Quiz Night Transformation",
+      "subtitle": "From 20 to 25-35 regulars with 85% retention",
+      "problem": [
+        "Existing quiz had 20 attendees but inconsistent turnout",
+        "Questions were too hard or too obscure",
+        "No social media promotion or engagement",
+        "Limited prizes and incentives"
+      ],
+      "failed": [
+        "Making questions easier - lost the competitive edge",
+        "Changing the day - confused regular customers",
+        "Offering bigger prizes - ate into profits without improving numbers"
+      ],
+      "solution": [
+        "AI-generated balanced question sets across different knowledge levels",
+        "Automated social media promotion with engaging quiz teasers",
+        "Introduced team-building elements and friendly rivalry",
+        "Created loyalty system with points and seasonal championships",
+        "Optimized timing and format based on customer feedback"
+      ],
+      "results": [
+        { "metric": "Regular Attendees", "value": "25-35 (up from 20)" },
+        { "metric": "Retention Rate", "value": "85%" },
+        { "metric": "Revenue per Quiz", "value": "£420 average" },
+        { "metric": "Social Media Engagement", "value": "150% increase on quiz posts" }
+      ],
+      "timeInvestment": ["4 hours initial setup + 1 hour weekly preparation"],
+      "learnings": [
+        "Balance is key - questions need variety in difficulty",
+        "Social media teasers build anticipation and attendance",
+        "Team dynamics matter more than individual competition",
+        "Consistency in quality keeps people coming back"
+      ],
+      "quote": "Our quiz night went from 'something we did' to 'the highlight of the week'. The community it built is worth more than the direct revenue."
+    },
+    {
+      "id": "social-media-automation",
+      "title": "Social Media Automation",
+      "subtitle": "60-70k monthly views with 2 hours weekly effort",
+      "problem": [
+        "Spending 10+ hours weekly creating social media content",
+        "Inconsistent posting leading to algorithm penalties",
+        "Low engagement and reach despite effort",
+        "Running out of content ideas constantly"
+      ],
+      "failed": [
+        "Batch creating content manually - still took too long",
+        "Hiring a social media manager - didn't understand pub life",
+        "Using generic scheduling tools - content felt robotic"
+      ],
+      "solution": [
+        "AI-powered content creation system generating 30 days of posts in 2 hours",
+        "Automated posting across Facebook, Instagram, Twitter",
+        "Local SEO optimization for pub-specific searches",
+        "Performance tracking and AI-driven optimization",
+        "Custom templates maintaining brand voice and personality"
+      ],
+      "results": [
+        { "metric": "Monthly Views", "value": "60-70k (up from 8k)" },
+        { "metric": "Time Investment", "value": "2 hours weekly (down from 10+)" },
+        { "metric": "Engagement Rate", "value": "4.8% (industry average 1.9%)" },
+        { "metric": "Local Search Ranking", "value": "Top 3 for 'pub near me'" }
+      ],
+      "timeInvestment": ["6 hours initial setup + 2 hours weekly maintenance"],
+      "learnings": [
+        "Consistency trumps perfection in social media",
+        "AI can maintain brand voice when properly trained",
+        "Local SEO integration multiplies social media impact",
+        "Automation frees time for customer interaction"
+      ],
+      "quote": "We went from social media being a chore to it being our best marketing tool. 70k monthly views brings in customers we never would have reached."
+    },
+    {
+      "id": "sunday-lunch-preorder-system",
+      "title": "Sunday Lunch Preorder System",
+      "subtitle": "£250 weekly waste reduction, 40% capacity increase",
+      "problem": [
+        "Huge food waste from unpredictable Sunday lunch numbers",
+        "Running out of popular dishes while having surplus of others",
+        "Customer disappointment when favorite dishes unavailable",
+        "Staff stress from not knowing how much to prepare"
+      ],
+      "failed": [
+        "Guessing based on weather forecasts - still inaccurate",
+        "Reducing menu options - lost customer variety",
+        "Cook-to-order system - too slow for Sunday volume"
+      ],
+      "solution": [
+        "Implemented AI-powered demand prediction system",
+        "Created easy online preorder system with payment processing",
+        "Automated reminder system for regular customers",
+        "Dynamic pricing for peak times and popular dishes",
+        "Integration with kitchen prep schedules"
+      ],
+      "results": [
+        { "metric": "Food Waste", "value": "Reduced £250 weekly" },
+        { "metric": "Capacity Utilization", "value": "40% increase" },
+        { "metric": "Customer Satisfaction", "value": "95% get first choice dish" },
+        { "metric": "Staff Stress", "value": "Significantly reduced" }
+      ],
+      "timeInvestment": ["12 hours setup + 30 minutes weekly management"],
+      "learnings": [
+        "Customers appreciate knowing their meal is guaranteed",
+        "Preorders create commitment - lower no-show rates",
+        "Predictable demand enables better ingredient purchasing",
+        "Staff performance improves with clear preparation targets"
+      ],
+      "quote": "Sunday lunch went from our most stressful service to our most profitable. Knowing exactly what to cook changed everything."
+    },
+    {
+      "id": "premium-tasting-nights",
+      "title": "Premium Tasting Nights",
+      "subtitle": "£85 average spend, 85% retention rate",
+      "problem": [
+        "Quiet Wednesday nights with almost no revenue",
+        "Customers viewing the pub as 'just a local'",
+        "No differentiation from chain pub competition",
+        "Untapped potential for premium offerings"
+      ],
+      "failed": [
+        "Generic wine tastings - not engaging enough",
+        "Partnering with random suppliers - no cohesive experience",
+        "Pricing too low - attracted wrong customer type"
+      ],
+      "solution": [
+        "Curated premium experiences with storytelling elements",
+        "Partnerships with quality local suppliers and artisans",
+        "Educational component - customers learn while tasting",
+        "Proper pricing reflecting the premium experience",
+        "Limited spaces creating exclusivity and demand"
+      ],
+      "results": [
+        { "metric": "Average Spend", "value": "£85 per person" },
+        { "metric": "Retention Rate", "value": "85% book future events" },
+        { "metric": "Wednesday Revenue", "value": "300% increase" },
+        { "metric": "Brand Perception", "value": "Premium destination status" }
+      ],
+      "timeInvestment": ["3 hours monthly planning + 4 hours per event"],
+      "learnings": [
+        "Premium pricing attracts customers who value quality",
+        "Education transforms tasting from consumption to experience",
+        "Scarcity creates demand - limit spaces increase bookings",
+        "Personal storytelling connects customers to the experience"
+      ],
+      "quote": "These tasting nights transformed how people see us. We're not just the local anymore - we're a destination."
+    }
+  ],
+  "stats": {
+    "foodGP": "71%",
+    "quizRegulars": "25-35",
+    "weeklySavings": "£250",
+    "monthlyViews": "70k"
+  }
+}

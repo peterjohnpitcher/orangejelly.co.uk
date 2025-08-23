@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
-import { SearchableItem, SearchResult } from '@/lib/search';
+import { type SearchableItem, type SearchResult } from '@/lib/search';
 import Fuse from 'fuse.js';
 
 interface SearchComponentProps {
@@ -12,11 +12,11 @@ interface SearchComponentProps {
   className?: string;
 }
 
-export default function SearchComponent({ 
-  onResults, 
-  placeholder = "Search articles...",
+export default function SearchComponent({
+  onResults,
+  placeholder = 'Search articles...',
   maxResults = 5,
-  className = ""
+  className = '',
 }: SearchComponentProps) {
   const [query, setQuery] = useState('');
   const [searchIndex, setSearchIndex] = useState<SearchableItem[]>([]);
@@ -58,23 +58,23 @@ export default function SearchComponent({
           { name: 'title', weight: 0.4 },
           { name: 'excerpt', weight: 0.3 },
           { name: 'content', weight: 0.2 },
-          { name: 'tags', weight: 0.1 }
+          { name: 'tags', weight: 0.1 },
         ],
         threshold: 0.4,
         distance: 100,
         minMatchCharLength: 2,
         includeScore: true,
         includeMatches: true,
-        findAllMatches: true
+        findAllMatches: true,
       };
 
       const fuse = new Fuse(searchIndex, fuseOptions);
       const searchResults = fuse.search(query, { limit: maxResults });
 
-      const formattedResults: SearchResult[] = searchResults.map(result => ({
+      const formattedResults: SearchResult[] = searchResults.map((result) => ({
         item: result.item,
         score: result.score || 0,
-        matches: result.matches
+        matches: result.matches,
       }));
 
       setResults(formattedResults);
@@ -109,7 +109,7 @@ export default function SearchComponent({
       {results.length > 0 && (
         <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-96 overflow-y-auto">
           {results.map((result, index) => (
-            <SearchResultItem 
+            <SearchResultItem
               key={result.item.id}
               result={result}
               isLast={index === results.length - 1}
@@ -140,24 +140,23 @@ function SearchResultItem({ result, isLast }: SearchResultItemProps) {
   };
 
   return (
-    <div 
+    <div
       className={`p-4 hover:bg-gray-50 cursor-pointer transition-colors ${!isLast ? 'border-b border-gray-100' : ''}`}
       onClick={handleClick}
     >
       <div className="flex items-start justify-between">
         <div className="flex-1 min-w-0">
-          <h3 className="text-sm font-medium text-gray-900 truncate">
-            {item.title}
-          </h3>
-          <p className="mt-1 text-sm text-gray-500 line-clamp-2">
-            {item.excerpt}
-          </p>
+          <h3 className="text-sm font-medium text-gray-900 truncate">{item.title}</h3>
+          <p className="mt-1 text-sm text-gray-500 line-clamp-2">{item.excerpt}</p>
           <div className="mt-2 flex items-center space-x-2">
             <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800">
               {item.category}
             </span>
             {item.tags.slice(0, 2).map((tag, index) => (
-              <span key={index} className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600">
+              <span
+                key={index}
+                className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600"
+              >
                 {tag}
               </span>
             ))}

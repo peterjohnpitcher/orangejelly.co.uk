@@ -1,7 +1,5 @@
 import TrustBadges from './TrustBadges';
-
-// Import trust badges data
-const trustBadgesData = require('../../content/data/trust-badges.json');
+import trustBadgesData from '../../content/data/trust-badges.json';
 
 interface TrustBadgesWrapperProps {
   variant?: 'horizontal' | 'vertical' | 'compact';
@@ -21,6 +19,6 @@ interface LocalTrustBadge {
 export default function TrustBadgesWrapper(props: TrustBadgesWrapperProps) {
   // Cast the imported data to the correct type
   const trustBadges = trustBadgesData as LocalTrustBadge[];
-  
+
   return <TrustBadges {...props} trustBadges={trustBadges} />;
 }

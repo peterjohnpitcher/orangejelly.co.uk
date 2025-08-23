@@ -1,26 +1,10 @@
 [
   {
-    "title": "No Agency Fees",
-    "subtitle": "Just honest pricing",
-    "icon": "money",
+    "title": "30-Day Guarantee",
+    "subtitle": "Money-back guarantee",
+    "icon": "check",
     "color": "orange",
     "order": 1,
-    "isActive": true
-  },
-  {
-    "title": "Results in 14 Days",
-    "subtitle": "Or your money back",
-    "icon": "clock",
-    "color": "teal",
-    "order": 2,
-    "isActive": true
-  },
-  {
-    "title": "Cost Effective",
-    "subtitle": "Less than part-time staff",
-    "icon": "shield",
-    "color": "orange",
-    "order": 3,
     "isActive": true
   },
   {
@@ -28,21 +12,37 @@
     "subtitle": "Not just another agency",
     "icon": "heart",
     "color": "teal",
+    "order": 2,
+    "isActive": true
+  },
+  {
+    "title": "£62.50/hour",
+    "subtitle": "Plus VAT - transparent pricing",
+    "icon": "money",
+    "color": "orange",
+    "order": 3,
+    "isActive": true
+  },
+  {
+    "title": "Proven at The Anchor",
+    "subtitle": "Real results from real pub",
+    "icon": "star",
+    "color": "teal",
     "order": 4,
     "isActive": true
   },
   {
-    "title": "30-Day Guarantee",
-    "subtitle": "Risk-free trial",
-    "icon": "check",
+    "title": "Save 25 Hours Weekly",
+    "subtitle": "Using proven AI systems",
+    "icon": "clock",
     "color": "orange",
     "order": 5,
     "isActive": true
   },
   {
-    "title": "Save 5+ Hours",
-    "subtitle": "Every single week",
-    "icon": "star",
+    "title": "No Hidden Fees",
+    "subtitle": "Just honest hourly pricing",
+    "icon": "shield",
     "color": "teal",
     "order": 6,
     "isActive": true

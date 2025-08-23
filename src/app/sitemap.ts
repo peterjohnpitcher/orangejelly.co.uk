@@ -1,24 +1,12 @@
-import { MetadataRoute } from 'next';
+import { type MetadataRoute } from 'next';
 import { getAllPosts } from '@/lib/blog-md';
 import { blogCategories } from '@/lib/blog';
-import { client } from '@/lib/sanity.client';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.orangejelly.co.uk';
   const currentDate = new Date().toISOString();
 
-  // Fetch all landing pages
-  const landingPages = await client.fetch(`*[_type == "landingPage" && isActive == true]{
-    "slug": slug.current,
-    _updatedAt
-  }`);
-
-  const dynamicLandingPages = landingPages.map((page: any) => ({
-    url: `${baseUrl}/${page.slug}`,
-    lastModified: page._updatedAt || currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.9,
-  }));
+  // No dynamic landing pages (removed Sanity dependency)
 
   // Services are represented on a single page; avoid fragment URLs in sitemap
 
@@ -64,7 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamically get all blog posts
   const allPosts = getAllPosts();
-  const blogPages = allPosts.map(post => ({
+  const blogPages = allPosts.map((post) => ({
     url: `${baseUrl}/licensees-guide/${post.slug}`,
     lastModified: post.updatedDate || post.publishedDate,
     changeFrequency: 'monthly' as const,
@@ -72,12 +60,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // Dynamically get all categories
-  const categoryPages = blogCategories.map(category => ({
+  const categoryPages = blogCategories.map((category) => ({
     url: `${baseUrl}/licensees-guide/category/${category.slug}`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: 0.5,
   }));
 
-  return [...staticPages, ...dynamicLandingPages, ...blogPages, ...categoryPages];
+  return [...staticPages, ...blogPages, ...categoryPages];
 }

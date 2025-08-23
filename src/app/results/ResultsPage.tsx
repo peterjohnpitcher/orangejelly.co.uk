@@ -10,54 +10,35 @@ import { breadcrumbPaths } from '@/components/Breadcrumb';
 import RelatedLinks from '@/components/RelatedLinks';
 
 // Import related links data
-const relatedLinksData = require('../../../content/data/related-links.json');
+import relatedLinksData from '../../../content/data/related-links.json';
 import Text from '@/components/Text';
 import Button from '@/components/Button';
-import { portableTextToPlainText } from '@/lib/portable-text-utils';
-import type { CaseStudy } from '@/lib/sanity-case-studies';
+// Local data imports
+import resultsData from '../../../content/data/results.json';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface ResultsPageProps {
-  caseStudies: CaseStudy[];
+  // No props needed - using local data
 }
 
-export default function ResultsPage({ caseStudies }: ResultsPageProps) {
-  // Transform Sanity case studies to match the existing component format
-  const transformedCaseStudies = caseStudies
-    .filter(study => study && study.title) // Filter out any invalid studies
-    .map(study => ({
-      id: study.slug?.current || study._id,
-      title: study.title,
-      subtitle: study.subtitle || '',
-      problem: study.problem ? study.problem.map(block => portableTextToPlainText([block])) : [],
-      failed: study.failedAttempts || [],
-      solution: study.solution ? study.solution.map(block => portableTextToPlainText([block])) : [],
-      results: study.results?.map(r => ({ 
-        metric: r.metric, 
-        value: r.value + (r.improvement ? ` (${r.improvement})` : '') 
-      })) || [],
-      timeInvestment: study.timeInvestment ? [study.timeInvestment] : [],
-      learnings: study.learnings || [],
-      quote: study.quote?.text,
-    }));
-
+export default function ResultsPage({}: ResultsPageProps) {
+  // Use local case study data
+  const transformedCaseStudies = resultsData.caseStudies;
 
   return (
     <>
       <Hero
-        title="Pubs That Were Empty. Now They're Not."
-        subtitle="Real results from The Anchor. No fluff, just numbers and strategies that actually work."
+        title={resultsData.hero.title}
+        subtitle={resultsData.hero.subtitle}
         breadcrumbs={breadcrumbPaths.results}
       />
 
       {/* Case Study Selector */}
       <Section background="cream" padding="small">
         <AnimatedItem animation="fade-in">
-          <CaseStudySelector 
-            results={transformedCaseStudies}
-          />
+          <CaseStudySelector results={transformedCaseStudies} />
         </AnimatedItem>
       </Section>
-
 
       {/* Trust Section */}
       <Section background="orange-light">
@@ -68,19 +49,15 @@ export default function ResultsPage({ caseStudies }: ResultsPageProps) {
                 These Aren't Just Case Studies
               </Heading>
               <Text size="lg" className="mb-6">
-                Every strategy, every number, every result comes from our own pub. 
-                We've tested it all at The Anchor first. The failures taught us what to avoid. 
-                The successes showed us what to share.
+                Every strategy, every number, every result comes from our own pub. We've tested it
+                all at The Anchor first. The failures taught us what to avoid. The successes showed
+                us what to share.
               </Text>
               <Text size="lg" className="mb-6">
-                When you work with Orange Jelly, you're getting proven strategies 
-                from someone who's been in your shoes and found a way out.
+                When you work with Orange Jelly, you're getting proven strategies from someone who's
+                been in your shoes and found a way out.
               </Text>
-              <Button
-                href="/services"
-                variant="primary"
-                size="large"
-              >
+              <Button href="/services" variant="primary" size="large">
                 See How We Can Help You
               </Button>
             </div>
@@ -90,20 +67,36 @@ export default function ResultsPage({ caseStudies }: ResultsPageProps) {
               </Heading>
               <Grid columns={{ default: 2 }} gap="medium">
                 <div className="text-center">
-                  <Text size="2xl" weight="bold" className="text-orange">71%</Text>
-                  <Text size="sm" color="muted">Food GP</Text>
+                  <Text size="2xl" weight="bold" className="text-orange">
+                    {resultsData.stats.foodGP}
+                  </Text>
+                  <Text size="sm" color="muted">
+                    Food GP
+                  </Text>
                 </div>
                 <div className="text-center">
-                  <Text size="2xl" weight="bold" className="text-orange">25-35</Text>
-                  <Text size="sm" color="muted">Quiz Regulars</Text>
+                  <Text size="2xl" weight="bold" className="text-orange">
+                    {resultsData.stats.quizRegulars}
+                  </Text>
+                  <Text size="sm" color="muted">
+                    Quiz Regulars
+                  </Text>
                 </div>
                 <div className="text-center">
-                  <Text size="2xl" weight="bold" className="text-orange">£250</Text>
-                  <Text size="sm" color="muted">Weekly Savings</Text>
+                  <Text size="2xl" weight="bold" className="text-orange">
+                    {resultsData.stats.weeklySavings}
+                  </Text>
+                  <Text size="sm" color="muted">
+                    Weekly Savings
+                  </Text>
                 </div>
                 <div className="text-center">
-                  <Text size="2xl" weight="bold" className="text-orange">70k</Text>
-                  <Text size="sm" color="muted">Monthly Views</Text>
+                  <Text size="2xl" weight="bold" className="text-orange">
+                    {resultsData.stats.monthlyViews}
+                  </Text>
+                  <Text size="sm" color="muted">
+                    Monthly Views
+                  </Text>
                 </div>
               </Grid>
             </Card>

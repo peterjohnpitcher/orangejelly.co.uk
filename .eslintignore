@@ -1,0 +1,22 @@
+# Ignore all JSON files
+*.json
+**/*.json
+
+# Ignore config files
+next.config.js
+tailwind.config.js
+postcss.config.js
+
+# Ignore build outputs
+.next
+out
+dist
+
+# Ignore node modules
+node_modules
+
+# Ignore coverage
+coverage
+
+# Ignore public folder
+public

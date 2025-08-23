@@ -1,5 +1,5 @@
 import BlogPostServer from '@/components/blog/BlogPostServer';
-import { BlogPost as BlogPostType } from '@/lib/content-source';
+import { type BlogPost as BlogPostType } from '@/lib/content-source';
 
 interface BlogPostClientProps {
   post: BlogPostType;
