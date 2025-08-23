@@ -173,27 +173,46 @@ export default function HomePage({
 
       <TrustBar items={trustBarItems || undefined} />
 
-      {/* Partnerships */}
-      <Section background="cream" padding="small">
-        <Partnerships variant="compact" partners={partnerships} />
-      </Section>
-
       {/* Features Grid */}
       {displayFeatures.length > 0 && (
-        <Section background="white" padding="large">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <section className="bg-white py-12">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
               {displayFeatures.map((feature, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-4xl mb-3">{feature.icon}</div>
-                  <Heading level={4} className="text-sm font-bold mb-1">{feature.title}</Heading>
-                  <Text size="xs" color="muted">{feature.description}</Text>
+                  <div className="text-5xl mb-2">{feature.icon}</div>
+                  <h3 className="text-sm font-bold text-charcoal mb-1">{feature.title}</h3>
+                  <p className="text-xs text-gray-600">{feature.description}</p>
                 </div>
               ))}
             </div>
           </div>
-        </Section>
+        </section>
       )}
+
+      {/* Partnerships */}
+      <section className="bg-gray-50 py-12">
+        <div className="max-w-4xl mx-auto px-4">
+          <h3 className="text-2xl font-bold text-center text-charcoal mb-8">Working with Industry Leaders</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            {partnerships?.map((partner, index) => (
+              <div key={index} className="text-center">
+                <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block">
+                  <div className="bg-white rounded-lg p-6 h-32 flex items-center justify-center mb-4 shadow-sm hover:shadow-md transition-shadow">
+                    <img 
+                      src={partner.logoUrl} 
+                      alt={partner.name}
+                      className="max-h-20 max-w-full object-contain"
+                    />
+                  </div>
+                  <h4 className="font-bold text-charcoal mb-2">{partner.name}</h4>
+                  <p className="text-sm text-gray-600">{partner.description}</p>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Problems We Solve */}
       <Section>
