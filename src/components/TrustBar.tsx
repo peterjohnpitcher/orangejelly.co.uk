@@ -4,6 +4,7 @@ import Grid from '@/components/Grid';
 interface TrustItem {
   value: string;
   label: string;
+  subtext?: string;
 }
 
 interface TrustBarProps {
@@ -26,7 +27,10 @@ function TrustBar({ items }: TrustBarProps) {
           {items.map((item, index) => (
             <div key={index} className={`animate-fade-in ${index === 1 ? 'animate-fade-in-delay' : index === 2 ? 'animate-fade-in-delay-2' : ''}`}>
               <p className="text-3xl font-bold text-orange mb-1">{item.value}</p>
-              <p className="text-charcoal">{item.label}</p>
+              <p className="text-charcoal font-medium">{item.label}</p>
+              {item.subtext && (
+                <p className="text-sm text-charcoal/70 mt-1">{item.subtext}</p>
+              )}
             </div>
           ))}
         </Grid>

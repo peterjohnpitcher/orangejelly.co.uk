@@ -173,11 +173,6 @@ export default function HomePage({
 
       <TrustBar items={trustBarItems || undefined} />
 
-      {/* Trust Badges */}
-      <Section padding="small">
-        <TrustBadges variant="horizontal" trustBadges={trustBadges} />
-      </Section>
-
       {/* Partnerships */}
       <Section background="cream" padding="small">
         <Partnerships variant="compact" partners={partnerships} />
@@ -185,16 +180,18 @@ export default function HomePage({
 
       {/* Features Grid */}
       {displayFeatures.length > 0 && (
-        <Section background="cream" padding="medium">
-          <Grid columns={{ default: 2, md: 3, lg: 6 }} gap="small">
-            {displayFeatures.map((feature, index) => (
-              <Card key={index} variant="bordered" padding="medium" className="text-center hover:shadow-md transition-shadow">
-                <Text size="2xl" className="mb-2">{feature.icon}</Text>
-                <Heading level={4} className="mb-2 text-sm">{feature.title}</Heading>
-                <Text size="xs" color="muted">{feature.description}</Text>
-              </Card>
-            ))}
-          </Grid>
+        <Section background="white" padding="large">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+              {displayFeatures.map((feature, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-4xl mb-3">{feature.icon}</div>
+                  <Heading level={4} className="text-sm font-bold mb-1">{feature.title}</Heading>
+                  <Text size="xs" color="muted">{feature.description}</Text>
+                </div>
+              ))}
+            </div>
+          </div>
         </Section>
       )}
 
@@ -210,42 +207,6 @@ export default function HomePage({
               <ProblemCard key={index} {...problem} />
             ))}
           </Grid>
-
-          {/* Solution Links - Dynamically generated from problems */}
-          {displayProblems.length > 0 && (
-            <Container className="mt-12 pt-8 border-t border-gray-200">
-              <Heading level={3} align="center" className="mb-6">
-                {sectionHeadings?.solutionsHeading || 'Explore Solutions to Your Biggest Problems'}
-              </Heading>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-                {displayProblems.slice(0, 6).map((problem, index) => (
-                  <Link
-                    key={index}
-                    href={problem.linkHref || '/services'}
-                    className="block hover:no-underline"
-                  >
-                    <Card
-                      variant="bordered"
-                      padding="medium"
-                      className="h-full hover:shadow-lg transition-all hover:-translate-y-1 hover:border-orange"
-                    >
-                      <div className="text-center space-y-2">
-                        <Text as="span" align="center" className="text-3xl block">
-                          {problem.emoji || problem.icon || '🍺'}
-                        </Text>
-                        <Text size="sm" weight="semibold" align="center" className="text-charcoal">
-                          {problem.title}
-                        </Text>
-                        <Text size="xs" align="center" className="text-charcoal/70">
-                          {problem.description}
-                        </Text>
-                      </div>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            </Container>
-          )}
         </AnimatedItem>
       </Section>
 

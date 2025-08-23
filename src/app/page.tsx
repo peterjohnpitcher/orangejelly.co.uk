@@ -159,14 +159,14 @@ const getLocalHomeData = () => {
       name: 'Greene King',
       description:
         "We operate The Anchor as a Greene King tenant, sharing our AI innovations with one of the UK's leading pub companies.",
-      logoUrl: '/partners/greene-king-logo.svg',
+      logoUrl: '/partners/greene-king-logo.png',
       url: 'https://www.greeneking.co.uk/',
     },
     {
       name: 'BII (British Institute of Innkeeping)',
       description:
         'Proud BII members, featured in their Autumn 2025 magazine for our AI innovation in hospitality.',
-      logoUrl: '/partners/bii-logo.svg',
+      logoUrl: '/partners/bii-logo.png',
       url: 'https://www.bii.org/',
     },
   ];
