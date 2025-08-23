@@ -65,37 +65,37 @@ const getLocalHomeData = () => {
       emoji: '📉',
       title: 'Empty Tables Tuesday-Thursday',
       description: 'Quiet midweek trade killing your profits',
-      linkHref: 'midweek-marketing',
+      linkHref: '/quiet-midweek-solutions',
     },
     {
       emoji: '💸',
       title: 'Rising Costs, Falling Revenue',
       description: 'Squeezed margins with no clear way forward',
-      linkHref: 'cost-optimization',
+      linkHref: '/pub-rescue',
     },
     {
       emoji: '🏢',
       title: 'Chain Pub Competition',
       description: 'Struggling to compete with Wetherspoons and Greene King',
-      linkHref: 'competitive-advantage',
+      linkHref: '/compete-with-pub-chains',
     },
     {
       emoji: '📱',
       title: 'Social Media Overwhelm',
       description: 'No time for marketing, no results when you try',
-      linkHref: 'social-media-automation',
+      linkHref: '/services#social-media-marketing',
     },
     {
       emoji: '🍽️',
       title: 'Menu Not Converting',
       description: 'Food orders low despite good quality',
-      linkHref: 'menu-optimization',
+      linkHref: '/services#menu-makeover',
     },
     {
       emoji: '⭐',
       title: 'Poor Online Reviews',
       description: 'Negative feedback damaging your reputation',
-      linkHref: 'reputation-management',
+      linkHref: '/contact',
     },
   ];
 
