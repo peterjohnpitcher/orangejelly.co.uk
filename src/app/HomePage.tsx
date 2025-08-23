@@ -20,7 +20,11 @@ import Container from '@/components/Container';
 import Box from '@/components/Box';
 import { FAQSchema } from '@/components/StructuredData';
 import { SpeakableContent } from '@/components/SpeakableContent';
-import Partnerships from '@/components/Partnerships';
+import FeaturesGrid from '@/components/FeaturesGrid';
+import PartnershipsSection from '@/components/PartnershipsSection';
+import ProblemCardsSection from '@/components/ProblemCardsSection';
+import ResultsSection from '@/components/ResultsSection';
+import AboutSection from '@/components/AboutSection';
 // Removed Sanity type imports
 interface FAQ {
   question: string;
@@ -173,89 +177,21 @@ export default function HomePage({
 
       <TrustBar items={trustBarItems || undefined} />
 
-      {/* Features Grid */}
-      {displayFeatures.length > 0 && (
-        <section className="bg-white py-12">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-              {displayFeatures.map((feature, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-5xl mb-2">{feature.icon}</div>
-                  <h3 className="text-sm font-bold text-charcoal mb-1">{feature.title}</h3>
-                  <p className="text-xs text-gray-600">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      <FeaturesGrid features={displayFeatures} />
 
-      {/* Partnerships */}
-      <section className="bg-gray-50 py-12">
-        <div className="max-w-4xl mx-auto px-4">
-          <h3 className="text-2xl font-bold text-center text-charcoal mb-8">Working with Industry Leaders</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            {partnerships?.map((partner, index) => (
-              <div key={index} className="text-center">
-                <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="bg-white rounded-lg p-6 h-32 flex items-center justify-center mb-4 shadow-sm hover:shadow-md transition-shadow">
-                    <img 
-                      src={partner.logoUrl} 
-                      alt={partner.name}
-                      className="max-h-20 max-w-full object-contain"
-                    />
-                  </div>
-                  <h4 className="font-bold text-charcoal mb-2">{partner.name}</h4>
-                  <p className="text-sm text-gray-600">{partner.description}</p>
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PartnershipsSection partners={partnerships || []} />
 
-      {/* Problems We Solve */}
-      <Section>
-        <AnimatedItem animation="fade-in">
-          <Heading level={2} align="center" className="mb-12">
-            {sectionHeadings?.problemsHeading || "What's Killing Your Business?"}
-          </Heading>
+      <ProblemCardsSection 
+        problems={displayProblems}
+        title={sectionHeadings?.problemsHeading}
+      />
 
-          <Grid columns={{ default: 1, md: 3 }} gap="medium">
-            {problemCards.map((problem, index) => (
-              <ProblemCard key={index} {...problem} />
-            ))}
-          </Grid>
-        </AnimatedItem>
-      </Section>
-
-      {/* Mini Case Study */}
-      <Section background="teal">
-        <AnimatedItem animation="slide-up">
-          <Box textAlign="center">
-            <Heading level={2} color="white" align="center" className="mb-6">
-              {sectionHeadings?.resultsHeading || 'Real Results from The Anchor'}
-            </Heading>
-            <Container maxWidth="4xl" className="bg-teal-dark/30 rounded-lg p-8 mb-8">
-              <Text size="lg" color="white" align="center" className="mb-4">
-                {sectionHeadings?.resultsTestimonial || 
-                  "We've added £75,000-£100,000 of value to our business using AI. Our food GP improved from 58% to 71%. Every strategy we share has been proven in our own pub."}
-              </Text>
-              <Text size="lg" align="center" className="text-cream/90">
-                {sectionHeadings?.resultsSubtext || 
-                  "Featured in BII's Autumn 2025 magazine for AI innovation. From quiz nights to tasting events - see how we turned our pub around."}
-              </Text>
-            </Container>
-            <Button
-              href="/results"
-              variant="secondary"
-              className="bg-cream text-teal hover:bg-cream-light"
-            >
-              {sectionHeadings?.resultsButtonText || 'See More Pub Turnarounds'}
-            </Button>
-          </Box>
-        </AnimatedItem>
-      </Section>
+      <ResultsSection 
+        title={sectionHeadings?.resultsHeading}
+        testimonial={sectionHeadings?.resultsTestimonial}
+        subtext={sectionHeadings?.resultsSubtext}
+        buttonText={sectionHeadings?.resultsButtonText}
+      />
 
       {/* ROI Calculator Section */}
       <Box id="roi-calculator">
