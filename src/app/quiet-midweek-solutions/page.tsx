@@ -13,7 +13,8 @@ import Text from '@/components/Text';
 import FeatureList from '@/components/FeatureList';
 import { generateMetadata as generateMeta } from '@/lib/metadata';
 import { FAQSchema } from '@/components/StructuredData';
-// Removed Sanity dependencies - using static content
+// Import local data
+import midweekData from '../../../content/data/quiet-midweek.json';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -26,17 +27,14 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function QuietMidweekSolutions() {
-  // Static content - no Sanity dependency
-  const heroSection = {
-    title: 'Fix Dead Tuesday & Wednesday Nights',
-    subtitle:
-      'Transform your dead midweek nights into profit. From 5 tables to fully booked - proven strategies that work for UK pubs.',
-  };
-
-  const strategies: any[] = [];
-  const timeline: any[] = [];
-  const successMetrics = null;
-  const faqs: any[] = [];
+  // Use local data
+  const heroSection = midweekData.heroSection;
+  const problemSection = midweekData.problemSection;
+  const solutionsSection = midweekData.solutionsSection;
+  const timeline = midweekData.transformationTimeline;
+  const implementationGuide = midweekData.implementationGuide;
+  const investmentReturn = midweekData.investmentReturn;
+  const faqs = midweekData.faqs;
 
   return (
     <>
@@ -53,43 +51,29 @@ export default function QuietMidweekSolutions() {
         <AnimatedItem animation="fade-in">
           <div className="max-w-4xl mx-auto text-center">
             <Heading level={2} className="mb-8">
-              Tuesday & Wednesday Nights Killing Your Profits?
+              {problemSection.heading}
             </Heading>
 
             <Grid columns={{ default: 1, md: 3 }} gap="medium" className="mb-8">
-              <ProblemCard
-                emoji="💀"
-                problem="Ghost Town Tuesdays"
-                solution="5 tables out of 30 occupied. Staff standing around. Losing £300+ per night."
-                linkText="Fix Tuesdays"
-                linkHref="/services#quick-wins"
-              />
-              <ProblemCard
-                emoji="📉"
-                problem="Wednesday Wasteland"
-                solution="Kitchen prepped for 50, serving 12. Food waste mounting. Morale dropping."
-                linkText="Fix Wednesdays"
-                linkHref="/services#menu-makeover"
-              />
-              <ProblemCard
-                emoji="🔄"
-                problem="The Vicious Cycle"
-                solution="Empty pub looks closed → People avoid it → Gets emptier → Death spiral."
-                linkText="Break the cycle"
-                linkHref="/services#done-for-you-marketing"
-              />
+              {problemSection.problems.map((problem, index) => (
+                <ProblemCard
+                  key={index}
+                  emoji={problem.emoji}
+                  problem={problem.title}
+                  solution={problem.description}
+                  linkText={problem.linkText}
+                  linkHref={problem.linkHref}
+                />
+              ))}
             </Grid>
 
             <Card background="white" padding="large" variant="bordered" className="border-red-200">
               <Text size="lg" weight="semibold" className="text-red-600 mb-4">
-                The Brutal Math: Every Dead Midweek Night Costs You £400-600
+                {problemSection.brutalMath.heading}
               </Text>
-              <Text className="mb-6">
-                That's £3,200-4,800 per month bleeding from your business. Meanwhile, your
-                competition is packed because they cracked the midweek code. Time to steal it back.
-              </Text>
+              <Text className="mb-6">{problemSection.brutalMath.description}</Text>
               <WhatsAppButton
-                text="Fix my midweek crisis NOW"
+                text={problemSection.brutalMath.ctaText}
                 size="large"
                 className="!bg-red-600 hover:!bg-red-700"
               />

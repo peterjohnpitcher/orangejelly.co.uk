@@ -13,7 +13,8 @@ import FAQItem from '@/components/FAQItem';
 import RelatedLinks from '@/components/RelatedLinks';
 import { generateMetadata as generateMeta } from '@/lib/metadata';
 import { FAQSchema } from '@/components/StructuredData';
-// Removed Sanity dependencies
+// Import local data
+import pubRescueData from '../../../content/data/pub-rescue.json';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generateMeta({
@@ -25,15 +26,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function PubRescue() {
-  // Static fallback content
-  const heroSection = {
-    title: 'Pub Rescue - Emergency Help for Struggling UK Pubs',
-    subtitle:
-      'Struggling pub? Get emergency help now. From empty Tuesday nights to staff crises, we provide immediate solutions that work. 30-day money-back guarantee.',
-  };
-  const emergencyCategories: any[] = [];
-  const successMetrics = null;
-  const faqs: any[] = [];
+  // Use local data
+  const heroSection = pubRescueData.heroSection;
+  const emergencyCategories = pubRescueData.emergencyCategories;
+  const recoveryMetrics = pubRescueData.recoveryMetrics;
+  const faqs = pubRescueData.faqs;
 
   return (
     <>
@@ -53,24 +50,22 @@ export default function PubRescue() {
             <Text size="xl" className="mr-3">
               🚨
             </Text>
-            <Heading level={2}>Is Your Pub in Crisis?</Heading>
+            <Heading level={2}>{pubRescueData.emergencyBanner.heading}</Heading>
             <Text size="xl" className="ml-3">
               🚨
             </Text>
           </div>
           <Text size="lg" className="mb-6 max-w-3xl mx-auto">
-            Empty tables, rising costs, staff nightmares - we know the feeling. The Anchor was
-            failing too until we figured out how to fix it. Now we help other licensees escape the
-            same traps.
+            {pubRescueData.emergencyBanner.description}
           </Text>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <WhatsAppButton
-              text="URGENT: I need help with my pub NOW"
+              text={pubRescueData.emergencyBanner.ctaText}
               size="large"
               className="!bg-red-600 hover:!bg-red-700 !text-white"
             />
             <Text size="sm" className="text-charcoal/60">
-              I'll do my best to respond quickly
+              {pubRescueData.emergencyBanner.supportText}
             </Text>
           </div>
         </div>
@@ -101,27 +96,24 @@ export default function PubRescue() {
                     <Heading level={3} className="mb-2">
                       {category.title}
                     </Heading>
+                    <Text size="sm" className="mb-2 text-charcoal/80">
+                      {category.description}
+                    </Text>
+                    {category.impact && (
+                      <Text size="sm" className="font-semibold text-red-600 mb-2">
+                        Impact: {category.impact}
+                      </Text>
+                    )}
+                    {category.solution && (
+                      <Text size="sm" className="text-teal-600">
+                        Solution: {category.solution}
+                      </Text>
+                    )}
                   </div>
                 </div>
 
-                {category.items && category.items.length > 0 && (
-                  <div className="mb-4">
-                    <Text size="sm" className="font-semibold mb-2 text-charcoal/70">
-                      Warning signs:
-                    </Text>
-                    <ul className="space-y-1">
-                      {category.items.map((item, index) => (
-                        <li key={index} className="text-sm text-charcoal/80 flex items-start">
-                          <span className="text-red-500 mr-2">•</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
                 <WhatsAppButton
-                  text={`Help! ${category.title}`}
+                  text={`Help with ${category.title}`}
                   fullWidth
                   size="medium"
                   className="!bg-orange hover:!bg-orange-dark"

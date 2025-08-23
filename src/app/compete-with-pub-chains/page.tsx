@@ -11,7 +11,8 @@ import Text from '@/components/Text';
 import FeatureList from '@/components/FeatureList';
 import { generateMetadata as generateMeta } from '@/lib/metadata';
 import { FAQSchema } from '@/components/StructuredData';
-// Removed Sanity dependencies
+// Import local data
+import competeData from '../../../content/data/compete-with-chains.json';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Button from '@/components/Button';
 
@@ -25,15 +26,14 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function CompeteWithPubChains() {
-  // Static fallback content
-  const heroSection = {
-    title: 'Beat Wetherspoons & Pub Chains - David vs Goliath Strategy',
-    subtitle:
-      'Stop losing customers to chain pubs. Proven strategies to compete and win against Wetherspoons, Greene King, and Marstons. Turn their weaknesses into your strengths.',
-  };
-  const strategies: any[] = [];
-  const successMetrics = null;
-  const faqs: any[] = [];
+  // Use local data
+  const heroSection = competeData.heroSection;
+  const problemSection = competeData.problemSection;
+  const advantagesSection = competeData.advantagesSection;
+  const actionPlan = competeData.actionPlan;
+  const strategies = competeData.strategies;
+  const successMetrics = competeData.successMetrics;
+  const faqs = competeData.faqs;
 
   return (
     <>
@@ -50,51 +50,27 @@ export default function CompeteWithPubChains() {
         <AnimatedItem animation="fade-in">
           <div className="max-w-4xl mx-auto text-center">
             <Heading level={2} className="mb-8">
-              Losing Customers to the Big Chains?
+              {problemSection.heading}
             </Heading>
 
             <Grid columns={{ default: 1, md: 3 }} gap="medium" className="mb-8">
-              <Card background="white" padding="medium">
-                <div className="text-3xl mb-3">🍺</div>
-                <Heading level={4} className="mb-2">
-                  They Beat You on Price
-                </Heading>
-                <Text size="sm">
-                  £2.49 pints. £6.99 meals. You can't match their buying power or economies of
-                  scale.
-                </Text>
-              </Card>
-              <Card background="white" padding="medium">
-                <div className="text-3xl mb-3">📱</div>
-                <Heading level={4} className="mb-2">
-                  They Have the App
-                </Heading>
-                <Text size="sm">
-                  Order from table. Loyalty points. Push notifications. Million-pound tech you can't
-                  afford.
-                </Text>
-              </Card>
-              <Card background="white" padding="medium">
-                <div className="text-3xl mb-3">💰</div>
-                <Heading level={4} className="mb-2">
-                  They Have Deep Pockets
-                </Heading>
-                <Text size="sm">
-                  TV ads, billboards, sponsorships. Marketing budgets bigger than your annual
-                  turnover.
-                </Text>
-              </Card>
+              {problemSection.challenges.map((challenge, index) => (
+                <Card key={index} background="white" padding="medium">
+                  <div className="text-3xl mb-3">{challenge.icon}</div>
+                  <Heading level={4} className="mb-2">
+                    {challenge.title}
+                  </Heading>
+                  <Text size="sm">{challenge.description}</Text>
+                </Card>
+              ))}
             </Grid>
 
             <Card background="cream" padding="large" variant="bordered" className="border-red-200">
               <Text size="lg" weight="semibold" className="text-red-600 mb-4">
-                Here's the truth: You'll NEVER beat them at their own game
+                {problemSection.truthStatement}
               </Text>
-              <Text className="mb-6">
-                But you don't need to. The Anchor sits 200 yards from a Wetherspoons and we're
-                thriving. Not by competing on price, but by being everything they can't be.
-              </Text>
-              <WhatsAppButton text="Show me how to beat the chains" size="large" />
+              <Text className="mb-6">{problemSection.solution}</Text>
+              <WhatsAppButton text={problemSection.ctaText} size="large" />
             </Card>
           </div>
         </AnimatedItem>

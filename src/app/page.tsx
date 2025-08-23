@@ -32,7 +32,7 @@ const getLocalHomeData = () => {
   const hero = {
     title: 'Fill Your Pub with AI-Powered Marketing',
     subtitle:
-      'Transform your pub with proven AI marketing strategies. From empty tables to thriving business - tested and proven at The Anchor. Real licensee experience, real results.',
+      'Stop struggling with empty tables. We turned The Anchor from failing to thriving using AI marketing strategies that actually work. From one licensee to another - let me show you how.',
     ctaText: 'Get Marketing Help',
     bottomText: '£62.50 per hour plus VAT • 30-day guarantee • Real pub experience',
   };

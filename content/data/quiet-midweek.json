@@ -1,0 +1,265 @@
+{
+  "heroSection": {
+    "title": "Tuesday & Wednesday Nights Killing Your Profits?",
+    "subtitle": "Transform dead midweek nights into your most profitable days. From 5 empty tables to fully booked using our proven system."
+  },
+  "problemSection": {
+    "heading": "Tuesday & Wednesday Nights Killing Your Profits?",
+    "problems": [
+      {
+        "emoji": "💀",
+        "title": "Ghost Town Tuesdays",
+        "description": "5 tables out of 30 occupied. Staff standing around. Losing £300+ per night.",
+        "linkText": "Fix Tuesdays",
+        "linkHref": "#solutions"
+      },
+      {
+        "emoji": "📉",
+        "title": "Wednesday Wasteland",
+        "description": "Kitchen prepped for 50, serving 12. Food waste mounting. Morale dropping.",
+        "linkText": "Fix Wednesdays",
+        "linkHref": "#solutions"
+      },
+      {
+        "emoji": "🔄",
+        "title": "The Vicious Cycle",
+        "description": "Empty pub looks closed → People avoid it → Gets emptier → Death spiral.",
+        "linkText": "Break the cycle",
+        "linkHref": "#solutions"
+      }
+    ],
+    "brutalMath": {
+      "heading": "The Brutal Math: Every Dead Midweek Night Costs You £400-600",
+      "description": "That's £3,200-4,800 per month bleeding from your business. Meanwhile, your competition is packed because they cracked the midweek code. Time to steal it back.",
+      "ctaText": "Fix my midweek crisis NOW"
+    }
+  },
+  "solutionsSection": {
+    "heading": "Midweek Winners That Actually Work",
+    "subtitle": "Tested at The Anchor, proven across UK pubs",
+    "tuesdayWinners": [
+      {
+        "_key": "quiz-night",
+        "title": "Quiz Night 2.0",
+        "description": "Not your grandad's quiz",
+        "features": [
+          "AI-generated topical questions",
+          "Social media teasers build anticipation",
+          "Team leagues create loyalty",
+          "Food deals boost spend"
+        ],
+        "result": "25-35 regulars every week, £420 average revenue"
+      },
+      {
+        "_key": "taco-tuesday",
+        "title": "Taco Tuesday",
+        "description": "Simple, profitable, Instagram-worthy",
+        "features": [
+          "3 tacos + beer for £12.95",
+          "65% GP on food combo",
+          "Build-your-own options",
+          "Sharing platters for groups"
+        ],
+        "result": "Turns deadest night into 60+ covers"
+      },
+      {
+        "_key": "open-mic",
+        "title": "Open Mic Night",
+        "description": "Zero cost, maximum community",
+        "features": [
+          "Performers bring their crowd",
+          "No entertainment costs",
+          "Builds artistic community",
+          "Regular weekly audience"
+        ],
+        "result": "40-50 people, mostly new faces"
+      }
+    ],
+    "wednesdayWinners": [
+      {
+        "_key": "steak-night",
+        "title": "Steak Night",
+        "description": "Premium offering, premium profits",
+        "features": [
+          "2 steaks + bottle of wine £35",
+          "68% GP maintained",
+          "Upsell to premium cuts",
+          "Date night positioning"
+        ],
+        "result": "Books out 3 days ahead"
+      },
+      {
+        "_key": "wing-wednesday",
+        "title": "Wing Wednesday",
+        "description": "Social, messy, profitable",
+        "features": [
+          "50p wings minimum order 10",
+          "Drives beer sales",
+          "Competition element",
+          "Group-friendly"
+        ],
+        "result": "Kitchen at capacity, bar takings doubled"
+      },
+      {
+        "_key": "wine-paint",
+        "title": "Wine & Paint Night",
+        "description": "Different audience, zero competition",
+        "features": [
+          "£25 includes materials + first drink",
+          "Attracts new demographic",
+          "No experience needed",
+          "Instagram content goldmine"
+        ],
+        "result": "30 tickets, 90% female audience"
+      }
+    ]
+  },
+  "transformationTimeline": {
+    "heading": "Your Midweek Transformation Timeline",
+    "weeks": [
+      {
+        "week": "Week 1-2",
+        "title": "Launch & Learn",
+        "description": "First event launches. Gathering data. Initial promotion push.",
+        "result": "15-20 curious customers"
+      },
+      {
+        "week": "Week 3-4",
+        "title": "Building Momentum",
+        "description": "Word spreading. Regulars forming. Social proof building.",
+        "result": "25-35 regular attendees"
+      },
+      {
+        "week": "Month 2+",
+        "title": "Midweek = Money",
+        "description": "Events established. Bookings required. Staff excited.",
+        "result": "Midweek as busy as weekends"
+      }
+    ],
+    "metrics": {
+      "revenueIncrease": "£8,000+ monthly",
+      "utilization": "From 20% to 75% capacity",
+      "staffMorale": "Massively improved",
+      "foodWaste": "Reduced by 60%"
+    }
+  },
+  "implementationGuide": {
+    "heading": "Your 14-Day Midweek Rescue Plan",
+    "steps": [
+      {
+        "day": "Day 1-3",
+        "title": "Choose Your Weapon",
+        "tasks": [
+          "Pick ONE Tuesday event to start",
+          "Pick ONE Wednesday event to start",
+          "Survey regulars for preference",
+          "Check local competition"
+        ]
+      },
+      {
+        "day": "Day 4-7",
+        "title": "Build the Machine",
+        "tasks": [
+          "Create social media templates",
+          "Design promotional materials",
+          "Brief and train staff",
+          "Set up booking system"
+        ]
+      },
+      {
+        "day": "Day 8-10",
+        "title": "Create the Buzz",
+        "tasks": [
+          "Launch social media campaign",
+          "Message database directly",
+          "Put up posters locally",
+          "Create FOMO with 'limited spaces'"
+        ]
+      },
+      {
+        "day": "Day 11-14",
+        "title": "Launch Week",
+        "tasks": [
+          "Run first events",
+          "Capture content for social",
+          "Get feedback immediately",
+          "Book people for next week"
+        ]
+      }
+    ]
+  },
+  "investmentReturn": {
+    "heading": "The Investment vs The Return",
+    "investment": {
+      "setup": "£62.50/hour for 8-10 hours setup",
+      "total": "£500-625 + VAT",
+      "includes": [
+        "Complete event planning",
+        "Marketing templates",
+        "Staff training materials",
+        "30-day support"
+      ]
+    },
+    "return": {
+      "week1": "£400-600 additional revenue",
+      "month1": "£1,600-2,400 additional revenue",
+      "month3": "£4,800-7,200 additional revenue",
+      "breakeven": "Investment recovered in first week"
+    }
+  },
+  "socialProof": {
+    "heading": "Don't Just Take Our Word For It",
+    "results": [
+      {
+        "pub": "The Anchor",
+        "result": "Quiz night is now our 3rd busiest night of the week"
+      },
+      {
+        "pub": "Village Pub, Surrey",
+        "result": "Taco Tuesday brings in younger crowd we never reached before"
+      },
+      {
+        "pub": "Market Tavern",
+        "result": "Steak night books out every single week now"
+      }
+    ]
+  },
+  "urgencySection": {
+    "heading": "Every Empty Tuesday Costs You £400. Every Empty Wednesday Another £400.",
+    "calculation": "That's £57,600 per year. Going straight to your competition.",
+    "question": "How many more empty midweek nights can you afford?",
+    "ctaText": "Fix My Midweek Problem Now",
+    "guarantee": "30-day money-back guarantee if midweek doesn't improve"
+  },
+  "ctaSection": {
+    "title": "Ready to Pack Your Midweek Nights?",
+    "subtitle": "Let's turn your quietest nights into your most profitable",
+    "offerText": "Get your complete midweek transformation plan in 48 hours",
+    "pricing": "Investment: £62.50/hour + VAT",
+    "note": "Limited to 5 pubs at once to ensure quality support",
+    "ctaText": "Start My Midweek Transformation",
+    "whatsappMessage": "Hi Peter, my Tuesday and Wednesday nights are dead. Can you help?"
+  },
+  "faqs": [
+    {
+      "question": "What if my locals don't like change?",
+      "answer": "Start small and test. Run events alongside normal service initially. Your regulars might grumble, but when they see new faces and energy, they'll come around. Empty pubs die - busy pubs thrive. Your regulars want you to succeed."
+    },
+    {
+      "question": "How much promotion is needed?",
+      "answer": "Week 1: Heavy push across all channels. Week 2-4: Moderate reminders. Month 2+: Events sell themselves through word-of-mouth. We spend 2 hours per week total on promotion now, and our events are packed."
+    },
+    {
+      "question": "What if the first event flops?",
+      "answer": "It might! Our first quiz had 8 people. But we learned, adjusted, and promoted better. Week 2 had 15. Week 3 had 22. Now we have 35 regulars. Persistence and refinement are key. Give any event 4 weeks before judging."
+    },
+    {
+      "question": "Can this work in a small village pub?",
+      "answer": "Absolutely. Small communities are desperate for midweek activities. You might need different events (craft night vs. cocktail masterclass), but the principle is the same: give people a reason to leave the house on a Tuesday."
+    },
+    {
+      "question": "What about staff costs for quiet nights?",
+      "answer": "That's the point - you're paying staff anyway! Better they serve 50 customers than stand around serving 5. Your fixed costs are covered. Every additional customer is almost pure profit. Busy staff are happy staff."
+    }
+  ]
+}
