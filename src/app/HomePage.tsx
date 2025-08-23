@@ -183,6 +183,21 @@ export default function HomePage({
         <Partnerships variant="compact" partners={partnerships} />
       </Section>
 
+      {/* Features Grid */}
+      {displayFeatures.length > 0 && (
+        <Section background="cream" padding="medium">
+          <Grid columns={{ default: 2, md: 3, lg: 6 }} gap="small">
+            {displayFeatures.map((feature, index) => (
+              <Card key={index} variant="bordered" padding="medium" className="text-center hover:shadow-md transition-shadow">
+                <Text size="2xl" className="mb-2">{feature.icon}</Text>
+                <Heading level={4} className="mb-2 text-sm">{feature.title}</Heading>
+                <Text size="xs" color="muted">{feature.description}</Text>
+              </Card>
+            ))}
+          </Grid>
+        </Section>
+      )}
+
       {/* Problems We Solve */}
       <Section>
         <AnimatedItem animation="fade-in">
@@ -206,7 +221,7 @@ export default function HomePage({
                 {displayProblems.slice(0, 6).map((problem, index) => (
                   <Link
                     key={index}
-                    href={problem.linkHref ? `/services#${problem.linkHref}` : '/services'}
+                    href={problem.linkHref || '/services'}
                     className="block hover:no-underline"
                   >
                     <Card

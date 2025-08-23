@@ -34,7 +34,7 @@ const getLocalHomeData = () => {
     subtitle:
       'Stop struggling with empty tables. We turned The Anchor from failing to thriving using AI marketing strategies that actually work. From one licensee to another - let me show you how.',
     ctaText: 'Get Marketing Help',
-    bottomText: '£62.50 per hour plus VAT • 30-day guarantee • Real pub experience',
+    bottomText: '£62.50 per hour plus VAT • No packages • Real results from real licensees',
   };
 
   const faqs = [
@@ -62,64 +62,55 @@ const getLocalHomeData = () => {
 
   const problems = [
     {
-      emoji: '📉',
-      title: 'Empty Tables Tuesday-Thursday',
-      description: 'Quiet midweek trade killing your profits',
+      emoji: '🪑',
+      title: 'Empty Tables',
+      description: 'Transform quiet nights into busy venues',
       linkHref: '/quiet-midweek-solutions',
     },
     {
-      emoji: '💸',
-      title: 'Rising Costs, Falling Revenue',
-      description: 'Squeezed margins with no clear way forward',
-      linkHref: '/pub-rescue',
-    },
-    {
-      emoji: '🏢',
-      title: 'Chain Pub Competition',
-      description: 'Struggling to compete with Wetherspoons and Greene King',
-      linkHref: '/compete-with-pub-chains',
-    },
-    {
       emoji: '📱',
-      title: 'Social Media Overwhelm',
-      description: 'No time for marketing, no results when you try',
+      title: 'Social Media Struggles',
+      description: 'Build a following that actually visits',
       linkHref: '/services#social-media-marketing',
     },
     {
-      emoji: '🍽️',
-      title: 'Menu Not Converting',
-      description: 'Food orders low despite good quality',
-      linkHref: '/services#menu-makeover',
-    },
-    {
-      emoji: '⭐',
-      title: 'Poor Online Reviews',
-      description: 'Negative feedback damaging your reputation',
-      linkHref: '/contact',
+      emoji: '🎯',
+      title: 'Marketing Confusion',
+      description: 'Focus on what actually works',
+      linkHref: '/services',
     },
   ];
 
   const features = [
     {
-      icon: '🧠',
-      title: 'AI-Powered Marketing',
-      description: 'Create months of content in hours, not weeks',
-      highlight: true,
-    },
-    {
-      icon: '🍺',
-      title: 'Real Pub Experience',
-      description: 'Every strategy tested at The Anchor first',
-    },
-    {
-      icon: '⚡',
-      title: 'Quick Results',
-      description: 'Most pubs see improvements within 30 days',
-    },
-    {
       icon: '💰',
-      title: 'Guaranteed ROI',
-      description: '30-day money-back guarantee on results',
+      title: 'No Agency Fees',
+      description: 'Just honest pricing',
+    },
+    {
+      icon: '📅',
+      title: 'Results in 14 Days',
+      description: 'Or your money back',
+    },
+    {
+      icon: '🛡️',
+      title: 'Cost Effective',
+      description: 'Less than part-time staff',
+    },
+    {
+      icon: '❤️',
+      title: 'Real Licensee',
+      description: 'Not just another agency',
+    },
+    {
+      icon: '✅',
+      title: '30-Day Guarantee',
+      description: 'Risk-free trial',
+    },
+    {
+      icon: '⭐',
+      title: 'Save 5+ Hours',
+      description: 'Every single week',
     },
   ];
 
@@ -182,10 +173,9 @@ const getLocalHomeData = () => {
   const partnerships = partnershipsData;
 
   const trustBarItems = [
-    { value: '£75k-£100k', label: 'value added to The Anchor' },
-    { value: '71%', label: 'food GP (up from 58%)' },
-    { value: '30 days', label: 'typical results timeframe' },
-    { value: '£62.50', label: 'per hour + VAT' },
+    { value: '15-20%', label: 'Covers', subtext: 'Average increase in 6 weeks' },
+    { value: '£62.50/hour', label: 'AI-powered marketing solutions' },
+    { value: '14 Days', label: 'Guaranteed quick results' },
   ];
 
   const sectionHeadings = {
