@@ -1,7 +1,7 @@
 ---
 title: "Nobody Books Tables Anymore? Master the Art of Walk-ins vs Reservations"
 slug: "nobody-books-tables-anymore"
-publishedDate: "2025-09-01T10:00:00Z"
+publishedDate: "2025-08-19T10:00:00Z"
 excerpt: "Find the perfect balance between guaranteed bookings and spontaneous trade. Learn the system that increased our covers by 40% without turning anyone away."
 author: "Peter Pitcher"
 category: "operations"

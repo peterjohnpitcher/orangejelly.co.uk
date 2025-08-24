@@ -1,10 +1,10 @@
-import { type BlogPost as BlogPostType } from '@/lib/content-source';
+import { type BlogPost as BlogPostType } from '@/lib/blog';
 import BlogPost from './BlogPost';
-import { remark } from 'remark';
-import remarkHtml from 'remark-html';
+import { preprocessMarkdown } from '@/lib/markdown/preprocess';
+import { renderMarkdownToHtml } from '@/lib/markdown/render';
 
 interface BlogPostServerProps {
-  post: BlogPostType;
+  post: BlogPostType & { isPortableText?: boolean };
   relatedPosts?: BlogPostType[];
 }
 
@@ -13,18 +13,16 @@ interface BlogPostServerProps {
  * Processes markdown content server-side for better performance
  */
 export default async function BlogPostServer({ post, relatedPosts = [] }: BlogPostServerProps) {
-  // Process markdown content server-side if needed
   let processedPost = { ...post };
 
   if (!post.isPortableText && typeof post.content === 'string') {
-    // Process markdown to HTML on the server
-    const processedContent = await remark().use(remarkHtml).process(post.content);
+    // Preprocess to handle emoji bullets, then render to HTML
+    const pre = preprocessMarkdown(post.content);
+    const contentHtml = await renderMarkdownToHtml(pre);
 
-    // Add the processed HTML to the post object
     processedPost = {
       ...post,
-      contentHtml: processedContent.toString(),
-      // Mark that content is pre-processed
+      contentHtml,
       isPreProcessed: true,
     } as BlogPostType & { contentHtml: string; isPreProcessed: boolean };
   }

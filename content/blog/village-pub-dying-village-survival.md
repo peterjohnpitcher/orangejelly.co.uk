@@ -1,7 +1,7 @@
 ---
 title: "Village Pub in a Dying Village? Survival Strategies That Actually Work"
 slug: "village-pub-dying-village-survival"
-publishedDate: "2025-08-25T10:00:00Z"
+publishedDate: "2025-08-18T10:00:00Z"
 excerpt: "When your village is shrinking but your bills aren't, here's how to transform from local boozer to destination venue without losing your soul."
 author: "Peter Pitcher"
 category: "location-challenges"

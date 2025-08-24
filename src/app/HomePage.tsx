@@ -12,7 +12,6 @@ import Card from '@/components/Card';
 import Button from '@/components/Button';
 import Grid from '@/components/Grid';
 import AnimatedItem from '@/components/AnimatedItem';
-// import RelatedLinksFromSanity from '@/components/RelatedLinksFromSanity'; // Removed Sanity dependency
 import Link from '@/components/Link';
 import { URLS, MESSAGES, CONTACT } from '@/lib/constants';
 import Text from '@/components/Text';
@@ -25,7 +24,7 @@ import PartnershipsSection from '@/components/PartnershipsSection';
 import ProblemCardsSection from '@/components/ProblemCardsSection';
 import ResultsSection from '@/components/ResultsSection';
 import AboutSection from '@/components/AboutSection';
-// Removed Sanity type imports
+// Type definitions
 interface FAQ {
   question: string;
   answer: string;
@@ -41,7 +40,6 @@ interface SiteSettings {
   title: string;
   description: string;
 }
-
 
 interface Problem {
   emoji?: string;
@@ -69,7 +67,7 @@ interface Metrics {
   socialViewsContext?: string;
   hoursSaved?: string;
   hoursSavedContext?: string;
-  [key: string]: any; // Allow additional properties from Sanity
+  [key: string]: any; // Allow additional properties
 }
 
 interface SectionHeadings {
@@ -110,7 +108,7 @@ interface HomePageProps {
     bottomText: string;
   };
   sectionHeadings?: SectionHeadings;
-  trustBarItems?: Array<{ value: string; label: string; }> | null;
+  trustBarItems?: Array<{ value: string; label: string }> | null;
 }
 
 export default function HomePage({
@@ -128,25 +126,25 @@ export default function HomePage({
   // Process FAQs if available
   const displayFAQs = faqs || [];
 
-  const displayProblems = problems || [];
-  const displayFeatures = features || [];
+  // Ensure all problems have required fields for ProblemCardsSection
+  const displayProblems = (problems || []).map((p: any) => ({
+    emoji: p.emoji || p.icon || '🍺',
+    title: p.title || p.problem || '',
+    description: p.description || p.solution || 'We have the solution to help your pub thrive.',
+    linkHref: p.linkHref || '/services',
+  }));
+
+  // Ensure all features have required fields for FeaturesGrid
+  const displayFeatures = (features || []).map((f) => ({
+    icon: f.icon || '🎯',
+    title: f.title,
+    description: f.description || '',
+    highlight: f.highlight,
+  }));
   const displayMetrics = metrics || {};
 
-  // Transform problems data for ProblemCard component if from Sanity
-  const problemCards = displayProblems
-    .map((problem: any, index) => {
-      return {
-        emoji: problem.emoji || problem.icon || '🍺',
-        problem: problem.title || problem.problem,
-        solution:
-          problem.description ||
-          problem.solution ||
-          'We have the solution to help your pub thrive.',
-        linkText: 'Learn More',
-        linkHref: problem.linkHref || '/services', // Use linkHref from Sanity or default
-      };
-    })
-    .slice(0, 3); // Only show first 3 problems
+  // Transform problems data for ProblemCard component
+  const problemCards = displayProblems.slice(0, 3); // Only show first 3 problems
 
   return (
     <>
@@ -181,12 +179,9 @@ export default function HomePage({
 
       <PartnershipsSection partners={partnerships || []} />
 
-      <ProblemCardsSection 
-        problems={displayProblems}
-        title={sectionHeadings?.problemsHeading}
-      />
+      <ProblemCardsSection problems={displayProblems} title={sectionHeadings?.problemsHeading} />
 
-      <ResultsSection 
+      <ResultsSection
         title={sectionHeadings?.resultsHeading}
         testimonial={sectionHeadings?.resultsTestimonial}
         subtext={sectionHeadings?.resultsSubtext}
@@ -202,30 +197,45 @@ export default function HomePage({
                 {sectionHeadings?.calculatorHeading || 'Calculate Your Potential Revenue'}
               </Heading>
               <Text size="lg" color="muted" align="center" className="mb-12 max-w-2xl mx-auto">
-                {sectionHeadings?.calculatorSubtext || 
+                {sectionHeadings?.calculatorSubtext ||
                   'Every pub is different. See exactly how much more revenue you could generate with proven strategies.'}
               </Text>
               <ROICalculator />
 
-              {/* Related links removed - was using Sanity */}
               <div className="text-center mt-8">
-                <Text size="lg" className="mb-4">Ready to Increase Your Revenue?</Text>
-                <Text color="muted" className="mb-6">Choose the solution that fits your budget and timeline</Text>
+                <Text size="lg" className="mb-4">
+                  Ready to Increase Your Revenue?
+                </Text>
+                <Text color="muted" className="mb-6">
+                  Choose the solution that fits your budget and timeline
+                </Text>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <Card variant="bordered" padding="large">
-                    <Heading level={4} className="mb-3">Quick Win</Heading>
+                    <Heading level={4} className="mb-3">
+                      Quick Win
+                    </Heading>
                     <Text className="mb-4">Single consultation to tackle your biggest problem</Text>
-                    <Button href="/services" variant="ghost">Start Here →</Button>
+                    <Button href="/services" variant="ghost">
+                      Start Here →
+                    </Button>
                   </Card>
                   <Card variant="bordered" padding="large">
-                    <Heading level={4} className="mb-3">Full Recovery</Heading>
+                    <Heading level={4} className="mb-3">
+                      Full Recovery
+                    </Heading>
                     <Text className="mb-4">Complete marketing makeover with ongoing support</Text>
-                    <Button href="/services" variant="primary">Learn More</Button>
+                    <Button href="/services" variant="primary">
+                      Learn More
+                    </Button>
                   </Card>
                   <Card variant="bordered" padding="large">
-                    <Heading level={4} className="mb-3">DIY Training</Heading>
+                    <Heading level={4} className="mb-3">
+                      DIY Training
+                    </Heading>
                     <Text className="mb-4">AI tools and training to do it yourself</Text>
-                    <Button href="/services" variant="ghost">Get Training →</Button>
+                    <Button href="/services" variant="ghost">
+                      Get Training →
+                    </Button>
                   </Card>
                 </div>
               </div>
@@ -243,11 +253,11 @@ export default function HomePage({
                 {sectionHeadings?.aboutHeading || "We're licensees, Just Like You"}
               </Heading>
               <Text size="lg" color="muted" className="mb-4">
-                {sectionHeadings?.aboutText1 || 
+                {sectionHeadings?.aboutText1 ||
                   "I'm Peter. My husband Billy and I have run The Anchor in Stanwell Moor since March 2019. We faced the same struggles - empty tables, rising costs, fierce competition."}
               </Text>
               <Text size="lg" color="muted" className="mb-6">
-                {sectionHeadings?.aboutText2 || 
+                {sectionHeadings?.aboutText2 ||
                   "Orange Jelly exists because we discovered how AI can add 25 hours of value per week. I've been an early AI adopter since 2021, and now I help other pubs implement the same strategies that transformed our business."}
               </Text>
               <Button href="/about" variant="ghost" className="text-lg">
@@ -286,7 +296,8 @@ export default function HomePage({
                 style={{ width: 'auto', height: 'auto' }}
               />
               <Text color="white" align="center" className="opacity-90 font-semibold">
-                {sectionHeadings?.aboutCardText || 'Real pub experience + proven strategies = Orange Jelly'}
+                {sectionHeadings?.aboutCardText ||
+                  'Real pub experience + proven strategies = Orange Jelly'}
               </Text>
 
               {/* Orange accent line */}
@@ -307,7 +318,7 @@ export default function HomePage({
               {sectionHeadings?.ctaBannerHeading || 'Stop Struggling. Start Thriving.'}
             </Heading>
             <Text size="lg" align="center" className="mb-6 max-w-2xl mx-auto">
-              {sectionHeadings?.ctaBannerText || 
+              {sectionHeadings?.ctaBannerText ||
                 "Tell me what's killing your business. I'll share exactly how we fixed the same problems at The Anchor. Real solutions, no fluff."}
             </Text>
             <Button
@@ -331,19 +342,18 @@ export default function HomePage({
           </Heading>
           <div className="max-w-3xl mx-auto space-y-4">
             {displayFAQs.map((faq, index) => (
-              <FAQItem
-                key={index}
-                question={faq.question}
-                answer={faq.answer}
-              />
+              <FAQItem key={index} question={faq.question} answer={faq.answer} />
             ))}
           </div>
         </Section>
       )}
 
       <CTASection
-        title={sectionHeadings?.finalCtaTitle || "Ready to Turn Your Pub Around?"}
-        subtitle={sectionHeadings?.finalCtaSubtitle || "Let's talk about what's really hurting your business. I'll share the exact strategies that saved ours."}
+        title={sectionHeadings?.finalCtaTitle || 'Ready to Turn Your Pub Around?'}
+        subtitle={
+          sectionHeadings?.finalCtaSubtitle ||
+          "Let's talk about what's really hurting your business. I'll share the exact strategies that saved ours."
+        }
       />
     </>
   );

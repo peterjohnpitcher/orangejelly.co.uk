@@ -1,7 +1,7 @@
 ---
 title: "Kitchen Nightmares: When Your Chef Quits on a Saturday Night"
 slug: "kitchen-nightmares-chef-quits"
-publishedDate: "2025-09-29T10:00:00Z"
+publishedDate: "2025-08-23T10:00:00Z"
 excerpt: "Your chef just walked out during service. Here's the emergency protocol that saved our Saturday and the prevention system that means it never happened again."
 author: "Peter Pitcher"
 category: "crisis-management"

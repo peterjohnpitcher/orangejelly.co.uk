@@ -1,7 +1,7 @@
 ---
 title: "Monday Night Pub Promotions That Actually Work (Not Another Quiz Night)"
 slug: "quiet-monday-night-promotions"
-publishedDate: "2025-03-03T01:00:00.000Z"
+publishedDate: "2025-03-03T10:00:00Z"
 updatedDate: "2025-03-03T01:00:00.000Z"
 excerpt: "Transform dead Monday nights into thriving profit centres with these proven promotional ideas. Real results from UK pubs that cracked the Monday code."
 author: "Peter Pitcher"

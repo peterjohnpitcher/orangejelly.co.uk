@@ -1,16 +1,10 @@
-
 'use client';
 
-import * as React from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetClose,
-} from "@/components/ui/sheet";
+import * as React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -19,10 +13,10 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import OptimizedImage from "./OptimizedImage";
-import WhatsAppButton from "./WhatsAppButton";
-import { cn } from "@/lib/utils";
+} from '@/components/ui/navigation-menu';
+import OptimizedImage from './OptimizedImage';
+import WhatsAppButton from './WhatsAppButton';
+import { cn } from '@/lib/utils';
 
 // Define local navigation type interface
 interface NavigationLink {
@@ -52,14 +46,13 @@ interface NavigationProps {
 export default function Navigation({ navigation }: NavigationProps) {
   const pathname = usePathname();
 
-  // Navigation must be provided from Sanity
+  // Navigation must be provided
   const navLinks = navigation?.mainMenu || [];
-  
+
   // Use mobile menu if specified, otherwise use main menu
-  const mobileNavLinks = navigation?.mobileMenu && navigation.mobileMenu.length > 0 
-    ? navigation.mobileMenu 
-    : navLinks;
-  
+  const mobileNavLinks =
+    navigation?.mobileMenu && navigation.mobileMenu.length > 0 ? navigation.mobileMenu : navLinks;
+
   // Don't render if no navigation data at all
   if (navLinks.length === 0 && mobileNavLinks.length === 0) {
     return null;
@@ -69,7 +62,7 @@ export default function Navigation({ navigation }: NavigationProps) {
   const whatsappCta = navigation?.whatsappCta || {
     enabled: true,
     text: "Hi Peter, I'd like to chat about Orange Jelly",
-    phoneNumber: "+447990587315",
+    phoneNumber: '+447990587315',
     showInDesktop: true,
     showInMobile: true,
   };
@@ -90,7 +83,7 @@ export default function Navigation({ navigation }: NavigationProps) {
           />
           <span className="font-bold text-sm">Orange Jelly</span>
         </Link>
-        
+
         {/* Desktop navigation */}
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
@@ -113,7 +106,7 @@ export default function Navigation({ navigation }: NavigationProps) {
                     <NavigationMenuLink
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        pathname === link.href && "bg-accent"
+                        pathname === link.href && 'bg-accent'
                       )}
                     >
                       {link.label}
@@ -128,13 +121,13 @@ export default function Navigation({ navigation }: NavigationProps) {
         <div className="flex items-center gap-2 md:hidden">
           {/* WhatsApp button for mobile */}
           {whatsappCta.enabled && whatsappCta.showInMobile && (
-            <WhatsAppButton 
-              text={whatsappCta.text} 
+            <WhatsAppButton
+              text={whatsappCta.text}
               phoneNumber={whatsappCta.phoneNumber}
-              size="small" 
+              size="small"
             />
           )}
-          
+
           {/* Mobile menu hamburger */}
           <Sheet>
             <SheetTrigger asChild>
@@ -175,10 +168,7 @@ export default function Navigation({ navigation }: NavigationProps) {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="bg-white">
-              <Link
-                href="/"
-                className="flex items-center"
-              >
+              <Link href="/" className="flex items-center">
                 <OptimizedImage
                   src="/logo.png"
                   alt="Orange Jelly"
@@ -195,8 +185,8 @@ export default function Navigation({ navigation }: NavigationProps) {
                     <Link
                       href={link.href}
                       className={cn(
-                        "block py-3 px-4 min-h-[44px] flex items-center text-charcoal hover:text-orange hover:bg-orange/5 rounded-lg transition-quick",
-                        pathname === link.href && "bg-accent"
+                        'block py-3 px-4 min-h-[44px] flex items-center text-charcoal hover:text-orange hover:bg-orange/5 rounded-lg transition-quick',
+                        pathname === link.href && 'bg-accent'
                       )}
                     >
                       {link.label}
@@ -206,24 +196,24 @@ export default function Navigation({ navigation }: NavigationProps) {
               </div>
               {whatsappCta.enabled && whatsappCta.showInMobile && (
                 <div className="mt-4">
-                  <WhatsAppButton 
-                    text={whatsappCta.text} 
+                  <WhatsAppButton
+                    text={whatsappCta.text}
                     phoneNumber={whatsappCta.phoneNumber}
-                    fullWidth 
+                    fullWidth
                   />
                 </div>
               )}
             </SheetContent>
           </Sheet>
         </div>
-        
+
         {/* Desktop WhatsApp button */}
         <div className="hidden md:flex flex-1 items-center justify-end">
           {whatsappCta.enabled && whatsappCta.showInDesktop && (
-            <WhatsAppButton 
-              text={whatsappCta.text} 
+            <WhatsAppButton
+              text={whatsappCta.text}
               phoneNumber={whatsappCta.phoneNumber}
-              size="small" 
+              size="small"
             />
           )}
         </div>

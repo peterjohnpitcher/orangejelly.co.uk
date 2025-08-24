@@ -1,8 +1,17 @@
 import BlogPostServer from '@/components/blog/BlogPostServer';
-import { type BlogPost as BlogPostType } from '@/lib/content-source';
+import { type BlogPost as BlogPostType } from '@/lib/blog';
 
 interface BlogPostClientProps {
-  post: BlogPostType;
+  post: BlogPostType & {
+    isPortableText?: boolean;
+    quickAnswer?: string;
+    quickStats?: any;
+    voiceSearchQueries?: string[];
+    localSEO?: any;
+    faqs?: any[];
+    ctaSettings?: any;
+    rawContent?: string;
+  };
   relatedPosts: BlogPostType[];
 }
 

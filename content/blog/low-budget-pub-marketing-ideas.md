@@ -1,7 +1,7 @@
 ---
 title: "25 Low Budget Pub Marketing Ideas That Actually Work"
 slug: "low-budget-pub-marketing-ideas"
-publishedDate: "2025-07-07T00:00:00.000Z"
+publishedDate: "2025-07-07T10:00:00Z"
 updatedDate: "2025-07-07T00:00:00.000Z"
 excerpt: "Discover proven low-cost marketing strategies for pubs. From free social media tactics to DIY promotions, learn how to market your pub on a shoestring"
 author: "Peter Pitcher"

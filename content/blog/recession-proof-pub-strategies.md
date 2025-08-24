@@ -1,7 +1,7 @@
 ---
 title: "Recession-Proof Pub Strategies: How to Thrive When Customers Tighten Their Belts"
 slug: "recession-proof-pub-strategies"
-publishedDate: "2025-07-28T00:00:00.000Z"
+publishedDate: "2025-07-28T10:00:00Z"
 updatedDate: "2025-08-08T10:49:26.912Z"
 excerpt: "Proven strategies to maintain and grow your pub business during economic downturns. Learn cost-cutting measures, revenue optimization tactics, and"
 author: "Peter Pitcher"

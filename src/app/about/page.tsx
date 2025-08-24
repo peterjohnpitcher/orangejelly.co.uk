@@ -16,13 +16,14 @@ export async function generateMetadata() {
       'The Anchor Stanwell Moor',
       'pub marketing consultant',
       'licensee helping licensees',
-    ],
+    ].join(', '),
   });
 }
 
 // Simple component with local data
 function AboutPageData() {
-  const faqs: any[] = []; // Simplified for now
+  // FAQs are loaded from the about.json file
+  const faqs = undefined; // Let AboutPage load from about.json
 
   // Generate comprehensive schema for About page
   const aboutSchema = {

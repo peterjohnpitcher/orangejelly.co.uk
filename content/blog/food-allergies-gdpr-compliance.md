@@ -1,7 +1,7 @@
 ---
 title: "Food Allergies and GDPR: The Compliance Nightmares That Could Close You Down"
 slug: "food-allergies-gdpr-compliance"
-publishedDate: "2025-09-22T10:00:00Z"
+publishedDate: "2025-08-22T10:00:00Z"
 excerpt: "Navigate the compliance minefield without hiring expensive consultants. Simple systems that keep you legal and let you focus on running your pub."
 author: "Peter Pitcher"
 category: "compliance"
@@ -11,7 +11,7 @@ tags:
   - "food safety"
   - "pub regulations"
   - "compliance systems"
-status: "draft"
+status: "published"
 metaDescription: "Simple compliance systems that prevent devastating fines. Manage allergens and GDPR without expensive consultants."
 keywords:
   - "pub allergen management"
@@ -19,6 +19,7 @@ keywords:
   - "Natasha's Law"
   - "pub compliance"
   - "food allergy regulations"
+featuredImage: "/images/blog/food-allergies-gdpr-compliance.svg"
 hasFAQs: true
 hasQuickAnswer: true
 hasQuickStats: true

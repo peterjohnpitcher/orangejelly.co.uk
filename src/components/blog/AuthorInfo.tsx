@@ -28,8 +28,12 @@ function AuthorInfo({ author, variant = 'full' }: AuthorInfoProps) {
           className="rounded-full"
         />
         <div>
-          <Text size="sm" weight="medium">{author.name}</Text>
-          <Text size="xs" color="muted">{author.role}</Text>
+          <Text size="sm" weight="medium">
+            {author.name}
+          </Text>
+          <Text size="xs" color="muted">
+            {author.role}
+          </Text>
         </div>
       </div>
     );
@@ -45,16 +49,17 @@ function AuthorInfo({ author, variant = 'full' }: AuthorInfoProps) {
           height={120}
           className="rounded-full"
         />
-        
+
         <div className="text-center sm:text-left">
-          <Heading level={3} className="mb-1">{author.name}</Heading>
+          <Heading level={3} className="mb-1">
+            {author.name}
+          </Heading>
           <Text className="text-orange mb-3">{author.role}</Text>
-          <Text color="muted" className="mb-4">{author.bio}</Text>
-          
-          <Link 
-            href="/about" 
-            className="text-orange hover:text-orange-dark font-medium text-sm"
-          >
+          <Text color="muted" className="mb-4">
+            {author.bio}
+          </Text>
+
+          <Link href="/about" className="text-orange hover:text-orange-dark font-medium text-sm">
             Learn more about Peter →
           </Link>
         </div>
@@ -68,7 +73,7 @@ export const defaultAuthor = {
   name: 'Peter Pitcher',
   role: 'Licensee & Founder',
   bio: 'I run The Anchor in Stanwell Moor with my husband Billy. After struggling with empty tables and overwhelming marketing tasks, I discovered how AI could transform pub marketing. Now I help other licensees implement the same strategies that saved our pub.',
-  image: '/images/peter-pitcher.svg'
+  image: '/images/peter-pitcher.jpg',
 };
 
 export default memo(AuthorInfo);

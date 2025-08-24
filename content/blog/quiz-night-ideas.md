@@ -1,7 +1,7 @@
 ---
 title: "Quiz Night Ideas: 25 Formats That Pack Your Pub Every Week"
 slug: "quiz-night-ideas"
-publishedDate: "2025-06-16T00:00:00.000Z"
+publishedDate: "2025-06-16T10:00:00Z"
 updatedDate: "2025-06-16T00:00:00.000Z"
 excerpt: "Transform your quiz night from predictable to unmissable. Discover creative formats, round ideas, and hosting tips that create loyal quiz teams and boost"
 author: "Peter Pitcher"

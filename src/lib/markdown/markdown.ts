@@ -320,6 +320,22 @@ export function getAllBlogPosts(
         const aValue = a[sort.field] || '';
         const bValue = b[sort.field] || '';
 
+        // Special handling for date fields
+        if (
+          sort.field === 'publishedAt' ||
+          sort.field === 'updatedAt' ||
+          sort.field === 'publishedDate'
+        ) {
+          const aDate = new Date(aValue);
+          const bDate = new Date(bValue);
+
+          if (sort.direction === 'desc') {
+            return bDate.getTime() - aDate.getTime();
+          }
+          return aDate.getTime() - bDate.getTime();
+        }
+
+        // Regular string comparison for other fields
         if (sort.direction === 'desc') {
           return aValue < bValue ? 1 : -1;
         }

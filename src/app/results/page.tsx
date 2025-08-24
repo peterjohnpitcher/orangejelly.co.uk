@@ -7,14 +7,8 @@ export async function generateMetadata() {
     description:
       'How did The Anchor transform Sunday lunches and reduce waste by £250/week? How we grew quiz nights from zero to 25-35 regulars? Real success stories from The Anchor using AI tools. See the actual numbers and proven strategies.',
     path: '/results',
-    keywords: [
-      'pub success stories',
-      'pub turnaround case studies',
-      'increase pub revenue',
-      'pub marketing results',
-      'The Anchor success',
-      'pub transformation',
-    ],
+    keywords:
+      'pub success stories, pub turnaround case studies, increase pub revenue, pub marketing results, The Anchor success, pub transformation',
   });
 }
 

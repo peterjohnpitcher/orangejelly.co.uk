@@ -5,7 +5,7 @@ import Button from '@/components/Button';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
 import OptimizedImage from '@/components/OptimizedImage';
-// Local type definition to replace Sanity dependency
+// Local type definition
 type FooterContent = {
   services?: Array<{
     title: string;

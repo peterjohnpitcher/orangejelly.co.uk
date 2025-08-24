@@ -33,7 +33,7 @@ import {
   Heart,
 } from 'lucide-react';
 import { FAQSchema } from '@/components/StructuredData';
-// Removed Sanity imports for demo
+// Demo page imports
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
 import Section from '@/components/Section';

@@ -3,43 +3,31 @@ import Section from '@/components/Section';
 import ServiceCard from '@/components/ServiceCard';
 import CTASection from '@/components/CTASection';
 import FAQItem from '@/components/FAQItem';
-import WhatsAppButton from '@/components/WhatsAppButton';
 import { breadcrumbPaths } from '@/components/Breadcrumb';
-import RelatedLinks from '@/components/RelatedLinks';
-
-// Import related links data
-import relatedLinksData from '../../../content/data/related-links.json';
-import { CONTACT } from '@/lib/constants';
 import Text from '@/components/Text';
 import Heading from '@/components/Heading';
+import Card from '@/components/Card';
+import Button from '@/components/Button';
+import Container from '@/components/Container';
 import { FAQSchema } from '@/components/StructuredData';
 import { SpeakableContent } from '@/components/SpeakableContent';
-import Partnerships from '@/components/Partnerships';
+import { URLS } from '@/lib/constants';
+
 // Local data imports
 import servicesData from '../../../content/data/services.json';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-interface ServicesPageProps {
-  // No props needed - using local data
-}
-
-export default function ServicesPage({}: ServicesPageProps) {
-  // Use local data
+export default function ServicesPage() {
   const faqsForDisplay = servicesData.faqs;
   const servicePackages = servicesData.servicePackages;
-  const partnerships = servicesData.partnerships;
-
-  // Transform service packages for the service cards
-  const servicesForDisplay = servicePackages.reduce((acc: any, pkg: any) => {
-    acc[pkg.id] = pkg;
-    return acc;
-  }, {});
+  const realSolutions = servicesData.realSolutionsSection;
+  const process = servicesData.processSection;
+  const partnerships = servicesData.partnershipsSection;
 
   return (
     <>
       <FAQSchema faqs={faqsForDisplay} />
       <SpeakableContent
-        cssSelectors={['.prose h2', '.prose h3', '.prose > p:first-of-type']}
+        cssSelectors={['.hero-title', '.hero-subtitle', '.service-card h3']}
         url="/services"
       />
 
@@ -52,118 +40,191 @@ export default function ServicesPage({}: ServicesPageProps) {
         breadcrumbs={breadcrumbPaths.services}
       />
 
-      {/* Services Grid */}
-      <Section background="white" padding="large">
-        <div className="mb-12 text-center max-w-3xl mx-auto">
-          <Heading level={2} className="mb-4">
-            {servicesData.introSection.heading}
-          </Heading>
-          <Text size="lg" color="muted">
-            {servicesData.introSection.description}
-          </Text>
-        </div>
+      {/* Real Solutions, Not Theory Section */}
+      <Section background="white" padding="medium">
+        <Container maxWidth="6xl">
+          <div className="text-center mb-8">
+            <Heading level={2} className="mb-3">
+              {realSolutions.heading}
+            </Heading>
+            <Text size="lg" color="muted" className="max-w-4xl mx-auto">
+              {realSolutions.description}
+            </Text>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {servicePackages.map((service) => (
-            <ServiceCard key={service.id} {...servicesForDisplay[service.id]} />
-          ))}
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {realSolutions.metrics.map((metric: any) => (
+              <Card key={metric.number} variant="bordered" padding="medium" className="text-center">
+                <div className="w-10 h-10 bg-orange text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-3">
+                  {metric.number}
+                </div>
+                <Text size="sm" weight="semibold" color="muted" className="mb-2">
+                  {metric.title}
+                </Text>
+                <Heading level={3} className="mb-2 text-orange">
+                  {metric.value}
+                </Heading>
+                <Text size="sm" color="muted">
+                  {metric.description}
+                </Text>
+              </Card>
+            ))}
+          </div>
+        </Container>
       </Section>
 
-      {/* How it works */}
+      {/* Services Grid - 4 columns on desktop, 2 on tablet, 1 on mobile */}
       <Section background="cream" padding="large">
-        <div className="max-w-4xl mx-auto">
+        <Container maxWidth="7xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {servicePackages.map((service) => (
+              <ServiceCard key={service.id} {...service} />
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Simple, Honest Process */}
+      <Section background="white" padding="large">
+        <Container maxWidth="6xl">
           <Heading level={2} align="center" className="mb-12">
-            {servicesData.processSection.heading}
+            {process.heading}
           </Heading>
 
-          <div className="space-y-8">
-            {servicesData.processSection.steps.map((step: any) => (
-              <div key={step.stepNumber} className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-orange text-white rounded-full flex items-center justify-center font-bold">
-                  {step.stepNumber}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {process.steps.map((step: any) => (
+              <div key={step.number} className="text-center">
+                <div className="w-12 h-12 bg-orange text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4">
+                  {step.number}
                 </div>
-                <div>
-                  <Heading level={3} className="mb-2">
-                    {step.title}
-                  </Heading>
-                  <Text>{step.description}</Text>
-                </div>
+                <Heading level={4} className="mb-3">
+                  {step.title}
+                </Heading>
+                <Text size="sm" color="muted">
+                  {step.description}
+                </Text>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <WhatsAppButton text={servicesData.processSection.ctaText} size="large" />
+          <div className="text-center mt-12">
+            <Button href={URLS.whatsapp()} variant="primary" size="large" external>
+              {process.ctaText}
+            </Button>
           </div>
-        </div>
+        </Container>
       </Section>
 
-      {/* Money back guarantee */}
+      {/* Guarantee */}
       <Section background="teal" padding="large">
-        <div className="max-w-3xl mx-auto text-center">
-          <Heading level={2} color="white" className="mb-6">
-            {servicesData.guaranteeSection.heading}
-          </Heading>
-          <Text size="lg" color="white" className="mb-8">
-            {servicesData.guaranteeSection.description}
-          </Text>
-          <div className="inline-flex items-center gap-4 bg-white/10 rounded-lg px-6 py-4">
-            <Text size="2xl" color="white">
-              ✓
+        <Container maxWidth="3xl">
+          <div className="text-center">
+            <Heading level={2} color="white" className="mb-6">
+              {servicesData.guaranteeSection.heading}
+            </Heading>
+            <Text size="lg" color="white" className="mb-8">
+              {servicesData.guaranteeSection.description}
             </Text>
-            <div className="text-left">
-              <Text color="white" weight="semibold">
-                {servicesData.guaranteeSection.checkmarkText}
+            <div className="inline-flex items-center gap-4 bg-white/10 rounded-lg px-8 py-6">
+              <Text size="2xl" color="white">
+                ✓
               </Text>
-              <Text size="sm" color="white" className="opacity-90">
-                {servicesData.guaranteeSection.checkmarkSubtext}
-              </Text>
+              <div className="text-left">
+                <Text color="white" weight="semibold" size="lg">
+                  {servicesData.guaranteeSection.checkmarkText}
+                </Text>
+                <Text size="sm" color="white" className="opacity-90 mt-1">
+                  {servicesData.guaranteeSection.checkmarkSubtext}
+                </Text>
+              </div>
             </div>
           </div>
-        </div>
+        </Container>
       </Section>
 
-      {/* FAQ Section */}
-      <Section background="cream" padding="large">
-        <div className="max-w-3xl mx-auto">
+      {/* FAQ Section - Expandable */}
+      <Section background="white" padding="large">
+        <Container maxWidth="4xl">
           <Heading level={2} align="center" className="mb-12">
             {servicesData.faqSection.heading}
           </Heading>
-          <div className="space-y-6">
+          <div className="space-y-4">
             {faqsForDisplay.map((faq, index) => (
               <FAQItem key={index} question={faq.question} answer={faq.answer} />
             ))}
           </div>
-        </div>
+        </Container>
       </Section>
 
-      {/* Partnership logos */}
-      <Section background="white" padding="medium">
-        <div className="text-center mb-8">
-          <Text size="sm" color="muted" weight="medium" className="uppercase tracking-wider">
-            Proud to work with
-          </Text>
-        </div>
-        <Partnerships partners={partnerships} />
-      </Section>
+      {/* Partnership Section */}
+      {partnerships && (
+        <Section background="cream" padding="medium">
+          <Container maxWidth="5xl">
+            <div className="text-center mb-8">
+              <Text
+                size="sm"
+                color="muted"
+                weight="semibold"
+                className="uppercase tracking-wider mb-4"
+              >
+                Proud to work with
+              </Text>
+              <Heading level={2} className="mb-8">
+                {partnerships.heading}
+              </Heading>
+            </div>
 
-      {/* CTA Section */}
-      <CTASection
-        title={servicesData.ctaSection.title}
-        subtitle={servicesData.ctaSection.subtitle}
-        buttonText={servicesData.ctaSection.buttonText}
-        whatsappMessage={servicesData.ctaSection.whatsappMessage}
-        bottomText={servicesData.ctaSection.bottomText}
-      />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-8">
+              {partnerships.partners.map((partner: any, index: number) => (
+                <Card key={index} variant="bordered" padding="large" className="text-center">
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="h-16 object-contain mx-auto mb-4"
+                  />
+                  <Heading level={4} className="mb-3">
+                    {partner.name}
+                  </Heading>
+                  <Text size="sm" color="muted">
+                    {partner.description}
+                  </Text>
+                </Card>
+              ))}
+            </div>
 
-      {/* Related Links */}
-      <Section background="cream" padding="medium">
-        <RelatedLinks
-          title={servicesData.relatedLinksSection.title}
-          links={(relatedLinksData as any).services.links}
-          variant="card"
-        />
+            {partnerships.footer && (
+              <Text align="center" color="muted" className="max-w-3xl mx-auto">
+                {partnerships.footer}
+              </Text>
+            )}
+          </Container>
+        </Section>
+      )}
+
+      {/* Final CTA Section */}
+      <Section background="orange-light" padding="large">
+        <Container maxWidth="3xl">
+          <div className="text-center">
+            <Heading level={2} className="mb-4">
+              {servicesData.ctaSection.title}
+            </Heading>
+            <Text size="lg" className="mb-8 max-w-2xl mx-auto">
+              {servicesData.ctaSection.subtitle}
+            </Text>
+            <Button
+              href={URLS.whatsapp(servicesData.ctaSection.whatsappMessage)}
+              variant="primary"
+              size="large"
+              external
+              className="mb-4"
+            >
+              {servicesData.ctaSection.buttonText}
+            </Button>
+            <Text size="sm" color="muted">
+              {servicesData.ctaSection.bottomText}
+            </Text>
+          </div>
+        </Container>
       </Section>
     </>
   );

@@ -1,7 +1,7 @@
 ---
 title: "Brewery Tie Strangling Your Profits? Legal Ways to Improve Your Deal"
 slug: "brewery-tie-improve-your-deal"
-publishedDate: "2025-09-08T10:00:00Z"
+publishedDate: "2025-08-20T10:00:00Z"
 excerpt: "Work within your tie to boost profits without breaking contracts. Real strategies from a tied tenant who increased GP by 15% without going free of tie."
 author: "Peter Pitcher"
 category: "supplier-relations"

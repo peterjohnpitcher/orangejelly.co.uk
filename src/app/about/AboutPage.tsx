@@ -34,24 +34,8 @@ interface AboutPageProps {
 }
 
 export default function AboutPage({ faqs }: AboutPageProps) {
-  // Load local FAQs from markdown
-  const aboutFAQs = faqs || [
-    {
-      question: 'Who is Peter Pitcher and why should I trust Orange Jelly?',
-      answer:
-        "I'm Peter Pitcher, and I've run The Anchor pub in Stanwell Moor with my husband Billy since March 2019. I also work full-time as an AI Marketing Capabilities Lead for a global food manufacturer. I've been an early AI adopter since 2021 and discovered how AI can add 25 hours of value per week. Orange Jelly exists to share these proven strategies with fellow licensees.",
-    },
-    {
-      question: 'What makes Orange Jelly different from other consultants?',
-      answer:
-        "We're not consultants who've never pulled a pint. We run an actual pub and test every strategy in our own business first. No corporate nonsense, no jargon - just one licensee helping another with tools that actually work. Plus, we guarantee results or your money back.",
-    },
-    {
-      question: 'Is Orange Jelly a big company?',
-      answer:
-        "No, Orange Jelly started in 2016 with Laura Willis as a digital agency, then pivoted in 2019. Now it's just me (Peter) working around my full-time job, running The Anchor, and family life. No big office, no sales team. This means you get personal service, honest advice, and someone who genuinely understands your challenges because I face them too.",
-    },
-  ];
+  // Load FAQs from data file
+  const aboutFAQs = faqs || aboutData.faqs || [];
 
   return (
     <>
@@ -242,7 +226,14 @@ export default function AboutPage({ faqs }: AboutPageProps) {
 
       {/* Partners */}
       <Section>
-        <Partnerships variant="full" partners={aboutData.partnerships} />
+        <Partnerships
+          variant="full"
+          partners={aboutData.partnerships.map((p: any) => ({
+            ...p,
+            logoUrl: p.logo,
+            description: p.relationship,
+          }))}
+        />
       </Section>
 
       {/* Visit CTA */}

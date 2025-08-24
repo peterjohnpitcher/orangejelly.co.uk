@@ -1,7 +1,7 @@
 ---
 title: "Seasonal Pub Events Calendar: Year-Round Ideas That Drive Revenue"
 slug: "seasonal-pub-events-calendar"
-publishedDate: "2025-06-23T00:00:00.000Z"
+publishedDate: "2025-06-23T10:00:00Z"
 updatedDate: "2025-06-23T00:00:00.000Z"
 excerpt: "Never face a quiet period again. Discover month-by-month seasonal event ideas that tap into holidays, trends, and local culture to keep your pub buzzing"
 author: "Peter Pitcher"

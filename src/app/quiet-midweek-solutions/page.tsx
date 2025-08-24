@@ -170,7 +170,8 @@ export default function QuietMidweekSolutions() {
               </Text>
 
               <div className="space-y-8">
-                {strategies.map((strategy, index) => (
+                {/* Strategies data not available - temporarily using empty array */}
+                {[].map((strategy: any, index) => (
                   <Card
                     key={strategy._key}
                     padding="large"
@@ -220,8 +221,8 @@ export default function QuietMidweekSolutions() {
                 <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-orange/30 hidden md:block" />
 
                 <div className="space-y-8">
-                  {timeline.map((week, index) => (
-                    <div key={week._key} className="relative flex gap-6 items-start">
+                  {timeline.weeks.map((week, index) => (
+                    <div key={index} className="relative flex gap-6 items-start">
                       <div className="flex-shrink-0 w-16 h-16 rounded-full bg-orange text-white flex items-center justify-center font-bold text-lg z-10">
                         W{index + 1}
                       </div>
@@ -232,13 +233,10 @@ export default function QuietMidweekSolutions() {
                         {week.description && (
                           <Text className="mb-4 text-charcoal/80">{week.description}</Text>
                         )}
-                        {week.actions && week.actions.length > 0 && (
-                          <FeatureList
-                            items={week.actions}
-                            icon="arrow"
-                            iconColor="orange"
-                            spacing="tight"
-                          />
+                        {week.result && (
+                          <Text weight="semibold" className="text-orange">
+                            Result: {week.result}
+                          </Text>
                         )}
                       </Card>
                     </div>
@@ -265,17 +263,19 @@ export default function QuietMidweekSolutions() {
         </Section>
       )}
 
-      {/* Success Metrics */}
+      {/* Success Metrics - successMetrics data not available */}
       {false && (
         <Section background="white">
           <AnimatedItem animation="fade-in">
             <div className="max-w-4xl mx-auto text-center">
               <Heading level={2} className="mb-12">
-                {successMetrics.title || 'Average Results After 30 Days'}
+                {/* {successMetrics.title || 'Average Results After 30 Days'} */}
+                Average Results After 30 Days
               </Heading>
 
               <div className="grid md:grid-cols-4 gap-6 mb-12">
-                {successMetrics.metrics.map((metric) => (
+                {/* successMetrics.metrics not available - using empty array */}
+                {[].map((metric: any) => (
                   <Card key={metric._key} background="cream" padding="large">
                     <Text size="2xl" weight="bold" className="text-orange mb-2">
                       {metric.value}
@@ -414,8 +414,8 @@ export default function QuietMidweekSolutions() {
               </Heading>
 
               <div className="space-y-6">
-                {faqs.map((faq) => (
-                  <FAQItem key={faq._key} question={faq.question} answer={faq.answer} />
+                {faqs.map((faq, index) => (
+                  <FAQItem key={index} question={faq.question} answer={faq.answer} />
                 ))}
               </div>
             </div>

@@ -50,23 +50,83 @@ export const metadata: Metadata = {
 // Helper function to map category slugs to display names and descriptions
 function getCategoryDisplayInfo(categorySlug: string) {
   const categoryMap: Record<string, { name: string; slug: string; description: string }> = {
-    'customer-acquisition': { name: 'Customer Acquisition', slug: 'customer-acquisition', description: 'Attracting and retaining new customer segments' },
-    'digital-reputation': { name: 'Digital Reputation', slug: 'digital-reputation', description: 'Managing online presence and reviews' },
-    'location-challenges': { name: 'Location Challenges', slug: 'location-challenges', description: 'Overcoming geographical and demographic obstacles' },
-    'compliance': { name: 'Compliance', slug: 'compliance', description: 'Regulations, licensing, and legal requirements' },
-    'crisis-management': { name: 'Crisis Management', slug: 'crisis-management', description: 'Handling emergencies and unexpected situations' },
-    'competition': { name: 'Competition', slug: 'competition', description: 'Strategies for competing with other pubs and chains' },
-    'empty-pub-solutions': { name: 'Empty Pub Solutions', slug: 'empty-pub-solutions', description: 'Solutions for filling quiet pubs and increasing footfall' },
-    'events': { name: 'Events', slug: 'events', description: 'Articles about events & entertainment' },
-    'events-promotions': { name: 'Events & Promotions', slug: 'events-promotions', description: 'Planning and running successful pub events and promotions' },
-    'food-drink': { name: 'Food & Drink', slug: 'food-drink', description: 'Food and beverage management, menus, and offerings' },
-    'menu-pricing': { name: 'Menu & Pricing', slug: 'menu-pricing', description: 'Articles about menu & pricing' },
-    'social-media': { name: 'Social Media', slug: 'social-media', description: 'Social media marketing and online presence' },
-    'supplier-relations': { name: 'Supplier Relations', slug: 'supplier-relations', description: 'Managing brewery ties and supplier relationships' },
-    'financial-management': { name: 'Financial Management', slug: 'financial-management', description: 'Cash flow, budgeting, and financial planning' },
-    'operations': { name: 'Operations', slug: 'operations', description: 'Day-to-day pub management and systems' },
+    'customer-acquisition': {
+      name: 'Customer Acquisition',
+      slug: 'customer-acquisition',
+      description: 'Attracting and retaining new customer segments',
+    },
+    'digital-reputation': {
+      name: 'Digital Reputation',
+      slug: 'digital-reputation',
+      description: 'Managing online presence and reviews',
+    },
+    'location-challenges': {
+      name: 'Location Challenges',
+      slug: 'location-challenges',
+      description: 'Overcoming geographical and demographic obstacles',
+    },
+    compliance: {
+      name: 'Compliance',
+      slug: 'compliance',
+      description: 'Regulations, licensing, and legal requirements',
+    },
+    'crisis-management': {
+      name: 'Crisis Management',
+      slug: 'crisis-management',
+      description: 'Handling emergencies and unexpected situations',
+    },
+    competition: {
+      name: 'Competition',
+      slug: 'competition',
+      description: 'Strategies for competing with other pubs and chains',
+    },
+    'empty-pub-solutions': {
+      name: 'Empty Pub Solutions',
+      slug: 'empty-pub-solutions',
+      description: 'Solutions for filling quiet pubs and increasing footfall',
+    },
+    events: {
+      name: 'Events',
+      slug: 'events',
+      description: 'Articles about events & entertainment',
+    },
+    'events-promotions': {
+      name: 'Events & Promotions',
+      slug: 'events-promotions',
+      description: 'Planning and running successful pub events and promotions',
+    },
+    'food-drink': {
+      name: 'Food & Drink',
+      slug: 'food-drink',
+      description: 'Food and beverage management, menus, and offerings',
+    },
+    'menu-pricing': {
+      name: 'Menu & Pricing',
+      slug: 'menu-pricing',
+      description: 'Articles about menu & pricing',
+    },
+    'social-media': {
+      name: 'Social Media',
+      slug: 'social-media',
+      description: 'Social media marketing and online presence',
+    },
+    'supplier-relations': {
+      name: 'Supplier Relations',
+      slug: 'supplier-relations',
+      description: 'Managing brewery ties and supplier relationships',
+    },
+    'financial-management': {
+      name: 'Financial Management',
+      slug: 'financial-management',
+      description: 'Cash flow, budgeting, and financial planning',
+    },
+    operations: {
+      name: 'Operations',
+      slug: 'operations',
+      description: 'Day-to-day pub management and systems',
+    },
   };
-  
+
   return categoryMap[categorySlug] || { name: categorySlug, slug: categorySlug, description: '' };
 }
 
@@ -77,38 +137,48 @@ export default async function LicenseesGuidePage() {
   try {
     const blogDirectory = path.join(process.cwd(), 'content/blog');
     // Get all blog posts, sorted by date (newest first)
-    const allPosts = getAllBlogPosts(blogDirectory, undefined, { field: 'publishedAt', direction: 'desc' });
-    
+    const allPosts = getAllBlogPosts(blogDirectory, undefined, {
+      field: 'publishedDate',
+      direction: 'desc',
+    });
+
     // Transform posts to match the expected structure
-    posts = allPosts.map(post => ({
+    posts = allPosts.map((post) => ({
       slug: post.slug,
       title: post.title,
       excerpt: post.excerpt || '',
-      publishedDate: post.publishedAt || post.frontMatter.publishedDate,
-      category: post.categories?.[0] || post.frontMatter.category || 'empty-pub-solutions',
+      // Use publishedDate directly since it's spread from frontMatter
+      publishedDate: post.publishedAt || post.frontMatter?.publishedDate,
+      category: post.categories?.[0] || post.frontMatter?.category || 'empty-pub-solutions',
       author: {
-        name: post.author || post.frontMatter.author || 'Peter Pitcher'
+        name:
+          typeof post.frontMatter?.author === 'string'
+            ? post.frontMatter.author
+            : (post.frontMatter?.author as any)?.name || 'Peter Pitcher',
       },
-      featuredImage: post.frontMatter.featuredImage || `/images/blog/${post.slug}.svg`,
-      readingTime: post.readingTime?.minutes || 5
+      // Use featuredImage directly since it's spread from frontMatter
+      featuredImage: post.frontMatter?.featuredImage || `/images/blog/${post.slug}.svg`,
+      readingTime: Math.round(post.readingTime?.minutes || 5),
     }));
-    
+
     // Get unique categories from posts and create category list
     const categorySet = new Set<string>();
-    posts.forEach(post => {
+    posts.forEach((post) => {
       if (post.category) categorySet.add(post.category);
     });
-    
-    categories = Array.from(categorySet).map(categorySlug => {
+
+    categories = Array.from(categorySet).map((categorySlug) => {
       const categoryInfo = getCategoryDisplayInfo(categorySlug);
-      const postCount = posts.filter(post => post.category === categorySlug).length;
+      const postCount = posts.filter((post) => post.category === categorySlug).length;
       return {
         ...categoryInfo,
-        count: postCount
+        count: postCount,
       };
     });
 
-    console.log(`Loading blog posts from: markdown files (${posts.length} posts, ${categories.length} categories)`);
+    console.log(
+      `Loading blog posts from: markdown files (${posts.length} posts, ${categories.length} categories)`
+    );
   } catch (error) {
     console.error('Error loading blog data:', error);
     // Return a fallback UI

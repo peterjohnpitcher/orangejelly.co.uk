@@ -1,7 +1,7 @@
 ---
 title: "Midweek Pub Offers That Actually Drive Profits (Not Just Footfall)"
 slug: "midweek-pub-offers-that-work"
-publishedDate: "2025-03-10T01:00:00.000Z"
+publishedDate: "2025-03-10T10:00:00Z"
 updatedDate: "2025-03-10T01:00:00.000Z"
 excerpt: "Discover midweek promotions that boost both customer numbers AND profits. Learn from real UK pubs that transformed their Tuesday-Thursday trade."
 author: "Peter Pitcher"

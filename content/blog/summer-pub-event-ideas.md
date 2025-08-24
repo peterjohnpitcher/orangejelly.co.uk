@@ -1,7 +1,7 @@
 ---
 title: "Summer Pub Event Ideas: 35 Profitable Outdoor Promotions That Pack Your Garden"
 slug: "summer-pub-event-ideas"
-publishedDate: "2025-07-21T00:00:00.000Z"
+publishedDate: "2025-07-21T10:00:00Z"
 updatedDate: "2025-07-21T00:00:00.000Z"
 excerpt: "Make the most of summer with these proven pub garden events and outdoor promotions. From festivals to family days, discover profitable ideas with costs,"
 author: "Peter Pitcher"

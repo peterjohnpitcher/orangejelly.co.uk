@@ -14,18 +14,24 @@ import StickyCTA from './StickyCTA';
 import QuickAnswer from './QuickAnswer';
 import QuickStats from './QuickStats';
 import { formatDate } from '@/lib/utils';
-import { type BlogPost as BlogPostType } from '@/lib/content-source';
+import { type BlogPost as BlogPostType } from '@/lib/blog';
 import { getBlogImageSrc, getBlogImageAlt } from '@/lib/blog-images';
-import dynamic from 'next/dynamic';
-
-// Lazy load MarkdownContent for markdown content
-const MarkdownContent = dynamic(() => import('@/components/MarkdownContent'), {
-  ssr: true,
-});
+// MarkdownContent is now only used for PortableText (if needed)
+import MarkdownContent from '@/components/MarkdownContent';
 import { MESSAGES, URLS } from '@/lib/constants';
 
 interface BlogPostProps {
-  post: BlogPostType & { contentHtml?: string; isPreProcessed?: boolean };
+  post: BlogPostType & {
+    contentHtml?: string;
+    isPreProcessed?: boolean;
+    quickAnswer?: string;
+    quickStats?: Array<{ label: string; value: string; description?: string }>;
+    voiceSearchQueries?: string[];
+    localSEO?: any;
+    faqs?: Array<{ question: string; answer: string; isVoiceOptimized?: boolean }>;
+    isPortableText?: boolean;
+    ctaSettings?: any;
+  };
   relatedPosts?: BlogPostType[];
 }
 
@@ -71,12 +77,12 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
         <header className="mb-8">
           <div className="flex flex-wrap items-center gap-4 text-sm text-charcoal/60 mb-6">
             <Button
-              href={`/licensees-guide/category/${post.category}`}
+              href={`/licensees-guide/category/${typeof post.category === 'string' ? post.category : post.category.slug}`}
               variant="ghost"
               size="small"
               className="text-orange hover:text-orange-dark font-medium text-sm p-0"
             >
-              {post.category}
+              {typeof post.category === 'string' ? post.category : post.category.name}
             </Button>
             <span>•</span>
             {post.author && (
@@ -87,7 +93,7 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
                   bio:
                     post.author.bio ||
                     'Founder of Orange Jelly Limited and licensee of The Anchor pub',
-                  image: post.author.image || '/peter-pitcher.jpg',
+                  image: post.author.image || '/images/peter-pitcher.jpg',
                 }}
                 variant="compact"
               />
@@ -136,12 +142,19 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
         <div className="mb-12">
           {post.isPortableText ? (
             <div className="prose prose-lg max-w-none">
-              <MarkdownContent content={Array.isArray(post.content) ? JSON.stringify(post.content) : post.content as string} />
+              <MarkdownContent
+                content={
+                  Array.isArray(post.content)
+                    ? JSON.stringify(post.content)
+                    : (post.content as string)
+                }
+              />
             </div>
           ) : (
-            <MarkdownContent 
-              content={post.content as string} 
-              className="prose prose-lg max-w-none" 
+            // Use server-processed HTML (no client fallback)
+            <div
+              className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-charcoal prose-p:text-charcoal prose-li:text-charcoal prose-strong:text-charcoal prose-a:text-orange prose-a:underline hover:prose-a:text-orange-dark prose-blockquote:border-orange prose-blockquote:text-charcoal/80 prose-code:bg-gray-100 prose-code:text-charcoal prose-pre:bg-gray-100"
+              dangerouslySetInnerHTML={{ __html: post.contentHtml! }}
             />
           )}
         </div>
@@ -200,7 +213,7 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
               role: 'Founder & Licensee',
               bio:
                 post.author.bio || 'Founder of Orange Jelly Limited and licensee of The Anchor pub',
-              image: post.author.image || '/peter-pitcher.jpg',
+              image: post.author.image || '/images/peter-pitcher.jpg',
             }}
             variant="full"
           />
@@ -231,8 +244,11 @@ export default function BlogPost({ post, relatedPosts = [] }: BlogPostProps) {
               excerpt: post.excerpt,
               publishedDate: post.publishedDate,
               category: {
-                name: post.category,
-                slug: post.category.toLowerCase().replace(/\s+/g, '-'),
+                name: typeof post.category === 'string' ? post.category : post.category.name,
+                slug:
+                  typeof post.category === 'string'
+                    ? (post.category as string).toLowerCase().replace(/\s+/g, '-')
+                    : post.category.slug,
               },
               featuredImage: {
                 src:

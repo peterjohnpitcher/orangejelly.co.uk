@@ -1,7 +1,7 @@
 ---
 title: "Cash Flow Crisis Every Month? Breaking the Feast-or-Famine Cycle"
 slug: "cash-flow-crisis-breaking-cycle"
-publishedDate: "2025-09-15T10:00:00Z"
+publishedDate: "2025-08-21T10:00:00Z"
 excerpt: "Stop the monthly panic of making rent. Build predictable income, manage seasonal swings, and create the cash buffer that lets you sleep at night."
 author: "Peter Pitcher"
 category: "financial-management"

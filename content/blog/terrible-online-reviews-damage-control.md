@@ -1,7 +1,7 @@
 ---
 title: "Terrible Online Reviews Ruining Your Reputation? The Damage Control Guide"
 slug: "terrible-online-reviews-damage-control"
-publishedDate: "2025-08-18T10:00:00Z"
+publishedDate: "2025-08-17T10:00:00Z"
 excerpt: "Turn your worst reviews into your best marketing tool. Learn the response framework that converted our angriest critics into regulars."
 author: "Peter Pitcher"
 category: "digital-reputation"

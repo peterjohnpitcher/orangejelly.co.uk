@@ -1,7 +1,7 @@
 ---
 title: "Premium Pub Positioning: How to Go Upmarket and Increase Profits"
 slug: "premium-pub-positioning"
-publishedDate: "2025-04-14T00:00:00.000Z"
+publishedDate: "2025-04-14T10:00:00Z"
 updatedDate: "2025-04-14T00:00:00.000Z"
 excerpt: "Learn how to position your pub as a premium destination. From craft cocktails to chef partnerships, discover strategies that justify higher prices and"
 author: "Peter Pitcher"

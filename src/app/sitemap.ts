@@ -6,7 +6,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.orangejelly.co.uk';
   const currentDate = new Date().toISOString();
 
-  // No dynamic landing pages (removed Sanity dependency)
+  // Landing pages are handled as static pages
 
   // Services are represented on a single page; avoid fragment URLs in sitemap
 

@@ -22,7 +22,7 @@ export function extractFAQsFromMarkdown(content: string): FAQ[] {
   const faqs: FAQ[] = [];
   const faqPattern = /##\s*FAQs?\s*\n([\s\S]*?)(?=\n##|$)/i;
   const faqMatch = content.match(faqPattern);
-  
+
   if (faqMatch) {
     const faqContent = faqMatch[1];
     const faqItemPattern = /###\s*(.+?)\n([\s\S]*?)(?=\n###|$)/g;
@@ -30,42 +30,42 @@ export function extractFAQsFromMarkdown(content: string): FAQ[] {
     while ((match = faqItemPattern.exec(faqContent)) !== null) {
       faqs.push({
         question: match[1].trim(),
-        answer: match[2].trim()
+        answer: match[2].trim(),
       });
     }
   }
-  
+
   return faqs;
 }
 
-// Extract FAQs from Portable Text (Sanity content)
+// Extract FAQs from Portable Text content
 export function extractFAQsFromPortableText(blocks: PortableTextBlock[]): FAQ[] {
   const faqs: FAQ[] = [];
   let inFAQSection = false;
   let currentQuestion: string | null = null;
   let currentAnswer: string[] = [];
-  
+
   for (let i = 0; i < blocks.length; i++) {
     const block = blocks[i];
-    
+
     // Check for FAQ section header
     if (block.style === 'h2' && block.children?.[0]?.text?.match(/FAQs?/i)) {
       inFAQSection = true;
       continue;
     }
-    
+
     // Stop at next h2
     if (inFAQSection && block.style === 'h2' && !block.children?.[0]?.text?.match(/FAQs?/i)) {
       // Save last FAQ if exists
       if (currentQuestion && currentAnswer.length > 0) {
         faqs.push({
           question: currentQuestion,
-          answer: currentAnswer.join(' ')
+          answer: currentAnswer.join(' '),
         });
       }
       break;
     }
-    
+
     if (inFAQSection) {
       // Question (h3)
       if (block.style === 'h3') {
@@ -73,7 +73,7 @@ export function extractFAQsFromPortableText(blocks: PortableTextBlock[]): FAQ[] 
         if (currentQuestion && currentAnswer.length > 0) {
           faqs.push({
             question: currentQuestion,
-            answer: currentAnswer.join(' ')
+            answer: currentAnswer.join(' '),
           });
         }
         // Start new FAQ
@@ -87,15 +87,15 @@ export function extractFAQsFromPortableText(blocks: PortableTextBlock[]): FAQ[] 
       }
     }
   }
-  
+
   // Save last FAQ
   if (currentQuestion && currentAnswer.length > 0) {
     faqs.push({
       question: currentQuestion,
-      answer: currentAnswer.join(' ')
+      answer: currentAnswer.join(' '),
     });
   }
-  
+
   return faqs;
 }
 

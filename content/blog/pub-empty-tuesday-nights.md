@@ -1,7 +1,7 @@
 ---
 title: "Why Your Pub is Empty on Tuesday Nights (And How to Fix It)"
 slug: "pub-empty-tuesday-nights"
-publishedDate: "2025-02-24T01:00:00.000Z"
+publishedDate: "2025-02-24T10:00:00Z"
 updatedDate: "2025-02-24T01:00:00.000Z"
 excerpt: "Discover proven strategies to transform dead Tuesday nights into profitable evenings. Real solutions from a pub landlord who's been there."
 author: "Peter Pitcher"

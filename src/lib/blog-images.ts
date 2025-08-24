@@ -1,5 +1,5 @@
 // Default image mappings for blog posts
-// This provides fallback images when featuredImage is not set in Sanity
+// This provides fallback images when featuredImage is not set
 
 export function getDefaultBlogImage(slug: string): string {
   // Map of blog post slugs to their corresponding default images
@@ -40,6 +40,9 @@ export function getDefaultBlogImage(slug: string): string {
     'cash-flow-crisis-breaking-cycle': '/images/blog/cash-flow-crisis-breaking-cycle.svg',
     'food-allergies-gdpr-compliance': '/images/blog/food-allergies-gdpr-compliance.svg',
     'kitchen-nightmares-chef-quits': '/images/blog/kitchen-nightmares-chef-quits.svg',
+    // New articles (January 2025)
+    'double-drinks-profit-without-selling-more':
+      '/images/blog/double-drinks-profit-without-selling-more.svg',
   };
 
   // Return the mapped image or a default
@@ -47,8 +50,8 @@ export function getDefaultBlogImage(slug: string): string {
 }
 
 export function getBlogImageSrc(featuredImage: any, slug: string): string {
-  // If featuredImage is a string URL (from Sanity), use it directly
-  if (typeof featuredImage === 'string' && featuredImage.includes('://')) {
+  // If featuredImage is a string path or URL, use it directly
+  if (typeof featuredImage === 'string' && featuredImage) {
     return featuredImage;
   }
 

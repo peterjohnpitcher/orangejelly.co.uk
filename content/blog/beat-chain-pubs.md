@@ -1,7 +1,7 @@
 ---
 title: "Independent Pub vs Chains: How to Win the David vs Goliath Battle"
 slug: "beat-chain-pubs"
-publishedDate: "2025-03-24T01:00:00.000Z"
+publishedDate: "2025-03-24T10:00:00Z"
 updatedDate: "2025-03-24T01:00:00.000Z"
 excerpt: "Chain pubs have deep pockets, but you have something they'll never possess – soul. Learn how successful independent pubs compete and win against corporate"
 author: "Peter Pitcher"

@@ -5,9 +5,8 @@ import path from 'path';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import BlogPostClient from './BlogPostClient';
-import { getAllBlogPosts, getMarkdownBySlug, parseMarkdownFile, markdownToHtml } from '@/lib/markdown/index';
+import { getAllBlogPosts, getMarkdownBySlug, parseMarkdownFile } from '@/lib/markdown/index';
 import { BlogPostingSchema } from '@/components/BlogPostingSchema';
-import { FAQSchema } from '@/components/StructuredData';
 import EnhancedBlogSchema from '@/components/blog/EnhancedBlogSchema';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { breadcrumbPaths } from '@/components/Breadcrumb';
@@ -35,34 +34,64 @@ export async function generateStaticParams() {
 async function getMarkdownPost(slug: string) {
   const contentDir = path.join(process.cwd(), 'content/blog');
   const filePath = getMarkdownBySlug(contentDir, slug);
-  
+
   if (!filePath) {
     return null;
   }
 
   const parsedPost = parseMarkdownFile(filePath);
-  const htmlContent = await markdownToHtml(parsedPost.content, false);
-  
+  // Don't convert to HTML here - let the components handle it
+
   // Convert to format expected by the existing components
   return {
     title: parsedPost.frontMatter.title,
     slug: parsedPost.frontMatter.slug,
     excerpt: parsedPost.excerpt || parsedPost.frontMatter.description || '',
-    content: htmlContent,
+    content: parsedPost.content,
     publishedDate: parsedPost.frontMatter.publishedAt || parsedPost.frontMatter.publishedDate,
     updatedDate: parsedPost.frontMatter.updatedAt || parsedPost.frontMatter.updatedDate,
-    category: parsedPost.frontMatter.category || parsedPost.frontMatter.categories?.[0] || '',
+    category: {
+      slug: parsedPost.frontMatter.category || parsedPost.frontMatter.categories?.[0] || 'general',
+      name: parsedPost.frontMatter.category || parsedPost.frontMatter.categories?.[0] || 'General',
+      description: '',
+    },
     tags: parsedPost.frontMatter.tags || [],
     featuredImage: parsedPost.frontMatter.featuredImage || `/images/blog/${slug}.svg`,
-    metaTitle: parsedPost.frontMatter.seoTitle || parsedPost.frontMatter.metaTitle || parsedPost.frontMatter.title,
-    metaDescription: parsedPost.frontMatter.seoDescription || parsedPost.frontMatter.metaDescription || parsedPost.excerpt,
+    seo: {
+      metaTitle:
+        parsedPost.frontMatter.seoTitle ||
+        parsedPost.frontMatter.metaTitle ||
+        parsedPost.frontMatter.title,
+      metaDescription:
+        parsedPost.frontMatter.seoDescription ||
+        parsedPost.frontMatter.metaDescription ||
+        parsedPost.excerpt ||
+        '',
+      keywords: parsedPost.frontMatter.keywords || parsedPost.frontMatter.tags || [],
+    },
+    metaTitle:
+      parsedPost.frontMatter.seoTitle ||
+      parsedPost.frontMatter.metaTitle ||
+      parsedPost.frontMatter.title,
+    metaDescription:
+      parsedPost.frontMatter.seoDescription ||
+      parsedPost.frontMatter.metaDescription ||
+      parsedPost.excerpt,
     keywords: parsedPost.frontMatter.keywords || parsedPost.frontMatter.tags || [],
     author: {
-      name: parsedPost.frontMatter.author || 'Peter Pitcher',
-      bio: 'Licensee of The Anchor and founder of Orange Jelly. Helping pubs thrive with proven strategies.',
-      image: '/peter-pitcher.jpg',
+      name:
+        typeof parsedPost.frontMatter.author === 'string'
+          ? parsedPost.frontMatter.author
+          : (parsedPost.frontMatter.author as any)?.name || 'Peter Pitcher',
+      role: 'Founder & Licensee',
+      bio:
+        typeof parsedPost.frontMatter.author === 'object' && parsedPost.frontMatter.author
+          ? (parsedPost.frontMatter.author as any).bio ||
+            'Licensee of The Anchor and founder of Orange Jelly. Helping pubs thrive with proven strategies.'
+          : 'Licensee of The Anchor and founder of Orange Jelly. Helping pubs thrive with proven strategies.',
+      image: '/images/peter-pitcher.jpg',
     },
-    readingTime: parsedPost.readingTime?.minutes,
+    readingTime: Math.round(parsedPost.readingTime?.minutes || 5),
     isPortableText: false,
     // Enhanced SEO fields from markdown frontmatter
     quickAnswer: parsedPost.frontMatter.quickAnswer,
@@ -119,31 +148,41 @@ async function BlogPostPageData({ params }: { params: { slug: string } }) {
     const contentDir = path.join(process.cwd(), 'content/blog');
     const allPosts = getAllBlogPosts(contentDir);
     const relatedPostsData = allPosts
-      .filter((p) => p.categories?.includes(post.category) && p.slug !== post.slug)
+      .filter((p) => p.categories?.includes(post.category.slug) && p.slug !== post.slug)
       .slice(0, 3);
-      
+
     const relatedPosts = await Promise.all(
       relatedPostsData.map(async (p) => {
-        const htmlContent = await markdownToHtml(p.content, false);
+        // Don't convert to HTML here - let the components handle it
         return {
           title: p.title,
           slug: p.slug,
           excerpt: p.excerpt || '',
-          content: htmlContent,
-          publishedDate: p.publishedAt || p.frontMatter.publishedDate || '',
-          updatedDate: p.updatedAt || p.frontMatter.updatedDate,
-          category: p.categories?.[0] || '',
+          content: p.content,
+          publishedDate: p.publishedAt || p.frontMatter?.publishedDate || '',
+          updatedDate: p.updatedAt || p.frontMatter?.updatedDate,
+          category: {
+            slug: p.categories?.[0] || 'general',
+            name: p.categories?.[0] || 'General',
+            description: '',
+          },
           tags: p.tags || [],
-          featuredImage: p.frontMatter.featuredImage || `/images/blog/${p.slug}.svg`,
+          featuredImage: p.frontMatter?.featuredImage || `/images/blog/${p.slug}.svg`,
+          seo: {
+            metaTitle: p.seo?.title || p.title,
+            metaDescription: p.seo?.description || p.excerpt || '',
+            keywords: p.tags || [],
+          },
           metaTitle: p.seo?.title || p.title,
           metaDescription: p.seo?.description || p.excerpt,
           keywords: p.tags || [],
           author: {
             name: 'Peter Pitcher',
+            role: 'Founder & Licensee',
             bio: 'Licensee of The Anchor and founder of Orange Jelly. Helping pubs thrive with proven strategies.',
-            image: '/peter-pitcher.jpg',
+            image: '/images/peter-pitcher.jpg',
           },
-          readingTime: p.readingTime?.minutes,
+          readingTime: Math.round(p.readingTime?.minutes || 5),
           isPortableText: false,
         };
       })
@@ -213,7 +252,7 @@ async function BlogPostPageData({ params }: { params: { slug: string } }) {
             '.quick-answer',
           ]}
         />
-        {faqs.length > 0 && <FAQSchema faqs={faqs} />}
+        {/* FAQs are already included in EnhancedBlogSchema - removed duplicate FAQSchema */}
         <Hero
           title={post.title}
           subtitle={post.excerpt}

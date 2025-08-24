@@ -1,7 +1,7 @@
 import { type Metadata } from 'next';
 import AboutDemoPage from './AboutDemoPage';
 import { BreadcrumbSchema } from '@/components/StructuredData';
-// Demo page - removed Sanity dependency
+// Demo page
 
 export const metadata: Metadata = {
   title: 'About Demo - Shadcn Components | Orange Jelly',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: 'https://www.orangejelly.co.uk/about-demo',
     images: [
       {
-        url: '/images/peter-pitcher.svg',
+        url: '/images/peter-pitcher.jpg',
         width: 1200,
         height: 630,
         alt: 'Peter Pitcher - Orange Jelly Founder',

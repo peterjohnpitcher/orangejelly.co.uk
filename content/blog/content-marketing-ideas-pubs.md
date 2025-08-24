@@ -1,7 +1,7 @@
 ---
 title: "Content Marketing for Pubs: Stories That Fill Seats and Build Loyalty"
 slug: "content-marketing-ideas-pubs"
-publishedDate: "2025-05-19T00:00:00.000Z"
+publishedDate: "2025-05-19T10:00:00Z"
 updatedDate: "2025-05-19T00:00:00.000Z"
 excerpt: "Transform your pub into a content powerhouse. Learn how to create stories, videos, and experiences that attract customers, build community, and drive"
 author: "Peter Pitcher"

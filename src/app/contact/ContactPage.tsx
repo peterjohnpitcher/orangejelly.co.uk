@@ -27,7 +27,7 @@ interface ContactPageProps {
   // No props needed - using local data
 }
 
-// Legacy hardcoded FAQs (will be removed once Sanity is confirmed working)
+// Contact FAQs
 const fallbackFAQs = [
   {
     question: "I'm losing money every day - how quickly can you help?",
@@ -232,7 +232,7 @@ export default function ContactPage({}: ContactPageProps) {
                   Great for detailed discussions. If I'm serving, I'll call you back as soon as I'm
                   free.
                 </Text>
-                <Button href={`tel:${CONTACT.phone}`} variant="secondary" size="large" fullWidth>
+                <Button href={`tel:${CONTACT.phone}`} variant="primary" size="large" fullWidth>
                   Call {CONTACT.phone}
                 </Button>
                 <Text size="sm" color="muted" className="mt-2">
@@ -255,7 +255,7 @@ export default function ContactPage({}: ContactPageProps) {
                 </Text>
                 <Button
                   href="https://maps.google.com/?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
-                  variant="outline"
+                  variant="primary"
                   size="large"
                   fullWidth
                   external

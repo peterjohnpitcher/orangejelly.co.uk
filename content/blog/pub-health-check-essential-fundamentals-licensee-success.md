@@ -1,7 +1,7 @@
 ---
 title: "The Pub Health Check: Essential Fundamentals for Licensee Success"
 slug: "pub-health-check-essential-fundamentals-licensee-success"
-publishedDate: "2025-08-03T23:00:00.000Z"
+publishedDate: "2025-08-04T10:00:00Z"
 updatedDate: "2025-08-11T12:27:19.060Z"
 excerpt: "Essential pub health check guide: 7 P's of marketing, financial metrics, cellar management, and community strategies every licensee needs."
 author: "Peter Pitcher"
@@ -23,7 +23,7 @@ keywords:
   - "beer wastage"
   - "pub marketing"
   - "7 Ps marketing"
-featuredImage: "/images/573831201c6dbda6b8abca0b64370a4935199989-1200x630.svg"
+featuredImage: "/images/blog/pub-health-check.svg"
 hasFAQs: true
 hasQuickAnswer: true
 localSEO: {"localModifiers":["near me","local pub","in my area","nearby"],"nearbyLandmarks":["Local high street","Town centre","Village pub"],"targetLocation":"United Kingdom"}

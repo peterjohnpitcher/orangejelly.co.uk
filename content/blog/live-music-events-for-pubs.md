@@ -1,7 +1,7 @@
 ---
 title: "Live Music Events for Pubs: The Complete Guide to Booking, Hosting & Profiting"
 slug: "live-music-events-for-pubs"
-publishedDate: "2025-06-09T00:00:00.000Z"
+publishedDate: "2025-06-09T10:00:00Z"
 updatedDate: "2025-06-09T00:00:00.000Z"
 excerpt: "Turn your pub into a thriving music venue. From open mics to ticketed shows, learn how to book acts, manage sound, and create profitable live music events."
 author: "Peter Pitcher"

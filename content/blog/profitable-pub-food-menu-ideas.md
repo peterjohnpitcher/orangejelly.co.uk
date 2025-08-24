@@ -1,7 +1,7 @@
 ---
 title: "Profitable Pub Food Menu Ideas: High-Margin Dishes That Actually Sell"
 slug: "profitable-pub-food-menu-ideas"
-publishedDate: "2025-05-26T00:00:00.000Z"
+publishedDate: "2025-05-26T10:00:00Z"
 updatedDate: "2025-05-26T00:00:00.000Z"
 excerpt: "Discover proven pub food menu ideas that balance customer appeal with profitability. From gastropub classics to street food trends, learn what works and"
 author: "Peter Pitcher"

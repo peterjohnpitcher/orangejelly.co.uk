@@ -1,7 +1,7 @@
 ---
 title: "Instagram Marketing for Pubs: Turn Food Photos Into Foot Traffic"
 slug: "instagram-marketing-for-pubs"
-publishedDate: "2025-05-05T00:00:00.000Z"
+publishedDate: "2025-05-05T10:00:00Z"
 updatedDate: "2025-05-05T00:00:00.000Z"
 excerpt: "Transform your pub's Instagram from amateur snapshots to a customer magnet. Learn photography tricks, hashtag strategies, and content ideas that fill"
 author: "Peter Pitcher"

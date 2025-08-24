@@ -342,6 +342,7 @@ export default function PubRescue() {
               </Card>
             </Grid>
 
+            {/* successMetrics not defined - commenting out this section
             {successMetrics && successMetrics.metrics && successMetrics.metrics.length > 0 && (
               <Card background="orange-light" padding="large" className="mt-8">
                 <Text size="lg" align="center" weight="semibold" className="mb-4">
@@ -373,7 +374,7 @@ export default function PubRescue() {
                   );
                 })()}
               </Card>
-            )}
+            )} */}
           </div>
         </AnimatedItem>
       </Section>
@@ -568,8 +569,8 @@ export default function PubRescue() {
               </Heading>
 
               <div className="space-y-6">
-                {faqs.map((faq) => (
-                  <FAQItem key={faq._key} question={faq.question} answer={faq.answer} />
+                {faqs.map((faq, index) => (
+                  <FAQItem key={index} question={faq.question} answer={faq.answer} />
                 ))}
               </div>
             </div>

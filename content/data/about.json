@@ -4,56 +4,45 @@
     "subtitle": "We run The Anchor in Stanwell Moor. We discovered how AI saves 25 hours a week. Now we help other licensees do the same."
   },
   "story": [
-    "In March 2019, Billy and I took over The Anchor pub in Stanwell Moor. Like many licensees, we had no idea what we were walking into. Empty Monday nights, rising costs, endless admin, and the constant pressure to compete with chains.",
-    "But here's what changed everything: I discovered how AI could handle the grunt work that was drowning us. Not sci-fi stuff - practical tools that gave us our time back and boosted our profits.",
-    "Since then, we've transformed The Anchor from a struggling pub into a thriving community hub. Food GP jumped from 58% to 71%, quiz nights went from 20 to 25-35 regulars, and we saved £250 per week on Sunday lunch waste alone.",
-    "Orange Jelly exists to share these proven strategies with fellow licensees. No corporate nonsense, no jargon - just one licensee helping another with tools that actually work."
+    "I'm Peter. My husband Billy and I have run The Anchor in Stanwell Moor since March 2019. Like you, we've faced empty tables, rising costs, and 70-hour weeks wondering if it's all worth it.",
+    "Everything changed when I discovered how AI could transform pub operations. As an early adopter since 2021, I've tested everything - the failures taught me what to avoid, the successes showed me what to share.",
+    "Today, our quiz nights attract 25-35 regulars, our food GP improved from 58% to 71%, and we actually have evenings off. Orange Jelly exists to help you achieve the same transformation."
   ],
   "quickFacts": {
     "title": "Quick Facts",
     "facts": [
-      "March 2019: Took over The Anchor pub with Billy",
-      "Full-time AI Marketing Lead at global food manufacturer",
-      "Early AI adopter since 2021",
-      "Proven results: 71% food GP, 25-35 quiz regulars, £250/week savings",
-      "30-day money-back guarantee on all services"
+      "Pub owners since March 2019",
+      "AI early adopter since 2021",
+      "Full-time job + pub + Orange Jelly",
+      "Featured in BII magazine",
+      "Greene King tenants",
+      "£62.50/hour - no packages",
+      "30-day money-back guarantee"
     ]
   },
   "timeline": [
     {
-      "date": "2016",
-      "title": "Orange Jelly Founded",
-      "description": "Started as a digital agency with Laura Willis",
-      "highlight": false
-    },
-    {
       "date": "Mar 2019",
-      "title": "The Anchor Takeover",
-      "description": "Billy and I became tenants of The Anchor pub",
+      "title": "The Beginning",
+      "description": "Took over The Anchor. Empty tables, no strategy, pure hope.",
       "highlight": true
-    },
-    {
-      "date": "2019",
-      "title": "Business Pivot",
-      "description": "Focused entirely on pub consultancy and AI solutions",
-      "highlight": false
     },
     {
       "date": "2021",
       "title": "AI Discovery",
-      "description": "Started experimenting with ChatGPT and AI tools",
+      "description": "Discovered AI tools. Started testing, failing, learning.",
       "highlight": false
     },
     {
-      "date": "2024",
-      "title": "Proven Results",
-      "description": "Documented significant improvements across all metrics",
-      "highlight": true
+      "date": "Jan-Feb 2024",
+      "title": "The Transformation",
+      "description": "Six brutal weeks forced full AI adoption. GP hit 71%.",
+      "highlight": false
     },
     {
-      "date": "2025",
+      "date": "Today",
       "title": "Helping Others",
-      "description": "First pub chain training scheduled for September",
+      "description": "Helping licensees save 5+ hours weekly with proven tools.",
       "highlight": true
     }
   ],
@@ -61,60 +50,110 @@
     "name": "Meet Peter Pitcher",
     "role": "Founder & Pub Owner",
     "bio": [
-      "I'm Peter Pitcher, and I've run The Anchor pub in Stanwell Moor with my husband Billy since March 2019. I also work full-time as an AI Marketing Capabilities Lead for a global food manufacturer.",
-      "I've been an early AI adopter since 2021 and discovered how AI can add 25 hours of value per week. Orange Jelly exists to share these proven strategies with fellow licensees.",
-      "We're not consultants who've never pulled a pint. We run an actual pub and test every strategy in our own business first. No corporate nonsense, no jargon - just one licensee helping another with tools that actually work."
+      "I'm not your typical consultant. By day, I'm an AI Marketing Capabilities Lead for a global food manufacturer. By night and weekends, I'm pulling pints at The Anchor.",
+      "My curiosity for technology made me an early AI adopter in 2021. When I saw how it could save hours on pub admin, I had to share it with other licensees struggling like we were.",
+      "Now I help pubs across the UK implement the same AI strategies that transformed our business. No theory, no fluff - just practical tools that work in real pub life."
     ],
     "quote": "Every strategy we recommend has been tested in our own pub first. If it doesn't work for us, we won't recommend it to you.",
-    "image": "/images/peter-pitcher.svg"
+    "image": "/images/peter-pitcher.jpg"
   },
   "values": [
     {
       "icon": "🎯",
       "title": "Real Experience",
-      "description": "Every strategy tested in our own pub first"
+      "description": "We run an actual pub. Every strategy has been tested at The Anchor first."
     },
     {
       "icon": "💪",
-      "title": "Proven Results",
-      "description": "71% food GP, 35 quiz regulars, £250/week savings"
+      "title": "Honest Pricing",
+      "description": "£62.50 per hour plus VAT. No packages, no hidden fees, no surprises."
+    },
+    {
+      "icon": "🛡️",
+      "title": "Guaranteed Results",
+      "description": "30-day money-back guarantee because we believe in what we do."
     },
     {
       "icon": "🤝",
-      "title": "Fellow Licensee",
-      "description": "One pub owner helping another, no corporate BS"
-    },
-    {
-      "icon": "⚡",
-      "title": "AI-Powered",
-      "description": "Save 25 hours per week with smart automation"
+      "title": "Personal Service",
+      "description": "Just me, no sales team. You get direct access to someone who understands."
     }
   ],
   "whyOrangeJelly": {
     "title": "Why Orange Jelly?",
     "content": [
-      "Just a fun play on words in a world that's ever-changing! We wanted a name that's friendly, memorable, and doesn't take itself too seriously - just like us.",
+      "Just a fun play on words! We wanted a name that's friendly, memorable, and doesn't take itself too seriously - just like us.",
       "It reflects our approach: making complicated things simple and approachable. Whether it's AI automation or menu optimization, we turn complex problems into clear solutions."
     ]
   },
   "partnerships": [
     {
       "name": "Greene King",
-      "relationship": "Tenant",
-      "logo": "/images/partnerships/greene-king.svg"
+      "relationship": "We operate The Anchor as a Greene King tenant, sharing our AI innovations with one of the UK's leading pub companies.",
+      "logo": "/partners/greene-king-logo.png"
     },
     {
       "name": "BII Member",
-      "relationship": "Member",
-      "logo": "/images/partnerships/bii.svg"
+      "relationship": "Proud BII members, featured in their Autumn 2025 magazine for our AI innovation in hospitality.",
+      "logo": "/partners/bii-logo.png"
     }
   ],
   "visitCTA": {
     "title": "Come See The Results Yourself",
-    "subtitle": "Visit us and see our AI strategies in action.",
+    "subtitle": "Visit The Anchor and see how we use AI in real pub operations. First pint's on me if you mention Orange Jelly.",
     "locationName": "The Anchor",
-    "address": "Horton Road\nStanwell Moor\nStaines TW19 6AQ",
+    "address": "Horton Road, Stanwell Moor\nStaines TW19 6AQ",
     "mapUrl": "https://maps.google.com/?q=The+Anchor+Stanwell+Moor",
     "ctaText": "Get Directions →"
-  }
+  },
+  "faqs": [
+    {
+      "question": "Who is Peter Pitcher and why should I trust Orange Jelly?",
+      "answer": "I'm Peter Pitcher, and I've run The Anchor pub in Stanwell Moor with my husband Billy since March 2019. I also work full-time as an AI Marketing Capabilities Lead for a global food manufacturer. I've been an early AI adopter since 2021 and discovered how AI can add 25 hours of value per week. Orange Jelly exists to share these proven strategies with fellow licensees."
+    },
+    {
+      "question": "What makes Orange Jelly different from other consultants?",
+      "answer": "We're not consultants who've never pulled a pint. We run an actual pub and test every strategy in our own business first. No corporate nonsense, no jargon - just one licensee helping another with tools that actually work. Plus, we guarantee results or your money back."
+    },
+    {
+      "question": "Is Orange Jelly a big company?",
+      "answer": "No, Orange Jelly started in 2016 with Laura Willis as a digital agency, then pivoted in 2019. Now it's just me (Peter) working around my full-time job, running The Anchor, and family life. No big office, no sales team. This means you get personal service, honest advice, and someone who genuinely understands your challenges because I face them too."
+    },
+    {
+      "question": "Why is it called Orange Jelly?",
+      "answer": "Just a fun play on words in a world that's ever-changing! We wanted a name that's friendly, memorable, and doesn't take itself too seriously - just like us. It reflects our approach: making complicated things simple and approachable."
+    },
+    {
+      "question": "Can I visit The Anchor to see your strategies in action?",
+      "answer": "Absolutely! We'd love to show you around. Pop in for a pint and see how we use AI tools in real pub operations. First pint's on me if you mention Orange Jelly. We're at Horton Road, Stanwell Moor, Staines TW19 6AQ."
+    },
+    {
+      "question": "How did you discover AI could help pubs?",
+      "answer": "Through my curiosity for technology and being an early adopter. I started with ChatGPT in 2021 when it first launched. The early results were terrible, but as the models evolved, they became business-ready. Now AI helps me deliver 120-150 hours worth of equivalent work per week in my spare time."
+    },
+    {
+      "question": "What results have you achieved at The Anchor?",
+      "answer": "We've improved food GP from 58% to 71%, grown quiz nights to 25-35 regulars, achieve 60,000-70,000 social media views monthly, and added £75,000-£100,000 of value to our business using AI. Most importantly - we got our evenings back. Every strategy we share has delivered real results in our own pub."
+    },
+    {
+      "question": "Do you understand the challenges of running a small pub?",
+      "answer": "Completely. We've dealt with empty Monday nights, staff no-shows, supplier price hikes, TripAdvisor nightmares, and competing with Wetherspoons. That's why our solutions are practical, affordable, and designed for real pub life."
+    },
+    {
+      "question": "Is Orange Jelly just about AI and technology?",
+      "answer": "No, it's about giving you your life back. AI is just the tool - the real goal is helping you work less and earn more. Whether that's automating social media so you can have Sunday lunch with family, or creating menus that sell themselves so you're not stressing about GP."
+    },
+    {
+      "question": "How can I be sure Orange Jelly will work for my pub?",
+      "answer": "Every pub is different, but the challenges are similar. That's why we offer a free consultation to understand your specific situation, and a 30-day money-back guarantee. We're so confident because these aren't theories - they're proven strategies from our own pub."
+    },
+    {
+      "question": "What areas does Orange Jelly cover?",
+      "answer": "For in-person training and consultations, we cover a 30-mile radius from Stanwell Moor (Surrey, Berkshire, West London). For online services like marketing and menu design, we help pubs across the UK. Technology means distance isn't a barrier."
+    },
+    {
+      "question": "What's your promise to pub owners?",
+      "answer": "To save you at least 5 hours per week on admin tasks, be honest about what AI can and can't do, only recommend tools we use ourselves, keep prices transparent and fair, and provide personal support when you need it. Plus our 30-day money-back guarantee."
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 ---
 title: "Start Planning Christmas Now: 30 Festive Ideas to Secure December Bookings Early"
 slug: "christmas-pub-promotion-ideas"
-publishedDate: "2025-06-30T00:00:00.000Z"
+publishedDate: "2025-06-30T10:00:00Z"
 updatedDate: "2025-06-30T00:00:00.000Z"
 excerpt: "Smart licensees start Christmas planning in summer. Lock in corporate bookings, plan your festive menu, and get ahead of the competition with these 30"
 author: "Peter Pitcher"

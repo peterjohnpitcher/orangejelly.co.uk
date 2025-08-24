@@ -1,7 +1,7 @@
 ---
 title: "Why Is My Pub Empty? 12 Brutal Truths and How to Fix Them"
 slug: "why-is-my-pub-empty"
-publishedDate: "2025-02-10T01:00:00.000Z"
+publishedDate: "2025-02-10T10:00:00Z"
 updatedDate: "2025-02-10T01:00:00.000Z"
 excerpt: "Discover the real reasons your pub is struggling with footfall and learn practical, proven solutions that actually work. From a landlord who's been there."
 author: "Peter Pitcher"

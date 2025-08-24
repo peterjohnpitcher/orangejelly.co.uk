@@ -1,7 +1,7 @@
 ---
 title: "Local Pub Marketing: Community-Focused Strategies That Drive Real Results"
 slug: "local-pub-marketing"
-publishedDate: "2025-03-31T00:00:00.000Z"
+publishedDate: "2025-03-31T10:00:00Z"
 updatedDate: "2025-03-31T00:00:00.000Z"
 excerpt: "Forget expensive advertising. Learn how successful local pubs use community marketing to build loyal customers, increase visits, and become indispensable"
 author: "Peter Pitcher"

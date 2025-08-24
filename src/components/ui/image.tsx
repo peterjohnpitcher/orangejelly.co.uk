@@ -52,11 +52,13 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
     },
     ref
   ) => {
-    const [isLoading, setIsLoading] = React.useState(true);
+    // Check if the image is an SVG first
+    const isSvg = typeof props.src === 'string' && props.src.endsWith('.svg');
+
+    // SVGs don't need loading states as they load instantly
+    const [isLoading, setIsLoading] = React.useState(!isSvg);
     const [hasError, setHasError] = React.useState(false);
 
-    // Check if the image is an SVG
-    const isSvg = typeof props.src === 'string' && props.src.endsWith('.svg');
     const isExternal =
       typeof props.src === 'string' &&
       (props.src.startsWith('http://') || props.src.startsWith('https://'));
@@ -123,8 +125,8 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
         onLoad={handleLoad}
         onError={handleError}
         className={cn(
-          'transition-opacity duration-300',
-          isLoading && !priority && 'opacity-0',
+          !isSvg && 'transition-opacity duration-300',
+          !isSvg && isLoading && !priority ? 'opacity-0' : 'opacity-100',
           className
         )}
         style={{

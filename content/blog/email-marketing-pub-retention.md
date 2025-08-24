@@ -1,7 +1,7 @@
 ---
 title: "Email Marketing for Pubs: Build a Database That Drives Repeat Business"
 slug: "email-marketing-pub-retention"
-publishedDate: "2025-05-12T00:00:00.000Z"
+publishedDate: "2025-05-12T10:00:00Z"
 updatedDate: "2025-05-12T00:00:00.000Z"
 excerpt: "Turn one-time visitors into regulars with email marketing that works. Learn list building, automation, and campaign strategies that keep customers coming"
 author: "Peter Pitcher"

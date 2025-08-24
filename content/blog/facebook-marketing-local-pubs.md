@@ -1,7 +1,7 @@
 ---
 title: "Facebook Marketing for Local Pubs: Your Community Connection Goldmine"
 slug: "facebook-marketing-local-pubs"
-publishedDate: "2025-04-28T00:00:00.000Z"
+publishedDate: "2025-04-28T10:00:00Z"
 updatedDate: "2025-04-28T00:00:00.000Z"
 excerpt: "Unlock Facebook's potential for your pub with proven strategies for events, community building, and local marketing. Turn your village Facebook group into"
 author: "Peter Pitcher"

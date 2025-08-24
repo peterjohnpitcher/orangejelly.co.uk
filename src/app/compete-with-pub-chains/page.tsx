@@ -107,13 +107,18 @@ export default function CompeteWithPubChains() {
                         {strategy.description && (
                           <Text className="mb-4">{strategy.description}</Text>
                         )}
-                        {strategy.points && strategy.points.length > 0 && (
+                        {strategy.tactics && strategy.tactics.length > 0 && (
                           <FeatureList
-                            items={strategy.points}
+                            items={strategy.tactics}
                             icon="check"
                             iconColor="green"
                             spacing="tight"
                           />
+                        )}
+                        {strategy.result && (
+                          <Text size="sm" weight="semibold" className="mt-4 text-orange">
+                            → {strategy.result}
+                          </Text>
                         )}
                       </div>
                       <div className={`text-center ${index % 2 === 0 ? '' : 'md:order-1'}`}>
@@ -236,19 +241,25 @@ export default function CompeteWithPubChains() {
                   | 4;
                 return (
                   <Grid columns={{ default: 1, md: mdCols }} gap="large" className="mb-12">
-                    {successMetrics.metrics.map((metric) => (
-                      <Card key={metric._key} background="orange" padding="large">
-                        <Text size="2xl" weight="bold" className="text-white mb-2">
-                          {metric.value}
-                        </Text>
-                        <Text weight="semibold" color="white" className="mb-1">
-                          {metric.label}
-                        </Text>
-                        {metric.description && (
-                          <Text size="sm" color="white" className="opacity-90">
-                            {metric.description}
-                          </Text>
-                        )}
+                    {successMetrics.metrics.map((metric, index) => (
+                      <Card key={index} background="white" padding="large" variant="bordered">
+                        <Heading level={4} className="mb-3">
+                          {metric.metric}
+                        </Heading>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2">
+                            <Text size="sm" weight="semibold" className="text-red-600">
+                              Before:
+                            </Text>
+                            <Text size="sm">{metric.before}</Text>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Text size="sm" weight="semibold" className="text-green-600">
+                              After:
+                            </Text>
+                            <Text size="sm">{metric.after}</Text>
+                          </div>
+                        </div>
                       </Card>
                     ))}
                   </Grid>
@@ -474,8 +485,8 @@ export default function CompeteWithPubChains() {
               </Heading>
 
               <div className="space-y-6">
-                {faqs.map((faq) => (
-                  <FAQItem key={faq._key} question={faq.question} answer={faq.answer} />
+                {faqs.map((faq, index) => (
+                  <FAQItem key={index} question={faq.question} answer={faq.answer} />
                 ))}
               </div>
             </div>

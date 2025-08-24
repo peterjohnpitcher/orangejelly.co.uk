@@ -6,7 +6,7 @@ import Link from '@/components/Link';
 import AnimatedItem from '@/components/AnimatedItem';
 
 // Import partnerships data
-const partnersData = require('../../content/data/partnerships.json');
+import partnersData from '../../content/data/partnerships.json';
 
 interface Partner {
   name: string;
@@ -23,16 +23,16 @@ interface PartnershipsProps {
   partners?: Partner[];
 }
 
-export default function Partnerships({ 
+export default function Partnerships({
   variant = 'full',
   background = 'white',
   showDescription = true,
   className = '',
-  partners: partnersProp
+  partners: partnersProp,
 }: PartnershipsProps) {
   // Use local data if no partners provided
   const partners = partnersProp || (partnersData as Partner[]);
-  
+
   // Don't render if no partners available
   if (!partners || partners.length === 0) {
     return null;
@@ -41,7 +41,9 @@ export default function Partnerships({
   if (variant === 'minimal') {
     return (
       <div className={`flex flex-wrap items-center justify-center gap-6 ${className}`}>
-        <Text size="sm" color="muted" className="font-semibold w-full text-center mb-2">Working with:</Text>
+        <Text size="sm" color="muted" className="font-semibold w-full text-center mb-2">
+          Working with:
+        </Text>
         {partners.map((partner) => (
           <div key={partner.name} className="text-center">
             <Link
@@ -58,11 +60,16 @@ export default function Partnerships({
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded text-xs font-medium">
-                    {partner.name.split(' ').map(word => word[0]).join('')}
+                    {partner.name
+                      .split(' ')
+                      .map((word) => word[0])
+                      .join('')}
                   </div>
                 )}
               </div>
-              <Text size="sm" align="center" className="font-semibold">{partner.name}</Text>
+              <Text size="sm" align="center" className="font-semibold">
+                {partner.name}
+              </Text>
             </Link>
           </div>
         ))}
@@ -76,7 +83,9 @@ export default function Partnerships({
         <Heading level={3} align="center" className="mb-8">
           Working with Industry Leaders
         </Heading>
-        <div className={`grid grid-cols-1 sm:grid-cols-2 ${partners.length >= 3 ? 'md:grid-cols-3' : partners.length === 2 ? 'md:grid-cols-2 max-w-lg' : 'md:grid-cols-1 max-w-sm'} gap-6 mx-auto`}>
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-2 ${partners.length >= 3 ? 'md:grid-cols-3' : partners.length === 2 ? 'md:grid-cols-2 max-w-lg' : 'md:grid-cols-1 max-w-sm'} gap-6 mx-auto`}
+        >
           {partners.map((partner) => (
             <div key={partner.name} className="text-center">
               <Link
@@ -94,12 +103,19 @@ export default function Partnerships({
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded">
                       <Text className="font-bold text-gray-600">
-                        {partner.name.split(' ').map(word => word[0]).join('')}
+                        {partner.name
+                          .split(' ')
+                          .map((word) => word[0])
+                          .join('')}
                       </Text>
                     </div>
                   )}
                 </div>
-                <Text size="base" align="center" className="font-bold mb-2 group-hover:text-orange transition-colors">
+                <Text
+                  size="base"
+                  align="center"
+                  className="font-bold mb-2 group-hover:text-orange transition-colors"
+                >
                   {partner.name}
                 </Text>
                 {showDescription && partner.description && (
@@ -121,15 +137,13 @@ export default function Partnerships({
         <Heading level={3} align="center" className="mb-8">
           Working With Industry Leaders
         </Heading>
-        
-        <div className={`grid grid-cols-1 ${partners.length === 1 ? 'md:grid-cols-1 max-w-sm' : partners.length === 2 ? 'md:grid-cols-2 max-w-2xl' : partners.length === 3 ? 'md:grid-cols-3 max-w-4xl' : 'md:grid-cols-4'} gap-8 mx-auto`}>
+
+        <div
+          className={`grid grid-cols-1 ${partners.length === 1 ? 'md:grid-cols-1 max-w-sm' : partners.length === 2 ? 'md:grid-cols-2 max-w-2xl' : partners.length === 3 ? 'md:grid-cols-3 max-w-4xl' : 'md:grid-cols-4'} gap-8 mx-auto`}
+        >
           {partners.map((partner) => (
             <div key={partner.name} className="text-center">
-              <Link
-                href={partner.url || '#'}
-                external
-                className="block group"
-              >
+              <Link href={partner.url || '#'} external className="block group">
                 <div className="w-40 h-40 mx-auto mb-5 bg-white rounded-xl p-5 border-2 border-gray-200 group-hover:border-orange group-hover:shadow-lg transition-all">
                   {partner.logoUrl ? (
                     <img
@@ -140,12 +154,19 @@ export default function Partnerships({
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded">
                       <Text className="text-xl font-bold text-gray-600">
-                        {partner.name.split(' ').map(word => word[0]).join('')}
+                        {partner.name
+                          .split(' ')
+                          .map((word) => word[0])
+                          .join('')}
                       </Text>
                     </div>
                   )}
                 </div>
-                <Heading level={3} align="center" className="mb-3 text-xl md:text-2xl group-hover:text-orange transition-colors">
+                <Heading
+                  level={3}
+                  align="center"
+                  className="mb-3 text-xl md:text-2xl group-hover:text-orange transition-colors"
+                >
                   {partner.name}
                 </Heading>
                 {showDescription && partner.description && (
@@ -157,9 +178,10 @@ export default function Partnerships({
             </div>
           ))}
         </div>
-        
+
         <Text size="sm" color="muted" align="center" className="mt-8 pt-6 border-t border-gray-200">
-          We're proud to work with these industry leaders, sharing our AI innovations to help transform the wider pub industry.
+          We're proud to work with these industry leaders, sharing our AI innovations to help
+          transform the wider pub industry.
         </Text>
       </Card>
     </AnimatedItem>

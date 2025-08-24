@@ -1,7 +1,7 @@
 ---
 title: "Pub Refurbishment on a Budget: Transform Your Space for Under £5,000"
 slug: "pub-refurbishment-on-budget"
-publishedDate: "2025-07-14T00:00:00.000Z"
+publishedDate: "2025-07-14T10:00:00Z"
 updatedDate: "2025-07-14T00:00:00.000Z"
 excerpt: "Complete guide to budget pub refurbishment with real costs and DIY solutions. Learn how to transform your pub's appearance, improve atmosphere, and boost"
 author: "Peter Pitcher"

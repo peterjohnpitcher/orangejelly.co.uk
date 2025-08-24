@@ -1,7 +1,7 @@
 ---
 title: "How to Run Successful Pub Events: A Complete Guide to Profitable Functions"
 slug: "how-to-run-successful-pub-events"
-publishedDate: "2025-06-02T00:00:00.000Z"
+publishedDate: "2025-06-02T10:00:00Z"
 updatedDate: "2025-06-02T00:00:00.000Z"
 excerpt: "Transform your quiet nights into packed events. From planning to promotion, learn the proven formula for running profitable pub events that create loyal"
 author: "Peter Pitcher"

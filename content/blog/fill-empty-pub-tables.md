@@ -1,7 +1,7 @@
 ---
 title: "How to Fill Empty Pub Tables: 15 Strategies That Actually Work"
 slug: "fill-empty-pub-tables"
-publishedDate: "2025-02-17T01:00:00.000Z"
+publishedDate: "2025-02-17T10:00:00Z"
 updatedDate: "2025-02-17T01:00:00.000Z"
 excerpt: "Proven tactics to transform your empty tables into bustling profit centres. Real strategies from UK publicans who've cracked the code."
 author: "Peter Pitcher"

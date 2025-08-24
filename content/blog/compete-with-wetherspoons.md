@@ -1,7 +1,7 @@
 ---
 title: "How to Compete with Wetherspoons: A Survival Guide for Independent Pubs"
 slug: "compete-with-wetherspoons"
-publishedDate: "2025-03-17T01:00:00.000Z"
+publishedDate: "2025-03-17T10:00:00Z"
 updatedDate: "2025-03-17T01:00:00.000Z"
 excerpt: "Wetherspoons opened nearby? Don't panic. Learn proven strategies that help independent pubs thrive against chain competition by leveraging what Spoons"
 author: "Peter Pitcher"

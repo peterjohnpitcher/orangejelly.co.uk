@@ -81,7 +81,7 @@ export const defaultAuthor: Author = {
   name: 'Peter Pitcher',
   role: 'Licensee & Founder',
   bio: 'I run The Anchor in Stanwell Moor with my husband Billy. After struggling with empty tables and overwhelming marketing tasks, I discovered how AI could transform pub marketing. Now I help other licensees implement the same strategies that saved our pub.',
-  image: '/images/peter-pitcher.svg',
+  image: '/images/peter-pitcher.jpg',
 };
 
 // Blog categories
