@@ -138,7 +138,7 @@ export default async function LicenseesGuidePage() {
     const blogDirectory = path.join(process.cwd(), 'content/blog');
     // Get all blog posts, sorted by date (newest first)
     const allPosts = getAllBlogPosts(blogDirectory, undefined, {
-      field: 'publishedDate',
+      field: 'publishedAt',
       direction: 'desc',
     });
 
@@ -147,7 +147,7 @@ export default async function LicenseesGuidePage() {
       slug: post.slug,
       title: post.title,
       excerpt: post.excerpt || '',
-      // Use publishedDate directly since it's spread from frontMatter
+      // Use publishedAt which now correctly maps from publishedDate
       publishedDate: post.publishedAt || post.frontMatter?.publishedDate,
       category: post.categories?.[0] || post.frontMatter?.category || 'empty-pub-solutions',
       author: {

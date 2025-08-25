@@ -4,6 +4,7 @@ slug: "facebook-marketing-local-pubs"
 publishedDate: "2025-04-28T10:00:00Z"
 updatedDate: "2025-04-28T00:00:00.000Z"
 excerpt: "Unlock Facebook's potential for your pub with proven strategies for events, community building, and local marketing. Turn your village Facebook group into"
+quickAnswer: "Use Facebook Events to promote activities, join local community groups to share updates, post high-quality photos of food and atmosphere, and create targeted local ads for £5-20 weekly. Focus on building genuine community connections rather than just selling."
 author: "Peter Pitcher"
 category: "social-media"
 tags:

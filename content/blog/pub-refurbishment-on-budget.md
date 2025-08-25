@@ -4,6 +4,7 @@ slug: "pub-refurbishment-on-budget"
 publishedDate: "2025-07-14T10:00:00Z"
 updatedDate: "2025-07-14T00:00:00.000Z"
 excerpt: "Complete guide to budget pub refurbishment with real costs and DIY solutions. Learn how to transform your pub's appearance, improve atmosphere, and boost"
+quickAnswer: "Prioritize lighting improvements (£800), fresh paint and deep clean (£600), comfortable seating updates (£1,200), and create Instagram-worthy photo spots (£400). Focus on cleanliness and atmosphere over expensive fixtures - customers notice comfort more than luxury."
 author: "Peter Pitcher"
 category: "empty-pub-solutions"
 tags:

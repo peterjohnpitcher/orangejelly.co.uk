@@ -18,7 +18,7 @@ import Text from '@/components/Text';
 import Container from '@/components/Container';
 import Box from '@/components/Box';
 import { FAQSchema } from '@/components/StructuredData';
-import Partnerships from '@/components/Partnerships';
+import PartnershipsSection from '@/components/PartnershipsSection';
 // Icons not needed for basic about page
 import Link from 'next/link';
 // Local data imports
@@ -225,16 +225,15 @@ export default function AboutPage({ faqs }: AboutPageProps) {
       </Section>
 
       {/* Partners */}
-      <Section>
-        <Partnerships
-          variant="full"
-          partners={aboutData.partnerships.map((p: any) => ({
-            ...p,
-            logoUrl: p.logo,
-            description: p.relationship,
-          }))}
-        />
-      </Section>
+      <PartnershipsSection
+        partners={aboutData.partnerships.map((p: any) => ({
+          name: p.name,
+          description: p.relationship,
+          logoUrl: p.logo,
+          url: p.name === 'Greene King' ? 'https://www.greeneking.co.uk/' : 'https://www.bii.org/',
+        }))}
+        title="Working With Industry Leaders"
+      />
 
       {/* Visit CTA */}
       <Section background="teal">

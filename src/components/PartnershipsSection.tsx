@@ -1,4 +1,7 @@
 import { memo } from 'react';
+import Heading from './Heading';
+import Text from './Text';
+import OptimizedImage from './OptimizedImage';
 
 interface Partner {
   name: string;
@@ -13,43 +16,49 @@ interface PartnershipsSectionProps {
   className?: string;
 }
 
-function PartnershipsSection({ 
-  partners, 
+function PartnershipsSection({
+  partners,
   title = 'Working with Industry Leaders',
-  className = '' 
+  className = '',
 }: PartnershipsSectionProps) {
   if (!partners || partners.length === 0) {
     return null;
   }
 
   return (
-    <section className={`bg-gray-50 py-12 ${className}`}>
-      <div className="max-w-4xl mx-auto px-4">
-        <h3 className="text-2xl font-bold text-center text-charcoal mb-8">
+    <section className={`bg-gray-50 py-16 ${className}`}>
+      <div className="max-w-5xl mx-auto px-4">
+        <Heading level={2} align="center" color="charcoal" className="mb-12">
           {title}
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+        </Heading>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           {partners.map((partner, index) => (
             <div key={index} className="text-center">
-              <a 
-                href={partner.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={partner.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block group"
               >
-                <div className="bg-white rounded-lg p-6 h-32 flex items-center justify-center mb-4 shadow-sm hover:shadow-md transition-all group-hover:scale-105">
-                  <img 
-                    src={partner.logoUrl} 
+                <div className="bg-white rounded-xl p-8 h-48 flex items-center justify-center mb-6 shadow-md hover:shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-1">
+                  <OptimizedImage
+                    src={partner.logoUrl}
                     alt={partner.name}
-                    className="max-h-20 max-w-full object-contain"
+                    width={280}
+                    height={140}
+                    className="max-h-32 max-w-full object-contain"
                   />
                 </div>
-                <h4 className="font-bold text-charcoal mb-2 group-hover:text-orange transition-colors">
+                <Heading
+                  level={4}
+                  color="charcoal"
+                  className="mb-3 text-lg font-bold group-hover:text-orange transition-colors"
+                >
                   {partner.name}
-                </h4>
-                <p className="text-sm text-gray-600">
+                </Heading>
+                <Text size="base" color="muted" className="max-w-sm mx-auto">
                   {partner.description}
-                </p>
+                </Text>
               </a>
             </div>
           ))}

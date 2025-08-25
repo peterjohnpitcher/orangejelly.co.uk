@@ -4,6 +4,7 @@ slug: "email-marketing-pub-retention"
 publishedDate: "2025-05-12T10:00:00Z"
 updatedDate: "2025-05-12T00:00:00.000Z"
 excerpt: "Turn one-time visitors into regulars with email marketing that works. Learn list building, automation, and campaign strategies that keep customers coming"
+quickAnswer: "Collect emails through WiFi signup, loyalty programs, and table tent offers. Send weekly newsletters featuring upcoming events, special offers, and local news. Use automation for birthday offers and re-engagement campaigns to keep customers returning regularly."
 author: "Peter Pitcher"
 category: "social-media"
 tags:

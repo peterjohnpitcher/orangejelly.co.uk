@@ -4,6 +4,7 @@ slug: "beat-chain-pubs"
 publishedDate: "2025-03-24T10:00:00Z"
 updatedDate: "2025-03-24T01:00:00.000Z"
 excerpt: "Chain pubs have deep pockets, but you have something they'll never possess – soul. Learn how successful independent pubs compete and win against corporate"
+quickAnswer: "Beat chains by offering what they can't: personal service, local knowledge, flexibility, and community connection. Focus on quality over quantity, know your customers' names, adapt your menu instantly, and create experiences that corporate policies prevent chains from delivering."
 author: "Peter Pitcher"
 category: "competition"
 tags:

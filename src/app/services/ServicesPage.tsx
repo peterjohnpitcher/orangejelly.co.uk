@@ -11,6 +11,7 @@ import Button from '@/components/Button';
 import Container from '@/components/Container';
 import { FAQSchema } from '@/components/StructuredData';
 import { SpeakableContent } from '@/components/SpeakableContent';
+import PartnershipsSection from '@/components/PartnershipsSection';
 import { URLS } from '@/lib/constants';
 
 // Local data imports
@@ -73,10 +74,10 @@ export default function ServicesPage() {
         </Container>
       </Section>
 
-      {/* Services Grid - 4 columns on desktop, 2 on tablet, 1 on mobile */}
+      {/* Services Grid - 2 columns max on desktop, 1 on mobile */}
       <Section background="cream" padding="large">
-        <Container maxWidth="7xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <Container maxWidth="4xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {servicePackages.map((service) => (
               <ServiceCard key={service.id} {...service} />
             ))}
@@ -157,48 +158,19 @@ export default function ServicesPage() {
       </Section>
 
       {/* Partnership Section */}
-      {partnerships && (
-        <Section background="cream" padding="medium">
-          <Container maxWidth="5xl">
-            <div className="text-center mb-8">
-              <Text
-                size="sm"
-                color="muted"
-                weight="semibold"
-                className="uppercase tracking-wider mb-4"
-              >
-                Proud to work with
-              </Text>
-              <Heading level={2} className="mb-8">
-                {partnerships.heading}
-              </Heading>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-8">
-              {partnerships.partners.map((partner: any, index: number) => (
-                <Card key={index} variant="bordered" padding="large" className="text-center">
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="h-16 object-contain mx-auto mb-4"
-                  />
-                  <Heading level={4} className="mb-3">
-                    {partner.name}
-                  </Heading>
-                  <Text size="sm" color="muted">
-                    {partner.description}
-                  </Text>
-                </Card>
-              ))}
-            </div>
-
-            {partnerships.footer && (
-              <Text align="center" color="muted" className="max-w-3xl mx-auto">
-                {partnerships.footer}
-              </Text>
-            )}
-          </Container>
-        </Section>
+      {partnerships && partnerships.partners && (
+        <PartnershipsSection
+          partners={partnerships.partners.map((partner: any) => ({
+            name: partner.name,
+            description: partner.description,
+            logoUrl: partner.logo,
+            url:
+              partner.name === 'Greene King'
+                ? 'https://www.greeneking.co.uk/'
+                : 'https://www.bii.org/',
+          }))}
+          title={partnerships.heading}
+        />
       )}
 
       {/* Final CTA Section */}

@@ -4,6 +4,7 @@ slug: "fill-empty-pub-tables"
 publishedDate: "2025-02-17T10:00:00Z"
 updatedDate: "2025-02-17T01:00:00.000Z"
 excerpt: "Proven tactics to transform your empty tables into bustling profit centres. Real strategies from UK publicans who've cracked the code."
+quickAnswer: "Implement table reservation systems, create intimate dining spaces, offer walk-in incentives during slow periods, and use dynamic pricing. Focus on turning tables faster during peak times while extending stays during quiet periods. Strategic lighting and layout changes can make empty spaces feel welcoming."
 author: "Peter Pitcher"
 category: "empty-pub-solutions"
 tags:

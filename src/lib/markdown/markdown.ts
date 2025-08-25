@@ -297,6 +297,8 @@ export function getAllBlogPosts(
           content: parsed.content,
           excerpt: parsed.excerpt,
           readingTime: parsed.readingTime,
+          // Map publishedDate to publishedAt for consistency
+          publishedAt: parsed.frontMatter.publishedDate || parsed.frontMatter.publishedAt,
           seo: {
             title: parsed.frontMatter.seoTitle,
             description: parsed.frontMatter.seoDescription,
@@ -321,11 +323,7 @@ export function getAllBlogPosts(
         const bValue = b[sort.field] || '';
 
         // Special handling for date fields
-        if (
-          sort.field === 'publishedAt' ||
-          sort.field === 'updatedAt' ||
-          sort.field === 'publishedDate'
-        ) {
+        if (sort.field === 'publishedAt' || sort.field === 'updatedAt') {
           const aDate = new Date(aValue);
           const bDate = new Date(bValue);
 

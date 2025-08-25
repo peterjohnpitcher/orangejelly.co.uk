@@ -1,5 +1,7 @@
 import { memo } from 'react';
 import Link from 'next/link';
+import Heading from './Heading';
+import Text from './Text';
 
 interface ProblemCard {
   emoji: string;
@@ -14,10 +16,10 @@ interface ProblemCardsSectionProps {
   className?: string;
 }
 
-function ProblemCardsSection({ 
-  problems, 
+function ProblemCardsSection({
+  problems,
   title = "What's Killing Your Business?",
-  className = '' 
+  className = '',
 }: ProblemCardsSectionProps) {
   if (!problems || problems.length === 0) {
     return null;
@@ -26,24 +28,27 @@ function ProblemCardsSection({
   return (
     <section className={`bg-cream py-16 ${className}`}>
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-charcoal mb-12">
+        <Heading level={2} align="center" color="charcoal" className="mb-12">
           {title}
-        </h2>
-        
+        </Heading>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {problems.map((problem, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group">
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group"
+            >
               <div className="p-8 text-center">
                 <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
                   {problem.emoji}
                 </div>
-                <h3 className="text-xl font-bold text-charcoal mb-3">
+                <Heading level={3} color="charcoal" className="mb-3">
                   {problem.title}
-                </h3>
-                <p className="text-gray-600 mb-6">
+                </Heading>
+                <Text color="muted" className="mb-6">
                   {problem.description}
-                </p>
-                <Link 
+                </Text>
+                <Link
                   href={problem.linkHref}
                   className="inline-flex items-center justify-center text-sm font-semibold text-orange hover:text-orange-dark transition-colors"
                 >

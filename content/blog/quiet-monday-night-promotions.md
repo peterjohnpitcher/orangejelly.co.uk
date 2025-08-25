@@ -4,6 +4,7 @@ slug: "quiet-monday-night-promotions"
 publishedDate: "2025-03-03T10:00:00Z"
 updatedDate: "2025-03-03T01:00:00.000Z"
 excerpt: "Transform dead Monday nights into thriving profit centres with these proven promotional ideas. Real results from UK pubs that cracked the Monday code."
+quickAnswer: "Try community-focused events like craft clubs, board game nights, or skill-sharing sessions instead of traditional quizzes. Partner with local groups, offer cooking classes, or create weekly social meetups. Focus on building regular attendance through unique experiences that give people a reason to come every Monday."
 author: "Peter Pitcher"
 category: "events-promotions"
 tags:

@@ -4,6 +4,7 @@ slug: "pub-health-check-essential-fundamentals-licensee-success"
 publishedDate: "2025-08-04T10:00:00Z"
 updatedDate: "2025-08-11T12:27:19.060Z"
 excerpt: "Essential pub health check guide: 7 P's of marketing, financial metrics, cellar management, and community strategies every licensee needs."
+quickAnswer: "Track your gross profit percentage (aim for 65%+), monitor wastage weekly, clean beer lines every 7 days, review your 7 P's of marketing monthly, and engage your community through events and partnerships. These fundamentals will save £14,000+ annually."
 author: "Peter Pitcher"
 category: "empty-pub-solutions"
 tags:

@@ -429,20 +429,22 @@ export default function ContactPage({}: ContactPageProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/50 to-transparent flex items-end">
                 <div className="p-6 text-white">
                   <Heading level={3} color="white" className="mb-2">
-                    Find The Anchor
+                    Experience Excellence in Hospitality Online
                   </Heading>
-                  <Text color="white">Horton Road, Stanwell Moor, TW19 6AQ</Text>
+                  <Text color="white">
+                    See The Anchor's award-winning online presence firsthand
+                  </Text>
                   <Text color="white" size="sm">
-                    Near Heathrow Airport • Free parking
+                    Visit our website to see how we've transformed our digital footprint
                   </Text>
                   <Button
-                    href="https://maps.google.com/?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
+                    href="https://www.the-anchor.pub"
                     variant="primary"
                     size="small"
                     className="mt-4"
                     external
                   >
-                    Get Directions
+                    Visit The Anchor Website
                   </Button>
                 </div>
               </div>

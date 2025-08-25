@@ -1,4 +1,6 @@
 import { memo } from 'react';
+import Heading from './Heading';
+import Text from './Text';
 
 interface Feature {
   icon: string;
@@ -25,12 +27,12 @@ function FeaturesGrid({ features, className = '' }: FeaturesGridProps) {
               <div className="text-5xl mb-2 transform transition-transform group-hover:scale-110">
                 {feature.icon}
               </div>
-              <h3 className="text-sm font-bold text-charcoal mb-1">
+              <Heading level={3} color="charcoal" className="text-sm mb-1">
                 {feature.title}
-              </h3>
-              <p className="text-xs text-gray-600">
+              </Heading>
+              <Text size="xs" color="muted">
                 {feature.description}
-              </p>
+              </Text>
             </div>
           ))}
         </div>

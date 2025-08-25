@@ -4,6 +4,7 @@ slug: "social-media-strategy-for-pubs"
 publishedDate: "2025-04-21T10:00:00Z"
 updatedDate: "2025-04-21T00:00:00.000Z"
 excerpt: "Master social media marketing for your pub with this comprehensive guide. Learn platform-specific strategies, content calendars, and engagement tactics"
+quickAnswer: "Post consistently on Facebook and Instagram with quality food photos, engage with local community groups, share behind-the-scenes content, and use platform-specific features. Create a content calendar focusing on events, specials, and community connection rather than just promotional posts."
 author: "Peter Pitcher"
 category: "social-media"
 tags:

@@ -4,6 +4,7 @@ slug: "live-music-events-for-pubs"
 publishedDate: "2025-06-09T10:00:00Z"
 updatedDate: "2025-06-09T00:00:00.000Z"
 excerpt: "Turn your pub into a thriving music venue. From open mics to ticketed shows, learn how to book acts, manage sound, and create profitable live music events."
+quickAnswer: "Start with open mic nights (£200-500 PA investment) to build reputation, then book acoustic acts. Successful music nights can triple Friday revenue from £320 to £1,800. Focus on sound quality, artist payments (£200-500), and creating the right atmosphere for your audience."
 author: "Peter Pitcher"
 category: "events-promotions"
 tags:

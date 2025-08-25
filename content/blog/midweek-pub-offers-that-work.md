@@ -4,6 +4,7 @@ slug: "midweek-pub-offers-that-work"
 publishedDate: "2025-03-10T10:00:00Z"
 updatedDate: "2025-03-10T01:00:00.000Z"
 excerpt: "Discover midweek promotions that boost both customer numbers AND profits. Learn from real UK pubs that transformed their Tuesday-Thursday trade."
+quickAnswer: "Focus on high-margin offers like wine tastings, themed food nights, and loyalty programs rather than deep discounts. Bundle low-cost items with high-margin ones. Create exclusive midweek experiences that customers can't get elsewhere, increasing both footfall and profit per customer."
 author: "Peter Pitcher"
 category: "events-promotions"
 tags:

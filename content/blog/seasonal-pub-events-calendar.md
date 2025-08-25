@@ -4,6 +4,7 @@ slug: "seasonal-pub-events-calendar"
 publishedDate: "2025-06-23T10:00:00Z"
 updatedDate: "2025-06-23T00:00:00.000Z"
 excerpt: "Never face a quiet period again. Discover month-by-month seasonal event ideas that tap into holidays, trends, and local culture to keep your pub buzzing"
+quickAnswer: "Plan seasonal events for every month to eliminate quiet periods. January: Burns Night and Dry January events. February: Valentine's packages. Spring: Mother's Day and Easter. Summer: outdoor festivals and BBQs. Strategic seasonal planning turns traditional down months into profit opportunities."
 author: "Peter Pitcher"
 category: "events-promotions"
 tags:

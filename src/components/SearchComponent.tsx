@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import { type SearchableItem, type SearchResult } from '@/lib/search';
 import Fuse from 'fuse.js';
+import Heading from './Heading';
+import Text from './Text';
 
 interface SearchComponentProps {
   onResults?: (results: SearchResult[]) => void;
@@ -146,19 +148,29 @@ function SearchResultItem({ result, isLast }: SearchResultItemProps) {
     >
       <div className="flex items-start justify-between">
         <div className="flex-1 min-w-0">
-          <h3 className="text-sm font-medium text-gray-900 truncate">{item.title}</h3>
-          <p className="mt-1 text-sm text-gray-500 line-clamp-2">{item.excerpt}</p>
+          <Heading level={3} className="text-sm truncate">
+            {item.title}
+          </Heading>
+          <Text size="sm" color="muted" className="mt-1 line-clamp-2">
+            {item.excerpt}
+          </Text>
           <div className="mt-2 flex items-center space-x-2">
-            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800">
+            <Text
+              size="xs"
+              weight="medium"
+              className="inline-flex items-center px-2 py-0.5 rounded bg-orange-100 text-orange-800"
+            >
               {item.category}
-            </span>
+            </Text>
             {item.tags.slice(0, 2).map((tag, index) => (
-              <span
+              <Text
                 key={index}
-                className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600"
+                size="xs"
+                weight="medium"
+                className="inline-flex items-center px-2 py-0.5 rounded bg-gray-100 text-gray-600"
               >
                 {tag}
-              </span>
+              </Text>
             ))}
           </div>
         </div>

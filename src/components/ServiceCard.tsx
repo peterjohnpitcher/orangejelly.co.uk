@@ -3,6 +3,7 @@ import Button from './Button';
 import Card from './Card';
 import Heading from './Heading';
 import Text from './Text';
+import OptimizedImage from './OptimizedImage';
 import { URLS } from '@/lib/constants';
 
 interface ServiceCardExample {
@@ -54,7 +55,7 @@ function ServiceCard({
 
         {/* Orange Jelly watermark - subtle in corner */}
         <div className="absolute bottom-2 right-2 opacity-5">
-          <img src="/logo.png" alt="" className="w-12 h-12" />
+          <OptimizedImage src="/logo.png" alt="" width={48} height={48} className="w-12 h-12" />
         </div>
 
         {/* Content */}
