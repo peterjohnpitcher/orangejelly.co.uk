@@ -9,6 +9,8 @@ export async function generateMetadata() {
     path: '/services',
     keywords:
       'pub marketing services, pub menu design, pub social media management, pub website design, AI training for pubs, pub consultancy UK',
+    ogImage: '/images/og-default.jpg',
+    ogType: 'website',
   });
 }
 

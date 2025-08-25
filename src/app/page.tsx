@@ -1,31 +1,29 @@
 import { Suspense } from 'react';
-import { type Metadata } from 'next';
 import HomePage from './HomePage';
 import { AsyncErrorBoundary } from '@/components/ErrorBoundary';
 import { PageLoading } from '@/components/Loading';
+import { generateStaticMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Fill Your Pub with AI-Powered Marketing | Orange Jelly',
-  description:
-    'Transform your pub with AI-powered marketing strategies that work. From empty tables to thriving business - proven at The Anchor. Real licensee experience. £62.50 per hour plus VAT.',
-  keywords: [
-    'pub marketing UK',
-    'AI pub marketing',
-    'fill empty pub tables',
-    'pub marketing strategies',
-    'increase pub customers',
-    'pub social media marketing',
-    'pub turnaround',
-    'AI marketing for pubs',
-  ],
-  openGraph: {
-    title: 'Fill Your Pub with AI-Powered Marketing | Orange Jelly',
+export async function generateMetadata() {
+  return generateStaticMetadata({
+    title: 'Fill Your Pub with AI-Powered Marketing',
     description:
       'Transform your pub with AI-powered marketing strategies that work. From empty tables to thriving business - proven at The Anchor. Real licensee experience. £62.50 per hour plus VAT.',
-    type: 'website',
-    url: '/',
-  },
-};
+    path: '/',
+    keywords: [
+      'pub marketing UK',
+      'AI pub marketing',
+      'fill empty pub tables',
+      'pub marketing strategies',
+      'increase pub customers',
+      'pub social media marketing',
+      'pub turnaround',
+      'AI marketing for pubs',
+    ].join(', '),
+    ogImage: '/images/og-default.jpg',
+    ogType: 'website',
+  });
+}
 
 // Local data for homepage
 const getLocalHomeData = () => {

@@ -114,6 +114,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
+  const baseUrl = 'https://www.orangejelly.co.uk';
+
+  // Use the article's featured image for OpenGraph
+  const ogImage = post.featuredImage || `/images/blog/${params.slug}.svg`;
+  const absoluteImageUrl = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
+
   return {
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.excerpt,
@@ -123,14 +129,31 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       description: post.metaDescription || post.excerpt,
       type: 'article',
       publishedTime: post.publishedDate,
-      authors: ['Orange Jelly'],
-      images: [post.featuredImage || '/logo.png'],
+      modifiedTime: post.updatedDate,
+      authors: [post.author?.name || 'Peter Pitcher'],
+      siteName: 'Orange Jelly',
+      locale: 'en_GB',
+      url: `${baseUrl}/licensees-guide/${params.slug}`,
+      images: [
+        {
+          url: absoluteImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+          type: 'image/svg+xml',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.excerpt,
-      images: [post.featuredImage || '/logo.png'],
+      images: [absoluteImageUrl],
+      creator: '@orangejelly_uk',
+      site: '@orangejelly_uk',
+    },
+    alternates: {
+      canonical: `${baseUrl}/licensees-guide/${params.slug}`,
     },
   };
 }

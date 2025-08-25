@@ -1,4 +1,3 @@
-import { type Metadata } from 'next';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import BlogPostCard from '@/components/blog/BlogPostCard';
@@ -9,43 +8,28 @@ import { breadcrumbPaths } from '@/components/Breadcrumb';
 import { getAllBlogPosts } from '@/lib/markdown/markdown';
 import path from 'path';
 import { CollectionPageSchema } from '@/components/CollectionPageSchema';
+import { generateStaticMetadata } from '@/lib/metadata';
 
 // Enable ISR (Incremental Static Regeneration) - pages revalidate every 60 seconds
 export const revalidate = 60;
 
-export const metadata: Metadata = {
-  title: "The Licensee's Guide - Expert Pub Management Advice | Orange Jelly",
-  description:
-    'Essential guides for pub owners covering marketing, events, food, and business strategy. Practical advice to increase revenue and build thriving local pubs.',
-  keywords: [
-    'pub management',
-    'pub marketing',
-    'licensee guide',
-    'pub business advice',
-    'pub owner tips',
-  ],
-  openGraph: {
+export async function generateMetadata() {
+  return generateStaticMetadata({
     title: "The Licensee's Guide - Expert Pub Management Advice",
     description:
-      'Essential guides for pub owners covering marketing, events, food, and business strategy.',
-    type: 'website',
-    images: [
-      {
-        url: '/opengraph-image',
-        width: 1200,
-        height: 630,
-        alt: "The Licensee's Guide - Expert Pub Management Advice",
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "The Licensee's Guide - Expert Pub Management Advice",
-    description:
-      'Essential guides for pub owners covering marketing, events, food, and business strategy.',
-    images: ['/opengraph-image'],
-  },
-};
+      'Essential guides for pub owners covering marketing, events, food, and business strategy. Practical advice to increase revenue and build thriving local pubs.',
+    path: '/licensees-guide',
+    keywords: [
+      'pub management',
+      'pub marketing',
+      'licensee guide',
+      'pub business advice',
+      'pub owner tips',
+    ].join(', '),
+    ogImage: '/images/og-default.jpg',
+    ogType: 'website',
+  });
+}
 
 // Helper function to map category slugs to display names and descriptions
 function getCategoryDisplayInfo(categorySlug: string) {

@@ -9,6 +9,8 @@ export async function generateMetadata() {
     path: '/contact',
     keywords:
       'contact Orange Jelly, pub marketing help, Peter Pitcher contact, pub consultation, WhatsApp pub help',
+    ogImage: '/images/og-default.jpg',
+    ogType: 'website',
   });
 }
 

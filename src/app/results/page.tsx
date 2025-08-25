@@ -9,6 +9,8 @@ export async function generateMetadata() {
     path: '/results',
     keywords:
       'pub success stories, pub turnaround case studies, increase pub revenue, pub marketing results, The Anchor success, pub transformation',
+    ogImage: '/images/og-default.jpg',
+    ogType: 'website',
   });
 }
 

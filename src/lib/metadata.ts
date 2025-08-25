@@ -98,6 +98,7 @@ export function generateStaticMetadata(overrides: Partial<GenerateMetadataProps>
       'AI-powered marketing solutions for UK pubs from real licensees who understand your challenges.',
     path: '/',
     ogType: 'website',
+    ogImage: '/images/og-default.jpg', // Standard OG image for non-article pages
   };
 
   return generateMetadata({ ...defaults, ...overrides });

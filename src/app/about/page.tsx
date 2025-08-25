@@ -17,6 +17,8 @@ export async function generateMetadata() {
       'pub marketing consultant',
       'licensee helping licensees',
     ].join(', '),
+    ogImage: '/images/og-default.jpg',
+    ogType: 'website',
   });
 }
 

@@ -394,13 +394,6 @@ voiceSearchQueries:
   - "natural question people would ask"
   - "another voice search variation"
   - "how to [solve specific problem]"
-quickStats:
-  - number: "300%"
-    label: "Profit increase"
-  - number: "£50K"
-    label: "Annual revenue gain"
-  - number: "14 days"
-    label: "To see results"
 faqs:
   - question: "Specific question with good keywords?"
     answer: "Clear, comprehensive answer that could stand alone. Include specific numbers and examples. 2-3 sentences minimum."
