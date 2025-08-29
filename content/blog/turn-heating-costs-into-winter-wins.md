@@ -1,5 +1,5 @@
 ---
-title: "This Pub Owner's £800 Heating Bill Made Him £2,000 Extra - Here's His Simple Trick"
+title: "Winter's Coming: Your Simple Guide to Turning Cold Weather Into Cash"
 slug: turn-heating-costs-into-winter-wins
 excerpt: "When my heating bill jumped to £800, I panicked. Then I discovered this ridiculously simple strategy that turned winter into my most profitable season"
 publishedDate: 2025-08-29
@@ -39,7 +39,7 @@ ctaSettings:
 schema:
   "@context": "https://schema.org"
   "@type": "Article"
-  headline: "This Pub Owner's £800 Heating Bill Made Him £2,000 Extra - Here's His Simple Trick"
+  headline: "Winter's Coming: Your Simple Guide to Turning Cold Weather Into Cash"
   description: "Discover the counterintuitive strategy that transforms massive winter heating bills into even bigger profits"
   author:
     "@type": "Person"

@@ -11,16 +11,16 @@
   <rect width="1200" height="630" fill="url(#warmGradient)"/>
   
   <!-- Main heading -->
-  <text x="600" y="280" font-family="Arial, sans-serif" font-size="52" font-weight="bold" text-anchor="middle" fill="white">
-    Turn Your Heating Bill
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="white">
+    Winter's Coming: Your Simple Guide
   </text>
-  <text x="600" y="340" font-family="Arial, sans-serif" font-size="52" font-weight="bold" text-anchor="middle" fill="white">
-    Into Winter Gold
+  <text x="600" y="340" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="white">
+    to Turning Cold Weather Into Cash
   </text>
   
   <!-- Subheading -->
   <text x="600" y="400" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="white" opacity="0.95">
-    Transform £700 costs into £2,000 revenue
+    Prepare now for the colder months ahead
   </text>
   
   <!-- Bottom branding -->
