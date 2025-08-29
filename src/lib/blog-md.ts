@@ -74,6 +74,7 @@ const categoryMapping: Record<string, string> = {
   'digital-reputation': 'social-media',
   'location-challenges': 'empty-pub-solutions',
   'customer-acquisition': 'empty-pub-solutions',
+  'Revenue Growth': 'empty-pub-solutions',
 };
 
 // Get post by slug

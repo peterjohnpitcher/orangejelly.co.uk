@@ -1,7 +1,7 @@
 ---
 title: "Instagram Marketing for Pubs: Turn Food Photos Into Foot Traffic"
 slug: "instagram-marketing-for-pubs"
-publishedDate: "2025-05-05T10:00:00Z"
+publishedDate: 2025-03-21
 updatedDate: "2025-05-05T00:00:00.000Z"
 excerpt: "Transform your pub's Instagram from amateur snapshots to a customer magnet. Learn photography tricks, hashtag strategies, and content ideas that fill"
 quickAnswer: "Post high-quality food and drink photos with natural lighting, use local hashtags and tag your location. Share Stories showing daily specials, behind-the-scenes content, and customer experiences. Engage with followers and partner with local food influencers."
