@@ -325,7 +325,7 @@ async function migrateLandingPages() {
     _type: 'landingPage',
     title: 'Empty Pub Solutions',
     slug: { _type: 'slug', current: 'empty-pub-solutions' },
-    metaDescription: 'Empty pub killing your profits? Proven 30-day system fills tables fast. From 25% empty to 85% full - real results from UK pubs. Money-back guarantee.',
+    metaDescription: 'Empty pub killing your profits? Proven 30-day system fills tables fast. From 25% empty to 85% full - real results from UK pubs. Action plan support.',
     keywords: ['empty pub', 'fill tables', 'pub recovery', 'increase covers', 'pub marketing'],
     heroSection: {
       title: 'Your Pub is Empty. We\'ll Fill It in 30 Days.',
@@ -355,7 +355,7 @@ async function migrateLandingPages() {
     },
     {
       question: "How much does the empty pub recovery package cost?",
-      answer: "£62.50 per hour plus VAT. I'll work with you to implement the AI strategies that transformed The Anchor. 30-day money-back guarantee if you're not satisfied.",
+      answer: "£75 per hour plus VAT. I'll work with you to implement the AI strategies that transformed The Anchor. 30-day action plan with weekly support if you're not satisfied.",
       category: 'pricing'
     },
     {
@@ -819,7 +819,7 @@ async function migrateLandingPages() {
     _type: 'landingPage',
     title: 'Pub Rescue',
     slug: { _type: 'slug', current: 'pub-rescue' },
-    metaDescription: 'Struggling pub? Get emergency help now. From empty Tuesday nights to staff crises, we provide immediate solutions that work. 30-day money-back guarantee.',
+    metaDescription: 'Struggling pub? Get emergency help now. From empty Tuesday nights to staff crises, we provide immediate solutions that work. 30-day action plan with weekly support.',
     keywords: ['pub rescue', 'struggling pub', 'pub emergency', 'pub crisis', 'pub help'],
     heroSection: {
       title: 'Pub Rescue Emergency Service',
@@ -844,7 +844,7 @@ async function migrateLandingPages() {
     },
     {
       question: "What if I can't afford consultancy fees right now?",
-      answer: "I get it - when the pub's struggling, every penny counts. We charge £62.50 per hour plus VAT, working flexibly with your budget. Most strategies pay for themselves in the first weekend. Plus, I'll often share free tips during our first chat because I hate seeing pubs struggle.",
+      answer: "I get it - when the pub's struggling, every penny counts. We charge £75 per hour plus VAT, working flexibly with your budget. Most strategies pay for themselves in the first weekend. Plus, I'll often share free tips during our first chat because I hate seeing pubs struggle.",
       category: 'pricing'
     },
     {
@@ -864,7 +864,7 @@ async function migrateLandingPages() {
     },
     {
       question: "What if your solutions don't work for my pub?",
-      answer: "Every pub is different, which is why we offer a 30-day money-back guarantee. If you don't see improved results within 30 days, you get a full refund. But honestly, the strategies work because they're based on real pub experience, not theory.",
+      answer: "Every pub is different, which is why we offer a 30-day action plan with weekly support. If you don't see improved results within 30 days, you get a full refund. But honestly, the strategies work because they're based on real pub experience, not theory.",
       category: 'results'
     }
   ];

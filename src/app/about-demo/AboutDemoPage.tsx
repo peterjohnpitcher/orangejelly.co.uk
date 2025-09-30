@@ -52,7 +52,7 @@ export default function AboutDemoPage({ aboutContent }: AboutDemoPageProps) {
     {
       question: 'What makes Orange Jelly different from other consultants?',
       answer:
-        "We're not consultants who've never pulled a pint. We run an actual pub and test every strategy in our own business first. No corporate nonsense, no jargon - just one licensee helping another with tools that actually work. Plus, we guarantee results or your money back.",
+        "We're not consultants who've never pulled a pint. We run an actual pub and test every strategy in our own business first. No corporate nonsense, no jargon - just one licensee helping another with tools that actually work.",
     },
     {
       question: 'Can I visit The Anchor to see your strategies in action?',
@@ -67,7 +67,7 @@ export default function AboutDemoPage({ aboutContent }: AboutDemoPageProps) {
     {
       question: 'How can I be sure Orange Jelly will work for my pub?',
       answer:
-        "Every pub is different, but the challenges are similar. That's why we offer a free consultation to understand your specific situation, and a 30-day money-back guarantee. We're so confident because these aren't theories - they're proven strategies from our own pub.",
+        "Every pub is different, but the challenges are similar. That's why we offer a free consultation to understand your specific situation and stay hands-on through the first month to make sure the plan sticks. These aren't theories - they're proven strategies from our own pub.",
     },
   ];
 
@@ -234,12 +234,12 @@ export default function AboutDemoPage({ aboutContent }: AboutDemoPageProps) {
                     {
                       icon: '💰',
                       title: 'Honest Pricing',
-                      desc: '£62.50 per hour plus VAT. No packages, no surprises.',
+                      desc: '£75 per hour plus VAT. No packages, no surprises.',
                     },
-                    {
-                      icon: '🛡️',
-                      title: 'Guaranteed Results',
-                      desc: '30-day money-back guarantee. We believe in what we do.',
+                  {
+                    icon: '🛡️',
+                    title: 'Results Backed by Experience',
+                    desc: 'Everything we teach runs daily inside The Anchor.',
                     },
                     {
                       icon: '🤝',
@@ -347,8 +347,8 @@ export default function AboutDemoPage({ aboutContent }: AboutDemoPageProps) {
                     'Full-time job + pub + Orange Jelly',
                     'Featured in BII magazine',
                     'Greene King tenants',
-                    '£62.50/hour - no packages',
-                    '30-day money-back guarantee',
+                    '£75/hour - no packages',
+                    '30-day action plan with weekly check-ins',
                     'First pint free when you visit!',
                   ].map((fact, i) => (
                     <div key={i} className="flex items-center gap-2 text-white">

@@ -1,4 +1,5 @@
 import { type Metadata } from 'next';
+import { getBaseUrl } from './site-config';
 
 interface GenerateMetadataProps {
   title: string;
@@ -25,7 +26,7 @@ export function generateMetadata({
   modifiedTime,
   author,
 }: GenerateMetadataProps): Metadata {
-  const baseUrl = 'https://www.orangejelly.co.uk';
+  const baseUrl = getBaseUrl();
 
   // Normalize path
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;

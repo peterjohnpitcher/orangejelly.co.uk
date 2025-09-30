@@ -6,11 +6,11 @@ For in-person training and consultations, we cover a 30-mile radius from Stanwel
 
 ## How can I be sure Orange Jelly will work for my pub?
 
-Every pub is different, but the challenges are similar. That's why we offer a free consultation to understand your specific situation, and a 30-day money-back guarantee. We're so confident because these aren't theories - they're proven strategies from our own pub.
+Every pub is different, but the challenges are similar. That's why we offer a free consultation to understand your specific situation and stay closely involved during the first month to keep things on track. We're so confident because these aren't theories - they're proven strategies from our own pub.
 
 ## What's your promise to pub owners?
 
-To save you at least 5 hours per week on admin tasks, be honest about what AI can and can't do, only recommend tools we use ourselves, keep prices transparent and fair, and provide personal support when you need it. Plus our 30-day money-back guarantee.
+To save you at least 5 hours per week on admin tasks, be honest about what AI can and can't do, only recommend tools we use ourselves, keep prices transparent and fair, and provide personal support when you need it.
 
 ## Can AI really manage my pub's social media?
 
@@ -26,7 +26,7 @@ Real experience combined with AI efficiency. I've run successful quiz nights, ta
 
 ## How does the Empty Pub Recovery Package work?
 
-We work with you to implement AI-powered marketing strategies that have been proven at The Anchor. This includes training on social media automation, event promotion, and customer engagement. We charge £62.50 per hour plus VAT, and offer a 30-day money-back guarantee.
+We work with you to implement AI-powered marketing strategies that have been proven at The Anchor. This includes training on social media automation, event promotion, and customer engagement. We charge £75 per hour plus VAT and tailor the support to what your pub needs most.
 
 ## How do you promote a pub quiz effectively?
 

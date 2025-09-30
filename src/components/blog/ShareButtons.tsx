@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Button from '@/components/Button';
+import { getBaseUrl } from '@/lib/site-config';
 
 interface ShareButtonsProps {
   url: string;
@@ -12,7 +13,7 @@ interface ShareButtonsProps {
 export default function ShareButtons({ url, title, variant = 'inline' }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   
-  const shareUrl = `https://www.orangejelly.co.uk${url}`;
+  const shareUrl = `${getBaseUrl()}${url}`;
   const encodedUrl = encodeURIComponent(shareUrl);
   const encodedTitle = encodeURIComponent(title);
   

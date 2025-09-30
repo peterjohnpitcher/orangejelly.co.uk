@@ -12,7 +12,7 @@ The Orange Jelly website has been comprehensively reviewed and updated to match 
 
 | Requirement | Status | Implementation |
 |------------|--------|---------------|
-| **Pricing: £62.50/hour plus VAT** | ✅ COMPLIANT | All services now show hourly pricing only |
+| **Pricing: £75/hour plus VAT** | ✅ COMPLIANT | All services now show hourly pricing only |
 | **NO PACKAGES** | ✅ COMPLIANT | Removed all package pricing, fixed prices eliminated |
 | **Real Metrics Only** | ✅ COMPLIANT | All metrics match verified CLAUDE.md numbers |
 | **First Client: Sept 2025** | ✅ COMPLIANT | No false claims about helping other pubs |
@@ -71,13 +71,13 @@ All metrics across the site now match CLAUDE.md verified numbers:
 
 All 7 services now comply with hourly pricing requirement:
 
-1. **Empty Pub Recovery Package** - £62.50/hour (Est. 10-15 hours)
-2. **Menu Makeover & Profit Maximization** - £62.50/hour (Est. 4-6 hours)
-3. **Social Media Marketing** - £62.50/hour (Est. 3-5 hours setup + 2-3 hours/month)
-4. **Quiz Night Success System** - £62.50/hour (Est. 6-8 hours)
-5. **AI Business Analysis & Insights** - £62.50/hour (Est. 3-4 hours)
-6. **Event Planning** - £62.50/hour (Est. 5-7 hours per event)
-7. **Website & Online Presence** - £62.50/hour (Est. 8-12 hours)
+1. **Empty Pub Recovery Package** - £75/hour (Est. 10-15 hours)
+2. **Menu Makeover & Profit Maximization** - £75/hour (Est. 4-6 hours)
+3. **Social Media Marketing** - £75/hour (Est. 3-5 hours setup + 2-3 hours/month)
+4. **Quiz Night Success System** - £75/hour (Est. 6-8 hours)
+5. **AI Business Analysis & Insights** - £75/hour (Est. 3-4 hours)
+6. **Event Planning** - £75/hour (Est. 5-7 hours per event)
+7. **Website & Online Presence** - £75/hour (Est. 8-12 hours)
 
 ## Partnership Display
 

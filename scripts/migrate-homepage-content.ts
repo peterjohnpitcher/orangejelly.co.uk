@@ -43,7 +43,7 @@ async function migrateHomepageContent() {
         title: 'Fill Your Pub with AI-Powered Marketing',
         subtitle: 'Stop struggling with empty tables. We turned The Anchor from failing to thriving using AI marketing strategies that actually work. From one licensee to another - let me show you how.',
         ctaText: 'See Our Solutions',
-        bottomText: '£62.50 per hour plus VAT • No packages • Real results from real licensees'
+        bottomText: '£75 per hour plus VAT • No packages • Real results from real licensees'
       },
 
       // Problems Section
@@ -107,7 +107,7 @@ async function migrateHomepageContent() {
       // SEO Metadata
       seo: {
         title: 'How to Fill Empty Pub Tables | Pub Marketing That Works',
-        description: 'Struggling with empty pub tables? We use AI-powered marketing strategies that transformed The Anchor from struggling to thriving. From one licensee to another. £62.50 per hour plus VAT.',
+        description: 'Struggling with empty pub tables? We use AI-powered marketing strategies that transformed The Anchor from struggling to thriving. From one licensee to another. £75 per hour plus VAT.',
         keywords: [
           'pub marketing UK',
           'fill empty pub tables', 

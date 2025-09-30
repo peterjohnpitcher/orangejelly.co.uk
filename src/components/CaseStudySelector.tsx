@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Button from '@/components/Button';
 import Heading from '@/components/Heading';
 import Text from '@/components/Text';
@@ -27,26 +27,61 @@ interface CaseStudySelectorProps {
   defaultStudy?: string;
 }
 
-export default function CaseStudySelector({ results, defaultStudy = 'sunday-roast' }: CaseStudySelectorProps) {
-  // Call hooks unconditionally
-  const [activeStudy, setActiveStudy] = useState(defaultStudy);
-  
+export default function CaseStudySelector({
+  results,
+  defaultStudy = 'sunday-lunch-preorder-system',
+}: CaseStudySelectorProps) {
+  const resolveInitialStudy = () => {
+    if (!results || results.length === 0) {
+      return '';
+    }
+
+    if (defaultStudy && results.some((study) => study.id === defaultStudy)) {
+      return defaultStudy;
+    }
+
+    return results[0].id;
+  };
+
+  const [activeStudy, setActiveStudy] = useState(resolveInitialStudy);
+  const preferredStudyRef = useRef<string | undefined>(
+    defaultStudy && results?.some((study) => study.id === defaultStudy)
+      ? defaultStudy
+      : undefined
+  );
+
+  useEffect(() => {
+    if (!results || results.length === 0) {
+      return;
+    }
+
+    const fallbackId = results[0].id;
+    const preferredId =
+      defaultStudy && results.some((study) => study.id === defaultStudy)
+        ? defaultStudy
+        : undefined;
+
+    setActiveStudy((previous) => {
+      const hasPrevious = results.some((study) => study.id === previous);
+
+      const preferredChanged = preferredId !== preferredStudyRef.current;
+      preferredStudyRef.current = preferredId;
+
+      if (preferredChanged && preferredId) {
+        return preferredId;
+      }
+
+      return hasPrevious ? previous : preferredId ?? fallbackId;
+    });
+  }, [defaultStudy, results]);
+
   // Ensure we have results before trying to use them
   if (!results || results.length === 0) {
     return null;
   }
-  
-  // Use the first available study if the default isn't found
-  const validDefaultStudy = results.find(study => study.id === defaultStudy) 
-    ? defaultStudy 
-    : results[0].id;
-  
-  // Update active study if needed
-  if (activeStudy !== validDefaultStudy && activeStudy === defaultStudy) {
-    setActiveStudy(validDefaultStudy);
-  }
-  
-  const activeStudyData = results.find(study => study.id === activeStudy) || results[0];
+
+  const activeStudyData =
+    results.find((study) => study.id === activeStudy) ?? results[0];
 
   return (
     <>

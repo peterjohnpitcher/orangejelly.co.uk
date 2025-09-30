@@ -44,7 +44,7 @@ These need to be manually deleted in Sanity Studio:
 - **All from The Anchor**: No claims about helping other pubs
 - **Real metrics**: 300 contacts (not 850), actual percentages
 - **Honest timeline**: First external client September 2025
-- **Accurate pricing**: Always £62.50/hour plus VAT
+- **Accurate pricing**: Always £75/hour plus VAT
 - **Real challenges**: QuestionOne refusing to innovate, waste issues
 - **True results**: Verified from interview questions
 

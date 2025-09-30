@@ -23,7 +23,7 @@ Comprehensive content verification and synchronization completed. All production
 - **Issue**: Hero section mismatch
 - **Production Title**: "From Empty Tables to Full Tills"
 - **Production Subtitle**: "Every service below has been tested at The Anchor. If it didn't work for us, it's not here."
-- **Production Bottom Text**: "All services £62.50/hour • No packages • Pay for what you need"
+- **Production Bottom Text**: "All services £75/hour • No packages • Pay for what you need"
 - **Resolution**: Updated `content/data/services.json` to match production
 
 ### 4. RESULTS PAGE
@@ -70,7 +70,7 @@ Comprehensive content verification and synchronization completed. All production
 - [x] All page titles match production
 - [x] All subtitles match production
 - [x] Core metrics verified (71% GP, 25-35 quiz regulars, £250 savings, 70k views)
-- [x] Pricing consistently shows £62.50/hour
+- [x] Pricing consistently shows £75/hour
 - [x] Contact information consistent (07990 587315)
 - [x] 30-day guarantee mentioned appropriately
 
@@ -115,7 +115,7 @@ All pages now correctly display:
 - **Value Added**: £75-100k
 - **AI Time Saved**: 25 hours/week
 - **Tasting Retention**: 85%
-- **Pricing**: £62.50/hour plus VAT
+- **Pricing**: £75/hour plus VAT
 
 ## ✅ Final Status
 

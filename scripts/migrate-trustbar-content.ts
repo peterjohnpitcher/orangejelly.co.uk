@@ -61,7 +61,7 @@ const trustBarContent = {
     },
     {
       _key: 'alt3',
-      value: 'Money-back guarantee',
+      value: 'Action plan support',
       label: 'No risk to try',
       order: 6,
       isActive: false,

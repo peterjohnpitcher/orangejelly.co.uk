@@ -17,7 +17,7 @@ All text content across the main pages is consistent between localhost and produ
   - £75k-£100k value added ✅
   - 71% food GP (up from 58%) ✅
   - 30 days typical results ✅
-  - £62.50 per hour + VAT ✅
+  - £75 per hour + VAT ✅
 - **Problem Cards**: Fixed broken links
   - ❌ OLD: `midweek-marketing`, `cost-optimization`, `competitive-advantage`
   - ✅ NEW: `/quiet-midweek-solutions`, `/pub-rescue`, `/compete-with-pub-chains`
@@ -35,7 +35,7 @@ All text content across the main pages is consistent between localhost and produ
 ### 3. Services Page (/services) ✅
 **Status**: Perfect match
 - **Hero**: "From Empty Tables to Full Tills" ✅
-- **Pricing**: £62.50/hour consistently displayed ✅
+- **Pricing**: £75/hour consistently displayed ✅
 - **Services Listed**: All 5 main services present
   1. Empty Pub Recovery Package ✅
   2. Menu Makeover & Profit Maximization ✅
@@ -64,7 +64,7 @@ All text content across the main pages is consistent between localhost and produ
 **Status**: Perfect match
 - **Hero**: "Pub Rescue Emergency Service" ✅
 - **Crisis messaging consistent** ✅
-- **Pricing**: £62.50/hour + VAT ✅
+- **Pricing**: £75/hour + VAT ✅
 
 ### 7. Compete with Chains Page (/compete-with-pub-chains) ✅
 **Status**: Perfect match
@@ -86,7 +86,7 @@ All text content across the main pages is consistent between localhost and produ
 - Value added: £75,000-£100,000
 - Social media views: 60,000-70,000 monthly
 - Weekly savings: £250
-- Pricing: £62.50 per hour plus VAT
+- Pricing: £75 per hour plus VAT
 
 ### ✅ Correct Business Facts:
 - Founded: March 5, 2019

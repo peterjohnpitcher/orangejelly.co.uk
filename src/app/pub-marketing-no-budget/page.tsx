@@ -390,7 +390,7 @@ export default function PubMarketingNoBudget() {
               </div>
               <div className="mt-8 pt-6 border-t border-cream/20">
                 <Text className="text-cream mb-4">
-                  Investment: £62.50 per hour plus VAT
+                  Investment: £75 per hour plus VAT
                 </Text>
                 <Button
                   href={URLS.whatsapp()}

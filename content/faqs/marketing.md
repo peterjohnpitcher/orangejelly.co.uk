@@ -2,7 +2,7 @@
 
 ## How much value can AI marketing add?
 
-We've added £75,000-£100,000 of value to The Anchor using AI. It delivers 120-150 hours worth of equivalent work per week. We charge £62.50 per hour to teach you the same strategies.
+We've added £75,000-£100,000 of value to The Anchor using AI. It delivers 120-150 hours worth of equivalent work per week. We charge £75 per hour to teach you the same strategies.
 
 ## What's included in the Done-For-You marketing service?
 

@@ -26,7 +26,7 @@ Most pubs see 30-50% increase in midweek covers within 2 weeks. By week 4, you s
 
 ## What if your solutions don't work for my pub?
 
-Every pub is different, which is why we offer a 30-day money-back guarantee. If you don't see improved results within 30 days, you get a full refund. But honestly, the strategies work because they're based on real pub experience, not theory.
+Every pub is different, which is why we stay closely involved during the first month. Weekly check-ins, rapid adjustments, and direct WhatsApp access mean we keep iterating until it works. These strategies are based on real pub experience, not theory.
 
 ## How can menu descriptions increase my food sales?
 

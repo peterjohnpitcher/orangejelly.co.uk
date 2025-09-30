@@ -12,6 +12,7 @@ import { GoogleTagManager, GoogleTagManagerNoscript } from "@/components/GoogleT
 import { CONTACT, URLS, MESSAGES } from "@/lib/constants";
 import Button from "@/components/Button";
 import { ROICalculatorProvider } from "@/contexts/ROICalculatorContext";
+import { getBaseUrl } from "@/lib/site-config";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export const viewport: Viewport = {
   userScalable: true,
 };
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.orangejelly.co.uk';
+const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     title: "How to Fill Empty Pub Tables | Pub Marketing That Works | Orange Jelly",
     description: "Struggling with empty pub tables? We use AI-powered marketing strategies that transformed The Anchor. First pub chain training September 2025.",
     type: "website",
-    url: "https://www.orangejelly.co.uk",
+    url: baseUrl,
     locale: 'en_GB',
     siteName: 'Orange Jelly',
     images: [
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
     'max-video-preview': -1,
   },
   alternates: {
-    canonical: 'https://www.orangejelly.co.uk',
+    canonical: baseUrl,
   },
   icons: {
     icon: '/icon',
@@ -129,7 +130,7 @@ export default function RootLayout({
     "name": "Orange Jelly - Pub Marketing That Works",
     "description": "Struggling with empty pub tables? We use AI-powered marketing strategies that transformed The Anchor from struggling to thriving. From one licensee to another.",
     "publisher": {
-      "@id": "https://www.orangejelly.co.uk/#organization"
+      "@id": `${baseUrl}/#organization`
     },
     "inLanguage": "en-GB"
   };

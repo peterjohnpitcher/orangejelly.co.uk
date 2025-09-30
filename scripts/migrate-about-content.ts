@@ -103,13 +103,13 @@ const aboutContent = {
       _key: 'value_1',
       icon: '💰',
       title: 'Honest Pricing',
-      description: '£62.50 per hour plus VAT. No packages, no hidden fees, no surprises.',
+      description: '£75 per hour plus VAT. No packages, no hidden fees, no surprises.',
     },
     {
       _key: 'value_2',
       icon: '🛡️',
       title: 'Guaranteed Results',
-      description: '30-day money-back guarantee because we believe in what we do.',
+      description: '30-day action plan with weekly support because we believe in what we do.',
     },
     {
       _key: 'value_3',

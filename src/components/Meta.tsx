@@ -1,4 +1,5 @@
 import { type Metadata } from 'next';
+import { getBaseUrl } from '@/lib/site-config';
 
 interface MetaProps {
   title: string;
@@ -24,7 +25,7 @@ interface MetaProps {
   };
 }
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.orangejelly.co.uk';
+const baseUrl = getBaseUrl();
 
 export function generateMeta({
   title,
@@ -113,7 +114,7 @@ export function generatePageMeta(
     home: {
       title: 'Orange Jelly - AI-Powered Marketing That Fills Empty Pubs',
       description:
-        'Struggling with empty tables? Orange Jelly uses proven AI tools to fill your pub. Real licensee experience, honest pricing at £62.50/hour. No packages, just results.',
+        'Struggling with empty tables? Orange Jelly uses proven AI tools to fill your pub. Real licensee experience, honest pricing at £75/hour. No packages, just results.',
       keywords: [
         'pub marketing',
         'empty pub solutions',
@@ -126,7 +127,7 @@ export function generatePageMeta(
     services: {
       title: 'Pub Marketing Services - Fill Tables & Boost Revenue | Orange Jelly',
       description:
-        'Proven pub marketing services from a real licensee. Social media, events, menu design, business analysis. £62.50/hour plus VAT. No packages, pay for what you need.',
+        'Proven pub marketing services from a real licensee. Social media, events, menu design, business analysis. £75/hour plus VAT. No packages, pay for what you need.',
       keywords: [
         'pub marketing services',
         'pub social media management',

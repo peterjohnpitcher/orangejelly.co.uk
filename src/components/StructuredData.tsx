@@ -1,5 +1,8 @@
 // Structured data components for SEO and voice search optimization
 import { logStructuredDataValidation } from '@/lib/structured-data-validator';
+import { getBaseUrl } from '@/lib/site-config';
+
+const baseUrl = getBaseUrl();
 
 interface FAQSchemaProps {
   faqs: Array<{
@@ -63,7 +66,7 @@ export function ServiceSchema({ services }: ServiceSchemaProps) {
       "provider": {
         "@type": "LocalBusiness",
         "name": "Orange Jelly Limited",
-        "@id": "https://www.orangejelly.co.uk/#organization"
+        "@id": `${baseUrl}/#organization`
       },
       "areaServed": {
         "@type": "Country",
@@ -130,10 +133,10 @@ export function LocalBusinessSchema({
   const schema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://www.orangejelly.co.uk/#localbusiness",
+    "@id": `${baseUrl}/#localbusiness`,
     "name": name,
     "description": description,
-    "url": "https://www.orangejelly.co.uk",
+    "url": baseUrl,
     "telephone": telephone,
     "email": email,
     "priceRange": priceRange,

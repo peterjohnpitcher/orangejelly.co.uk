@@ -40,8 +40,8 @@ const companyConstantsContent = {
   // Pricing Configuration
   pricing: {
     hourlyRate: {
-      amount: 62.50,
-      display: '£62.50/hour',
+      amount: 75,
+      display: '£75/hour',
       description: 'Simple, honest pricing',
     },
     services: {
@@ -94,21 +94,21 @@ const companyConstantsContent = {
           amount: 125,
           display: '£125 + VAT',
           description: 'Email & social media basics',
-          calculation: '2 hours × £62.50',
+          calculation: '2 hours × £75',
         },
         halfDay: {
           duration: '4 hours',
           amount: 250,
           display: '£250 + VAT',
           description: 'Core AI tools for daily ops',
-          calculation: '4 hours × £62.50',
+          calculation: '4 hours × £75',
         },
         fullDay: {
           duration: '8 hours',
           amount: 500,
           display: '£500 + VAT',
           description: 'Everything including rotas & stock',
-          calculation: '8 hours × £62.50',
+          calculation: '8 hours × £75',
         },
       },
       teamTraining: {
@@ -116,13 +116,13 @@ const companyConstantsContent = {
           amount: 375,
           display: '£375 + VAT',
           description: 'Half Day Workshop',
-          calculation: '6 hours × £62.50',
+          calculation: '6 hours × £75',
         },
         fullDay: {
           amount: 750,
           display: '£750 + VAT',
           description: 'Full Day Intensive',
-          calculation: '12 hours × £62.50',
+          calculation: '12 hours × £75',
         },
       },
     },
@@ -145,7 +145,7 @@ const companyConstantsContent = {
       email: "I personally reply to every message. During service? I'll get back to you after. Otherwise, expect a reply within a few hours",
     },
     trust: {
-      moneyBack: 'Money-back guarantee',
+      moneyBack: 'Action plan support',
       timeSaved: 'Time saved promise',
       atLeastFiveHours: 'At Least 5 Hours',
       thirtyDays: '30 Days',
@@ -199,7 +199,7 @@ const companyConstantsContent = {
       'Email templates that work',
       'Staff notices & table talkers',
       'WhatsApp support',
-      'Money-back guarantee',
+      'Action plan support',
     ],
     support: [
       'WhatsApp preferred for quick responses',

@@ -1,4 +1,5 @@
 import { logStructuredDataValidation } from '@/lib/structured-data-validator';
+import { getBaseUrl } from '@/lib/site-config';
 
 interface SpeakableContentProps {
   cssSelectors: string[];
@@ -9,7 +10,7 @@ export function SpeakableContent({ cssSelectors, url }: SpeakableContentProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    ...(url && { "@id": `https://www.orangejelly.co.uk${url}` }),
+    ...(url && { "@id": `${getBaseUrl()}${url}` }),
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": cssSelectors

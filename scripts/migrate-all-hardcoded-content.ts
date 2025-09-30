@@ -57,7 +57,7 @@ async function migrateContactFAQs() {
     {
       _type: 'contactFAQ',
       _id: 'contact-faq-3',
-      question: "What exactly do you do for £62.50 per hour?",
+      question: "What exactly do you do for £75 per hour?",
       answer: [{
         _type: 'block',
         _key: 'a3',
@@ -111,7 +111,7 @@ async function migrateContactFAQs() {
     {
       _type: 'contactFAQ',
       _id: 'contact-faq-6',
-      question: "Why £62.50 per hour? Why not packages?",
+      question: "Why £75 per hour? Why not packages?",
       answer: [{
         _type: 'block',
         _key: 'a6',
@@ -155,7 +155,7 @@ async function migrateContactFAQs() {
         children: [{
           _type: 'span',
           _key: 'a8-1',
-          text: "30-day money-back guarantee. If you don't see real improvements in your business, I'll refund every penny. I can offer this because in 6 years at The Anchor, these strategies have never failed when properly implemented."
+          text: "30-day action plan with weekly support. If you don't see real improvements in your business, I'll refund every penny. I can offer this because in 6 years at The Anchor, these strategies have never failed when properly implemented."
         }]
       }],
       category: 'pricing',
@@ -262,7 +262,7 @@ async function migrateTrustBar() {
       },
       {
         _key: 'item2',
-        value: '£62.50/hour',
+        value: '£75/hour',
         label: 'AI-powered marketing solutions',
         order: 1
       },

@@ -141,7 +141,7 @@ function generateFAQs(title: string, content: any[]): any[] {
       _type: 'object',
       question: 'How much will this cost to implement?',
       answer:
-        'Implementation costs vary by strategy. Many improvements like social media optimization and operational changes cost nothing beyond time. Events may require £50-200 initial investment. Professional support is available at £62.50 per hour plus VAT.',
+        'Implementation costs vary by strategy. Many improvements like social media optimization and operational changes cost nothing beyond time. Events may require £50-200 initial investment. Professional support is available at £75 per hour plus VAT.',
       isVoiceOptimized: true,
     },
     {
@@ -270,7 +270,7 @@ function generateFAQs(title: string, content: any[]): any[] {
       _type: 'object',
       question: 'Do you offer payment plans?',
       answer:
-        'Yes, payment plans are available to help with cash flow. Services are charged at £62.50 per hour plus VAT. Contact us to discuss a payment arrangement that works for your business.',
+        'Yes, payment plans are available to help with cash flow. Services are charged at £75 per hour plus VAT. Contact us to discuss a payment arrangement that works for your business.',
       isVoiceOptimized: false,
     });
   }
@@ -495,7 +495,7 @@ function generateQuickStats(title: string): any[] {
       _key: generateKey('stat', 2),
       _type: 'object',
       label: 'Support',
-      value: '£62.50/hour',
+      value: '£75/hour',
       highlight: false,
     },
   ];

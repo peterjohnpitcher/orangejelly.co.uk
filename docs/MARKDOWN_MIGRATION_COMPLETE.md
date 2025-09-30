@@ -110,7 +110,7 @@ Main article content written in markdown...
       "shortDescription": "One-line description",
       "description": "Full service description",
       "benefits": ["Benefit 1", "Benefit 2"],
-      "pricing": "£62.50/hour plus VAT",
+      "pricing": "£75/hour plus VAT",
       "featured": true
     }
   ]

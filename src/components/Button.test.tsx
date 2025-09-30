@@ -68,6 +68,23 @@ describe('Button', () => {
     expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
+  it('renders whatsapp button with correct link and aria attributes', () => {
+    render(
+      <Button
+        href="https://wa.me/12345"
+        whatsapp
+        aria-label="Chat on WhatsApp"
+      >
+        WhatsApp
+      </Button>
+    );
+
+    const link = screen.getByRole('link', { name: 'Chat on WhatsApp' });
+    expect(link).toHaveAttribute('href', 'https://wa.me/12345');
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+  });
+
   it('applies custom className', () => {
     render(<Button className="custom-class">Custom</Button>);
     expect(screen.getByRole('button').className).toContain('custom-class');
@@ -93,5 +110,21 @@ describe('Button', () => {
     render(<Button fullWidth>Full Width</Button>);
     expect(screen.getByRole('button').className).toContain('w-full');
     expect(screen.getByRole('button').className).toContain('block');
+  });
+
+  it('forwards aria-busy to links when loading', () => {
+    render(
+      <Button
+        href="https://example.com"
+        external
+        loading
+        aria-label="Loading link"
+      >
+        Loading
+      </Button>
+    );
+
+    const link = screen.getByRole('link', { name: 'Loading link' });
+    expect(link).toHaveAttribute('aria-busy', 'true');
   });
 });

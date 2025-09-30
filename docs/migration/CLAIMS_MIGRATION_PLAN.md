@@ -24,7 +24,7 @@ These components have hardcoded claims that need updating:
    - Update to: Fetch claims in page component and pass down
 
 3. **ServiceComparison.tsx**
-   - "30-day money-back guarantee" hardcoded
+   - "30-day action plan with weekly support" hardcoded
    - Update to: Use `moneyBack` claim
 
 4. **ROICalculator.tsx**

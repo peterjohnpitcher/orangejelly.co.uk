@@ -1,4 +1,5 @@
 import { logStructuredDataValidation } from '@/lib/structured-data-validator';
+import { getBaseUrl } from '@/lib/site-config';
 
 interface ProductSchemaProps {
   name: string;
@@ -35,6 +36,7 @@ export function ProductSchema({
   aggregateRating,
   review = []
 }: ProductSchemaProps) {
+  const baseUrl = getBaseUrl();
   const schema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -43,7 +45,7 @@ export function ProductSchema({
     ...(image && {
       "image": {
         "@type": "ImageObject",
-        "url": `https://www.orangejelly.co.uk${image}`
+        "url": `${baseUrl}${image}`
       }
     }),
     "brand": {
@@ -51,7 +53,7 @@ export function ProductSchema({
       "name": brand
     },
     ...(category && { "category": category }),
-    ...(url && { "url": `https://www.orangejelly.co.uk${url}` }),
+    ...(url && { "url": `${baseUrl}${url}` }),
     "offers": {
       "@type": "Offer",
       "price": price,

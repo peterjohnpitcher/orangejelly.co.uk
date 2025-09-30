@@ -1,9 +1,10 @@
 import { type MetadataRoute } from 'next';
 import { getAllPosts } from '@/lib/blog-md';
 import { blogCategories } from '@/lib/blog';
+import { getBaseUrl } from '@/lib/site-config';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.orangejelly.co.uk';
+  const baseUrl = getBaseUrl();
   const currentDate = new Date().toISOString();
 
   // Landing pages are handled as static pages

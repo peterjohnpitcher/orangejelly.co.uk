@@ -18,7 +18,7 @@ import { breadcrumbPaths } from '@/components/Breadcrumb';
 
 export const metadata = generateMetadata({
   title: '30 Days to Fuller Tables - Transform Your Empty Pub',
-  description: 'Empty pub killing your profits? Proven 30-day system fills tables fast. From 25% empty to 85% full - real results from UK pubs. Money-back guarantee.',
+  description: 'Empty pub killing your profits? Proven 30-day system fills tables fast. From 25% empty to 85% full - real results from UK pubs.',
   path: '/empty-pub-solutions',
 });
 
@@ -104,7 +104,7 @@ export default function EmptyPubSolutions() {
           "name": "How much does the empty pub recovery package cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "£62.50 per hour plus VAT. I'll work with you to implement the AI strategies that transformed The Anchor. 30-day money-back guarantee if you're not satisfied."
+            "text": "£75 per hour plus VAT. I'll work with you to implement the AI strategies that transformed The Anchor with flexible support based on your goals."
           }
         },
         {
@@ -230,7 +230,7 @@ export default function EmptyPubSolutions() {
       <Hero
         title={<>Your Pub is Empty.<br />We'll Fill It in 30 Days.</>}
         subtitle="Proven strategies that transformed The Anchor from empty to thriving"
-        bottomText="💰 Money-back guarantee if we don't increase covers by 25%"
+        bottomText="£75/hour plus VAT • No long contracts • Real pub operators"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Empty Pub Solutions' }
@@ -347,16 +347,15 @@ export default function EmptyPubSolutions() {
         </AnimatedItem>
       </Section>
 
-      {/* Guarantee */}
+      {/* Partnership Assurance */}
       <Section background="orange-light" padding="small">
         <AnimatedItem animation="scale">
           <div className="text-center max-w-3xl mx-auto">
             <Heading level={3} align="center" className="mb-4">
-              100% Money-Back Guarantee
+              Real Support From A Fellow Licensee
             </Heading>
             <Text size="lg" align="center" className="mb-6">
-              If we don't increase your covers by at least 25% in 30 days, 
-              you pay nothing. Zero risk, all reward.
+              We stay close through the first 30 days to make sure the plan sticks—weekly check-ins, rapid adjustments, and practical help from someone who has filled the same empty tables.
             </Text>
             <Button
               href={URLS.whatsapp()}
@@ -367,7 +366,7 @@ export default function EmptyPubSolutions() {
               Start Filling Tables Today
             </Button>
             <Text size="sm" color="muted" align="center" className="mt-4">
-              £62.50 per hour plus VAT - Flexible based on your needs
+              £75 per hour plus VAT – Flexible support based on what your pub needs most
             </Text>
           </div>
         </AnimatedItem>

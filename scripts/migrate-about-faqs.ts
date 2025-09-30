@@ -194,7 +194,7 @@ const aboutFAQs = [
         children: [
           {
             _type: 'span',
-            text: "Every pub is different, but the challenges are similar. That's why we offer a free consultation to understand your specific situation, and a 30-day money-back guarantee. We're so confident because these aren't theories - they're proven strategies from our own pub."
+            text: "Every pub is different, but the challenges are similar. That's why we offer a free consultation to understand your specific situation, and a 30-day action plan with weekly support. We're so confident because these aren't theories - they're proven strategies from our own pub."
           }
         ]
       }
@@ -232,7 +232,7 @@ const aboutFAQs = [
         children: [
           {
             _type: 'span',
-            text: 'To save you at least 5 hours per week on admin tasks, be honest about what AI can and can\'t do, only recommend tools we use ourselves, keep prices transparent and fair, and provide personal support when you need it. Plus our 30-day money-back guarantee.'
+            text: 'To save you at least 5 hours per week on admin tasks, be honest about what AI can and can\'t do, only recommend tools we use ourselves, keep prices transparent and fair, and provide personal support when you need it. Plus our 30-day action plan with weekly support.'
           }
         ]
       }

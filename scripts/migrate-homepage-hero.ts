@@ -88,7 +88,7 @@ async function migrateHomepageContent() {
         _key: 'feature-3',
         icon: '💷',
         title: 'Honest Pricing',
-        description: '£62.50/hour plus VAT - no hidden fees'
+        description: '£75/hour plus VAT - no hidden fees'
       },
       {
         _key: 'feature-4',
@@ -109,7 +109,7 @@ async function migrateHomepageContent() {
     },
     seo: {
       title: 'How to Fill Empty Pub Tables | Pub Marketing That Works | Orange Jelly',
-      description: 'Struggling with empty pub tables? AI-powered marketing from a real licensee who turned The Anchor around. Save 5+ hours weekly. £62.50/hour plus VAT.',
+      description: 'Struggling with empty pub tables? AI-powered marketing from a real licensee who turned The Anchor around. Save 5+ hours weekly. £75/hour plus VAT.',
       keywords: ['pub marketing UK', 'fill empty pub tables', 'pub marketing strategies', 'increase pub customers', 'pub social media marketing', 'pub turnaround', 'empty pub solutions']
     }
   };

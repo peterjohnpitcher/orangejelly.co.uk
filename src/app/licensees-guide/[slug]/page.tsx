@@ -12,6 +12,7 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { breadcrumbPaths } from '@/components/Breadcrumb';
 import { AsyncErrorBoundary } from '@/components/ErrorBoundary';
 import { PageLoading } from '@/components/Loading';
+import { getBaseUrl } from '@/lib/site-config';
 
 interface BlogPostPageProps {
   params: {
@@ -114,7 +115,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
-  const baseUrl = 'https://www.orangejelly.co.uk';
+  const baseUrl = getBaseUrl();
 
   // Use the article's featured image for OpenGraph
   const ogImage = post.featuredImage || `/images/blog/${params.slug}.svg`;
@@ -234,7 +235,7 @@ async function BlogPostPageData({ params }: { params: { slug: string } }) {
       }
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.orangejelly.co.uk';
+    const baseUrl = getBaseUrl();
 
     return (
       <>

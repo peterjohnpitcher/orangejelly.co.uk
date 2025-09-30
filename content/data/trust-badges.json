@@ -1,7 +1,7 @@
 [
   {
-    "title": "30-Day Guarantee",
-    "subtitle": "Money-back guarantee",
+    "title": "30-Day Action Plan",
+    "subtitle": "Weekly support from a working licensee",
     "icon": "check",
     "color": "orange",
     "order": 1,
@@ -16,7 +16,7 @@
     "isActive": true
   },
   {
-    "title": "£62.50/hour",
+    "title": "£75/hour",
     "subtitle": "Plus VAT - transparent pricing",
     "icon": "money",
     "color": "orange",

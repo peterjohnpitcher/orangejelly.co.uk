@@ -664,7 +664,7 @@ Most strategies show initial results within 2-4 weeks. Quiz nights attract regul
 
 ### How much will this cost to implement?
 
-Implementation costs vary by strategy. Many improvements like social media optimization and operational changes cost nothing beyond time. Events may require £50-200 initial investment. Professional support is available at £62.50 per hour plus VAT.
+Implementation costs vary by strategy. Many improvements like social media optimization and operational changes cost nothing beyond time. Events may require £50-200 initial investment. Professional support is available at £75 per hour plus VAT.
 
 ### Can this work for my type of pub?
 
@@ -672,9 +672,9 @@ Yes, these strategies are proven across wet-led, food-led, and hybrid pubs. The 
 
 ### Do you offer payment plans?
 
-Yes, payment plans are available to help with cash flow. Services are charged at £62.50 per hour plus VAT. Contact us to discuss a payment arrangement that works for your business.
+Yes, payment plans are available to help with cash flow. Services are charged at £75 per hour plus VAT. Contact us to discuss a payment arrangement that works for your business.
 
 ### Do you offer payment plans?
 
-Yes, payment plans are available to help with cash flow. Services are charged at £62.50 per hour plus VAT. Contact us to discuss a payment arrangement that works for your business.
+Yes, payment plans are available to help with cash flow. Services are charged at £75 per hour plus VAT. Contact us to discuss a payment arrangement that works for your business.
 

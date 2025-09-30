@@ -100,7 +100,7 @@ The Orange Jelly website has 16 page templates across static pages, dynamic rout
 #### 2. Services Page
 **Key Components to Migrate:**
 - ServiceCard grid → Card variants
-- Money-back guarantee → Alert component
+- Action plan support → Alert component
 - Process steps → Stepper pattern
 
 **Special Considerations:**

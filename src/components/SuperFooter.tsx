@@ -196,7 +196,7 @@ export default function SuperFooter() {
                       30-Day Quick Wins
                     </span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
-                      £62.50/hour - Results guaranteed
+                      £75/hour - Results guaranteed
                     </span>
                   </Link>
                 </li>
@@ -206,7 +206,7 @@ export default function SuperFooter() {
                       Menu Makeover
                     </span>
                     <span className="block text-xs text-cream/60 group-hover:text-cream/80 transition-colors">
-                      £62.50/hour - Increase average spend
+                      £75/hour - Increase average spend
                     </span>
                   </Link>
                 </li>
@@ -423,7 +423,7 @@ export default function SuperFooter() {
                 Get Help With Your Pub →
               </Button>
               <Text className="text-xs mt-2 opacity-60">
-                £62.50/hour plus VAT. No contracts. Money-back guarantee.
+                £75/hour plus VAT. No contracts. Pay only for the support you need.
               </Text>
             </div>
           </div>

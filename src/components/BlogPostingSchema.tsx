@@ -1,4 +1,5 @@
 import { logStructuredDataValidation } from '@/lib/structured-data-validator';
+import { getBaseUrl } from '@/lib/site-config';
 
 interface BlogPostingSchemaProps {
   title: string;
@@ -29,7 +30,7 @@ export function BlogPostingSchema({
   speakableSections = []
 }: BlogPostingSchemaProps) {
   const isAbsolute = (u: string) => /^https?:\/\//i.test(u);
-  const site = 'https://www.orangejelly.co.uk';
+  const site = getBaseUrl();
   const schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -53,7 +54,7 @@ export function BlogPostingSchema({
       "name": "Orange Jelly Limited",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.orangejelly.co.uk/logo.png",
+        "url": `${site}/logo.png`,
         "width": 200,
         "height": 60
       }

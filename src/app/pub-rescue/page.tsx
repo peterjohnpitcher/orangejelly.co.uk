@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return generateMeta({
     title: 'Pub Rescue - Emergency Help for Struggling UK Pubs',
     description:
-      'Struggling pub? Get emergency help now. From empty Tuesday nights to staff crises, we provide immediate solutions that work. 30-day money-back guarantee.',
+      'Struggling pub? Get emergency help now. From empty Tuesday nights to staff crises, we provide immediate solutions proven at The Anchor.',
     path: '/pub-rescue',
   });
 }
@@ -549,7 +549,7 @@ export default function PubRescue() {
                 Investment is simple and transparent
               </Text>
               <Text size="2xl" weight="bold" className="text-orange mb-4">
-                £62.50/hour + VAT
+                £75/hour + VAT
               </Text>
               <Text size="sm" color="muted" className="mb-8">
                 Most pubs make this back in their first weekend

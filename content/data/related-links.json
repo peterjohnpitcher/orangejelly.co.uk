@@ -64,7 +64,7 @@
       },
       {
         "title": "Browse Our Services",
-        "description": "See what's included in our £62.50/hour service",
+        "description": "See what's included in our £75/hour service",
         "href": "/services",
         "emoji": "📋"
       },
@@ -105,7 +105,7 @@
     "links": [
       {
         "title": "Our Services",
-        "description": "Marketing, menus, and more at £62.50/hour",
+        "description": "Marketing, menus, and more at £75/hour",
         "href": "/services",
         "emoji": "🚀"
       },

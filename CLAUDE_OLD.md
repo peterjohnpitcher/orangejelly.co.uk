@@ -47,7 +47,7 @@ npm run test         # Run tests
 - AI Time Saved: **25 hours/week**
 
 ### Pricing
-- **ONLY**: £62.50/hour plus VAT
+- **ONLY**: £75/hour plus VAT
 - **NO packages or fixed prices**
 - **30-day guarantee**
 
@@ -241,7 +241,7 @@ npm run lint && npm run type-check && npm run test && npm run build
 
 ### Content Verification
 - [ ] Real metrics only (see Core Business Facts)
-- [ ] £62.50/hour pricing
+- [ ] £75/hour pricing
 - [ ] No false claims about other pubs
 - [ ] Correct partnership language
 

@@ -28,11 +28,11 @@ const landingPages = [
       current: 'empty-pub-solutions'
     },
     title: '30 Days to Fuller Tables - Transform Your Empty Pub',
-    metaDescription: 'Empty pub killing your profits? Proven 30-day system fills tables fast. From 25% empty to 85% full - real results from UK pubs. Money-back guarantee.',
+    metaDescription: 'Empty pub killing your profits? Proven 30-day system fills tables fast. From 25% empty to 85% full - real results from UK pubs. Action plan support.',
     hero: {
       title: 'Your Pub is Empty. We\'ll Fill It in 30 Days.',
       subtitle: 'Proven strategies that transformed The Anchor from empty to thriving',
-      bottomText: '💰 Money-back guarantee if we don\'t increase covers by 25%'
+      bottomText: '💰 Action plan support if we don\'t increase covers by 25%'
     },
     faqs: [
       {
@@ -48,7 +48,7 @@ const landingPages = [
       {
         _key: generateKey('item', Math.random() * 1000 | 0),
         question: "How much does the empty pub recovery package cost?",
-        answer: "£62.50 per hour plus VAT. I'll work with you to implement the AI strategies that transformed The Anchor. 30-day money-back guarantee if you're not satisfied."
+        answer: "£75 per hour plus VAT. I'll work with you to implement the AI strategies that transformed The Anchor. 30-day action plan with weekly support if you're not satisfied."
       },
       {
         _key: generateKey('item', Math.random() * 1000 | 0),

@@ -111,12 +111,12 @@ const ctaMessages: CTAMessageDocument[] = [
     _type: 'ctaMessage',
     identifier: {
       _type: 'slug',
-      current: 'services-money-back'
+      current: 'services-support-plan'
     },
-    title: 'Services - Money Back Guarantee',
-    heading: '30-Day Money-Back Guarantee',
-    subheading: "If you don't see real improvements within 30 days, I'll refund every penny. That's how confident I am these strategies work - because they saved my pub.",
-    buttonText: 'Start Risk-Free',
+    title: 'Services - 30-Day Support Plan',
+    heading: '30-Day Action Plan Support',
+    subheading: "Weekly check-ins, rapid adjustments, and direct WhatsApp access so momentum never drops.",
+    buttonText: 'Start My Action Plan',
     buttonAction: 'whatsapp',
     actionValue: "Hi Peter, I'd like to chat about Orange Jelly",
     variant: 'teal',

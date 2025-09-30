@@ -20,7 +20,7 @@ const servicesPageContent = {
     title: 'From Empty Tables to Full Tills',
     subtitle: 'Every service below has been tested at The Anchor. If it didn\'t work for us, it\'s not here.',
     ctaText: 'Help me fill my pub',
-    bottomText: 'All services £62.50/hour • No packages • Pay for what you need'
+    bottomText: 'All services £75/hour • No packages • Pay for what you need'
   },
   introSection: {
     heading: 'Real Solutions, Not Theory',
@@ -54,7 +54,7 @@ const servicesPageContent = {
     ctaSubtext: '07511 114 500 • No obligation chat • I understand pub life'
   },
   guaranteeSection: {
-    heading: '30-Day Money-Back Guarantee',
+    heading: '30-Day Action Plan Support',
     description: 'If you don\'t see real improvements within 30 days, I\'ll refund every penny. That\'s how confident I am these strategies work - because they saved my pub.',
     checkmarkText: 'No risk, all reward',
     checkmarkSubtext: 'The only thing you risk is staying stuck where you are'
@@ -76,11 +76,11 @@ const servicesPageContent = {
   speakableContent: [
     {
       question: 'What services does Orange Jelly offer for struggling pubs?',
-      answer: 'Orange Jelly offers practical help for pub licensees including social media management, menu optimization, event planning, and business analysis using AI tools. All services are £62.50 per hour plus VAT.'
+      answer: 'Orange Jelly offers practical help for pub licensees including social media management, menu optimization, event planning, and business analysis using AI tools. All services are £75 per hour plus VAT.'
     },
     {
       question: 'How much does Orange Jelly charge?',
-      answer: 'We charge £62.50 per hour plus VAT as a flat rate. I\'m always happy to have a free chat first to understand your challenges. All pricing is transparent with no hidden fees.'
+      answer: 'We charge £75 per hour plus VAT as a flat rate. I\'m always happy to have a free chat first to understand your challenges. All pricing is transparent with no hidden fees.'
     },
     {
       question: 'Can Orange Jelly help my empty pub?',
@@ -114,7 +114,7 @@ const servicePackages = [
     },
     timeEstimate: '15-25 hours over 30 days',
     priceBreakdown: 'Costs vary based on your needs. Most pubs invest £1,000-1,500 for complete transformation',
-    price: '£62.50/hour + VAT',
+    price: '£75/hour + VAT',
     ctaText: 'Save my pub',
     highlight: true,
     order: 1,
@@ -127,14 +127,14 @@ const servicesFAQs = [
   {
     _type: 'servicesFAQ',
     question: 'How does the Empty Pub Recovery Package work?',
-    answer: 'We work with you to implement AI-powered marketing strategies that have been proven at The Anchor. This includes training on social media automation, event promotion, and customer engagement. We charge £62.50 per hour plus VAT, and offer a 30-day money-back guarantee.',
+    answer: 'We work with you to implement AI-powered marketing strategies that have been proven at The Anchor. This includes training on social media automation, event promotion, and customer engagement. We charge £75 per hour plus VAT, and offer a 30-day action plan with weekly support.',
     category: 'recovery',
     order: 1,
     isActive: true
   },
   {
     question: "How does your hourly consulting work?",
-    answer: "We charge £62.50 per hour plus VAT as a flat rate. I'll work with you to implement the AI strategies that have transformed The Anchor - from social media automation to event planning. First training session with a pub chain scheduled September 2025.",
+    answer: "We charge £75 per hour plus VAT as a flat rate. I'll work with you to implement the AI strategies that have transformed The Anchor - from social media automation to event planning. First training session with a pub chain scheduled September 2025.",
     category: 'pricing',
     serviceCategory: 'recovery'
   },
@@ -242,7 +242,7 @@ const servicesFAQs = [
   // General FAQs
   {
     question: "Why don't you offer fixed-price packages?",
-    answer: "Every pub is unique. Fixed packages force you to pay for things you don't need. At £62.50 per hour plus VAT, you only pay for the help you actually use. Most pubs see significant improvements within 20-30 hours of consulting.",
+    answer: "Every pub is unique. Fixed packages force you to pay for things you don't need. At £75 per hour plus VAT, you only pay for the help you actually use. Most pubs see significant improvements within 20-30 hours of consulting.",
     category: 'pricing',
     serviceCategory: 'general'
   },
@@ -284,7 +284,7 @@ const servicesData = {
     },
     timeEstimate: '15-25 hours over 30 days',
     priceBreakdown: 'Costs vary based on your needs. Most pubs invest £1,000-1,500 for complete transformation',
-    price: '£62.50 per hour + VAT',
+    price: '£75 per hour + VAT',
     ctaText: 'Save my pub',
     highlight: true,
     order: 1
@@ -311,7 +311,7 @@ const servicesData = {
     },
     timeEstimate: '8-12 hours initially, then 2 hours monthly',
     priceBreakdown: '',
-    price: '£62.50 per hour + VAT',
+    price: '£75 per hour + VAT',
     ctaText: 'Boost food profits',
     highlight: false,
     order: 2
@@ -338,7 +338,7 @@ const servicesData = {
     },
     timeEstimate: '10 hours training, then 2 hours weekly ongoing',
     priceBreakdown: '',
-    price: '£62.50 per hour + VAT',
+    price: '£75 per hour + VAT',
     ctaText: 'Get noticed online',
     highlight: false,
     order: 3
@@ -365,7 +365,7 @@ const servicesData = {
     },
     timeEstimate: '8-10 hours setup, 1 hour weekly support',
     priceBreakdown: '',
-    price: '£62.50 per hour + VAT',
+    price: '£75 per hour + VAT',
     ctaText: 'Pack my quiz nights',
     highlight: false,
     order: 4
@@ -392,7 +392,7 @@ const servicesData = {
     },
     timeEstimate: '15-20 hours initial analysis',
     priceBreakdown: '',
-    price: '£62.50 per hour + VAT',
+    price: '£75 per hour + VAT',
     ctaText: 'Find hidden profits',
     highlight: false,
     order: 5
@@ -419,7 +419,7 @@ const servicesData = {
     },
     timeEstimate: '6-8 hours per event',
     priceBreakdown: '',
-    price: '£62.50 per hour + VAT',
+    price: '£75 per hour + VAT',
     ctaText: 'Create buzzing events',
     highlight: false,
     order: 6
@@ -446,7 +446,7 @@ const servicesData = {
     },
     timeEstimate: 'Minimum 2 hours, typically 4-6 hours initially',
     priceBreakdown: '',
-    price: '£62.50 per hour + VAT',
+    price: '£75 per hour + VAT',
     ctaText: 'Book consultation',
     highlight: false,
     order: 7
@@ -473,7 +473,7 @@ const servicesData = {
     },
     timeEstimate: '10-15 hours setup',
     priceBreakdown: '',
-    price: '£62.50 per hour + VAT',
+    price: '£75 per hour + VAT',
     ctaText: 'Get found online',
     highlight: false,
     order: 8
@@ -580,7 +580,7 @@ async function migrateServiceDetails() {
       features: service.features,
       example: `${service.example.before} → ${service.example.after} = ${service.example.result}`,
       timeEstimate: service.timeEstimate,
-      priceBreakdown: service.priceBreakdown || `Based on ${service.timeEstimate} at £62.50 per hour + VAT`,
+      priceBreakdown: service.priceBreakdown || `Based on ${service.timeEstimate} at £75 per hour + VAT`,
       price: service.price,
       ctaText: service.ctaText,
       highlight: service.highlight,
@@ -650,10 +650,10 @@ async function migratePageMetadata() {
       heroTitle: 'From Empty Tables to Full Tills',
       heroSubtitle: 'Every service below has been tested at The Anchor. If it didn\'t work for us, it\'s not here.',
       heroCtaText: 'Help me fill my pub',
-      heroBottomText: 'All services £62.50/hour • No packages • Pay for what you need',
+      heroBottomText: 'All services £75/hour • No packages • Pay for what you need',
       sectionTitle: 'Real Solutions, Not Theory',
       sectionSubtitle: 'I\'m not selling you strategies I read in a book. Every service below is something I use daily at The Anchor. You\'re learning from real experience, not corporate theory.',
-      guaranteeTitle: '30-Day Money-Back Guarantee',
+      guaranteeTitle: '30-Day Action Plan Support',
       guaranteeText: 'If you don\'t see real improvements within 30 days, I\'ll refund every penny. That\'s how confident I am these strategies work - because they saved my pub.',
       guaranteeHighlight: 'No risk, all reward',
       guaranteeSubtext: 'The only thing you risk is staying stuck where you are',

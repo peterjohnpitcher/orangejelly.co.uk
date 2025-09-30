@@ -3,7 +3,7 @@
     "title": "From Empty Tables to Full Tills",
     "subtitle": "Every service below has been tested at The Anchor. If it didn't work for us, it's not here.",
     "ctaText": "WhatsApp: 07990 587315",
-    "bottomText": "All services £62.50/hour • No packages • Pay for what you need"
+    "bottomText": "All services £75/hour • No packages • Pay for what you need"
   },
   "realSolutionsSection": {
     "heading": "Real Solutions, Not Theory",
@@ -78,27 +78,27 @@
     },
     {
       "id": "social-media",
-      "emoji": "📱",
-      "title": "Social Media That Actually Works",
-      "problem": "Problem: Posting into the void while competitors steal your customers?",
-      "deliverable": "Deliverable: Reach thousands weekly in just 2 hours",
-      "description": "Stop wasting hours on posts nobody sees. I reach 60,000-70,000 people monthly spending just 2 hours per week. I'll teach you the exact AI tools and strategies that transformed our empty pub into a community hub.",
-      "features": [
-        "AI content creation that sounds human",
-        "Scheduling tools that save hours",
-        "Local engagement strategies that work",
-        "Event promotion templates",
-        "Crisis management protocols",
-        "Monthly analytics that matter"
-      ],
-      "example": {
-        "before": "No social media presence, relying on walk-ins",
-        "after": "70,000 monthly views across platforms",
-        "result": "Quiz night sells out, Sunday lunch bookings up 40%"
-      },
-      "ctaText": "Get noticed online",
-      "highlight": false
+    "emoji": "📱",
+    "title": "Social Media That Actually Works",
+    "problem": "Problem: Posting into the void while competitors steal your customers?",
+    "deliverable": "Deliverable: Strategy playbook + AI-assisted workflows your team can run",
+    "description": "Stop wasting hours on posts nobody sees. We reach 60,000-70,000 people monthly spending just 2 hours per week. I'll coach you through the exact planning frameworks, AI tools, and review rhythms we use so your team can execute confidently.",
+    "features": [
+      "30-day content calendar mapped to your events",
+      "AI-assisted batching workflow (2 hours per week)",
+      "Local engagement and community group playbook",
+      "Event promotion and recap templates",
+      "Crisis communication and review response guide",
+      "Weekly metrics scorecard you can update in minutes"
+    ],
+    "example": {
+      "before": "No social media presence, relying on walk-ins",
+      "after": "70,000 monthly views across platforms",
+      "result": "Quiz night sells out, Sunday lunch bookings up 40%"
     },
+    "ctaText": "Plan my strategy",
+    "highlight": false
+  },
     {
       "id": "quiz-night",
       "emoji": "🎯",
@@ -242,10 +242,10 @@
     "ctaText": "WhatsApp: 07990 587315"
   },
   "guaranteeSection": {
-    "heading": "30-Day Money-Back Guarantee",
-    "description": "If you don't see real improvements within 30 days, I'll refund every penny. That's how confident I am these strategies work - because they saved my pub.",
-    "checkmarkText": "No risk, all reward",
-    "checkmarkSubtext": "The only thing you risk is staying stuck where you are"
+    "heading": "30-Day Partnership Support",
+    "description": "We stay hands-on throughout the first month with weekly check-ins, rapid adjustments, and direct WhatsApp access so momentum never drops.",
+    "checkmarkText": "Hands-on partnership",
+    "checkmarkSubtext": "You always have a working licensee in your corner"
   },
   "faqSection": {
     "heading": "Everything You Need to Know"

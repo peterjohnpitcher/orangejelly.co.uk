@@ -2,23 +2,23 @@
 
 ## How does your hourly consulting work?
 
-We charge £62.50 per hour plus VAT as a flat rate. I'll work with you to implement the AI strategies that have transformed The Anchor - from social media automation to event planning. First training session with a pub chain scheduled September 2025.
+We charge £75 per hour plus VAT as a flat rate. I'll work with you to implement the AI strategies that have transformed The Anchor - from social media automation to event planning. First training session with a pub chain scheduled September 2025.
 
-## What exactly do you do for £62.50 per hour?
+## What exactly do you do for £75 per hour?
 
 Everything from writing your social media posts to designing menus that sell. I can create quiz nights that pack your pub, write emails that get opened, fix your Google listing so locals find you, or teach you AI tools that save 5 hours a week. You tell me what's hurting your business most - I'll fix it using methods proven at The Anchor.
 
-## Why £62.50 per hour? Why not packages?
+## Why £75 per hour? Why not packages?
 
 Because your pub doesn't need what every other pub needs. Maybe you just need 3 hours to fix your dead Monday nights. Maybe you need 20 hours for a complete marketing overhaul. Pay for exactly what you need, nothing more.
 
 ## What if it doesn't work?
 
-30-day money-back guarantee. If you don't see real improvements in your business, I'll refund every penny. I can offer this because in 6 years at The Anchor, these strategies have never failed when properly implemented.
+We stay hands-on through the first 30 days with weekly check-ins, rapid adjustments, and direct WhatsApp support. In 6 years at The Anchor, these strategies have never failed when properly implemented.
 
 ## How much does the empty pub recovery package cost?
 
-£62.50 per hour plus VAT. I'll work with you to implement the AI strategies that transformed The Anchor. 30-day money-back guarantee if you're not satisfied.
+£75 per hour plus VAT. I'll work with you to implement the AI strategies that transformed The Anchor, with support tailored to your pace and goals.
 
 ## How much revenue am I losing on quiet nights?
 
@@ -26,7 +26,7 @@ A pub doing 20 covers on a Tuesday instead of 60 loses £1,200 that night. Over 
 
 ## What if I can't afford consultancy fees right now?
 
-I get it - when the pub's struggling, every penny counts. We charge £62.50 per hour plus VAT, working flexibly with your budget. Most strategies pay for themselves in the first weekend. Plus, I'll often share free tips during our first chat because I hate seeing pubs struggle.
+I get it - when the pub's struggling, every penny counts. We charge £75 per hour plus VAT, working flexibly with your budget. Most strategies pay for themselves in the first weekend. Plus, I'll often share free tips during our first chat because I hate seeing pubs struggle.
 
 ## Will discounting hurt my weekend trade?
 
@@ -34,7 +34,7 @@ No, if done correctly. Smart midweek offers bring in different customers at diff
 
 ## Why don't you offer fixed-price packages?
 
-Every pub is unique. Fixed packages force you to pay for things you don't need. At £62.50 per hour plus VAT, you only pay for the help you actually use. Most pubs see significant improvements within 20-30 hours of consulting.
+Every pub is unique. Fixed packages force you to pay for things you don't need. At £75 per hour plus VAT, you only pay for the help you actually use. Most pubs see significant improvements within 20-30 hours of consulting.
 
 ## How can I compete with chain pubs on price?
 

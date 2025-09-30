@@ -101,7 +101,7 @@ export const commonPubQueries = [
   },
   {
     question: "How much does pub marketing cost?",
-    answer: "Orange Jelly charges £62.50 per hour plus VAT for all services. No hidden fees, transparent pricing. First pub chain training scheduled September 2025. 30-day money-back guarantee."
+    answer: "Orange Jelly charges £75 per hour plus VAT for all services. No hidden fees, transparent pricing. You only pay for the time you need. First pub chain training scheduled September 2025."
   },
   {
     question: "What's the best way to promote my pub?",

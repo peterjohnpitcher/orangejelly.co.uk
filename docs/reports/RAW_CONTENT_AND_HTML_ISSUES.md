@@ -38,7 +38,7 @@
 - [ ] "Website Presence" service details (lines 289-312)
 - [ ] Hero section titles and subtitles (lines 337-338)
 - [ ] "How it works" 4-step process (lines 370-415)
-- [ ] Money-back guarantee text (lines 433-438)
+- [ ] Action plan support text (lines 433-438)
 - [ ] Final CTA content (lines 481-483)
 
 ### 1.2 About Page Content
@@ -309,7 +309,7 @@ Examples:
 - [ ] Entire email signature hardcoded with contact info
 - [ ] Business messaging: "Helping pubs save at least 5 hours a week with AI"
 - [ ] CTAs: "Let's Chat About Your Pub"
-- [ ] Taglines: "30-day money-back guarantee • Honest pricing • No tech jargon"
+- [ ] Taglines: "30-day action plan with weekly support • Honest pricing • No tech jargon"
 
 ### 5.2 Hardcoded Colors and Styling
 **Files**: Multiple

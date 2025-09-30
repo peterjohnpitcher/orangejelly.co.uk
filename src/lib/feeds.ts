@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { getAllPosts, getCategories } from './blog-md';
+import { getBaseUrl } from './site-config';
 
 export interface SiteConfig {
   title: string;
@@ -16,7 +17,7 @@ export interface SiteConfig {
 const siteConfig: SiteConfig = {
   title: 'Orange Jelly - Pub Marketing & Business Growth',
   description: 'Expert pub marketing strategies, business growth tips, and practical advice for UK publicans. From empty pub solutions to premium positioning.',
-  url: 'https://orangejelly.co.uk',
+  url: getBaseUrl(),
   author: {
     name: 'Peter Pitcher',
     email: 'peter@orangejelly.co.uk'

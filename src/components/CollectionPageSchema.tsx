@@ -1,4 +1,5 @@
 import { logStructuredDataValidation } from '@/lib/structured-data-validator';
+import { getBaseUrl } from '@/lib/site-config';
 
 interface CollectionItem {
   url: string;
@@ -28,7 +29,7 @@ export function CollectionPageSchema({
   breadcrumbs = []
 }: CollectionPageSchemaProps) {
   const isAbsolute = (u: string) => /^https?:\/\//i.test(u);
-  const site = 'https://www.orangejelly.co.uk';
+  const site = getBaseUrl();
   const schema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",

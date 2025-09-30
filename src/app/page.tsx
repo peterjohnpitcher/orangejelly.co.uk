@@ -8,7 +8,7 @@ export async function generateMetadata() {
   return generateStaticMetadata({
     title: 'Fill Your Pub with AI-Powered Marketing',
     description:
-      'Transform your pub with AI-powered marketing strategies that work. From empty tables to thriving business - proven at The Anchor. Real licensee experience. £62.50 per hour plus VAT.',
+      'Transform your pub with AI-powered marketing strategies that work. From empty tables to thriving business - proven at The Anchor. Real licensee experience. £75 per hour plus VAT.',
     path: '/',
     keywords: [
       'pub marketing UK',
@@ -32,14 +32,14 @@ const getLocalHomeData = () => {
     subtitle:
       'Stop struggling with empty tables. We turned The Anchor from failing to thriving using AI marketing strategies that actually work. From one licensee to another - let me show you how.',
     ctaText: 'Get Marketing Help',
-    bottomText: '£62.50 per hour plus VAT • No packages • Real results from real licensees',
+    bottomText: '£75 per hour plus VAT • No packages • Real results from real licensees',
   };
 
   const faqs = [
     {
       question: 'Can I just get a one-off consultation?',
       answer:
-        "Of course! Many pubs start with a single consultation to tackle their biggest problem. We charge £62.50 per hour plus VAT, and there's no minimum commitment. Often, that first session provides enough value to transform your business.",
+        "Of course! Many pubs start with a single consultation to tackle their biggest problem. We charge £75 per hour plus VAT, and there's no minimum commitment. Often, that first session provides enough value to transform your business.",
     },
     {
       question: 'How quickly can Orange Jelly help fill my empty pub?',
@@ -54,7 +54,7 @@ const getLocalHomeData = () => {
     {
       question: 'What does pub marketing cost with Orange Jelly?',
       answer:
-        "We charge £62.50 per hour plus VAT as a flat rate. I'm always happy to have a free chat first to understand your challenges. All pricing is transparent with no hidden fees, and we offer a 30-day money-back guarantee.",
+        "We charge £75 per hour plus VAT as a flat rate. I'm always happy to have a free chat first to understand your challenges. All pricing is transparent with no hidden fees, and you only invest in the time you need.",
     },
   ];
 
@@ -88,7 +88,7 @@ const getLocalHomeData = () => {
     {
       icon: '📅',
       title: 'Results in 14 Days',
-      description: 'Or your money back',
+      description: 'Proven quick wins we use ourselves',
     },
     {
       icon: '🛡️',
@@ -102,8 +102,8 @@ const getLocalHomeData = () => {
     },
     {
       icon: '✅',
-      title: '30-Day Guarantee',
-      description: 'Risk-free trial',
+      title: '30-Day Game Plan',
+      description: 'Structured roadmap that keeps momentum',
     },
     {
       icon: '⭐',
@@ -172,7 +172,7 @@ const getLocalHomeData = () => {
 
   const trustBarItems = [
     { value: '15-20%', label: 'Covers', subtext: 'Average increase in 6 weeks' },
-    { value: '£62.50/hour', label: 'AI-powered marketing solutions' },
+    { value: '£75/hour', label: 'AI-powered marketing solutions' },
     { value: '14 Days', label: 'Guaranteed quick results' },
   ];
 

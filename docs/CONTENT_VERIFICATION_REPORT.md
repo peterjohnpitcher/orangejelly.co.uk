@@ -30,7 +30,7 @@ Systematic comparison of production website content against local codebase revea
 #### Production Content:
 - **Title**: "From Empty Tables to Full Tills"
 - **Subtitle**: "Every service below has been tested at The Anchor. If it didn't work for us, it's not here."
-- **Pricing**: Clear "All services £62.50/hour • No packages • Pay for what you need"
+- **Pricing**: Clear "All services £75/hour • No packages • Pay for what you need"
 - Services show specific problems as questions
 
 #### Local Content (services.json):
@@ -91,7 +91,7 @@ const faqs: any[] = [];
    
 2. **Metrics Consistency**:
    - Core metrics (71% GP, 25-35 quiz regulars, etc.) are consistent ✅
-   - Using correct £62.50/hour pricing ✅
+   - Using correct £75/hour pricing ✅
 
 3. **Call-to-Actions**:
    - WhatsApp number (07990 587315) consistent across all pages ✅

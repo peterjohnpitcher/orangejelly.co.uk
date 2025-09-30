@@ -6,7 +6,7 @@ Based on interview responses from 2025-08-03. This document lists all required c
 
 ### Remove ALL Made-Up Content
 - **43% increase in covers** - REMOVE (made up)
-- **£99 starting price** - REMOVE (made up) - Replace with "£62.50 per hour plus VAT"
+- **£99 starting price** - REMOVE (made up) - Replace with "£75 per hour plus VAT"
 - **"Response within 2 hours"** - Change to "I'll always do my best to respond quickly"
 - **Wetherspoons competition** - REMOVE ALL REFERENCES (never happened)
 - **85+ quiz attendance** - Change to "25-35 covers" 
@@ -32,7 +32,7 @@ Based on interview responses from 2025-08-03. This document lists all required c
 
 ### Trust Signals
 - Remove false customer numbers
-- Update pricing to "£62.50 per hour plus VAT"
+- Update pricing to "£75 per hour plus VAT"
 - Remove "response within 2 hours" promise
 
 ## ABOUT PAGE (/about)
@@ -103,7 +103,7 @@ Based on interview responses from 2025-08-03. This document lists all required c
 
 ### Pricing
 - Remove ALL package pricing
-- Replace with: "£62.50 per hour plus VAT flat rate"
+- Replace with: "£75 per hour plus VAT flat rate"
 - Note: "Always happy to chat and give advice for free"
 
 ### Services Offered

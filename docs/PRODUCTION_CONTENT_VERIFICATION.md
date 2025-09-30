@@ -28,7 +28,7 @@ To ensure content parity with production after our markdown migration, we will:
 
 - [ ] **Services** (/services)
   - Service descriptions
-  - Pricing information (£62.50/hour)
+  - Pricing information (£75/hour)
   - Process steps
   - FAQs
   - Guarantee text
@@ -100,7 +100,7 @@ These MUST match production exactly:
 ## Pricing Verification
 
 MUST show:
-- £62.50/hour plus VAT
+- £75/hour plus VAT
 - NO package prices
 - 30-day guarantee mentioned
 

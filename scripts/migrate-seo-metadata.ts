@@ -18,7 +18,7 @@ const seoMetadata = [
     _type: 'seoMetadata',
     page: 'home',
     title: 'How to Fill Empty Pub Tables | Pub Marketing That Works',
-    description: 'Struggling with empty pub tables? AI-powered marketing from a real licensee who turned The Anchor around. Save 5+ hours weekly. £62.50/hour plus VAT.',
+    description: 'Struggling with empty pub tables? AI-powered marketing from a real licensee who turned The Anchor around. Save 5+ hours weekly. £75/hour plus VAT.',
     keywords: [
       'pub marketing UK',
       'fill empty pub tables',
@@ -51,7 +51,7 @@ const seoMetadata = [
     _type: 'seoMetadata',
     page: 'services',
     title: 'Pub Marketing Services | AI Tools for Licensees',
-    description: 'Pub marketing that actually works. Menu optimization, social media, websites, AI training. From £62.50/hour. 30-day guarantee from real licensees.',
+    description: 'Pub marketing that actually works. Menu optimization, social media, websites, AI training. From £75/hour. 30-day guarantee from real licensees.',
     keywords: [
       'pub marketing services',
       'pub menu design',
@@ -79,7 +79,7 @@ const seoMetadata = [
     _type: 'seoMetadata',
     page: 'contact',
     title: 'Contact Orange Jelly | Get Pub Marketing Help',
-    description: 'Chat with Peter Pitcher about your pub challenges. WhatsApp preferred, personal replies guaranteed. £62.50/hour plus VAT. 30-day guarantee.',
+    description: 'Chat with Peter Pitcher about your pub challenges. WhatsApp preferred, personal replies guaranteed. £75/hour plus VAT. 30-day guarantee.',
     keywords: [
       'contact Orange Jelly',
       'pub marketing help',
@@ -106,7 +106,7 @@ const seoMetadata = [
     _type: 'seoMetadata',
     page: 'default',
     title: 'Orange Jelly | AI-Powered Pub Marketing',
-    description: 'AI-powered marketing for UK pubs from real licensees. Save 5+ hours weekly, fill empty tables, boost revenue. £62.50/hour plus VAT.',
+    description: 'AI-powered marketing for UK pubs from real licensees. Save 5+ hours weekly, fill empty tables, boost revenue. £75/hour plus VAT.',
     keywords: [
       'Orange Jelly',
       'pub marketing',

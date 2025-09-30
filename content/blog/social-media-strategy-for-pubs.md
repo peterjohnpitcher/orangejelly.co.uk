@@ -4,7 +4,7 @@ slug: "social-media-strategy-for-pubs"
 publishedDate: 2025-03-07
 updatedDate: "2025-04-21T00:00:00.000Z"
 excerpt: "Master social media marketing for your pub with this comprehensive guide. Learn platform-specific strategies, content calendars, and engagement tactics"
-quickAnswer: "Post consistently on Facebook and Instagram with quality food photos, engage with local community groups, share behind-the-scenes content, and use platform-specific features. Create a content calendar focusing on events, specials, and community connection rather than just promotional posts."
+quickAnswer: "Map a repeatable social media plan with content pillars, weekly scheduling, and review rituals. Focus on telling your pub's story, highlighting events, and responding quickly to keep relationships strong."
 author: "Peter Pitcher"
 category: "social-media"
 tags:
@@ -14,7 +14,7 @@ tags:
   - "social media strategy"
   - "pub promotion"
 status: "published"
-metaDescription: "Learn how to use social media to promote your pub effectively. Proven strategies for Facebook, Instagram, TikTok, and more to attract customers and boost"
+metaDescription: "Build a social media strategy for your pub that you can run in-house. We share the frameworks, content calendars, and review rhythms we use at The Anchor to turn posts into booked tables."
 keywords:
   - "social media for pubs"
   - "pub social media strategy"
@@ -40,6 +40,10 @@ voiceSearchQueries:
 Your competitor down the street just posted a blurry photo of fish and chips with the caption "Food available." It got 3 likes – two from staff and one from his mum. Meanwhile, The Crafty Fox across town turned a simple quiz night announcement into 200 shares and a fully booked Tuesday. The difference? A proper social media strategy.
 
 Social media isn't just about posting photos anymore. It's your most powerful tool for filling tables, building community, and competing with chains that have marketing budgets bigger than your annual turnover. This guide shows you exactly how to use it effectively.
+
+> **Prefer a strategy partner?**
+>
+> Orange Jelly helps you build the plan, train your team, and stay accountable. In £75/hour sessions we audit your channels, create a 30-day playbook, and set up weekly reviews so you keep control without burning out. [Book a strategy session](https://www.orangejelly.co.uk/services#social-media).
 
 ## Why Social Media Matters More Than Ever for Pubs
 
@@ -557,19 +561,13 @@ The biggest challenge isn't starting – it's maintaining momentum. Here's how t
 
 - Google Photos for organization
 
-## Real Results from Real Pubs
+## Real Results from The Anchor
 
-**The Kings Arms, Yorkshire:**
+Everything in this guide comes from daily practice at The Anchor:
 
-Implemented daily Instagram Stories showing chef's specials. Result: 45% increase at The Anchor in weekday lunch covers, Instagram following grew from 500 to 3,500 in six months.
-
-**The Ship & Anchor, Bristol:**
-
-Created TikTok series "Bartender Battles" featuring staff cocktail competitions. Result: 2M total views, 25% increase at The Anchor in cocktail sales, regularly full on previously quiet Wednesdays.
-
-**a typical market town pub, London:**
-
-Used Facebook Events for all activities, from quiz nights to wine tastings. Result: Average event attendance up 60%, advance bookings increased 80%.
+- **Quiz night turnaround:** from 20 to 25–35 regulars every week using Instagram teasers, WhatsApp reminders, and consistent event templates.
+- **Instagram reach:** 60,000–70,000 monthly views created in two hours per week through AI-assisted planning and batched content days.
+- **Operational wins:** Social-led menu promotion contributed to food GP improving from 58% to 71% alongside tighter operations.
 
 ## Your Social Media Success Starts Now
 
@@ -578,6 +576,12 @@ Social media isn't just another task on your to-do list – it's your direct lin
 Start small, be consistent, and remember: perfect is the enemy of good. That slightly shaky video of your chef explaining tonight's special will outperform a polished stock photo every time.
 
 Your community is already on social media, talking about where to go tonight. Make sure they're talking about you.
+
+## Need Help Turning This Into a Plan?
+
+We offer £75/hour strategy sessions where we audit your current channels, build a 30-day content calendar, set AI workflows, and agree weekly review rituals your team can run in-house. You'll leave with a clear playbook, not another ongoing agency contract.
+
+[Book a social media strategy session](https://www.orangejelly.co.uk/services#social-media) →
 
 ## Related Resources
 
@@ -589,7 +593,7 @@ Your community is already on social media, talking about where to go tonight. Ma
 
 - \[Compete with Wetherspoons: David vs Goliath Strategies\](/blog/compete-with-wetherspoons)
 
-*Ready to transform your pub's social media presence? Join thousands of publicans in our free Facebook group "Pub Marketing Masters" for daily tips, feedback, and support from fellow pub owners making social media work.*
+Ready to transform your pub's social media presence? Let's build your playbook together so you can run it with confidence.
 
 ## Frequently Asked Questions
 
@@ -607,9 +611,8 @@ Most strategies show initial results within 2-4 weeks. Quiz nights attract regul
 
 ### How much will this cost to implement?
 
-Implementation costs vary by strategy. Many improvements like social media optimization and operational changes cost nothing beyond time. Events may require £50-200 initial investment. Professional support is available at £62.50 per hour plus VAT.
+Implementation costs vary by strategy. Many improvements like social media optimization and operational changes cost nothing beyond time. Events may require £50-200 initial investment. Professional support is available at £75 per hour plus VAT.
 
 ### Can this work for my type of pub?
 
 Yes, these strategies are proven across wet-led, food-led, and hybrid pubs. The key is adapting the approach to your specific circumstances, customer base, and local market. All strategies come from real-world success at The Anchor.
-

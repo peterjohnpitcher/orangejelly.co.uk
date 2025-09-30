@@ -16,8 +16,8 @@
       "Full-time job + pub + Orange Jelly",
       "Featured in BII magazine",
       "Greene King tenants",
-      "£62.50/hour - no packages",
-      "30-day money-back guarantee"
+      "£75/hour - no packages",
+      "30-day action plan with weekly check-ins"
     ]
   },
   "timeline": [
@@ -66,12 +66,12 @@
     {
       "icon": "💪",
       "title": "Honest Pricing",
-      "description": "£62.50 per hour plus VAT. No packages, no hidden fees, no surprises."
+      "description": "£75 per hour plus VAT. No packages, no hidden fees, no surprises."
     },
     {
       "icon": "🛡️",
-      "title": "Guaranteed Results",
-      "description": "30-day money-back guarantee because we believe in what we do."
+      "title": "Results Backed by Experience",
+      "description": "Everything we share runs daily inside The Anchor first."
     },
     {
       "icon": "🤝",
@@ -113,7 +113,7 @@
     },
     {
       "question": "What makes Orange Jelly different from other consultants?",
-      "answer": "We're not consultants who've never pulled a pint. We run an actual pub and test every strategy in our own business first. No corporate nonsense, no jargon - just one licensee helping another with tools that actually work. Plus, we guarantee results or your money back."
+      "answer": "We're not consultants who've never pulled a pint. We run an actual pub and test every strategy in our own business first. No corporate nonsense, no jargon - just one licensee helping another with tools that actually work."
     },
     {
       "question": "Is Orange Jelly a big company?",
@@ -145,7 +145,7 @@
     },
     {
       "question": "How can I be sure Orange Jelly will work for my pub?",
-      "answer": "Every pub is different, but the challenges are similar. That's why we offer a free consultation to understand your specific situation, and a 30-day money-back guarantee. We're so confident because these aren't theories - they're proven strategies from our own pub."
+      "answer": "Every pub is different, but the challenges are similar. That's why we offer a free consultation to understand your specific situation and stay hands-on through the first month so adjustments happen quickly. These aren't theories - they're proven strategies from our own pub."
     },
     {
       "question": "What areas does Orange Jelly cover?",
@@ -153,7 +153,7 @@
     },
     {
       "question": "What's your promise to pub owners?",
-      "answer": "To save you at least 5 hours per week on admin tasks, be honest about what AI can and can't do, only recommend tools we use ourselves, keep prices transparent and fair, and provide personal support when you need it. Plus our 30-day money-back guarantee."
+      "answer": "To save you at least 5 hours per week on admin tasks, be honest about what AI can and can't do, only recommend tools we use ourselves, keep prices transparent and fair, and provide personal support when you need it."
     }
   ]
 }

@@ -4,7 +4,7 @@ slug: "instagram-marketing-for-pubs"
 publishedDate: 2025-03-21
 updatedDate: "2025-05-05T00:00:00.000Z"
 excerpt: "Transform your pub's Instagram from amateur snapshots to a customer magnet. Learn photography tricks, hashtag strategies, and content ideas that fill"
-quickAnswer: "Post high-quality food and drink photos with natural lighting, use local hashtags and tag your location. Share Stories showing daily specials, behind-the-scenes content, and customer experiences. Engage with followers and partner with local food influencers."
+quickAnswer: "Build an Instagram strategy that combines consistent brand photography, local hashtags, and story-driven posts. Plan content in batches, schedule around promotions, and review performance weekly so you can adjust what works."
 author: "Peter Pitcher"
 category: "social-media"
 tags:
@@ -14,7 +14,7 @@ tags:
   - "pub photography"
   - "Instagram marketing"
 status: "published"
-metaDescription: "Master Instagram marketing for your pub with proven strategies. Learn content creation, hashtag tactics, and engagement tips that turn followers into"
+metaDescription: "Create an Instagram strategy for your pub that you can run in-house. Learn content pillars, planning workflows, and AI-powered systems we use at The Anchor to turn followers into guests."
 keywords:
   - "pub Instagram ideas"
   - "Instagram marketing for pubs"
@@ -40,6 +40,12 @@ voiceSearchQueries:
 Picture this: Sarah, 28, is scrolling Instagram on a Thursday evening. She stops at a video of golden beer being poured in slow motion, foam cascading perfectly. She taps the location, sees mouth-watering food photos, checks the Stories for tonight's specials, and twenty minutes later, she's walking through your door with three friends.
 
 That's the power of Instagram done right. It's not just a photo app anymore – it's where 71% of millennials decide where to eat and drink. If your pub isn't killing it on Instagram, you're invisible to an entire generation of customers.
+
+> **Need a roadmap, not another agency?**
+>
+> At Orange Jelly we don't run your social accounts for you—we give you the same playbooks we use at The Anchor so you can keep control. Our £75/hour advisory sessions help you build a 30-day Instagram action plan, set up AI-assisted workflows, and run weekly reviews to keep momentum without adding more to your plate.
+
+Ready to build your own plan? [Book a strategy session](https://www.orangejelly.co.uk/services#social-media) and we'll map it out together.
 
 ## Why Instagram Is Non-Negotiable for Modern Pubs
 
@@ -665,6 +671,12 @@ Your smartphone is all you need. Your stories are worth sharing. Your pub deserv
 
 Start today. Post imperfectly. Engage genuinely. Watch what happens.
 
+## Need a Partner to Build the Plan?
+
+If you'd like help turning this guide into a tailored roadmap, we can work together in £75/hour strategy sessions. We'll audit your current Instagram presence, build a 30-day calendar, set up AI-assisted workflows, and agree weekly review rituals so your team can run everything in-house.
+
+[Book an Instagram strategy session](https://www.orangejelly.co.uk/services#social-media) →
+
 ## Your Instagram Action Checklist
 
 - \[ \] Optimize profile completely
@@ -697,7 +709,7 @@ Start today. Post imperfectly. Engage genuinely. Watch what happens.
 
 - \[Why Is My Pub Empty? A Diagnostic Guide\](/blog/why-is-my-pub-empty)
 
-*Ready to transform your pub's Instagram? Download our free "30 Days of Instagram Content Ideas for Pubs" calendar and never run out of posting ideas again.*
+Ready to transform your pub's Instagram? Let's map your 30-day action plan together and keep it running with weekly check-ins.
 
 ## Frequently Asked Questions
 
@@ -715,9 +727,8 @@ Most strategies show initial results within 2-4 weeks. Quiz nights attract regul
 
 ### How much will this cost to implement?
 
-Implementation costs vary by strategy. Many improvements like social media optimization and operational changes cost nothing beyond time. Events may require £50-200 initial investment. Professional support is available at £62.50 per hour plus VAT.
+Implementation costs vary by strategy. Many improvements like social media optimization and operational changes cost nothing beyond time. Events may require £50-200 initial investment. Professional support is available at £75 per hour plus VAT.
 
 ### Can this work for my type of pub?
 
 Yes, these strategies are proven across wet-led, food-led, and hybrid pubs. The key is adapting the approach to your specific circumstances, customer base, and local market. All strategies come from real-world success at The Anchor.
-

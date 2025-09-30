@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button as ShadcnButton, ButtonProps as ShadcnButtonProps } from "@/components/ui/button";
+import { Button as ShadcnButton } from "@/components/ui/button";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -37,6 +37,20 @@ const sizeMap = {
   large: 'lg'
 } as const;
 
+const legacyVariantClasses: Record<NonNullable<LegacyButtonProps['variant']>, string> = {
+  primary: 'bg-orange text-white hover:bg-orange-dark',
+  secondary: 'bg-teal text-white hover:bg-teal-dark',
+  outline: 'border-2 border-orange text-orange hover:bg-orange hover:text-white',
+  ghost: 'text-orange hover:bg-orange/10',
+  custom: '',
+};
+
+const legacySizeClasses: Record<NonNullable<LegacyButtonProps['size']>, string> = {
+  small: 'px-4 py-2.5 text-sm',
+  medium: 'px-6 py-3 text-base',
+  large: 'px-8 py-4 text-lg',
+};
+
 export default function ButtonAdapter({
   variant = 'primary',
   size = 'medium',
@@ -57,8 +71,10 @@ export default function ButtonAdapter({
   const shadcnSize = sizeMap[size] || 'default';
   
   const buttonClasses = cn(
-    fullWidth && "w-full",
+    fullWidth && "w-full block",
     whatsapp && "!bg-[var(--color-whatsapp)] hover:!bg-[var(--color-whatsapp-hover)] text-white",
+    legacyVariantClasses[variant],
+    legacySizeClasses[size],
     className
   );
 
@@ -69,16 +85,18 @@ export default function ButtonAdapter({
     </>
   );
 
+  const sharedButtonProps = {
+    variant: shadcnVariant,
+    size: shadcnSize,
+    className: buttonClasses,
+    disabled: disabled || loading,
+    'aria-busy': loading || undefined,
+  } as const;
+
   // Handle WhatsApp button
   if (whatsapp && href) {
     return (
-      <ShadcnButton
-        variant={shadcnVariant}
-        size={shadcnSize}
-        className={buttonClasses}
-        disabled={disabled || loading}
-        asChild
-      >
+      <ShadcnButton {...sharedButtonProps} asChild>
         <a
           href={href}
           target="_blank"
@@ -94,13 +112,7 @@ export default function ButtonAdapter({
   // Handle external links
   if (href && external) {
     return (
-      <ShadcnButton
-        variant={shadcnVariant}
-        size={shadcnSize}
-        className={buttonClasses}
-        disabled={disabled || loading}
-        asChild
-      >
+      <ShadcnButton {...sharedButtonProps} asChild>
         <a
           href={href}
           target="_blank"
@@ -116,13 +128,7 @@ export default function ButtonAdapter({
   // Handle internal links
   if (href) {
     return (
-      <ShadcnButton
-        variant={shadcnVariant}
-        size={shadcnSize}
-        className={buttonClasses}
-        disabled={disabled || loading}
-        asChild
-      >
+      <ShadcnButton {...sharedButtonProps} asChild>
         <Link href={href} aria-label={ariaLabel}>
           {buttonContent}
         </Link>
@@ -133,10 +139,7 @@ export default function ButtonAdapter({
   // Handle regular buttons
   return (
     <ShadcnButton
-      variant={shadcnVariant}
-      size={shadcnSize}
-      className={buttonClasses}
-      disabled={disabled || loading}
+      {...sharedButtonProps}
       type={type}
       onClick={onClick}
       aria-label={ariaLabel}

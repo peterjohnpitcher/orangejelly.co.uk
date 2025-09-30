@@ -1,3 +1,5 @@
+import { getBaseUrl } from '@/lib/site-config';
+
 interface BreadcrumbItem {
   name: string;
   url: string;
@@ -5,7 +7,7 @@ interface BreadcrumbItem {
 
 export function BreadcrumbJsonLd({ items }: { items: BreadcrumbItem[] }) {
   const isAbsolute = (u: string) => /^https?:\/\//i.test(u);
-  const site = 'https://www.orangejelly.co.uk';
+  const site = getBaseUrl();
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

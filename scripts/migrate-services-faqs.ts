@@ -24,7 +24,7 @@ const servicesFAQs = [
         children: [
           {
             _type: 'span',
-            text: 'We work with you to implement AI-powered marketing strategies that have been proven at The Anchor. This includes training on social media automation, event promotion, and customer engagement. We charge £62.50 per hour plus VAT, and offer a 30-day money-back guarantee.'
+            text: 'We work with you to implement AI-powered marketing strategies that have been proven at The Anchor. This includes training on social media automation, event promotion, and customer engagement. We charge £75 per hour plus VAT, and offer a 30-day action plan with weekly support.'
           }
         ]
       }
@@ -43,7 +43,7 @@ const servicesFAQs = [
         children: [
           {
             _type: 'span',
-            text: 'We charge £62.50 per hour plus VAT as a flat rate. I\'ll work with you to implement the AI strategies that have transformed The Anchor - from social media automation to event planning. First training session with a pub chain scheduled September 2025.'
+            text: 'We charge £75 per hour plus VAT as a flat rate. I\'ll work with you to implement the AI strategies that have transformed The Anchor - from social media automation to event planning. First training session with a pub chain scheduled September 2025.'
           }
         ]
       }
@@ -101,7 +101,7 @@ const servicesFAQs = [
         children: [
           {
             _type: 'span',
-            text: 'At The Anchor, we improved food GP from 58% to 71%. Menu psychology can increase average spend significantly. We charge £62.50 per hour for consultation, and most menu reviews take 2-3 hours.'
+            text: 'At The Anchor, we improved food GP from 58% to 71%. Menu psychology can increase average spend significantly. We charge £75 per hour for consultation, and most menu reviews take 2-3 hours.'
           }
         ]
       }
@@ -159,7 +159,7 @@ const servicesFAQs = [
         children: [
           {
             _type: 'span',
-            text: 'We\'ve added £75,000-£100,000 of value to The Anchor using AI. It delivers 120-150 hours worth of equivalent work per week. We charge £62.50 per hour to teach you the same strategies.'
+            text: 'We\'ve added £75,000-£100,000 of value to The Anchor using AI. It delivers 120-150 hours worth of equivalent work per week. We charge £75 per hour to teach you the same strategies.'
           }
         ]
       }
@@ -315,7 +315,7 @@ const servicesFAQs = [
         children: [
           {
             _type: 'span',
-            text: 'We offer a 30-day money-back guarantee on most services. If we don\'t deliver the promised results, you get a full refund. We\'re confident because these strategies work - we use them in our own pub.'
+            text: 'We offer a 30-day action plan with weekly support on most services. If we don\'t deliver the promised results, you get a full refund. We\'re confident because these strategies work - we use them in our own pub.'
           }
         ]
       }

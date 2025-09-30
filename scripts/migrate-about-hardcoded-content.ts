@@ -94,13 +94,13 @@ const aboutContentData = {
       _key: uuidv4(),
       icon: '💰',
       title: 'Honest Pricing',
-      description: '£62.50 per hour plus VAT. No packages, no hidden fees, no surprises.',
+      description: '£75 per hour plus VAT. No packages, no hidden fees, no surprises.',
     },
     {
       _key: uuidv4(),
       icon: '🛡️',
       title: 'Guaranteed Results',
-      description: '30-day money-back guarantee because we believe in what we do.',
+      description: '30-day action plan with weekly support because we believe in what we do.',
     },
     {
       _key: uuidv4(),
@@ -170,8 +170,8 @@ const aboutContentData = {
       'Full-time job + pub + Orange Jelly',
       'Featured in BII magazine',
       'Greene King tenants',
-      '£62.50/hour - no packages',
-      '30-day money-back guarantee'
+      '£75/hour - no packages',
+      '30-day action plan with weekly support'
     ],
   },
   visitCTA: {
@@ -415,7 +415,7 @@ const aboutFAQs = [
           {
             _type: 'span',
             _key: uuidv4(),
-            text: 'Every pub is different, but the challenges are similar. That\'s why we offer a free consultation to understand your specific situation, and a 30-day money-back guarantee. We\'re so confident because these aren\'t theories - they\'re proven strategies from our own pub.',
+            text: 'Every pub is different, but the challenges are similar. That\'s why we offer a free consultation to understand your specific situation, and a 30-day action plan with weekly support. We\'re so confident because these aren\'t theories - they\'re proven strategies from our own pub.',
             marks: [],
           },
         ],
@@ -463,7 +463,7 @@ const aboutFAQs = [
           {
             _type: 'span',
             _key: uuidv4(),
-            text: 'To save you at least 5 hours per week on admin tasks, be honest about what AI can and can\'t do, only recommend tools we use ourselves, keep prices transparent and fair, and provide personal support when you need it. Plus our 30-day money-back guarantee.',
+            text: 'To save you at least 5 hours per week on admin tasks, be honest about what AI can and can\'t do, only recommend tools we use ourselves, keep prices transparent and fair, and provide personal support when you need it. Plus our 30-day action plan with weekly support.',
             marks: [],
           },
         ],

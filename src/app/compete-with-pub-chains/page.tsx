@@ -533,13 +533,13 @@ export default function CompeteWithPubChains() {
 
               <div className="bg-cream rounded-lg p-6 mb-6">
                 <Text size="2xl" weight="bold" className="text-orange mb-2">
-                  £62.50/hour + VAT
+                  £75/hour + VAT
                 </Text>
                 <Text className="text-charcoal/70 mb-4">
                   Most pubs see 25% revenue increase within 60 days
                 </Text>
                 <Text size="sm" weight="semibold" className="text-green-600">
-                  30-Day Money-Back Guarantee
+                  30-Day Partnership: weekly optimisation with a working licensee
                 </Text>
               </div>
 

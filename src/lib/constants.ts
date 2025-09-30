@@ -21,8 +21,8 @@ export const COMPANY = {
 export const PRICING = {
   // Hourly Rate - All services billed at this rate
   hourlyRate: {
-    amount: 62.5,
-    display: '£62.50/hour plus VAT',
+    amount: 75,
+    display: '£75/hour plus VAT',
     description: 'Simple, honest pricing for all services',
   },
 } as const;
@@ -51,7 +51,6 @@ export const MESSAGES = {
 
   // Trust Messages
   trust: {
-    moneyBack: 'Money-back guarantee',
     timeSaved: 'Time saved promise',
     atLeastFiveHours: 'At Least 5 Hours',
     thirtyDays: '30 Days',
@@ -73,7 +72,7 @@ export const MESSAGES = {
     primary: 'Fill Your Pub',
     secondary: 'Get More Customers',
     bookCall: 'Get Help Now',
-    tryRiskFree: 'Turn Your Pub Around',
+    tryRiskFree: 'Start Your Turnaround',
     getQuickWins: 'Start Filling Tables',
     seeHow: 'See What Works',
     getHelp: 'Stop Struggling',

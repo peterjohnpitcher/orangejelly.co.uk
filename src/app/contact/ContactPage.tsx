@@ -138,7 +138,7 @@ export default function ContactPage({}: ContactPageProps) {
         closes: '23:59',
         description: 'Available via WhatsApp 24/7. In-person meetings by appointment.',
       },
-      priceRange: '£62.50 per hour plus VAT',
+      priceRange: '£75 per hour plus VAT',
       paymentAccepted: ['Cash', 'Bank Transfer', 'Invoice'],
       areaServed: {
         '@type': 'Country',

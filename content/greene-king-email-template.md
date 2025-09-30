@@ -96,7 +96,7 @@ Stanwell Moor, Staines TW19 6AQ
 BII Member | Featured in Autumn 2025 issue
 Orange Jelly Limited - Helping pubs thrive
 
-P.S. We're training our first pub chain in September 2025, but I always have time for individual Greene King pubs. We charge £62.50/hour plus VAT, but even a few hours can transform your marketing approach.
+P.S. We're training our first pub chain in September 2025, but I always have time for individual Greene King pubs. We charge £75/hour plus VAT, but even a few hours can transform your marketing approach.
 
 ---
 

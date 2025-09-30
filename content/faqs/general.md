@@ -2,19 +2,19 @@
 
 ## Can I just get a one-off consultation?
 
-Of course! Many pubs start with a single consultation to tackle their biggest problem. We charge £62.50 per hour plus VAT, and there's no minimum commitment. Often, that first session provides enough value to transform your business.
+Of course! Many pubs start with a single consultation to tackle their biggest problem. We charge £75 per hour plus VAT, and there's no minimum commitment. Often, that first session provides enough value to transform your business.
 
 ## What services does Orange Jelly offer for pubs?
 
-We offer pub recovery packages, menu optimization, social media management, website development, AI training, and business analysis. Everything is charged at £62.50 per hour plus VAT. We focus on practical solutions that fill your pub.
+We offer pub recovery packages, menu optimization, social media management, website development, AI training, and business analysis. Everything is charged at £75 per hour plus VAT. We focus on practical solutions that fill your pub.
 
 ## How do I know if Orange Jelly's strategies will work for my pub?
 
-Every strategy has been proven at The Anchor where we've been implementing AI solutions since 2021. I offer a free consultation to discuss your specific challenges and show you exactly how we've solved similar problems. Plus, our 30-day guarantee means you can try risk-free.
+Every strategy has been proven at The Anchor where we've been implementing AI solutions since 2021. I offer a free consultation to discuss your specific challenges and show you exactly how we've solved similar problems.
 
 ## Can Orange Jelly help if my pub is losing money?
 
-Absolutely. We've added £75,000-£100,000 worth of value to our own business using AI. Our food GP went from 58% to 71%. We offer a 30-day money-back guarantee because I believe in what AI can do for pubs.
+Absolutely. We've added £75,000-£100,000 worth of value to our own business using AI. Our food GP went from 58% to 71%. We'll stay hands-on through the first month to make sure the plan is working for you.
 
 ## How quickly can Orange Jelly help fill my empty pub?
 
@@ -22,7 +22,7 @@ We typically see results within 30 days. Our strategies have been proven at The 
 
 ## What does pub marketing cost with Orange Jelly?
 
-We charge £62.50 per hour plus VAT as a flat rate. I'm always happy to have a free chat first to understand your challenges. All pricing is transparent with no hidden fees, and we offer a 30-day money-back guarantee.
+We charge £75 per hour plus VAT as a flat rate. I'm always happy to have a free chat first to understand your challenges. All pricing is transparent with no hidden fees.
 
 ## How long does it take to see ROI from pub marketing?
 
@@ -38,7 +38,7 @@ We use AI to create months of social media content in hours, write menu descript
 
 ## What if I'm not happy with the results?
 
-We offer a 30-day money-back guarantee on most services. If we don't deliver the promised results, you get a full refund. We're confident because these strategies work - we use them in our own pub.
+We stay closely involved during the first month with weekly check-ins, fast adjustments, and direct WhatsApp support so you can see momentum quickly. These strategies work because we use them in our own pub.
 
 ## Do you offer payment plans?
 
@@ -50,7 +50,7 @@ Of course! Every pub has different needs. Start with your biggest pain point, se
 
 ## How is Orange Jelly different from other marketing agencies?
 
-We actually run a pub - The Anchor in Stanwell Moor. We're not marketers who've never pulled a pint. Every strategy we recommend has been tested in our own business first. Plus, we guarantee results or your money back.
+We actually run a pub - The Anchor in Stanwell Moor. We're not marketers who've never pulled a pint. Every strategy we recommend has been tested in our own business first.
 
 ## What makes Orange Jelly different from other pub marketing agencies?
 

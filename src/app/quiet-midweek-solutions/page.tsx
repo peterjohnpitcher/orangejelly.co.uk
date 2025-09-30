@@ -464,7 +464,7 @@ export default function QuietMidweekSolutions() {
 
               <div className="bg-white rounded-lg p-6 mb-6">
                 <Text size="2xl" weight="bold" className="text-orange mb-2">
-                  Investment: £62.50/hour + VAT
+                  Investment: £75/hour + VAT
                 </Text>
                 <Text className="text-charcoal/70">
                   Most pubs recover this in their first successful midweek event
@@ -472,7 +472,7 @@ export default function QuietMidweekSolutions() {
               </div>
 
               <Text weight="semibold" className="mb-6">
-                30-Day Money-Back Guarantee: If your midweek nights aren't busier, you pay nothing
+                30-Day Intensive Support: Weekly check-ins and adjustments until your midweek is busy again
               </Text>
 
               <WhatsAppButton text="Fix my quiet midweek nights" size="large" />

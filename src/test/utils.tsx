@@ -47,7 +47,7 @@ export const createMockService = (overrides = {}) => ({
   _id: 'service-1',
   title: 'Test Service',
   description: 'Test description',
-  price: '62.50',
+  price: '75',
   features: ['Feature 1', 'Feature 2'],
   ...overrides,
 });

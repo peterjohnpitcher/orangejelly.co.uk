@@ -47,7 +47,7 @@ npx tsx scripts/migrate-cta-messages.ts
 
 ### Services Page (2 CTAs)
 - Main CTA: "Stop Watching Money Walk Past Your Pub"
-- Money Back Guarantee: "30-Day Money-Back Guarantee"
+- Money Back Guarantee: "30-Day Action Plan Support"
 
 ### About Page (2 CTAs)
 - Main CTA: "Ready to Transform Your Pub?"

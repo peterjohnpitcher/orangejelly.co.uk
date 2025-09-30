@@ -22,7 +22,7 @@ This document provides a comprehensive audit of all claims made on the Orange Je
 - **10 minutes of advice** welcome (quick questions)
     Always happy to talk to someone on the phone, no charges, no restrictions. I understand that sometimes people just have questions and want to talk.
 - **Various training durations**: 2, 4, or 8 hours
-    They're all fair, just make sure prices are always consistent at £62.50 per hour plus VAT.
+    They're all fair, just make sure prices are always consistent at £75 per hour plus VAT.
 
 ### Blog Time Investment Claims
 Multiple specific time investments listed in blog posts:
@@ -113,7 +113,7 @@ All seem fair without me seeing the context, where is the content being used?
     See my note above, do not over-state claims.
 
 ### Financial Claims
-- **£62.50 per hour plus VAT** (all services)
+- **£75 per hour plus VAT** (all services)
     Correct
 - **£75,000-£100,000** value added to business
     Correct, that's my estimate for the value AI has added to our business since we started.
@@ -137,7 +137,7 @@ All seem fair without me seeing the context, where is the content being used?
 ## 5. Guarantees & Promises
 
 ### Core Guarantees
-- **30-day money-back guarantee**
+- **30-day action plan with weekly support**
 - **"Results in 14 Days or your money back"**
     Results in 30 days depending on what we're working on and also how quickly you can turn around the changes necessary.
 - **"Save time or make more money within 30 days"**

@@ -18,7 +18,7 @@ This document contains all approved claims for the Orange Jelly website, incorpo
 - **10 hours per week** on social media management (using AI tools)
 - **"I'll always respond as quickly as I can, but bear with me"** - Response time promise
 - **No charge for phone conversations** - "Always happy to talk to someone on the phone, no charges, no restrictions. I understand that sometimes people just have questions and want to talk."
-- **Training durations**: 2, 4, or 8 hours at £62.50 per hour plus VAT
+- **Training durations**: 2, 4, or 8 hours at £75 per hour plus VAT
 
 ### Blog Time Investments (Context-Specific)
 - 30 minutes/week for user-generated content
@@ -79,7 +79,7 @@ This document contains all approved claims for the Orange Jelly website, incorpo
 - **20% increase in weekday revenue** (not covers, as wet-led)
 
 ### Financial Claims
-- **£62.50 per hour plus VAT** (all services)
+- **£75 per hour plus VAT** (all services)
 - **£75,000-£100,000** value AI has added to The Anchor since starting
 - **£250/week** waste savings (Sunday lunches)
 - **£4,000+/month** cost savings identified (vendor reviews, energy reduction, rota optimization)
@@ -92,7 +92,7 @@ This document contains all approved claims for the Orange Jelly website, incorpo
 ## 5. Guarantees & Promises
 
 ### Core Guarantees
-- **30-day money-back guarantee**
+- **30-day action plan with weekly support**
 - **"Results in 30 days"** (depending on service and implementation speed)
 - **"Save time or make more money within 30 days"**
 

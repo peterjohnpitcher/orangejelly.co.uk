@@ -1,5 +1,6 @@
 import { generateStaticMetadata } from '@/lib/metadata';
 import ResultsPage from './ResultsPage';
+import { getBaseUrl } from '@/lib/site-config';
 
 export async function generateMetadata() {
   return generateStaticMetadata({
@@ -18,12 +19,13 @@ export default function Results() {
   // Use local data
 
   // Generate comprehensive schema for Results
+  const baseUrl = getBaseUrl();
   const resultsSchema = {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'HowTo',
-        '@id': 'https://www.orangejelly.co.uk/results#sunday-lunches',
+        '@id': `${baseUrl}/results#sunday-lunches`,
         name: 'How to Fix Sunday Lunch Chaos with Pre-Order System',
         description:
           'Learn how The Anchor reduced Sunday lunch waste by £250/week using a custom-built pre-order system',
@@ -62,12 +64,12 @@ export default function Results() {
       },
       {
         '@type': 'Article',
-        '@id': 'https://www.orangejelly.co.uk/results#social-media',
+        '@id': `${baseUrl}/results#social-media`,
         headline: 'How AI Transformed Our Social Media from Chore to Customer Magnet',
         description:
           'Case study showing how The Anchor uses AI to create daily content across 3 platforms in just 30 minutes monthly',
         author: {
-          '@id': 'https://www.orangejelly.co.uk/#peter-pitcher',
+          '@id': `${baseUrl}/#peter-pitcher`,
         },
         datePublished: '2024-09-15',
         articleBody:
@@ -75,12 +77,12 @@ export default function Results() {
       },
       {
         '@type': 'Article',
-        '@id': 'https://www.orangejelly.co.uk/results#quiz-night',
+        '@id': `${baseUrl}/results#quiz-night`,
         headline: 'Tuesday Quiz Night: From 20 to 25-35 Regulars Using AI',
         description:
           'How we ditched expensive quiz subscriptions and created better quizzes with AI in 20 minutes',
         author: {
-          '@id': 'https://www.orangejelly.co.uk/#peter-pitcher',
+          '@id': `${baseUrl}/#peter-pitcher`,
         },
         datePublished: '2024-10-01',
         articleBody:
@@ -88,7 +90,7 @@ export default function Results() {
       },
       {
         '@type': 'HowTo',
-        '@id': 'https://www.orangejelly.co.uk/results#quiet-weeks',
+        '@id': `${baseUrl}/results#quiet-weeks`,
         name: 'Transform Quiet Weeks into Premium Events',
         description: 'How The Anchor created sold-out tasting events charging £25+ per ticket',
         step: [
@@ -128,7 +130,7 @@ export default function Results() {
           '@type': 'Service',
           name: 'Orange Jelly Pub Consulting',
           provider: {
-            '@id': 'https://www.orangejelly.co.uk/#organization',
+            '@id': `${baseUrl}/#organization`,
           },
         },
         reviewBody:

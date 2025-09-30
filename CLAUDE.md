@@ -78,7 +78,7 @@ business:
   first_external_client: "September 2025"
   
 pricing:
-  hourly_rate: "£62.50 plus VAT"
+  hourly_rate: "£75 plus VAT"
   packages: false
   fixed_prices: false
   guarantee: "30-day"

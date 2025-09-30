@@ -206,7 +206,7 @@ const pubRescueContent = {
     {
       _key: 'faq2',
       question: 'What if I can\'t afford consultancy fees right now?',
-      answer: 'I get it - when the pub\'s struggling, every penny counts. We charge £62.50 per hour plus VAT, working flexibly with your budget. Most strategies pay for themselves in the first weekend. Plus, I\'ll often share free tips during our first chat because I hate seeing pubs struggle.',
+      answer: 'I get it - when the pub\'s struggling, every penny counts. We charge £75 per hour plus VAT, working flexibly with your budget. Most strategies pay for themselves in the first weekend. Plus, I\'ll often share free tips during our first chat because I hate seeing pubs struggle.',
     },
     {
       _key: 'faq3',
@@ -226,7 +226,7 @@ const pubRescueContent = {
     {
       _key: 'faq6',
       question: 'What if your solutions don\'t work for my pub?',
-      answer: 'Every pub is different, which is why we offer a 30-day money-back guarantee. If you don\'t see improved results within 30 days, you get a full refund. But honestly, the strategies work because they\'re based on real pub experience, not theory.',
+      answer: 'Every pub is different, which is why we offer a 30-day action plan with weekly support. If you don\'t see improved results within 30 days, you get a full refund. But honestly, the strategies work because they\'re based on real pub experience, not theory.',
     },
   ],
   successMetrics: {
@@ -260,7 +260,7 @@ const pubRescueContent = {
   },
   seo: {
     metaTitle: 'Pub Rescue - Emergency Help for Struggling UK Pubs',
-    metaDescription: 'Struggling pub? Get emergency help now. From empty Tuesday nights to staff crises, we provide immediate solutions that work. 30-day money-back guarantee.',
+    metaDescription: 'Struggling pub? Get emergency help now. From empty Tuesday nights to staff crises, we provide immediate solutions that work. 30-day action plan with weekly support.',
   },
 };
 
