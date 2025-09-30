@@ -13,6 +13,7 @@ import { CONTACT, URLS, MESSAGES } from "@/lib/constants";
 import Button from "@/components/Button";
 import { ROICalculatorProvider } from "@/contexts/ROICalculatorContext";
 import { getBaseUrl } from "@/lib/site-config";
+import CookieNotice from "@/components/CookieNotice";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -188,6 +189,7 @@ export default function RootLayout({
         </ROICalculatorProvider>
         <FooterWrapper />
         <PerformanceMonitor />
+        <CookieNotice />
         
         
         
